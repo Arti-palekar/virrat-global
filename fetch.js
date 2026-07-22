@@ -1,0 +1,1 @@
+const fs = require('fs'); fetch('https://cdn.jsdelivr.net/npm/simple-icons@11/icons/davinciresolve.svg').then(r=>r.text()).then(t=>{ const m = t.match(/<path d=\"(.*?)\"/); if(m) fs.writeFileSync('path.txt', m[1]); else fs.writeFileSync('path.txt', 'error'); });

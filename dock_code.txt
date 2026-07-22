@@ -1,0 +1,186 @@
+<USER_REQUEST>
+Use only the latest installed skills.
+
+I am providing the complete React component code below.
+
+Use this exact code as the foundation for the section.
+
+Do not recreate the animation from scratch.
+
+Modify only the content, icons, styling, spacing, and responsiveness while preserving the existing animation logic, hover magnification, smooth transitions, and interactions.
+
+Code to use:
+
+```tsx
+(Paste the complete DockTabs React component code that I provided above without removing anything.)
+```
+
+──────────────────────────────
+
+Create a new homepage section using this Dock component.
+
+Place this section immediately above the Footer.
+
+──────────────────────────────
+SECTION CONTENT
+──────────────────────────────
+
+Small Label
+
+OUR TECHNOLOGY STACK
+
+Main Heading
+
+Powering Innovation with Industry-Leading Tools & Technologies
+
+Subtitle
+
+We build modern digital products using the world's most trusted development frameworks, cloud platforms, design tools, and automation technologies.
+
+──────────────────────────────
+
+Replace every sample Dock icon.
+
+Do NOT use:
+
+- Finder
+- Home
+- Mail
+- Calendar
+- Camera
+- Music
+- Safari
+- Notes
+- Settings
+
+Replace them with professional technology logos.
+
+Use SVG logos whenever possible.
+
+Replace the Dock items with:
+
+1. React
+2. Next.js
+3. Flutter
+4. WordPress
+5. Laravel
+6. Node.js
+7. Python
+8. PHP
+9. MySQL
+10. MongoDB
+11. Firebase
+12. AWS
+13. Docker
+14. GitHub
+15. Figma
+16. Adobe Creative Cloud
+
+Each Dock item should display
+
+• Official Logo
+• Tooltip with Technology Name
+
+──────────────────────────────
+
+Design
+
+Match the Virrat Global website.
+
+White background.
+
+Premium glassmorphism Dock.
+
+Soft shadows.
+
+Large rounded corners.
+
+Premium spacing.
+
+Center aligned.
+
+Modern typography.
+
+No gradients in the section background.
+
+──────────────────────────────
+
+Animation
+
+Keep the existing animation exactly the same.
+
+Keep
+
+✓ Hover Magnification
+
+✓ Bounce Animation
+
+✓ Tooltip Animation
+
+✓ Active Dot
+
+✓ Shine Effect
+
+✓ Spring Motion
+
+Do not modify any animation logic.
+
+──────────────────────────────
+
+Responsive
+
+Desktop
+
+Interactive Dock exactly as existing.
+
+Tablet
+
+Keep Dock responsive.
+
+Mobile
+
+Convert Dock into horizontal swipe.
+
+Disable tooltip on touch devices.
+
+Keep icon sizes consistent.
+
+──────────────────────────────
+
+Performance
+
+Lazy load icons wherever possible.
+
+Optimize for smooth 60fps animation.
+
+──────────────────────────────
+
+Important
+
+Do not rewrite the component.
+
+Use the exact code provided above.
+
+Only modify
+
+• Dock icons
+
+• Tooltip names
+
+• Section heading
+
+• Section styling
+
+• Technology branding
+
+Everything else including animation logic must remain exactly the same.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-07-17T14:52:15+05:30.
+
+The user's current state is as follows:
+Active Document: c:\virratglobal.com\src\components\Hero.tsx (LANGUAGE_TSX)
+Cursor is on line: 94
+Other open documents:
+- c:\virratglobal.com\src\components\Hero.tsx (LANGUAGE_TSX)
+</ADDITIONAL_METADATA>

@@ -1,0 +1,303 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #111111;
+  --color-secondary: #666666;
+  --color-background: #FAFAFA;
+  --color-foreground: #111111;
+  --color-accent: #D62020;
+  
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+}
+
+/* Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 0;
+}
+
+p {
+  color: var(--color-secondary);
+  line-height: 1.6;
+}
+
+footer p {
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(250, 250, 250, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.05);
+}
+
+.glass-dark {
+  background: rgba(17, 17, 17, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #999999;
+}
+
+/* Service Showcase Specific Typography */
+.service-card-title {
+  color: #CEC8C8 !important;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   GLOBAL UNIFIED TYPOGRAPHY DESIGN SYSTEM
+   Reference Title Font: Space Grotesk (var(--font-heading) / var(--font-space-grotesk))
+   Reference Body Font: Inter (var(--font-body) / var(--font-inter))
+   ========================================================================== */
+
+/* Alias legacy display font classes to global title font family */
+.font-syne {
+  font-family: var(--font-heading), sans-serif !important;
+}
+
+/* Enforce Space Grotesk on all heading elements globally */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), sans-serif !important;
+}
+
+/* ── HEADING TOKENS ── */
+
+/* Heading XL (Hero Headings & Oversized Titles) */
+.heading-xl {
+  font-family: var(--font-heading), sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 42px !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.04em !important;
+  color: #111111 !important;
+}
+
+@media (min-width: 768px) {
+  .heading-xl {
+    font-size: 64px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading-xl {
+    font-size: 80px !important;
+  }
+}
+
+/* Heading L (Section Titles - "Expertise that Powers Every Industry.") */
+.heading-l,
+.homepage-section-title,
+.section-title {
+  font-family: var(--font-heading), sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 38px !important; /* Mobile */
+  line-height: 1.05 !important;
+  letter-spacing: -0.04em !important;
+  margin-bottom: 24px !important;
+  color: #111111 !important;
+  display: block;
+}
+
+.heading-l span,
+.homepage-section-title span,
+.section-title span {
+  color: #D62020 !important;
+  display: inline-block;
+}
+
+.heading-l.dark-theme,
+.homepage-section-title.dark-theme,
+.section-title.dark-theme {
+  color: #FFFFFF !important;
+}
+
+@media (min-width: 768px) {
+  .heading-l,
+  .homepage-section-title,
+  .section-title {
+    font-size: 52px !important; /* Tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading-l,
+  .homepage-section-title,
+  .section-title {
+    font-size: 64px !important; /* Desktop */
+  }
+}
+
+/* Heading M (Card & Subsection Titles) */
+.heading-m,
+.card-title {
+  font-family: var(--font-heading), sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.02em !important;
+  color: #111111 !important;
+}
+
+@media (min-width: 1024px) {
+  .heading-m,
+  .card-title {
+    font-size: 28px !important;
+  }
+}
+
+.heading-m.dark-theme,
+.card-title.dark-theme {
+  color: #FFFFFF !important;
+}
+
+/* Heading S (Small Feature & Sub-element Titles) */
+.heading-s {
+  font-family: var(--font-heading), sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+  color: #111111 !important;
+}
+
+@media (min-width: 1024px) {
+  .heading-s {
+    font-size: 20px !important;
+  }
+}
+
+/* ── BODY TOKENS ── */
+
+/* Body Large (Section Subtitles - "We help businesses across diverse industries...") */
+.body-large,
+.homepage-section-subtitle,
+.section-subtitle {
+  font-family: var(--font-body), sans-serif !important;
+  font-size: 18px !important; /* Mobile */
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  letter-spacing: -0.01em !important;
+  color: #666666 !important;
+  margin-top: 24px !important;
+  margin-bottom: 40px !important;
+  max-width: 42rem !important; /* max-w-2xl */
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .body-large,
+  .homepage-section-subtitle,
+  .section-subtitle {
+    font-size: 20px !important; /* Desktop text-xl */
+  }
+}
+
+.body-large.dark-theme,
+.homepage-section-subtitle.dark-theme,
+.section-subtitle.dark-theme {
+  color: #9CA3AF !important;
+}
+
+/* Body Base (Card Descriptions & General Paragraph Body Text) */
+.body-base,
+.card-description {
+  font-family: var(--font-body), sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  color: #666666 !important;
+}
+
+.body-base.dark-theme,
+.card-description.dark-theme {
+  color: #9CA3AF !important;
+}
+
+/* Body Small */
+.body-small {
+  font-family: var(--font-body), sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  color: #666666 !important;
+}
+
+/* Caption (Section Tags & Category Labels) */
+.caption,
+.homepage-section-tag,
+.section-tag {
+  font-family: var(--font-body), sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.18em !important;
+  color: #666666 !important;
+  margin-bottom: 16px !important;
+  display: block;
+}
+
+.caption.dark-theme,
+.homepage-section-tag.dark-theme,
+.section-tag.dark-theme {
+  color: #D62020 !important;
+}
+
+
