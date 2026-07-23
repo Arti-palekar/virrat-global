@@ -76,7 +76,7 @@ export function IndustryExpertise() {
   const activeIndustry = INDUSTRIES[activeIndex];
 
   return (
-    <section className="py-22 bg-white text-black relative">
+    <section className="py-22 bg-[#f8f7f5] text-black relative">
       <div className="container mx-auto px-6">
         {/* Header Content as per prompt */}
         <div className="mb-20">

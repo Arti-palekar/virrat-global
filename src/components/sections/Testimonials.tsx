@@ -52,7 +52,7 @@ const TESTIMONIALS = [
 
 export function Testimonials() {
   return (
-    <section className="py-22 bg-white overflow-hidden relative">
+    <section className="py-22 bg-[#f8f7f5] overflow-hidden relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
           <motion.h2 

@@ -104,24 +104,12 @@ export function Process() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full bg-white text-[#111827] py-24 px-4 md:px-8 border-t border-black/5 overflow-hidden"
+      className="relative w-full bg-[#f8f7f5] text-[#111827] py-24 px-4 md:px-8 border-t border-black/5 overflow-hidden"
     >
       <div className="max-w-[1360px] mx-auto">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <motion.div 
-            initial={{ opacity: 0, y: -8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D62020]/10 border border-[#D62020]/20 mb-4"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D62020] animate-pulse" />
-            <span className="text-[11px] font-bold tracking-[0.18em] text-[#D62020] uppercase font-sans">
-              OUR PROCESS
-            </span>
-          </motion.div>
-
           {/* Heading matching homepage section title system exactly */}
           <motion.h2 
             initial={{ opacity: 0, y: 12 }}

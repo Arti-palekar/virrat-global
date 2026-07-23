@@ -74,7 +74,7 @@ export const HeroParallaxSection = () => {
   );
 
   return (
-    <section ref={ref} className="py-24 bg-white relative overflow-hidden [perspective:1000px] [transform-style:preserve-3d]">
+    <section ref={ref} className="py-24 bg-[#f8f7f5] relative overflow-hidden [perspective:1000px] [transform-style:preserve-3d]">
       <div className="max-w-[1600px] mx-auto px-6">
         <Header style={{ rotateX, rotateZ, translateY, opacity }} />
 
