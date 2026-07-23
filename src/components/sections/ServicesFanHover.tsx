@@ -187,7 +187,7 @@ const SERVICES_DATA: ServiceCardData[] = [
   {
     title: "Web + Software",
     tagline: "High-performance web apps, SaaS platforms & mobile interfaces.",
-    href: "/services",
+    href: "/web-software",
     tag: "FULL-STACK & SAAS",
     chips: [
       {

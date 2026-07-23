@@ -27,7 +27,7 @@ export const SERVICES_DATA = [
   {
     title: "Web + Software",
     description: "• Website Development\n• Custom Software\n• ERP / CRM\n• Mobile Applications",
-    link: "/services#web-software",
+    link: "/web-software",
     thumbnail: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80",
   },
   {
