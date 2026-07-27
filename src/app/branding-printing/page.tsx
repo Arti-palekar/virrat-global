@@ -3,6 +3,7 @@
 import NavbarH1 from "../home1/components/NavbarH1";
 import { Footer } from "@/components/shared/Footer";
 import BPProcess from "./components/BPProcess";
+import BPServicesMarquee from "./components/BPServicesMarquee";
 import BPExpertise from "./components/BPExpertise";
 import BPServicesShowcase from "./components/BPServicesShowcase";
 import { ImageGallery } from "./components/ImageGallery";
@@ -21,26 +22,29 @@ export default function BrandingPrintingPage() {
         {/* 1. Hero Section */}
         <BPProcess />
 
-        {/* 2. Our Expertise */}
+        {/* 2. Services Marquee — immediately below hero */}
+        <BPServicesMarquee />
+
+        {/* 4. Our Expertise */}
         <BPExpertise />
 
-        {/* 3. Our Services */}
+        {/* 5. Our Services */}
         <BPServicesShowcase />
 
-        {/* 4. Portfolio Showcase */}
+        {/* 6. Additional Portfolio Showcase */}
         <ImageGallery />
         <BPMarqueeStrip />
         <BPHeroParallax />
 
-        {/* 5. Client Testimonials (Immediately below Portfolio) */}
+        {/* 7. Client Testimonials */}
         <BPTestimonials />
 
-        {/* 6. CTA Section */}
+        {/* 8. CTA Section */}
         <BPContactCTA />
 
       </main>
 
-      {/* 7. Global Footer */}
+      {/* 8. Global Footer */}
       <Footer />
     </>
   );

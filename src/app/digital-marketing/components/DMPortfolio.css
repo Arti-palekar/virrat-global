@@ -1,0 +1,173 @@
+.parallax-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #050505;
+  color: #fff;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.project-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Controlled by JS projectHeight */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.project img {
+  width: 55vw;
+  height: 75vh;
+  object-fit: cover;
+  will-change: transform;
+  /* The JS calculates parallax and applies translate and scale(1.5). 
+     We can set a subtle border radius if preferred. */
+}
+
+/* Minimap container bounds the visible slot area (250px high) */
+.minimap {
+  position: absolute;
+  top: 50%;
+  right: 5vw;
+  transform: translateY(-50%);
+  width: 320px;
+  height: 250px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+  /* Optional: gradient mask to fade out edges if it was larger, but it perfectly fits 1 item */
+}
+
+.minimap-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.minimap-img-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 100%;
+}
+
+.minimap-img-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 250px; /* matches s.minimapHeight */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0; /* Add some padding so the image isn't full 250px height, giving it a neat bordered look */
+  box-sizing: border-box;
+}
+
+.minimap-img-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.minimap-info-list {
+  position: absolute;
+  top: 0;
+  left: 140px; /* 120px (img width) + 20px (gap) */
+  width: 180px;
+  height: 100%;
+}
+
+.minimap-item-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250px; /* matches s.minimapHeight */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px; /* Space between rows */
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+
+.minimap-item-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 8px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.minimap-item-info-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  color: rgba(255, 255, 255, 0.5); /* Dimmer description */
+  justify-content: flex-start;
+}
+
+.minimap-item-info-row p {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.minimap-item-info-row p:first-child {
+  font-weight: 500;
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+  .project img {
+    width: 85vw;
+    height: 50vh;
+  }
+  
+  .minimap {
+    right: 50%;
+    transform: translate(50%, 35vh); /* Move below the image */
+    width: 85vw;
+    height: 120px;
+  }
+  
+  /* In mobile, we might want to hide the minimap image and just show info, 
+     or adjust sizing. Let's adjust sizing to be purely text at bottom. */
+  .minimap-img-preview {
+    display: none;
+  }
+  
+  .minimap-info-list {
+    left: 0;
+    width: 100%;
+  }
+  
+  .minimap-item-info {
+    height: 120px;
+    padding: 0;
+    gap: 8px;
+  }
+}

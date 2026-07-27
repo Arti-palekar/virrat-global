@@ -10,6 +10,7 @@ import DMOrbitalProcess from "./components/DMOrbitalProcess";
 import DMWhyChooseUs from "./components/DMWhyChooseUs";
 import DMCampaignShowcase from "./components/DMCampaignShowcase";
 import DMProcess from "./components/DMProcess";
+import { Component as DMPortfolio } from "./components/DMPortfolio";
 import DMCaseStudies from "./components/DMCaseStudies";
 import DMMetrics from "./components/DMMetrics";
 import DMIndustries from "./components/DMIndustries";
@@ -44,6 +45,9 @@ export default function DigitalMarketingPage() {
 
         {/* Step 7: Marketing Process (Research -> Strategy -> Launch -> Optimize -> Scale) */}
         <DMProcess />
+
+        {/* Step 7.5: Portfolio Section */}
+        <DMPortfolio />
 
         {/* Step 8: Case Studies / Campaign Portfolio */}
         <DMCaseStudies />
