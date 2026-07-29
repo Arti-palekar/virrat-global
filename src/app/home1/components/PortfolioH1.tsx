@@ -4,13 +4,14 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-// Premium projects dataset
+// Premium projects dataset — real Virrat Global portfolio images
 const PROJECTS = [
   {
     id: "01",
-    title: "Luxury Jewellery Branding",
+    title: "Jewellery Branding",
     category: "Logo Identity",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80",
+    image: "https://virratglobal.com/wp-content/uploads/2025/02/1970-x-1624-scaled.webp",
+    href: "https://virratglobal.com/portfolio/",
     sizeClass: "wide-landscape", // Desktop sizes: 320x200
     width: 320,
     height: 200,
@@ -25,9 +26,10 @@ const PROJECTS = [
   },
   {
     id: "02",
-    title: "Restaurant Identity",
+    title: "Food & Packaging Design",
     category: "Packaging Design",
-    image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80",
+    image: "https://virratglobal.com/wp-content/uploads/2025/02/1970-x-1406-2.webp",
+    href: "https://virratglobal.com/portfolio/",
     sizeClass: "medium-portrait", // Desktop sizes: 200x280
     width: 200,
     height: 280,
@@ -42,9 +44,10 @@ const PROJECTS = [
   },
   {
     id: "03",
-    title: "AI Dashboard",
-    category: "AI & Automation",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&q=80",
+    title: "Brand Identity System",
+    category: "Branding & Print",
+    image: "https://virratglobal.com/wp-content/uploads/2025/02/1970-x-856-2.webp",
+    href: "https://virratglobal.com/portfolio/",
     sizeClass: "hero-card", // Desktop sizes: 480x320
     width: 480,
     height: 320,
@@ -59,9 +62,10 @@ const PROJECTS = [
   },
   {
     id: "04",
-    title: "Healthcare Portal",
-    category: "Clinical Platform",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+    title: "Healthcare Portfolio",
+    category: "Health Industry",
+    image: "https://virratglobal.com/wp-content/uploads/2025/02/1970-x-1406-3.webp",
+    href: "https://virratglobal.com/portfolio/",
     sizeClass: "tall-portrait", // Desktop sizes: 220x340
     width: 220,
     height: 340,
@@ -76,9 +80,10 @@ const PROJECTS = [
   },
   {
     id: "05",
-    title: "Real Estate Platform",
-    category: "CRM Software",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    title: "Creative Branding",
+    category: "Branding & Identity",
+    image: "https://virratglobal.com/wp-content/uploads/2025/02/1970-x-638-2.webp",
+    href: "https://virratglobal.com/portfolio/",
     sizeClass: "large-landscape", // Desktop sizes: 340x220
     width: 340,
     height: 220,
@@ -93,9 +98,10 @@ const PROJECTS = [
   },
   {
     id: "06",
-    title: "Vidya Academy ERP",
-    category: "School ERP",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
+    title: "Pouch & Print Design",
+    category: "Packaging & Print",
+    image: "https://virratglobal.com/wp-content/uploads/2025/02/1970-x-2351-2.webp",
+    href: "https://virratglobal.com/portfolio/",
     sizeClass: "small-portrait", // Desktop sizes: 180x240
     width: 180,
     height: 240,
@@ -111,14 +117,17 @@ const PROJECTS = [
 ];
 
 function MobileCard({ project, index }: { project: typeof PROJECTS[0]; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLAnchorElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   const rotation = index % 2 === 0 ? -3 : 3;
 
   return (
-    <motion.div
+    <motion.a
       ref={ref}
+      href={project.href}
+      target="_blank"
+      rel="noopener noreferrer"
       initial={{ opacity: 0, y: 60, scale: 0.92, rotate: rotation }}
       animate={inView ? { opacity: 1, y: 0, scale: 1, rotate: 0 } : {}}
       transition={{ duration: 0.8, type: "spring", stiffness: 60, damping: 15 }}
@@ -128,12 +137,13 @@ function MobileCard({ project, index }: { project: typeof PROJECTS[0]; index: nu
         boxShadow: "0 30px 80px rgba(214,32,32,0.15)",
         borderColor: "rgba(214,32,32,0.3)",
       }}
-      className="group relative rounded-[30px] border border-gray-100 overflow-hidden bg-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] aspect-[4/5] cursor-pointer transition-colors duration-500"
+      className="group relative rounded-[30px] border border-gray-100 overflow-hidden bg-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] aspect-[4/5] cursor-pointer transition-colors duration-500 block"
     >
       <div className="absolute inset-0 w-full h-[120%] -top-[10%] overflow-hidden rounded-[30px]">
         <img
           src={project.image}
           alt={project.title}
+          loading="lazy"
           className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
         />
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/35 transition-colors duration-500" />
@@ -155,7 +165,7 @@ function MobileCard({ project, index }: { project: typeof PROJECTS[0]; index: nu
           </div>
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 }
 
@@ -332,8 +342,11 @@ export default function PortfolioH1() {
                 const imageY = useTransform(smoothProgress, [0, 1], [-25, 25]);
 
                 return (
-                  <motion.div
+                  <motion.a
                     key={project.id}
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       position: "absolute",
                       left: "50%",
@@ -349,6 +362,7 @@ export default function PortfolioH1() {
                       filter: useTransform(cardBlur, (v) => `blur(${v}px)`),
                       transformStyle: "preserve-3d",
                       borderRadius: "30px",
+                      display: "block",
                     }}
                     whileHover={{
                       scale: 1.03,
@@ -367,6 +381,7 @@ export default function PortfolioH1() {
                       <motion.img
                         src={project.image}
                         alt={project.title}
+                        loading="lazy"
                         style={{ y: imageY, scale: 1.12 }}
                         className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.18] transition-transform duration-500 ease-out"
                       />
@@ -389,7 +404,7 @@ export default function PortfolioH1() {
                         </div>
                       </div>
                     </div>
-                  </motion.div>
+                  </motion.a>
                 );
               })}
             </div>

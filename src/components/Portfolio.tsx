@@ -59,24 +59,24 @@ const BOTTOM_SLIDER_IMAGES = [
     tag: "Social Media Creatives",
   },
   {
-    src: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=900&q=90",
-    title: "Ecommerce Web Platform",
-    tag: "Web Development",
+    src: "https://virratglobal.com/wp-content/uploads/2025/02/1970-x-1624-2.webp",
+    title: "Food Industry Branding",
+    tag: "Packaging & Printing",
   },
   {
-    src: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=900&q=90",
-    title: "Premium Print Design",
-    tag: "Printing & Stationery",
+    src: "https://virratglobal.com/wp-content/uploads/2025/02/1970-x-1624-scaled.webp",
+    title: "Jewellery Brand Identity",
+    tag: "Logo & Branding",
   },
   {
-    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=90",
-    title: "SaaS Admin Dashboard",
-    tag: "Custom Software",
+    src: "https://virratglobal.com/wp-content/uploads/2025/03/edu.webp",
+    title: "Education Platform Design",
+    tag: "Web & Digital Design",
   },
   {
-    src: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=900&q=90",
-    title: "Corporate ID & Stationery",
-    tag: "Printing Portfolio",
+    src: "https://virratglobal.com/wp-content/uploads/2024/09/1.webp",
+    title: "Fashion Brand Campaign",
+    tag: "Branding & Marketing",
   },
 ];
 
@@ -255,8 +255,8 @@ export default function Portfolio() {
               }}
             >
               <Image
-                src="/portfolio/portfolio_luxury_packaging_1784618217548.png"
-                alt="Branding project"
+                src="https://virratglobal.com/wp-content/uploads/2025/02/1970-x-1624-scaled.webp"
+                alt="Jewellery branding project"
                 fill
                 sizes="320px"
                 className="object-cover"
@@ -285,8 +285,8 @@ export default function Portfolio() {
               }}
             >
               <Image
-                src="/portfolio/portfolio_web_ui_ux_1784618195771.png"
-                alt="Digital platform"
+                src="https://virratglobal.com/wp-content/uploads/2025/02/1970-x-1406-3.webp"
+                alt="Healthcare portfolio"
                 fill
                 sizes="190px"
                 className="object-cover"
@@ -457,8 +457,8 @@ export default function Portfolio() {
             className="relative w-[150px] aspect-[4/3] rounded-[16px] overflow-hidden shadow-lg border border-white animate-float-left"
           >
             <Image
-              src="/portfolio/portfolio_luxury_packaging_1784618217548.png"
-              alt="Branding project"
+              src="https://virratglobal.com/wp-content/uploads/2025/02/1970-x-1624-scaled.webp"
+              alt="Jewellery branding project"
               fill
               sizes="160px"
               className="object-cover"
@@ -498,8 +498,8 @@ export default function Portfolio() {
             className="relative w-[140px] aspect-[3/4] rounded-[16px] overflow-hidden shadow-lg border border-white animate-float-right"
           >
             <Image
-              src="/portfolio/portfolio_web_ui_ux_1784618195771.png"
-              alt="Digital platform"
+              src="https://virratglobal.com/wp-content/uploads/2025/02/1970-x-1406-3.webp"
+              alt="Healthcare portfolio"
               fill
               sizes="140px"
               className="object-cover"

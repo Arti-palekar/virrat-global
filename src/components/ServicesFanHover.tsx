@@ -1,50 +1,75 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 interface Service {
   title: string;
-  count: string;
-  date: string;
-  colors: string[];
+  description: string;
+  href: string;
+  images: string[];
 }
 
 const services: Service[] = [
   {
-    title: "Web Development",
-    count: "12 projects",
-    date: "Updated Jul 22",
-    colors: ["#6ea8fe", "#4f7fd9", "#8fc1ff", "#3a63b0", "#a9d2ff"]
+    title: "Branding + Printing",
+    description: "Creative Branding • Print Design • Packaging",
+    href: "/branding-printing",
+    images: [
+      "https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1625629171802-a7a9c3a8edac?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1561070791-26c113006238?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?q=80&w=600&auto=format&fit=crop"
+    ]
   },
   {
-    title: "CRM Tools",
-    count: "6 projects",
-    date: "Updated Jul 18",
-    colors: ["#7ee787", "#57c26a", "#a3f0ad", "#3f9b50", "#c3f7c9"]
+    title: "Digital Marketing",
+    description: "SEO • Google Ads • Social Media Growth",
+    href: "/digital-marketing",
+    images: [
+      "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1563986768494-4641083e5ffb?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1533750349088-cd871a92f312?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop"
+    ]
   },
   {
-    title: "SaaS Products",
-    count: "9 projects",
-    date: "Updated Jul 20",
-    colors: ["#ffb37b", "#e0925a", "#ffcaa0", "#c17540", "#ffe0c2"]
+    title: "Web + Software",
+    description: "Web Apps • Ecommerce • Custom Software",
+    href: "/web-software",
+    images: [
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1587620962725-abab19836803?q=80&w=600&auto=format&fit=crop"
+    ]
   },
   {
-    title: "Branding",
-    count: "8 projects",
-    date: "Updated Jul 15",
-    colors: ["#f28ba8", "#d46f8c", "#f7aec4", "#b3506c", "#fbd0dd"]
+    title: "AI + Automation",
+    description: "AI Agents • Automation • Smart Workflows",
+    href: "/ai-automation",
+    images: [
+      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1655720031554-a929595ffad7?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600&auto=format&fit=crop"
+    ]
   },
   {
-    title: "Digital Strategy",
-    count: "5 projects",
-    date: "Updated Jul 10",
-    colors: ["#c6a6ff", "#a37ce0", "#dcc2ff", "#8657c2", "#eeddff"]
-  },
-  {
-    title: "UI/UX Design",
-    count: "11 projects",
-    date: "Updated Jul 21",
-    colors: ["#7ecbe7", "#57a8c9", "#a3e2f4", "#3f8aab", "#c3f1ff"]
+    title: "Compliance",
+    description: "ISO • Legal • Business Compliance",
+    href: "/compliance",
+    images: [
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&auto=format&fit=crop"
+    ]
   }
 ];
 
@@ -124,22 +149,24 @@ export function ServicesFanHover() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1360px] mx-auto">
           {services.map((service, index) => (
-            <div key={index} className="fan-card">
+            <Link key={index} href={service.href} className="fan-card group block">
               <div className="fan-stack">
-                {service.colors.map((color, cIdx) => (
-                  <div
-                    key={cIdx}
-                    className="fan-chip"
-                    style={{ background: color }}
+                {service.images.map((imgUrl, imgIdx) => (
+                  <img
+                    key={imgIdx}
+                    src={imgUrl}
+                    alt={`${service.title} preview ${imgIdx + 1}`}
+                    className="fan-chip object-cover"
                   />
                 ))}
               </div>
-              <div className="text-[21px] font-semibold mb-2">{service.title}</div>
-              <div className="flex justify-between items-center text-zinc-500 text-[16px]">
-                <span>{service.count}</span>
-                <span>{service.date}</span>
+              <div className="text-[21px] font-semibold mb-2 text-[#111111] font-heading leading-tight group-hover:text-[#D62020] transition-colors">
+                {service.title}
               </div>
-            </div>
+              <div className="text-[#666666] text-[15px] font-body leading-relaxed">
+                {service.description}
+              </div>
+            </Link>
           ))}
         </div>
       </div>
