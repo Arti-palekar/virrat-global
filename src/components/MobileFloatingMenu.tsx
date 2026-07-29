@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MoreVertical, X } from "lucide-react";
 
 const menuItems = [
-  { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
-  { label: "Studio", href: "#studio" },
-  { label: "Sectors", href: "#sectors" },
-  { label: "Insights", href: "#insights" },
+  { label: "Branding", href: "/branding-printing" },
+  { label: "Digital Marketing", href: "/digital-marketing" },
+  { label: "Web + Software", href: "/web-software" },
+  { label: "AI + Automation", href: "/ai-automation" },
+  { label: "Compliance", href: "/compliance" },
 ] as const;
 
 export function MobileFloatingMenu() {
@@ -124,7 +124,7 @@ export function MobileFloatingMenu() {
                 <span className="text-zinc-800 font-bold text-lg tracking-wide">Contact us</span>
                 <div className="flex items-center gap-4">
                   <a
-                    href="https://www.instagram.com/yourcreative.co/"
+                    href="https://www.instagram.com/virratglobal/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
@@ -137,7 +137,7 @@ export function MobileFloatingMenu() {
                     </svg>
                   </a>
                   <a
-                    href="https://www.linkedin.com/company/your-creative/"
+                    href="https://www.linkedin.com/company/virrat-global/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
