@@ -493,7 +493,7 @@ export function ServicesFanHover() {
           background: #ffffff;
           border: 1px solid #ECECEC;
           border-radius: 24px;
-          padding: 24px;
+          padding: 30px;
           overflow: visible;
           cursor: pointer;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
@@ -505,15 +505,15 @@ export function ServicesFanHover() {
         }
         .fan-stack {
           position: relative;
-          height: 150px;
-          margin-bottom: 20px;
+          height: 190px;
+          margin-bottom: 25px;
         }
         .fan-chip {
           position: absolute;
           top: 0;
           left: 50%;
-          width: 98px;
-          height: 132px;
+          width: 123px;
+          height: 165px;
           border-radius: 12px;
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
           transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
@@ -522,27 +522,27 @@ export function ServicesFanHover() {
         }
 
         /* Resting fan state */
-        .fan-chip:nth-child(1) { transform: translate(calc(-50% - 55px), 6px) rotate(-9deg) scale(0.92); z-index: 1; }
-        .fan-chip:nth-child(2) { transform: translate(calc(-50% - 28px), 2px) rotate(-5deg) scale(0.95); z-index: 2; }
+        .fan-chip:nth-child(1) { transform: translate(calc(-50% - 68px), 8px) rotate(-9deg) scale(0.92); z-index: 1; }
+        .fan-chip:nth-child(2) { transform: translate(calc(-50% - 35px), 3px) rotate(-5deg) scale(0.95); z-index: 2; }
         .fan-chip:nth-child(3) { transform: translate(-50%, 0) rotate(0deg) scale(1); z-index: 4; }
-        .fan-chip:nth-child(4) { transform: translate(calc(-50% + 28px), 2px) rotate(5deg) scale(0.95); z-index: 2; }
-        .fan-chip:nth-child(5) { transform: translate(calc(-50% + 55px), 6px) rotate(9deg) scale(0.92); z-index: 1; }
+        .fan-chip:nth-child(4) { transform: translate(calc(-50% + 35px), 3px) rotate(5deg) scale(0.95); z-index: 2; }
+        .fan-chip:nth-child(5) { transform: translate(calc(-50% + 68px), 8px) rotate(9deg) scale(0.92); z-index: 1; }
 
         /* Hover fan-out expansion */
-        .fan-card:hover .fan-chip:nth-child(1) { transform: translate(calc(-50% - 155px), -8px) rotate(-18deg) scale(1); z-index: 3; }
-        .fan-card:hover .fan-chip:nth-child(2) { transform: translate(calc(-50% - 80px), -4px) rotate(-9deg) scale(1); z-index: 4; }
-        .fan-card:hover .fan-chip:nth-child(3) { transform: translate(-50%, -12px) rotate(0deg) scale(1.05); z-index: 5; }
-        .fan-card:hover .fan-chip:nth-child(4) { transform: translate(calc(-50% + 80px), -4px) rotate(9deg) scale(1); z-index: 4; }
-        .fan-card:hover .fan-chip:nth-child(5) { transform: translate(calc(-50% + 155px), -8px) rotate(18deg) scale(1); z-index: 3; }
+        .fan-card:hover .fan-chip:nth-child(1) { transform: translate(calc(-50% - 194px), -10px) rotate(-18deg) scale(1); z-index: 3; }
+        .fan-card:hover .fan-chip:nth-child(2) { transform: translate(calc(-50% - 100px), -5px) rotate(-9deg) scale(1); z-index: 4; }
+        .fan-card:hover .fan-chip:nth-child(3) { transform: translate(-50%, -15px) rotate(0deg) scale(1.05); z-index: 5; }
+        .fan-card:hover .fan-chip:nth-child(4) { transform: translate(calc(-50% + 100px), -5px) rotate(9deg) scale(1); z-index: 4; }
+        .fan-card:hover .fan-chip:nth-child(5) { transform: translate(calc(-50% + 194px), -10px) rotate(18deg) scale(1); z-index: 3; }
 
         .fan-card:hover .fan-chip { box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35); }
 
         @media (max-width: 560px) {
-          .fan-chip { width: 82px; height: 110px; }
-          .fan-card:hover .fan-chip:nth-child(1) { transform: translate(calc(-50% - 90px), -6px) rotate(-14deg) scale(1); }
-          .fan-card:hover .fan-chip:nth-child(2) { transform: translate(calc(-50% - 45px), -2px) rotate(-7deg) scale(1); }
-          .fan-card:hover .fan-chip:nth-child(4) { transform: translate(calc(-50% + 45px), -2px) rotate(7deg) scale(1); }
-          .fan-card:hover .fan-chip:nth-child(5) { transform: translate(calc(-50% + 90px), -6px) rotate(14deg) scale(1); }
+          .fan-chip { width: 103px; height: 138px; }
+          .fan-card:hover .fan-chip:nth-child(1) { transform: translate(calc(-50% - 113px), -8px) rotate(-14deg) scale(1); }
+          .fan-card:hover .fan-chip:nth-child(2) { transform: translate(calc(-50% - 56px), -3px) rotate(-7deg) scale(1); }
+          .fan-card:hover .fan-chip:nth-child(4) { transform: translate(calc(-50% + 56px), -3px) rotate(7deg) scale(1); }
+          .fan-card:hover .fan-chip:nth-child(5) { transform: translate(calc(-50% + 113px), -8px) rotate(14deg) scale(1); }
         }
       `}</style>
 
@@ -557,7 +557,7 @@ export function ServicesFanHover() {
       </div>
 
       {/* 2 x 3 Grid Composition */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1300px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1600px] mx-auto">
         {SERVICES_DATA.map((service, index) => (
           <Link key={index} href={service.href} className="fan-card group block">
             
@@ -575,20 +575,20 @@ export function ServicesFanHover() {
 
             {/* Service Header Info */}
             <div className="pt-2">
-              <div className="flex items-center justify-between mb-1.5">
-                <h3 className="text-[20px] font-bold text-[#111111] font-heading leading-tight group-hover:text-[#D62020] transition-colors">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-[25px] font-bold text-[#111111] font-heading leading-tight group-hover:text-[#D62020] transition-colors">
                   {service.title}
                 </h3>
-                <ArrowUpRight className="w-4 h-4 text-[#888888] transition-transform duration-300 group-hover:text-[#D62020] group-hover:translate-x-1 group-hover:-translate-y-1 shrink-0 ml-2" strokeWidth={2.5} />
+                <ArrowUpRight className="w-5 h-5 text-[#888888] transition-transform duration-300 group-hover:text-[#D62020] group-hover:translate-x-1 group-hover:-translate-y-1 shrink-0 ml-2" strokeWidth={2.5} />
               </div>
 
-              <p className="text-[13px] text-[#666666] font-body leading-relaxed mb-3">
+              <p className="text-[16px] text-[#666666] font-body leading-relaxed mb-4">
                 {service.tagline}
               </p>
 
-              <div className="flex justify-between items-center text-[12px] font-bold text-[#D62020] font-heading border-t border-[#F5F5F5] pt-3">
+              <div className="flex justify-between items-center text-[15px] font-bold text-[#D62020] font-heading border-t border-[#F5F5F5] pt-3">
                 <span className="group-hover:underline">Explore Service</span>
-                <ArrowUpRight className="w-4 h-4 text-[#888888] transition-transform duration-300 group-hover:text-[#D62020] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2.5} />
+                <ArrowUpRight className="w-5 h-5 text-[#888888] transition-transform duration-300 group-hover:text-[#D62020] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2.5} />
               </div>
             </div>
 
