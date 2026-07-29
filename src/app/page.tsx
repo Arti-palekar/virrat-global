@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useRef } from "react";
-import LandingAccordionItem from "@/components/LandingAccordionItem";
 import ContributorsWall from "@/components/ContributorsWall";
 import ServicesFanHover from "@/components/ServicesFanHover";
 import HoverGradientNavBar from "@/components/HoverGradientNavBar";
@@ -43,9 +42,6 @@ export default function Home() {
       </div>
       <div className="relative z-20">
         <IndustryExpertise />
-      </div>
-      <div id="studio" className="relative z-20 bg-[#FAF9F6]">
-        <LandingAccordionItem />
       </div>
       <div className="relative z-20">
         <ContributorsWall />
