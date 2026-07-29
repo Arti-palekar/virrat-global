@@ -43,9 +43,6 @@ export default function Home() {
       <div className="relative z-20">
         <IndustryExpertise />
       </div>
-      <div className="relative z-20">
-        <ContributorsWall />
-      </div>
       <div id="services" className="relative z-20">
         <ServicesFanHover />
       </div>
@@ -57,6 +54,9 @@ export default function Home() {
       </div>
       <div className="relative z-20">
         <ExpandOnHover />
+      </div>
+      <div className="relative z-20">
+        <ContributorsWall />
       </div>
       <div id="insights" className="relative z-20">
         <TestimonialsSection />
