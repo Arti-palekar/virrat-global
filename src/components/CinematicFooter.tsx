@@ -162,6 +162,12 @@ export function CinematicFooter() {
 
   return (
     <>
+      <style>{`
+        .cinematic-footer-wrapper a {
+          color: lab(39 8.08 2.84) !important;
+          text-decoration: none !important;
+        }
+      `}</style>
       {/*
         Clip-path curtain wrapper — lets the fixed footer be visible
         only when this element is in the viewport.
@@ -209,9 +215,9 @@ export function CinematicFooter() {
                 <MagneticButton
                   as="a"
                   href="mailto:hello@virrat.co"
-                  className="footer-glass-pill px-10 py-5 rounded-full text-zinc-800 font-bold text-sm md:text-base flex items-center gap-3 group"
+                  className="footer-glass-pill px-10 py-5 rounded-full text-black dark:text-black font-bold text-sm md:text-base flex items-center gap-3 group"
                 >
-                  <svg className="w-5 h-5 text-zinc-400 group-hover:text-zinc-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-zinc-600 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   Start a Project
@@ -220,9 +226,9 @@ export function CinematicFooter() {
                 <MagneticButton
                   as="a"
                   href="#"
-                  className="footer-glass-pill px-10 py-5 rounded-full text-zinc-800 font-bold text-sm md:text-base flex items-center gap-3 group"
+                  className="footer-glass-pill px-10 py-5 rounded-full text-black dark:text-black font-bold text-sm md:text-base flex items-center gap-3 group"
                 >
-                  <svg className="w-5 h-5 text-zinc-400 group-hover:text-zinc-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-zinc-600 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   Book a Call
@@ -236,7 +242,7 @@ export function CinematicFooter() {
                     key={label}
                     as="a"
                     href="#"
-                    className="footer-glass-pill px-6 py-3 rounded-full text-zinc-500 font-medium text-xs md:text-sm hover:text-zinc-800"
+                    className="footer-glass-pill px-6 py-3 rounded-full text-black dark:text-black font-semibold text-xs md:text-sm hover:text-[#D62020] dark:hover:text-[#D62020] transition-colors"
                   >
                     {label}
                   </MagneticButton>

@@ -6,28 +6,34 @@ const INTRO_STYLE_ID = "faq1-animations";
 
 const faqs = [
   {
-    question: "How do you decide which problems to solve first?",
+    question: "What deliverables are included in a luxury branding and printing package?",
     answer:
-      "We map opportunities across impact, feasibility, and effort, then prototype the riskiest assumption within 72 hours to make sure we are shipping momentum, not guesswork.",
-    meta: "Discovery",
+      "We deliver complete visual identity systems including primary and secondary logo marks, brand guideline books, corporate stationery mockups (business cards, letterheads), custom typography hierarchies, and premium packaging design templates tailored for luxury appeal.",
+    meta: "Branding",
   },
   {
-    question: "What does collaboration look like once we start?",
+    question: "How do you measure campaign performance in digital marketing?",
     answer:
-      "A dedicated trio of design, engineering, and strategy meets daily in a shared async dashboard. Decisions are recorded in-line, so the team, stakeholders, and audit trail stay perfectly aligned.",
-    meta: "Collaboration",
+      "We track real conversions, Google Ads ROI, and keyword rankings via interactive custom SEO dashboards. Our strategy optimizes social media grids, Meta Ads reach, and marketing funnel efficiency to ensure sustainable business growth.",
+    meta: "Marketing",
   },
   {
-    question: "Can you adapt to an existing design system or stack?",
+    question: "What platforms and technologies do you use for web development?",
     answer:
-      "Yes. We map tokens, components, and build steps into our pipeline on day one. If a gap appears, we patch the system with regression tests so velocity never compromises fidelity.",
-    meta: "Systems",
+      "We engineer custom SaaS dashboards, responsive e-commerce web applications, and enterprise CRM software. We utilize modern stacks (like Next.js, React, Tailwind, and Node) to guarantee lightning-fast page loading and seamless visual stability.",
+    meta: "Web & Software",
   },
   {
-    question: "How is quality validated before release?",
+    question: "How can AI and automation optimize our daily operations?",
     answer:
-      "Accessibility sweeps, automated visual diffs, and performance budgets run on every merge. We ship only after the experience hits the expected thresholds on real devices.",
-    meta: "Quality",
+      "We build customized intelligent AI agents, automated customer support chatbots, and business automation pipelines. By designing smart visual workflow models, we help teams eliminate manual tasks and optimize operational output.",
+    meta: "AI & Automation",
+  },
+  {
+    question: "How do you help our company meet regulatory auditing standards?",
+    answer:
+      "We support companies preparing for ISO certifications, regulatory audits, and security reports. We build corporate compliance dashboards and audit logs to track certifications and guarantee legal security file compliance.",
+    meta: "Compliance",
   },
 ];
 

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Service {
   title: string;
@@ -16,11 +17,11 @@ const services: Service[] = [
     description: "Creative Branding • Print Design • Packaging",
     href: "/branding-printing",
     images: [
-      "https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1625629171802-a7a9c3a8edac?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1561070791-26c113006238?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?q=80&w=600&auto=format&fit=crop"
+      "/images/services/branding_user_1.png",
+      "/images/services/branding_user_2.png",
+      "/images/services/branding_user_3.png",
+      "/images/services/branding_2.png",
+      "/images/services/branding_3.png"
     ]
   },
   {
@@ -28,11 +29,11 @@ const services: Service[] = [
     description: "SEO • Google Ads • Social Media Growth",
     href: "/digital-marketing",
     images: [
-      "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1563986768494-4641083e5ffb?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1533750349088-cd871a92f312?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop"
+      "/images/services/marketing_1.png",
+      "/images/services/marketing_2.png",
+      "/images/services/marketing_3.png",
+      "/images/services/marketing_4.png",
+      "/images/services/marketing_5.png"
     ]
   },
   {
@@ -40,11 +41,11 @@ const services: Service[] = [
     description: "Web Apps • Ecommerce • Custom Software",
     href: "/web-software",
     images: [
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1587620962725-abab19836803?q=80&w=600&auto=format&fit=crop"
+      "/images/services/web_1.png",
+      "/images/services/web_2.png",
+      "/services/web-dashboard.png",
+      "/services/web-ecommerce.png",
+      "/services/web-website.png"
     ]
   },
   {
@@ -52,11 +53,11 @@ const services: Service[] = [
     description: "AI Agents • Automation • Smart Workflows",
     href: "/ai-automation",
     images: [
-      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1655720031554-a929595ffad7?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600&auto=format&fit=crop"
+      "/services/ai-chatbot.png",
+      "/services/ai-workflow.png",
+      "/portfolio/portfolio_ai_automation_1784618242113.png",
+      "/services/compliance-dashboard.png",
+      "/images/services/web_1.png"
     ]
   },
   {
@@ -64,11 +65,11 @@ const services: Service[] = [
     description: "ISO • Legal • Business Compliance",
     href: "/compliance",
     images: [
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&auto=format&fit=crop"
+      "/services/compliance-legal.png",
+      "/images/portfolio/badges.png",
+      "/images/portfolio/id_cards.png",
+      "/images/services/corporate-stationery.webp",
+      "/images/services/corporate-merchandise.webp"
     ]
   }
 ];
@@ -152,11 +153,14 @@ export function ServicesFanHover() {
             <Link key={index} href={service.href} className="fan-card group block">
               <div className="fan-stack">
                 {service.images.map((imgUrl, imgIdx) => (
-                  <img
+                  <Image
                     key={imgIdx}
                     src={imgUrl}
                     alt={`${service.title} preview ${imgIdx + 1}`}
+                    width={120}
+                    height={165}
                     className="fan-chip object-cover"
+                    loading="lazy"
                   />
                 ))}
               </div>

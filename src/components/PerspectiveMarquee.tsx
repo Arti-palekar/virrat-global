@@ -21,14 +21,16 @@ const FONT_FAMILY =
   "var(--font-geist-sans), -apple-system, BlinkMacSystemFont, sans-serif";
 
 const DEFAULT_ITEMS = [
-  "Vercel",
-  "Linear",
-  "Stripe",
-  "Figma",
-  "Notion",
-  "Raycast",
-  "Arc",
-  "Cursor",
+  "Branding & Strategy",
+  "Digital Growth",
+  "Custom Software",
+  "AI Workflows",
+  "Security & Compliance",
+  "Premium Identity",
+  "Performance Marketing",
+  "Web Engineering",
+  "Intelligent Automation",
+  "Regulatory Auditing",
 ];
 
 export function PerspectiveMarquee({
