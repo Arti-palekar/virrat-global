@@ -160,7 +160,7 @@ function WovenCanvas() {
     mountRef.current.appendChild(renderer.domElement);
 
     const mouse = new THREE.Vector2(0, 0);
-    const clock = new THREE.Clock();
+    const startTime = performance.now();
 
     // ── Particle system on TorusKnot ──
     const particleCount = 50000;
@@ -232,7 +232,7 @@ function WovenCanvas() {
     let animId: number;
     const animate = () => {
       animId = requestAnimationFrame(animate);
-      const elapsed = clock.getElapsedTime();
+      const elapsed = (performance.now() - startTime) / 1000;
       const mouseWorld = new THREE.Vector3(mouse.x * 3, mouse.y * 3, 0);
 
       for (let i = 0; i < particleCount; i++) {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk, Plus_Jakarta_Sans, Geist } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,6 +13,17 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   weight: ["400", "500", "600", "700"],
   display: "swap",
+});
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 import SmoothScroll from "@/components/shared/SmoothScroll";
@@ -38,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${plusJakartaSans.variable} ${geistSans.variable} antialiased`}>
       <body className="min-h-screen flex flex-col font-body bg-[var(--color-background)] text-[var(--color-foreground)]">
         <SmoothScroll>
           {children}

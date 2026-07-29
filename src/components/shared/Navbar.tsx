@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "./Button";
 
 const NAV_LINKS = [
+  { name: "Home", href: "/" },
   { name: "Branding + Printing", href: "/branding-printing" },
   { name: "Digital Marketing", href: "/digital-marketing" },
   { name: "Web + Software", href: "/web-software" },
