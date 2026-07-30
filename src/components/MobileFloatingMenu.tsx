@@ -12,16 +12,16 @@ import {
 
 const Code2 = Code;
 
-// Menu items matching the website pages
+// Menu items matching the website pages with icons
 const menuItems = [
-  { label: "Home", href: "/" },
-  { label: "Branding + Printing", href: "/branding-printing" },
-  { label: "Digital Marketing", href: "/digital-marketing" },
-  { label: "Web + Software", href: "/web-software" },
-  { label: "AI + Automation", href: "/ai-automation" },
-  { label: "Compliance", href: "/compliance" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: "/", Icon: Home },
+  { label: "Branding + Printing", href: "/branding-printing", Icon: Palette },
+  { label: "Digital Marketing", href: "/digital-marketing", Icon: TrendingUp },
+  { label: "Web + Software", href: "/web-software", Icon: Code2 },
+  { label: "AI + Automation", href: "/ai-automation", Icon: Bot },
+  { label: "Compliance", href: "/compliance", Icon: ShieldCheck },
+  { label: "Portfolio", href: "/portfolio", Icon: Briefcase },
+  { label: "Contact", href: "/contact", Icon: Phone },
 ] as const;
 
 // Custom SVGs for brand/social icons in outline style
@@ -162,11 +162,11 @@ export function MobileFloatingMenu() {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.95, y: 20, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-white w-[90%] max-w-[350px] rounded-[2.5rem] p-10 shadow-2xl flex flex-col items-center relative overflow-hidden"
+              className="bg-white w-[90%] max-w-[350px] rounded-[2.5rem] pt-[40px] px-6 pb-6 shadow-2xl flex flex-col items-center relative max-h-[82vh] overflow-y-auto scrollbar-none"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Navigation Items (Centered list with font-heading) */}
-              <div className="flex flex-col items-center gap-6 w-full font-heading">
+              {/* Navigation Items */}
+              <div className="flex flex-col gap-3 w-full font-heading">
                 {menuItems.map((item) => {
                   const isActive = pathname === item.href;
                   return (
@@ -174,27 +174,46 @@ export function MobileFloatingMenu() {
                       key={item.label}
                       href={item.href}
                       onClick={closeMenu}
-                      className={`text-[22px] font-medium tracking-tight text-center block transition-all duration-300 transform hover:scale-105 active:scale-95
+                      className={`flex items-center w-full h-[58px] px-[18px] rounded-[14px] transition-all duration-300 select-none cursor-pointer flex-shrink-0 group
                         ${isActive 
-                          ? 'text-[#D62020] font-bold' 
-                          : 'text-[#444444] hover:text-[#D62020]'
+                          ? 'bg-[#FFF5F5] text-[#D62020] font-bold' 
+                          : 'bg-transparent text-[#1F1F1F] font-medium hover:bg-[#F8F8F8] hover:text-[#D62020]'
                         }`}
+                      style={{ fontSize: "16px" }}
                     >
-                      {item.label}
+                      <item.Icon 
+                        className={`w-5 h-5 transition-colors duration-300 shrink-0 mr-[18px]
+                          ${isActive ? 'text-[#D62020]' : 'text-[#6B7280] group-hover:text-[#D62020]'}`}
+                        strokeWidth={isActive ? 2.5 : 2}
+                      />
+                      <span className="transition-colors duration-300">{item.label}</span>
                     </Link>
                   );
                 })}
               </div>
 
               {/* Separator Divider Line */}
-              <div className="w-full border-t border-zinc-100 my-6" />
+              <div className="w-full border-t border-zinc-100 my-4 shrink-0" />
 
-              {/* Contact us Header & Outline Social Links */}
-              <div className="flex flex-col items-center w-full">
-                <span className="font-bold text-[#111111] text-xs uppercase tracking-wider mb-4 font-heading">
+              {/* Bottom Area (CTA + Social Icons) */}
+              <div className="flex flex-col items-center w-full shrink-0">
+                {/* Start a Project Button */}
+                <Link
+                  href="/contact"
+                  onClick={closeMenu}
+                  className="w-full h-[52px] flex items-center justify-center text-white font-semibold text-sm tracking-wide rounded-full transition-all duration-200 active:scale-95 shadow-[0_4px_14px_0_rgba(214,32,32,0.25)] hover:shadow-[0_6px_20px_0_rgba(214,32,32,0.35)] shrink-0 mb-4"
+                  style={{ backgroundColor: "#D62020" }}
+                >
+                  Start a Project
+                </Link>
+
+                {/* Contact us Header */}
+                <span className="font-bold text-[#111111] text-xs uppercase tracking-wider mb-4 font-heading shrink-0">
                   Contact us
                 </span>
-                <div className="flex items-center gap-4 justify-center">
+
+                {/* Outline Social Links */}
+                <div className="flex items-center gap-4 justify-center pb-2 shrink-0">
                   {socialLinks.map((social) => (
                     <a
                       key={social.label}
