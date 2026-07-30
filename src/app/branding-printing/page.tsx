@@ -1,12 +1,12 @@
 "use client";
 
-import NavbarH1 from "../home1/components/NavbarH1";
-import { Footer } from "@/components/shared/Footer";
+import HoverGradientNavBar from "@/components/HoverGradientNavBar";
+import CinematicFooter from "@/components/CinematicFooter";
 import BPProcess from "./components/BPProcess";
 import BPServicesMarquee from "./components/BPServicesMarquee";
 import BPExpertise from "./components/BPExpertise";
 import BPServicesShowcase from "./components/BPServicesShowcase";
-import { ImageGallery } from "./components/ImageGallery";
+import BPPortfolio from "./components/BPPortfolio";
 import BPMarqueeStrip from "./components/BPMarqueeStrip";
 import BPHeroParallax from "./components/BPHeroParallax";
 import BPTestimonials from "./components/BPTestimonials";
@@ -15,7 +15,7 @@ import BPContactCTA from "./components/BPContactCTA";
 export default function BrandingPrintingPage() {
   return (
     <>
-      <NavbarH1 />
+      <HoverGradientNavBar />
 
       <main className="font-sans" style={{ background: "#FFFFFF", color: "#111111" }}>
         
@@ -32,7 +32,7 @@ export default function BrandingPrintingPage() {
         <BPServicesShowcase />
 
         {/* 6. Additional Portfolio Showcase */}
-        <ImageGallery />
+        <BPPortfolio />
         <BPMarqueeStrip />
         <BPHeroParallax />
 
@@ -45,7 +45,7 @@ export default function BrandingPrintingPage() {
       </main>
 
       {/* 8. Global Footer */}
-      <Footer />
+      <CinematicFooter />
     </>
   );
 }
