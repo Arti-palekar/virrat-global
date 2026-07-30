@@ -183,10 +183,10 @@ export function MobileFloatingMenu() {
                     >
                       <item.Icon 
                         className={`w-5 h-5 transition-colors duration-300 shrink-0 mr-[18px]
-                          ${isActive ? 'text-[#D62020]' : 'text-[#6B7280] group-hover:text-[#D62020]'}`}
+                          ${isActive ? '!text-[#D62020]' : '!text-[#6B7280] group-hover:!text-[#D62020]'}`}
                         strokeWidth={isActive ? 2.5 : 2}
                       />
-                      <span className="transition-colors duration-300">{item.label}</span>
+                      <span className={`transition-colors duration-300 ${isActive ? '!text-[#D62020] font-bold' : '!text-[#1F1F1F] group-hover:!text-[#D62020]'}`}>{item.label}</span>
                     </Link>
                   );
                 })}
