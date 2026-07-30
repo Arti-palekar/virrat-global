@@ -6,7 +6,6 @@ import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 
 import ZoomParallax from "@/components/ZoomParallax";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import ScrollReelSection from "@/components/ScrollReelSection";
 import FAQ1 from "@/components/FAQ1";
 import CinematicFooter from "@/components/CinematicFooter";
 import IndustryGrid from "@/components/IndustryGrid";
@@ -64,9 +63,6 @@ export default function Home() {
       </div>
       <div className="relative z-20 h-[30vh] min-h-[250px] w-full overflow-hidden bg-[#FAF9F6]">
         <PerspectiveMarquee />
-      </div>
-      <div className="relative z-20">
-        <ScrollReelSection />
       </div>
       <FAQ1 />
       <CinematicFooter />

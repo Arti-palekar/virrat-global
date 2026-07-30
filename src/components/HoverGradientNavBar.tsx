@@ -26,7 +26,7 @@ const IgSVG = () => (
 /* ─── LinkedIn SVG ────────────────────────────── */
 const LiSVG = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0h.003z"/>
   </svg>
 );
 
@@ -35,16 +35,29 @@ const spring = { type: 'spring' as const, stiffness: 400, damping: 30 };
 
 /* ═══════════════════════════════════════════════
    COMPONENT
-═══════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════ */
 export function HoverGradientNavBar(): React.JSX.Element {
   const pathname  = usePathname();
   const [hovered, setHovered]     = useState<number | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   /* ── 3 right-side icon circles ── */
   const socials = [
@@ -52,11 +65,14 @@ export function HoverGradientNavBar(): React.JSX.Element {
     { label: 'LinkedIn',  href: 'https://www.linkedin.com/company/virrat-global/', Icon: LiSVG },
   ];
 
+  const navBackground = scrolled ? 'rgba(255, 255, 255, 0.28)' : 'rgba(255, 255, 255, 0.18)';
+  const navBlur = scrolled ? 'blur(28px) saturate(190%)' : 'blur(24px) saturate(180%)';
+
   return (
     <>
       {/* ══════════════════════════════════════════
           DESKTOP  (≥ 1024 px)
-      ══════════════════════════════════════════ */}
+          ══════════════════════════════════════════ */}
       <motion.div
         initial={{ opacity: 0, y: -18 }}
         animate={{ opacity: 1, y: 0 }}
@@ -64,13 +80,6 @@ export function HoverGradientNavBar(): React.JSX.Element {
         /* Absolutely centred — same "floating" feel as reference */
         className="hidden lg:flex fixed top-[18px] left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-[980px]"
       >
-        {/*
-         * ┌──────────────────────────────────────────┐
-         * │  Pill shell                               │
-         * │  White · 1 px #D8D8D8 border             │
-         * │  Height exactly matches reference (~50 px)│
-         * └──────────────────────────────────────────┘
-         */}
         <div
           style={{
             display:       'flex',
@@ -79,12 +88,15 @@ export function HoverGradientNavBar(): React.JSX.Element {
             width:         '100%',
             height:        '50px',
             borderRadius:  '9999px',
-            background:    '#ffffff',
-            border:        '1px solid #D8D8D8',
-            boxShadow:     '0 1px 12px rgba(0,0,0,0.07)',
+            background:    navBackground,
+            border:        '1px solid rgba(255, 255, 255, 0.35)',
+            boxShadow:     '0 10px 40px rgba(0,0,0,.08), 0 2px 8px rgba(255,255,255,.35) inset',
+            backdropFilter: navBlur,
+            WebkitBackdropFilter: navBlur,
             padding:       '0 24px 0 16px',
             userSelect:    'none',
             whiteSpace:    'nowrap',
+            transition:    'background-color 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease',
           }}
         >
           {/* ── GROUP 1 (LEFT SECTION): Logo + Divider + Navigation Links ── */}
@@ -109,7 +121,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
             </Link>
 
             {/* Divider */}
-            <div style={{ width: '1px', height: '20px', background: '#D8D8D8', flexShrink: 0 }} />
+            <div style={{ width: '1px', height: '20px', background: 'rgba(255, 255, 255, 0.35)', flexShrink: 0 }} />
 
             {/* Navigation links (grouped together with 30px equal spacing) */}
             <nav style={{ display: 'flex', alignItems: 'center' }}>
@@ -138,7 +150,10 @@ export function HoverGradientNavBar(): React.JSX.Element {
                               position:     'absolute',
                               inset:        '-3px -8px',
                               borderRadius: '9999px',
-                              background:   '#F5F5F5',
+                              background:   'rgba(255, 255, 255, 0.45)',
+                              backdropFilter: 'blur(12px)',
+                              WebkitBackdropFilter: 'blur(12px)',
+                              border:       '1px solid rgba(255, 255, 255, 0.25)',
                               zIndex:       0,
                             }}
                           />
@@ -147,7 +162,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
 
                       <motion.a
                         href={item.href}
-                        animate={{ scale: isHover ? 1.02 : 1 }}
+                        animate={{ scale: isHover ? 1.03 : 1 }}
                         transition={spring}
                         style={{
                           position:       'relative',
@@ -157,7 +172,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
                           borderRadius:   '9999px',
                           fontSize:       '13px',
                           fontWeight:     active ? 600 : 500,
-                          color:          active ? '#D62020' : isHover ? '#D62020' : '#555555',
+                          color:          active ? '#D62020' : isHover ? '#D62020' : '#1A1A1A',
                           textDecoration: 'none',
                           cursor:         'pointer',
                           transition:     'color 0.18s',
@@ -186,23 +201,25 @@ export function HoverGradientNavBar(): React.JSX.Element {
                   backgroundColor: '#D62020',
                   borderColor:     '#D62020',
                   color:           '#ffffff',
-                  boxShadow:       '0 4px 14px rgba(214,32,32,0.3)',
+                  boxShadow:       '0 12px 30px rgba(214, 32, 32, 0.25)',
                 }}
                 transition={{ type: 'spring' as const, stiffness: 400, damping: 24 }}
                 style={{
                   width:          '32px',
                   height:         '32px',
                   borderRadius:   '50%',
-                  border:         '1.5px solid #222222',
-                  background:     '#ffffff',
-                  color:          '#111111',
+                  border:         '1px solid rgba(255, 255, 255, 0.45)',
+                  background:     'rgba(255, 255, 255, 0.30)',
+                  backdropFilter: 'blur(14px)',
+                  WebkitBackdropFilter: 'blur(14px)',
+                  color:          '#1A1A1A',
                   display:        'flex',
                   alignItems:     'center',
                   justifyContent: 'center',
                   cursor:         'pointer',
                   flexShrink:     0,
                   textDecoration: 'none',
-                  transition:     'box-shadow 0.2s, background-color 0.2s, border-color 0.2s',
+                  transition:     'box-shadow 0.2s, background-color 0.2s, border-color 0.2s, color 0.2s',
                 }}
               >
                 <Icon />
@@ -217,23 +234,25 @@ export function HoverGradientNavBar(): React.JSX.Element {
                 backgroundColor: '#D62020',
                 borderColor:     '#D62020',
                 color:           '#ffffff',
-                boxShadow:       '0 4px 14px rgba(214,32,32,0.3)',
+                boxShadow:       '0 12px 30px rgba(214, 32, 32, 0.25)',
               }}
               transition={{ type: 'spring' as const, stiffness: 400, damping: 24 }}
               style={{
                 width:          '32px',
                 height:         '32px',
                 borderRadius:   '50%',
-                border:         '1.5px solid #222222',
-                background:     '#ffffff',
-                color:          '#111111',
+                border:         '1px solid rgba(255, 255, 255, 0.45)',
+                background:     'rgba(255, 255, 255, 0.30)',
+                backdropFilter: 'blur(14px)',
+                WebkitBackdropFilter: 'blur(14px)',
+                color:          '#1A1A1A',
                 display:        'flex',
                 alignItems:     'center',
                 justifyContent: 'center',
                 cursor:         'pointer',
                 flexShrink:     0,
                 outline:        'none',
-                transition:     'box-shadow 0.2s, background-color 0.2s, border-color 0.2s',
+                transition:     'box-shadow 0.2s, background-color 0.2s, border-color 0.2s, color 0.2s',
               }}
             >
               <Search style={{ width: '13px', height: '13px' }} strokeWidth={2} />
@@ -244,7 +263,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
 
       {/* ══════════════════════════════════════════
           MOBILE  (< 1024 px)   slim pill + hamburger
-      ══════════════════════════════════════════ */}
+          ══════════════════════════════════════════ */}
       <motion.div
         initial={{ opacity: 0, y: -18 }}
         animate={{ opacity: 1, y: 0 }}
@@ -259,10 +278,13 @@ export function HoverGradientNavBar(): React.JSX.Element {
             width:         '100%',
             height:        '50px',
             borderRadius:  '9999px',
-            background:    '#ffffff',
-            border:        '1px solid #D8D8D8',
-            boxShadow:     '0 1px 12px rgba(0,0,0,0.07)',
+            background:    navBackground,
+            border:        '1px solid rgba(255, 255, 255, 0.35)',
+            boxShadow:     '0 10px 40px rgba(0,0,0,.08), 0 2px 8px rgba(255,255,255,.35) inset',
+            backdropFilter: navBlur,
+            WebkitBackdropFilter: navBlur,
             padding:       '0 10px 0 16px',
+            transition:    'background-color 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease',
           }}
         >
           <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
@@ -283,15 +305,18 @@ export function HoverGradientNavBar(): React.JSX.Element {
               width:          '32px',
               height:         '32px',
               borderRadius:   '50%',
-              border:         '1.5px solid #222222',
-              background:     '#ffffff',
-              color:          '#111111',
+              border:         '1px solid rgba(255, 255, 255, 0.45)',
+              background:     'rgba(255, 255, 255, 0.30)',
+              backdropFilter: 'blur(14px)',
+              WebkitBackdropFilter: 'blur(14px)',
+              color:          '#1A1A1A',
               display:        'flex',
               alignItems:     'center',
               justifyContent: 'center',
               cursor:         'pointer',
               outline:        'none',
               flexShrink:     0,
+              transition:     'background-color 0.2s, border-color 0.2s, color 0.2s',
             }}
           >
             {mobileOpen
@@ -304,7 +329,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
 
       {/* ══════════════════════════════════════════
           MOBILE MENU OVERLAY
-      ══════════════════════════════════════════ */}
+          ══════════════════════════════════════════ */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
