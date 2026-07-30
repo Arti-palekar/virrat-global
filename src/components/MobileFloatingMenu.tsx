@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MoreVertical, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const menuItems = [
   { label: "Branding", href: "/branding-printing" },
@@ -11,6 +11,28 @@ const menuItems = [
   { label: "AI + Automation", href: "/ai-automation" },
   { label: "Compliance", href: "/compliance" },
 ] as const;
+
+const buttonVariants = {
+  default: {
+    y: 0,
+    scale: 1,
+    boxShadow: "0 12px 35px rgba(0,0,0,0.12)",
+  },
+  hover: {
+    y: -2,
+    scale: 1.03,
+    boxShadow: "0 16px 40px rgba(0,0,0,0.18)",
+  }
+};
+
+const iconVariants = {
+  default: {
+    rotate: 0,
+  },
+  hover: {
+    rotate: 90,
+  }
+};
 
 export function MobileFloatingMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,21 +67,39 @@ export function MobileFloatingMenu() {
     <>
       {/* ── Closed State Floating Button ── */}
       {!isOpen && (
-        <button
+        <motion.button
           type="button"
           onClick={openMenu}
           aria-label="Open menu"
+          initial="default"
+          whileHover="hover"
+          whileTap="hover"
+          variants={buttonVariants}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 25
+          }}
           className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 
-          flex items-center gap-3 px-6 py-3 rounded-full 
-          bg-zinc-950/40 backdrop-blur-xl border border-white/15
-          shadow-[0_12px_40px_-10px_rgba(0,0,0,0.3)] text-white/95 
-          font-semibold text-xs tracking-[0.25em] select-none cursor-pointer uppercase 
-          hover:scale-105 hover:bg-zinc-900/50 hover:border-white/25 active:scale-95 transition-all duration-300 focus:outline-none"
-          style={{ bottom: "calc(1.5rem + env(safe-area-inset-bottom))" }}
+          flex items-center justify-between pl-8 pr-6 rounded-full 
+          bg-white/18 backdrop-blur-[24px] border border-white/35 text-[#111111]
+          font-bold text-[14px] tracking-[0.28em] select-none cursor-pointer uppercase 
+          outline-none focus:outline-none"
+          style={{
+            bottom: "calc(1.5rem + env(safe-area-inset-bottom))",
+            width: "170px",
+            height: "58px",
+            background: "rgba(255, 255, 255, 0.18)",
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
+            border: "1px solid rgba(255, 255, 255, 0.35)"
+          }}
         >
           <span>Menu</span>
-          <MoreVertical className="w-3.5 h-3.5 text-zinc-300" strokeWidth={2.8} />
-        </button>
+          <motion.div variants={iconVariants} className="flex items-center justify-center">
+            <Menu className="w-5 h-5 text-[#111111]" strokeWidth={2.5} />
+          </motion.div>
+        </motion.button>
       )}
 
       {/* ── Fullscreen Overlay Navigation ── */}
@@ -146,7 +186,7 @@ export function MobileFloatingMenu() {
                   >
                     <svg className="w-4 h-4 fill-current" role="img" viewBox="0 0 28 27" xmlns="http://www.w3.org/2000/svg">
                       <title>LinkedIn</title>
-                      <path d="M5.9748 3.27842C5.97442 4.04937 5.67104 4.78858 5.1314 5.33345C4.59177 5.87832 3.86007 6.18421 3.09729 6.18382C2.33451 6.18344 1.60312 5.87681 1.06402 5.3314C0.524923 4.78598 0.222275 4.04646 0.222657 3.27552C0.223038 2.50457 0.526418 1.76535 1.06606 1.22049C1.60569 0.675619 2.33739 0.369732 3.10017 0.370118C3.86295 0.370503 4.59434 0.677129 5.13344 1.22254C5.67254 1.76796 5.97519 2.50748 5.9748 3.27842ZM6.06109 8.33634H0.308939V26.5332H6.06109V8.33634ZM15.1495 8.33634H9.42609V26.5332H15.092V16.9842C15.092 11.6647 21.9514 11.1705 21.9514 16.9842V26.5332H27.6316V15.0076C27.6316 6.03993 17.4791 6.37422 15.092 10.7781L15.1495 8.33634Z" />
+                      <path d="M5.9748 3.27842C5.97442 4.04937 5.67104 4.78858 5.1314 5.33345C4.59177 5.87832 3.86007 6.18421 3.09729 6.18382C2.33451 6.18344 1.60312 5.87681 1.06402 5.3314C0.524923 4.78598 0.222275 4.04646 0.222657 3.27552C0.223038 2.50457 0.526418 1.76535 1.06606 1.22049C1.60569 0.675619 2.33739 0.369732 3.10017 0.370118C3.86295 0.370503 4.59434 0.677129 5.13344 1.22254C5.67254 1.76796 5.97519 2.50748 5.9748 3.27842ZM6.06109 8.33634H0.308939V26.5332H6.06109V8.33634ZM15.1495 8.33634H9.42609V26.5332H15.092V16.9842C15.092 11.6647 21.9514 11.1705 21.9514 16.9842V26.5332H27.6316V15.0076C27.6316 6.03993 17.4791 6.37422 15.092 10.7781L15.1495 8.33634ZM27.6316 15.0076C27.6316 6.03993 17.4791 6.37422 15.092 10.7781L15.1495 8.33634Z" />
                     </svg>
                   </a>
                 </div>
@@ -154,21 +194,39 @@ export function MobileFloatingMenu() {
             </motion.div>
 
             {/* Floating CLOSE Button */}
-            <button
+            <motion.button
               type="button"
               onClick={closeMenu}
               aria-label="Close menu"
+              initial="default"
+              whileHover="hover"
+              whileTap="hover"
+              variants={buttonVariants}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 25
+              }}
               className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60]
-              flex items-center gap-2 px-6 py-3 rounded-full 
-              bg-zinc-950/40 backdrop-blur-xl border border-white/15
-              shadow-[0_12px_40px_-10px_rgba(0,0,0,0.3)] text-white/95 
-              font-semibold text-xs tracking-[0.25em] select-none cursor-pointer uppercase 
-              hover:scale-105 hover:bg-zinc-900/50 hover:border-white/25 active:scale-95 transition-all duration-300 focus:outline-none"
-              style={{ bottom: "calc(1.5rem + env(safe-area-inset-bottom))" }}
+              flex items-center justify-between pl-8 pr-6 rounded-full 
+              bg-white/18 backdrop-blur-[24px] border border-white/35 text-[#111111]
+              font-bold text-[14px] tracking-[0.28em] select-none cursor-pointer uppercase 
+              outline-none focus:outline-none"
+              style={{
+                bottom: "calc(1.5rem + env(safe-area-inset-bottom))",
+                width: "170px",
+                height: "58px",
+                background: "rgba(255, 255, 255, 0.18)",
+                backdropFilter: "blur(24px)",
+                WebkitBackdropFilter: "blur(24px)",
+                border: "1px solid rgba(255, 255, 255, 0.35)"
+              }}
             >
               <span>Close</span>
-              <X className="w-3.5 h-3.5 text-zinc-300" strokeWidth={2.8} />
-            </button>
+              <motion.div variants={iconVariants} className="flex items-center justify-center">
+                <X className="w-5 h-5 text-[#111111]" strokeWidth={2.5} />
+              </motion.div>
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

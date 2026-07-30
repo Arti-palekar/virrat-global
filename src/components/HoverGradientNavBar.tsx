@@ -5,7 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Search, Menu, X } from 'lucide-react';
+import { 
+  Search, Menu, X, 
+  House, Palette, TrendingUp, Code, Bot, ShieldCheck, Briefcase, Phone,
+  Mail 
+} from 'lucide-react';
 
 /* ─── 5 main services ─────────────────────────── */
 const navItems = [
@@ -32,6 +36,53 @@ const LiSVG = () => (
 
 /* ─── Spring config ───────────────────────────── */
 const spring = { type: 'spring' as const, stiffness: 400, damping: 30 };
+
+const mobileNavItems = [
+  { name: 'Home', href: '/', Icon: House },
+  { name: 'Branding + Printing', href: '/branding-printing', Icon: Palette },
+  { name: 'Digital Marketing', href: '/digital-marketing', Icon: TrendingUp },
+  { name: 'Web + Software', href: '/web-software', Icon: Code },
+  { name: 'AI + Automation', href: '/ai-automation', Icon: Bot },
+  { name: 'Compliance', href: '/compliance', Icon: ShieldCheck },
+  { name: 'Portfolio', href: '/portfolio', Icon: Briefcase },
+  { name: 'Contact', href: '/contact', Icon: Phone },
+];
+
+const IgIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
+const LiIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+const FbIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
+const WaIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.705 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413" />
+  </svg>
+);
+
+const mobileSocials = [
+  { label: 'Instagram', href: 'https://www.instagram.com/virratglobal/', Icon: IgIcon },
+  { label: 'LinkedIn',  href: 'https://www.linkedin.com/company/virrat-global/', Icon: LiIcon },
+  { label: 'Facebook',  href: 'https://www.facebook.com/virratglobal/', Icon: FbIcon },
+  { label: 'WhatsApp',  href: 'https://wa.me/919999999999', Icon: WaIcon },
+  { label: 'Email',     href: 'mailto:info@virratglobal.com', Icon: Mail },
+];
 
 /* ═══════════════════════════════════════════════
    COMPONENT
@@ -75,7 +126,11 @@ export function HoverGradientNavBar(): React.JSX.Element {
           ══════════════════════════════════════════ */}
       <motion.div
         initial={{ opacity: 0, y: -18 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={{ 
+          opacity: mobileOpen ? 0 : 1, 
+          y: mobileOpen ? -50 : 0,
+          pointerEvents: mobileOpen ? 'none' : 'auto'
+        }}
         transition={{ type: 'spring' as const, stiffness: 220, damping: 24, delay: 0.06 }}
         /* Absolutely centred — same "floating" feel as reference */
         className="hidden lg:flex fixed top-[18px] left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-[980px]"
@@ -266,7 +321,11 @@ export function HoverGradientNavBar(): React.JSX.Element {
           ══════════════════════════════════════════ */}
       <motion.div
         initial={{ opacity: 0, y: -18 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={{ 
+          opacity: mobileOpen ? 0 : 1, 
+          y: mobileOpen ? -50 : 0,
+          pointerEvents: mobileOpen ? 'none' : 'auto'
+        }}
         transition={{ type: 'spring' as const, stiffness: 220, damping: 24, delay: 0.06 }}
         className="flex lg:hidden fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-[360px]"
       >
@@ -333,78 +392,104 @@ export function HoverGradientNavBar(): React.JSX.Element {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: '-100%' }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: '-100%' }}
-            transition={{ type: 'tween', duration: 0.36, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden fixed inset-0 z-[90] bg-white flex flex-col justify-between overflow-y-auto"
-            style={{ paddingTop: '80px', paddingLeft: '32px', paddingRight: '32px', paddingBottom: '40px' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35 }}
+            className="lg:hidden fixed inset-0 z-[110] bg-black/45 backdrop-blur-[8px] flex items-center justify-center p-6"
+            onClick={() => setMobileOpen(false)}
           >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-              {navItems.map((item, idx) => {
-                const active = pathname === item.href;
-                return (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -16 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.05, type: 'spring' as const, stiffness: 220, damping: 22 }}
-                  >
-                    <a
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      style={{
-                        display:        'block',
-                        padding:        '16px 0',
-                        borderBottom:   '1px solid #F0F0F0',
-                        fontSize:       '22px',
-                        fontWeight:     500,
-                        color:          active ? '#D62020' : '#222222',
-                        textDecoration: 'none',
-                        letterSpacing:  '-0.3px',
-                      }}
-                    >
-                      {item.name}
-                    </a>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Bottom socials */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '40px' }}>
-              <div style={{ height: '1px', background: '#F0F0F0' }} />
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#AAAAAA' }}>
-                  Follow Us
-                </span>
-                <div style={{ display: 'flex', gap: '10px' }}>
-                  {socials.map(({ label, href, Icon }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                      style={{
-                        width:          '36px',
-                        height:         '36px',
-                        borderRadius:   '50%',
-                        border:         '1.5px solid #222222',
-                        background:     '#ffffff',
-                        color:          '#111111',
-                        display:        'flex',
-                        alignItems:     'center',
-                        justifyContent: 'center',
-                        textDecoration: 'none',
-                      }}
-                    >
-                      <Icon />
-                    </a>
-                  ))}
-                </div>
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 50, opacity: 0 }}
+              transition={{ type: "spring", duration: 0.35, bounce: 0.15 }}
+              className="bg-white/95 backdrop-blur-[24px] w-full max-w-[340px] rounded-[2.5rem] p-8 shadow-2xl flex flex-col relative overflow-hidden border border-white/35"
+              onClick={(e) => e.stopPropagation()}
+              style={{ gap: '20px' }}
+            >
+              {/* Header inside the card */}
+              <div className="flex items-center justify-between w-full pb-2 border-b border-zinc-100">
+                <span className="text-[11px] font-bold tracking-[0.2em] text-zinc-400 uppercase">Navigation</span>
+                <button 
+                  onClick={() => setMobileOpen(false)}
+                  className="p-1 rounded-full hover:bg-zinc-100 text-zinc-500 transition-colors focus:outline-none"
+                  aria-label="Close menu"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
-            </div>
+
+              {/* Navigation list */}
+              <div className="flex flex-col w-full" style={{ gap: '12px' }}>
+                {mobileNavItems.map((item, idx) => {
+                  const active = pathname === item.href;
+                  return (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.03, type: "spring", stiffness: 260, damping: 22 }}
+                    >
+                      <Link
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="flex items-center gap-4 py-2.5 px-4 rounded-2xl transition-all duration-200 select-none hover:bg-zinc-50 active:scale-[0.98]"
+                        style={{ color: active ? '#D62020' : '#1A1A1A' }}
+                      >
+                        <item.Icon className="w-5 h-5" style={{ color: active ? '#D62020' : '#71717a' }} strokeWidth={2.2} />
+                        <span className="font-semibold text-[15px] tracking-tight">{item.name}</span>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* Divider */}
+              <div className="w-full h-[1px] bg-zinc-100 my-1" />
+
+              {/* CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+                className="w-full"
+              >
+                <Link 
+                  href="/contact" 
+                  onClick={() => setMobileOpen(false)}
+                  className="w-full h-12 flex items-center justify-center text-white font-semibold text-sm tracking-wide rounded-full transition-all duration-200 active:scale-95 shadow-[0_4px_14px_0_rgba(214,32,32,0.3)] hover:shadow-[0_6px_20px_0_rgba(214,32,32,0.4)]"
+                  style={{ backgroundColor: '#D62020' }}
+                >
+                  Start a Project
+                </Link>
+              </motion.div>
+
+              {/* Social icons */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="flex items-center justify-center gap-3 w-full mt-1"
+              >
+                {mobileSocials.map((social) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    whileHover={{ scale: 1.1, backgroundColor: '#D62020', color: '#ffffff', borderColor: '#D62020' }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-9 h-9 rounded-full border border-zinc-200 flex items-center justify-center transition-colors bg-white/50 backdrop-blur-sm"
+                    style={{ color: '#1A1A1A' }}
+                  >
+                    <social.Icon className="w-4 h-4" strokeWidth={2.2} />
+                  </motion.a>
+                ))}
+              </motion.div>
+
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

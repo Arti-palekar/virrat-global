@@ -66,6 +66,7 @@ export default function Home() {
       </div>
       <FAQ1 />
       <CinematicFooter />
+      <MobileFloatingMenu />
     </main>
   );
 }
