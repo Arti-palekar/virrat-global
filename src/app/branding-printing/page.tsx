@@ -3,14 +3,15 @@
 import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
 import BPProcess from "./components/BPProcess";
-import BPServicesCarousel from "./components/BPServicesCarousel";
+import BPServicesMarquee from "./components/BPServicesMarquee";
 import BPExpertise from "./components/BPExpertise";
 import BPServicesShowcase from "./components/BPServicesShowcase";
-import BPPortfolio from "./components/BPPortfolio";
+import { ImageGallery } from "./components/ImageGallery";
 import BPMarqueeStrip from "./components/BPMarqueeStrip";
 import BPHeroParallax from "./components/BPHeroParallax";
-import BPTestimonials from "./components/BPTestimonials";
 import BPContactCTA from "./components/BPContactCTA";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQ1 from "@/components/FAQ1";
 
 export default function BrandingPrintingPage() {
   return (
@@ -22,29 +23,26 @@ export default function BrandingPrintingPage() {
         {/* 1. Hero Section */}
         <BPProcess />
 
-        {/* 2. Services Carousel — immediately below hero */}
-        <BPServicesCarousel />
-
-        {/* 4. Our Expertise */}
+        {/* 2. Branding & Printing Sections */}
         <BPExpertise />
-
-        {/* 5. Our Services */}
         <BPServicesShowcase />
-
-        {/* 6. Additional Portfolio Showcase */}
-        <BPPortfolio />
+        <ImageGallery />
         <BPMarqueeStrip />
         <BPHeroParallax />
-
-        {/* 7. Client Testimonials */}
-        <BPTestimonials />
-
-        {/* 8. CTA Section */}
         <BPContactCTA />
+
+        {/* 3. What We Create Section */}
+        <BPServicesMarquee />
+
+        {/* 4. Testimonials Section (same as Home) */}
+        <TestimonialsSection />
+
+        {/* 5. FAQ Section (same as Home) */}
+        <FAQ1 />
 
       </main>
 
-      {/* 8. Global Footer */}
+      {/* 6. Global Footer */}
       <CinematicFooter />
     </>
   );
