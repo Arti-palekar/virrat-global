@@ -3,7 +3,6 @@
 import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
 import BPProcess from "./components/BPProcess";
-import BPServicesMarquee from "./components/BPServicesMarquee";
 import BPExpertise from "./components/BPExpertise";
 import BPServicesShowcase from "./components/BPServicesShowcase";
 import { ImageGallery } from "./components/ImageGallery";
@@ -31,18 +30,15 @@ export default function BrandingPrintingPage() {
         <BPHeroParallax />
         <BPContactCTA />
 
-        {/* 3. What We Create Section */}
-        <BPServicesMarquee />
-
-        {/* 4. Testimonials Section (same as Home) */}
+        {/* 3. Testimonials Section (same as Home) */}
         <TestimonialsSection />
 
-        {/* 5. FAQ Section (same as Home) */}
+        {/* 4. FAQ Section (same as Home) */}
         <FAQ1 />
 
       </main>
 
-      {/* 6. Global Footer */}
+      {/* 5. Global Footer */}
       <CinematicFooter />
     </>
   );
