@@ -3,7 +3,7 @@
 import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
 import BPProcess from "./components/BPProcess";
-import BPServicesMarquee from "./components/BPServicesMarquee";
+import BPServicesCarousel from "./components/BPServicesCarousel";
 import BPExpertise from "./components/BPExpertise";
 import BPServicesShowcase from "./components/BPServicesShowcase";
 import BPPortfolio from "./components/BPPortfolio";
@@ -22,8 +22,8 @@ export default function BrandingPrintingPage() {
         {/* 1. Hero Section */}
         <BPProcess />
 
-        {/* 2. Services Marquee — immediately below hero */}
-        <BPServicesMarquee />
+        {/* 2. Services Carousel — immediately below hero */}
+        <BPServicesCarousel />
 
         {/* 4. Our Expertise */}
         <BPExpertise />
