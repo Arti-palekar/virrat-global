@@ -148,7 +148,7 @@ export default function BPHeroParallax() {
   return (
     <section 
       ref={ref}
-      className="relative w-full py-[120px] overflow-hidden bg-white text-[#111111] z-20 group select-none [perspective:1000px] [transform-style:preserve-3d]"
+      className="relative w-full py-16 md:py-24 overflow-hidden bg-white text-[#111111] flex flex-col justify-between z-20 group select-none [perspective:1000px] [transform-style:preserve-3d]"
     >
       
       {/* Hardware Accelerated Keyframes for Infinite Auto-Sliding and Mouse Hover Pause */}
@@ -187,91 +187,93 @@ export default function BPHeroParallax() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-[35%_65%] gap-[64px] items-start relative z-10">
+      {/* Side Soft Vignette Fades */}
+      <div className="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none" />
+
+      {/* Header Area with Scroll Reveal */}
+      <Header />
+
+      {/* 3D Hero Parallax Stage with Continuous Auto-Sliding */}
+      <motion.div
+        style={{
+          rotateX,
+          rotateZ,
+          translateY,
+          opacity,
+        }}
+        className="relative z-10 my-8 w-full flex flex-col gap-6 md:gap-8 overflow-hidden pointer-events-auto transform-gpu [transform-style:preserve-3d]"
+      >
         
-        {/* Left Side (Sticky Content) */}
-        <div className="lg:sticky lg:top-[120px] self-start flex flex-col z-20">
-          <span className="text-xs font-bold text-[#D62020] tracking-[0.25em] font-mono block mb-3 uppercase">
-            OUR PORTFOLIO
-          </span>
-          <h2 
-            className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-[900] text-[#111111] leading-none tracking-[-0.04em] mb-6 font-heading"
-            style={{ fontFamily: '"Syne", sans-serif' }}
-          >
-            Crafting Brands <br />
-            That <span className="text-[#D62020]">Stand Out.</span>
-          </h2>
-          <p className="text-base text-gray-600 leading-relaxed font-body mb-8">
-            Explore a curated collection of our branding and printing projects—from logo identities and packaging to business stationery, marketing materials, and premium print solutions designed to create lasting brand impressions.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 border border-gray-300 hover:border-[#D62020] bg-white hover:bg-[#D62020] text-black hover:text-white text-sm font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-sm w-fit"
-          >
-            <span>View Full Portfolio</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+        {/* Top Row: Continuously Slide Left -> Right with Parallax & Blur Stagger Reveal */}
+        <motion.div 
+          style={{ x: rowParallaxLtr }}
+          initial={{ opacity: 0, y: 50, scale: 0.92, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full overflow-hidden flex items-center"
+        >
+          <div className="animate-portfolio-ltr">
+            {[...firstRow, ...firstRow].map((product, idx) => (
+              <ProductCard
+                key={`pcard-row1-${product.title}-${idx}`}
+                product={product}
+              />
+            ))}
+          </div>
+        </motion.div>
 
-        {/* Right Side (Portfolio Slider/Masonry) */}
-        <div className="relative w-full overflow-hidden [perspective:1000px] [transform-style:preserve-3d]">
-          {/* Side Soft Vignette Fades */}
-          <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none" />
+        {/* Bottom Row: Continuously Slide Right -> Left with Parallax & Blur Stagger Reveal */}
+        <motion.div 
+          style={{ x: rowParallaxRtl }}
+          initial={{ opacity: 0, y: 50, scale: 0.92, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full overflow-hidden flex items-center"
+        >
+          <div className="animate-portfolio-rtl">
+            {[...secondRow, ...secondRow].map((product, idx) => (
+              <ProductCard
+                key={`pcard-row2-${product.title}-${idx}`}
+                product={product}
+              />
+            ))}
+          </div>
+        </motion.div>
 
-          {/* 3D Hero Parallax Stage with Continuous Auto-Sliding */}
-          <motion.div
-            style={{
-              rotateX,
-              rotateZ,
-              translateY,
-              opacity,
-            }}
-            className="relative z-10 w-full flex flex-col gap-6 md:gap-8 overflow-hidden pointer-events-auto transform-gpu [transform-style:preserve-3d]"
-          >
-            {/* Top Row */}
-            <motion.div 
-              style={{ x: rowParallaxLtr }}
-              initial={{ opacity: 0, y: 50, scale: 0.92, filter: "blur(10px)" }}
-              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full overflow-hidden flex items-center"
-            >
-              <div className="animate-portfolio-ltr">
-                {[...firstRow, ...firstRow].map((product, idx) => (
-                  <ProductCard
-                    key={`pcard-row1-${product.title}-${idx}`}
-                    product={product}
-                  />
-                ))}
-              </div>
-            </motion.div>
+      </motion.div>
 
-            {/* Bottom Row */}
-            <motion.div 
-              style={{ x: rowParallaxRtl }}
-              initial={{ opacity: 0, y: 50, scale: 0.92, filter: "blur(10px)" }}
-              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full overflow-hidden flex items-center"
-            >
-              <div className="animate-portfolio-rtl">
-                {[...secondRow, ...secondRow].map((product, idx) => (
-                  <ProductCard
-                    key={`pcard-row2-${product.title}-${idx}`}
-                    product={product}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-
-      </div>
-
+      {/* Bottom CTA Block with Scroll Reveal */}
+      <BottomCTA />
     </section>
+  );
+}
+
+function Header() {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="max-w-7xl relative mx-auto pt-4 pb-6 px-6 md:px-12 w-full text-center flex flex-col items-center z-10"
+    >
+      <span className="text-xs font-bold text-[#D62020] tracking-[0.25em] font-mono block mb-3 uppercase">
+        OUR PORTFOLIO
+      </span>
+      <p 
+        className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-[900] text-[#111111] leading-none tracking-[-0.04em] mb-4 font-heading"
+        style={{ fontFamily: '"Syne", sans-serif' }}
+      >
+        Crafting Brands <br />
+        That Stand Out.
+      </p>
+      <p className="max-w-2xl text-base md:text-lg text-gray-600 leading-relaxed font-body">
+        Explore a curated collection of our branding and printing projects, showcasing creative design, premium quality, and attention to every detail.
+      </p>
+    </motion.div>
   );
 }
 
@@ -314,6 +316,31 @@ function ProductCard({
             {product.title}
           </p>
         </div>
+      </Link>
+    </motion.div>
+  );
+}
+
+function BottomCTA() {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="relative z-20 w-full max-w-4xl mx-auto pt-8 pb-4 px-6 text-center flex flex-col items-center"
+    >
+      <h3 
+        className="card-title text-center mb-6 font-heading"
+      >
+        Ready to Build Your Brand?
+      </h3>
+      <Link
+        href="/contact"
+        className="inline-flex items-center gap-3 bg-[#D62020] hover:bg-[#B51B1B] text-white text-base md:text-lg font-bold px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-red-600/30 transform hover:-translate-y-1"
+      >
+        <span>Start Your Branding Project</span>
+        <ArrowRight className="w-5 h-5" />
       </Link>
     </motion.div>
   );
