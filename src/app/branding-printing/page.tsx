@@ -22,18 +22,20 @@ export default function BrandingPrintingPage() {
         {/* 1. Hero Section */}
         <BPProcess />
 
-        {/* 2. Branding & Printing Sections */}
+        {/* 2. Portfolio Showcase */}
+        <BPHeroParallax />
+
+        {/* 3. OUR EXPERTISE & Remaining Sections */}
         <BPExpertise />
         <BPServicesShowcase />
         <ImageGallery />
         <BPMarqueeStrip />
-        <BPHeroParallax />
         <BPContactCTA />
 
-        {/* 3. Testimonials Section (same as Home) */}
+        {/* 4. Testimonials Section (same as Home) */}
         <TestimonialsSection />
 
-        {/* 4. FAQ Section (same as Home) */}
+        {/* 5. FAQ Section (same as Home) */}
         <FAQ1 />
 
       </main>
