@@ -2,15 +2,57 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { 
+  Menu, X, 
+  House as Home, Palette, TrendingUp, Code, Bot, ShieldCheck, Briefcase, Phone,
+  Mail 
+} from "lucide-react";
 
+const Code2 = Code;
+
+// Menu items matching the website pages
 const menuItems = [
-  { label: "Branding", href: "/branding-printing" },
+  { label: "Home", href: "/" },
+  { label: "Branding + Printing", href: "/branding-printing" },
   { label: "Digital Marketing", href: "/digital-marketing" },
   { label: "Web + Software", href: "/web-software" },
   { label: "AI + Automation", href: "/ai-automation" },
   { label: "Compliance", href: "/compliance" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Contact", href: "/contact" },
 ] as const;
+
+// Custom SVGs for brand/social icons in outline style
+const IgIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
+const LiIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+const WaIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+  </svg>
+);
+
+const socialLinks = [
+  { label: "Instagram", href: "https://www.instagram.com/virratglobal/", Icon: IgIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/virrat-global/", Icon: LiIcon },
+  { label: "WhatsApp", href: "https://wa.me/919999999999", Icon: WaIcon },
+  { label: "Email", href: "mailto:info@virratglobal.com", Icon: Mail },
+];
 
 const buttonVariants = {
   default: {
@@ -36,6 +78,7 @@ const iconVariants = {
 
 export function MobileFloatingMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const openMenu = () => setIsOpen(true);
   const closeMenu = () => setIsOpen(false);
@@ -80,11 +123,11 @@ export function MobileFloatingMenu() {
             stiffness: 300,
             damping: 25
           }}
-          className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 
+          className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 
           flex items-center justify-between pl-8 pr-6 rounded-full 
           bg-white/18 backdrop-blur-[24px] border border-white/35 text-[#111111]
           font-bold text-[14px] tracking-[0.28em] select-none cursor-pointer uppercase 
-          outline-none focus:outline-none"
+          outline-none focus:outline-none shadow-[0_12px_35px_rgba(0,0,0,0.12)]"
           style={{
             bottom: "calc(1.5rem + env(safe-area-inset-bottom))",
             width: "170px",
@@ -102,7 +145,7 @@ export function MobileFloatingMenu() {
         </motion.button>
       )}
 
-      {/* ── Fullscreen Overlay Navigation ── */}
+      {/* ── Centered Card Mobile Navigation Overlay ── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -110,90 +153,66 @@ export function MobileFloatingMenu() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden fixed inset-0 bg-black/45 backdrop-blur-md z-50 flex items-center justify-center p-6"
+            className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-md z-50 flex flex-col items-center justify-center p-6"
             onClick={closeMenu}
           >
-            {/* Centered Navigation Card */}
+            {/* Centered White Card with Rounded Corners */}
             <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300, duration: 0.4 }}
-              className="bg-white w-full max-w-[320px] rounded-[2.5rem] p-10 shadow-2xl flex flex-col items-center relative overflow-hidden"
+              initial={{ scale: 0.95, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.95, y: 20, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="bg-white w-[90%] max-w-[350px] rounded-[2.5rem] p-10 shadow-2xl flex flex-col items-center relative overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Navigation Items */}
-              <motion.div
-                variants={{
-                  animate: {
-                    transition: {
-                      staggerChildren: 0.05,
-                    },
-                  },
-                }}
-                initial="initial"
-                animate="animate"
-                className="flex flex-col items-center gap-5 w-full"
-              >
-                {menuItems.map((item) => (
-                  <motion.a
-                    key={item.label}
-                    variants={{
-                      initial: { y: 15, opacity: 0 },
-                      animate: {
-                        y: 0,
-                        opacity: 1,
-                        transition: { type: "spring", stiffness: 150, damping: 15 },
-                      },
-                    }}
-                    href={item.href}
-                    onClick={closeMenu}
-                    className="text-zinc-500 font-semibold text-3xl tracking-tight transition-all duration-300 
-                    hover:text-red-500 hover:scale-105 hover:-translate-y-0.5 active:scale-95 block"
-                  >
-                    {item.label}
-                  </motion.a>
-                ))}
-              </motion.div>
+              {/* Navigation Items (Centered list with font-heading) */}
+              <div className="flex flex-col items-center gap-6 w-full font-heading">
+                {menuItems.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={closeMenu}
+                      className={`text-[22px] font-medium tracking-tight text-center block transition-all duration-300 transform hover:scale-105 active:scale-95
+                        ${isActive 
+                          ? 'text-[#D62020] font-bold' 
+                          : 'text-[#444444] hover:text-[#D62020]'
+                        }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
 
-              {/* Divider */}
-              <div className="w-[120px] h-[1px] bg-zinc-100 my-6" />
+              {/* Separator Divider Line */}
+              <div className="w-full border-t border-zinc-100 my-6" />
 
-              {/* Contact Section */}
-              <div className="flex flex-col items-center gap-4 w-full">
-                <span className="text-zinc-800 font-bold text-lg tracking-wide">Contact us</span>
-                <div className="flex items-center gap-4">
-                  <a
-                    href="https://www.instagram.com/virratglobal/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                    className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-500 
-                    hover:bg-red-500 hover:border-red-500 hover:text-white transition-all duration-300 hover:scale-110 active:scale-90"
-                  >
-                    <svg className="w-4 h-4 fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <title>Instagram</title>
-                      <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
-                    </svg>
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/company/virrat-global/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                    className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-500 
-                    hover:bg-red-500 hover:border-red-500 hover:text-white transition-all duration-300 hover:scale-110 active:scale-90"
-                  >
-                    <svg className="w-4 h-4 fill-current" role="img" viewBox="0 0 28 27" xmlns="http://www.w3.org/2000/svg">
-                      <title>LinkedIn</title>
-                      <path d="M5.9748 3.27842C5.97442 4.04937 5.67104 4.78858 5.1314 5.33345C4.59177 5.87832 3.86007 6.18421 3.09729 6.18382C2.33451 6.18344 1.60312 5.87681 1.06402 5.3314C0.524923 4.78598 0.222275 4.04646 0.222657 3.27552C0.223038 2.50457 0.526418 1.76535 1.06606 1.22049C1.60569 0.675619 2.33739 0.369732 3.10017 0.370118C3.86295 0.370503 4.59434 0.677129 5.13344 1.22254C5.67254 1.76796 5.97519 2.50748 5.9748 3.27842ZM6.06109 8.33634H0.308939V26.5332H6.06109V8.33634ZM15.1495 8.33634H9.42609V26.5332H15.092V16.9842C15.092 11.6647 21.9514 11.1705 21.9514 16.9842V26.5332H27.6316V15.0076C27.6316 6.03993 17.4791 6.37422 15.092 10.7781L15.1495 8.33634ZM27.6316 15.0076C27.6316 6.03993 17.4791 6.37422 15.092 10.7781L15.1495 8.33634Z" />
-                    </svg>
-                  </a>
+              {/* Contact us Header & Outline Social Links */}
+              <div className="flex flex-col items-center w-full">
+                <span className="font-bold text-[#111111] text-xs uppercase tracking-wider mb-4 font-heading">
+                  Contact us
+                </span>
+                <div className="flex items-center gap-4 justify-center">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-500 
+                      hover:bg-[#FFF5F5] hover:border-[#D62020] hover:text-[#D62020] transition-all duration-300 hover:scale-110 active:scale-90"
+                    >
+                      <social.Icon className="w-4 h-4" />
+                    </a>
+                  ))}
                 </div>
               </div>
             </motion.div>
 
-            {/* Floating CLOSE Button */}
+            {/* Dark CLOSE Button below the white card */}
             <motion.button
               type="button"
               onClick={closeMenu}
@@ -209,22 +228,18 @@ export function MobileFloatingMenu() {
               }}
               className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60]
               flex items-center justify-between pl-8 pr-6 rounded-full 
-              bg-white/18 backdrop-blur-[24px] border border-white/35 text-[#111111]
+              bg-[#111111] border border-white/10 text-white
               font-bold text-[14px] tracking-[0.28em] select-none cursor-pointer uppercase 
-              outline-none focus:outline-none"
+              outline-none focus:outline-none shadow-[0_12px_35px_rgba(0,0,0,0.18)]"
               style={{
                 bottom: "calc(1.5rem + env(safe-area-inset-bottom))",
                 width: "170px",
                 height: "58px",
-                background: "rgba(255, 255, 255, 0.18)",
-                backdropFilter: "blur(24px)",
-                WebkitBackdropFilter: "blur(24px)",
-                border: "1px solid rgba(255, 255, 255, 0.35)"
               }}
             >
               <span>Close</span>
               <motion.div variants={iconVariants} className="flex items-center justify-center">
-                <X className="w-5 h-5 text-[#111111]" strokeWidth={2.5} />
+                <X className="w-5 h-5 text-white" strokeWidth={2.5} />
               </motion.div>
             </motion.button>
           </motion.div>

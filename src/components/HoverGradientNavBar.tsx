@@ -327,7 +327,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
           pointerEvents: mobileOpen ? 'none' : 'auto'
         }}
         transition={{ type: 'spring' as const, stiffness: 220, damping: 24, delay: 0.06 }}
-        className="flex lg:hidden fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-[360px]"
+        className="hidden fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-[360px]"
       >
         <div
           style={{
