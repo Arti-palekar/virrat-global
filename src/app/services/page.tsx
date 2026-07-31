@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback, useMemo, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import HoverGradientNavBar from "@/components/HoverGradientNavBar";
@@ -197,7 +197,7 @@ const Card3D = React.forwardRef<HTMLDivElement, Card3DProps>(
       <motion.div
         ref={ref}
         className={cn(
-          "group relative w-full overflow-hidden rounded-2xl transform-gpu transition-all duration-500 ease-out",
+          "group relative w-full overflow-hidden rounded-[28px] transform-gpu transition-all duration-500 ease-out border border-[#F1D6D6] hover:border-[#D62020]",
           SIZES[size],
           VARIANTS[variant],
           (onClick || href) && !disabled && !loading && "cursor-pointer",
@@ -231,7 +231,7 @@ const Card3D = React.forwardRef<HTMLDivElement, Card3DProps>(
       >
         <motion.div
           className={cn(
-            "absolute inset-0 rounded-2xl",
+            "absolute inset-0 rounded-[28px]",
             image ? "" : `bg-gradient-to-br ${finalGradient}`
           )}
           animate={{ scale: hovered ? 1.02 : 1 }}
@@ -248,7 +248,7 @@ const Card3D = React.forwardRef<HTMLDivElement, Card3DProps>(
           )}
         </motion.div>
 
-        <div className="absolute inset-0 overflow-hidden rounded-2xl opacity-20">
+        <div className="absolute inset-0 overflow-hidden rounded-[28px] opacity-20">
           <svg
             className="absolute -top-4 -right-4 w-32 h-32 text-white/30"
             viewBox="0 0 100 100"
@@ -305,7 +305,7 @@ const Card3D = React.forwardRef<HTMLDivElement, Card3DProps>(
         </div>
 
         <motion.div
-          className="absolute inset-0 rounded-2xl"
+          className="absolute inset-0 rounded-[28px]"
           style={{
             background: `linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.7) 100%)`,
             transform: "translateZ(5px)",
@@ -315,7 +315,7 @@ const Card3D = React.forwardRef<HTMLDivElement, Card3DProps>(
         />
 
         <motion.div
-          className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none"
+          className="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none"
           style={{ transform: "translateZ(15px)" }}
         >
           <motion.div
@@ -420,7 +420,7 @@ const Card3D = React.forwardRef<HTMLDivElement, Card3DProps>(
         </motion.div>
 
         <motion.div
-          className="absolute inset-0 rounded-2xl pointer-events-none"
+          className="absolute inset-0 rounded-[28px] pointer-events-none"
           style={{
             background: `linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 30%, transparent 70%, rgba(255,255,255,0.1) 100%)`,
             transform: "translateZ(25px)",
@@ -431,7 +431,7 @@ const Card3D = React.forwardRef<HTMLDivElement, Card3DProps>(
 
         {!disabled && (
           <motion.div
-            className="absolute -inset-0.5 rounded-2xl opacity-0 pointer-events-none"
+            className="absolute -inset-0.5 rounded-[28px] opacity-0 pointer-events-none"
             style={{
               background: `linear-gradient(135deg, ${finalGradient})`,
               filter: "blur(15px)",
@@ -443,19 +443,16 @@ const Card3D = React.forwardRef<HTMLDivElement, Card3DProps>(
         )}
 
         {loading && (
-          <motion.div
-            className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-2xl flex items-center justify-center"
+          <div
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-[28px] flex items-center justify-center z-40"
             style={{ transform: "translateZ(30px)" }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
           >
             <motion.div
               className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full"
               animate={{ rotate: 360 }}
               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
             />
-          </motion.div>
+          </div>
         )}
       </motion.div>
     );
