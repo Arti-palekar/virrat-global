@@ -7,7 +7,7 @@ import Link from "next/link";
 import { 
   Menu, X, 
   House as Home, Palette, TrendingUp, Code, Bot, ShieldCheck, Briefcase, Phone,
-  Mail 
+  Layers, Mail 
 } from "lucide-react";
 
 const Code2 = Code;
@@ -17,6 +17,7 @@ const menuItems = [
   { label: "Home", href: "/", Icon: Home },
   { label: "Branding + Printing", href: "/branding-printing", Icon: Palette },
   { label: "Digital Marketing", href: "/digital-marketing", Icon: TrendingUp },
+  { label: "Services", href: "/services", Icon: Layers },
   { label: "Web + Software", href: "/web-software", Icon: Code2 },
   { label: "AI + Automation", href: "/ai-automation", Icon: Bot },
   { label: "Compliance", href: "/compliance", Icon: ShieldCheck },

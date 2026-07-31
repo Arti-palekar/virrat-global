@@ -8,13 +8,14 @@ import { usePathname } from 'next/navigation';
 import { 
   Search, Menu, X, 
   House, Palette, TrendingUp, Code, Bot, ShieldCheck, Briefcase, Phone,
-  Mail 
+  Layers, Mail 
 } from 'lucide-react';
 
 /* ─── 5 main services ─────────────────────────── */
 const navItems = [
   { name: 'Branding',          href: '/branding-printing' },
   { name: 'Digital Marketing', href: '/digital-marketing' },
+  { name: 'Services',          href: '/services'          },
   { name: 'Web + Software',    href: '/web-software'      },
   { name: 'AI + Automation',   href: '/ai-automation'     },
   { name: 'Compliance',        href: '/compliance'        },
@@ -41,6 +42,7 @@ const mobileNavItems = [
   { name: 'Home', href: '/', Icon: House },
   { name: 'Branding + Printing', href: '/branding-printing', Icon: Palette },
   { name: 'Digital Marketing', href: '/digital-marketing', Icon: TrendingUp },
+  { name: 'Services', href: '/services', Icon: Layers },
   { name: 'Web + Software', href: '/web-software', Icon: Code },
   { name: 'AI + Automation', href: '/ai-automation', Icon: Bot },
   { name: 'Compliance', href: '/compliance', Icon: ShieldCheck },
@@ -92,6 +94,11 @@ export function HoverGradientNavBar(): React.JSX.Element {
   const [hovered, setHovered]     = useState<number | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
@@ -109,6 +116,8 @@ export function HoverGradientNavBar(): React.JSX.Element {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  if (!mounted) return <></>;
 
   /* ── 3 right-side icon circles ── */
   const socials = [

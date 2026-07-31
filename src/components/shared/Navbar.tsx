@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "Branding + Printing", href: "/branding-printing" },
   { name: "Digital Marketing", href: "/digital-marketing" },
+  { name: "Services", href: "/services" },
   { name: "Web + Software", href: "/web-software" },
   { name: "AI + Automation", href: "/ai-automation" },
   { name: "Compliance", href: "/compliance" },

@@ -133,25 +133,6 @@ const GALLERY_COLUMNS = [
   ]
 ];
 
-const SERVICE_TAGS = [
-  "Logo Design",
-  "Brand Identity",
-  "Business Cards",
-  "Brochures",
-  "Flyers",
-  "Packaging",
-  "Product Labels",
-  "Catalog Design",
-  "Corporate Stationery",
-  "Social Media Creatives",
-  "Hoardings",
-  "Signage",
-  "Standees",
-  "Flex Printing",
-  "Corporate Profiles",
-  "Presentation Design"
-];
-
 // Animations
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -215,28 +196,7 @@ export function ImageGallery() {
           className="text-[16px] md:text-[18px] text-[#666666] leading-relaxed max-w-[620px] mb-8 font-medium"
         >
           We create memorable branding and premium print experiences that help businesses build trust, improve recognition, and leave a lasting impression across every customer touchpoint.
-          <br /><br />
-          From logo design and brand identity to packaging, marketing collateral, corporate stationery, and large-format printing — every project is crafted with strategy, creativity, and production excellence.
         </motion.p>
-        
-        {/* Pills container */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="flex flex-wrap gap-2.5 max-w-4xl mt-4"
-        >
-          {SERVICE_TAGS.map((tag, idx) => (
-            <motion.span
-              key={idx}
-              variants={pillVariants}
-              className="bg-white border border-gray-200 text-gray-800 px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold tracking-wide shadow-sm hover:bg-[#D62020] hover:border-[#D62020] hover:text-white hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-pointer select-none"
-            >
-              {tag}
-            </motion.span>
-          ))}
-        </motion.div>
       </div>
 
       {/* 3-Column Masonry Grid */}
@@ -316,33 +276,78 @@ function AnimatedImage({ alt, src, ratio, category, title, description, delivera
         </div>
 
         {/* Right-side off-canvas panel slides in (width: 320px) */}
-        <div className="absolute inset-y-0 right-0 w-[320px] max-w-full bg-black/90 backdrop-blur-md text-white border-l border-white/10 p-6 flex flex-col justify-between z-20 translate-x-full group-hover:translate-x-0 transition-transform duration-[450ms] ease-out">
-          <div className="flex flex-col gap-4 text-left">
+        <div 
+          className="absolute inset-y-0 right-0 w-[320px] max-w-full bg-black/90 backdrop-blur-md text-white border-l border-white/10 z-20 translate-x-full group-hover:translate-x-0 transition-transform duration-[450ms] ease-out flex flex-col"
+          style={{
+            padding: ratio > 1 ? "16px" : "28px",
+            gap: ratio > 1 ? "6px" : "12px"
+          }}
+        >
+          <div 
+            className="flex flex-col text-left flex-grow justify-center"
+            style={{
+              gap: ratio > 1 ? "6px" : "12px"
+            }}
+          >
             {/* Category label */}
-            <span className="text-[10px] font-bold tracking-[0.25em] text-[#D62020] uppercase">
+            <span 
+              className="font-bold tracking-[0.25em] uppercase !text-white"
+              style={{ 
+                fontSize: ratio > 1 ? "9px" : "10px",
+                color: "#FFFFFF"
+              }}
+            >
               {category}
             </span>
             
             {/* Large Title */}
-            <h3 className="text-xl font-extrabold tracking-tight leading-tight text-white">
+            <h3 
+              className="font-extrabold tracking-tight leading-tight whitespace-normal break-words !text-white"
+              style={{ 
+                fontSize: ratio > 1 ? "14px" : "20px",
+                color: "#FFFFFF" 
+              }}
+            >
               {title}
             </h3>
             
             {/* Short Description */}
-            <p className="text-xs text-gray-300 leading-relaxed font-medium">
+            <p 
+              className="font-medium whitespace-normal break-words !text-white"
+              style={{
+                fontSize: ratio > 1 ? "10px" : "12px",
+                maxWidth: "90%",
+                lineHeight: "1.7",
+                opacity: 0.9,
+                color: "#FFFFFF"
+              }}
+            >
               {description}
             </p>
             
             {/* Technologies / Deliverables */}
-            <div className="flex flex-col gap-2 mt-2">
-              <span className="text-[10px] font-bold text-gray-400 tracking-wider uppercase">
+            <div className="flex flex-col" style={{ gap: ratio > 1 ? "4px" : "8px" }}>
+              <span 
+                className="font-bold tracking-wider uppercase !text-white"
+                style={{ 
+                  fontSize: ratio > 1 ? "9px" : "10px",
+                  color: "#FFFFFF"
+                }}
+              >
                 DELIVERABLES
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {deliverables.map((item, idx) => (
                   <span
                     key={idx}
-                    className="text-[10px] bg-white/10 border border-white/5 text-gray-200 px-2.5 py-1 rounded-full font-semibold select-none"
+                    className="rounded-full font-semibold select-none !text-white"
+                    style={{
+                      fontSize: ratio > 1 ? "9px" : "10px",
+                      padding: ratio > 1 ? "2px 6px" : "4px 10px",
+                      backgroundColor: "rgba(255, 255, 255, 0.12)",
+                      border: "1px solid rgba(255, 255, 255, 0.15)",
+                      color: "#FFFFFF"
+                    }}
                   >
                     {item}
                   </span>
@@ -352,7 +357,14 @@ function AnimatedImage({ alt, src, ratio, category, title, description, delivera
           </div>
 
           {/* CTA Link: View Project → with arrow transition */}
-          <div className="group/btn inline-flex items-center gap-2 text-sm font-bold text-white hover:text-[#D62020] transition-colors duration-300 mt-4 select-none">
+          <div 
+            className="group/btn inline-flex items-center gap-2 font-bold !text-white hover:!text-[#D62020] transition-colors duration-300 select-none cursor-pointer"
+            style={{ 
+              marginTop: "auto",
+              fontSize: ratio > 1 ? "12px" : "14px",
+              color: "#FFFFFF"
+            }}
+          >
             <span>View Project</span>
             <svg
               className="w-4 h-4 transform group-hover/btn:translate-x-1.5 transition-transform duration-300"
