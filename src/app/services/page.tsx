@@ -7,6 +7,7 @@ import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { GlowCard } from "@/components/ui/spotlight-card";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -194,270 +195,278 @@ const Card3D = React.forwardRef<HTMLDivElement, Card3DProps>(
     }, [disabled, loading, onClick]);
 
     const cardElement = (
-      <motion.div
+      <GlowCard
         ref={ref}
+        glowColor="red"
+        customSize
         className={cn(
-          "group relative w-full overflow-hidden rounded-2xl transform-gpu transition-all duration-500 ease-out",
-          SIZES[size],
-          VARIANTS[variant],
+          "w-full h-full rounded-[28px]",
           (onClick || href) && !disabled && !loading && "cursor-pointer",
           disabled && "opacity-50 cursor-not-allowed",
           loading && "pointer-events-none",
           className
         )}
-        onMouseMove={handleMove}
-        onMouseEnter={handleEnter}
-        onMouseLeave={handleLeave}
-        animate={{
-          rotateX: disabled ? 0 : mousePos.y,
-          rotateY: disabled ? 0 : mousePos.x,
-          z: disabled ? 0 : hovered ? 30 : 0,
-        }}
-        transition={{ type: "spring", stiffness: 400, damping: 35, mass: 0.8 }}
-        whileTap={
-          disabled || (!onClick && !href)
-            ? {}
-            : {
-                scale: 0.98,
-                rotateX: mousePos.y + 3,
-                rotateY: mousePos.x + 3,
-              }
-        }
         onClick={handleClick}
-        style={{ transformStyle: "preserve-3d", perspective: "1200px" }}
         role={(onClick || href) ? "button" : "article"}
         tabIndex={(onClick || href) && !disabled ? 0 : -1}
-        {...props}
       >
         <motion.div
           className={cn(
-            "absolute inset-0 rounded-2xl",
-            image ? "" : `bg-gradient-to-br ${finalGradient}`
+            "group relative w-full h-full overflow-hidden rounded-[28px] transform-gpu transition-all duration-500 ease-out",
+            SIZES[size],
+            VARIANTS[variant]
           )}
-          animate={{ scale: hovered ? 1.02 : 1 }}
-          transition={{ duration: 0.4 }}
-          style={{ transform: "translateZ(-10px)" }}
-        >
-          {image && (
-            <img
-              src={image}
-              alt={title}
-              className="h-full w-full object-cover transition-transform duration-500"
-              loading="lazy"
-            />
-          )}
-        </motion.div>
-
-        <div className="absolute inset-0 overflow-hidden rounded-2xl opacity-20">
-          <svg
-            className="absolute -top-4 -right-4 w-32 h-32 text-white/30"
-            viewBox="0 0 100 100"
-          >
-            <defs>
-              <pattern
-                id={patternId}
-                x="0"
-                y="0"
-                width="20"
-                height="20"
-                patternUnits="userSpaceOnUse"
-              >
-                <circle
-                  cx="10"
-                  cy="10"
-                  r="1"
-                  fill="currentColor"
-                  opacity="0.3"
-                />
-              </pattern>
-            </defs>
-            <rect width="100" height="100" fill={`url(#${patternId})`} />
-          </svg>
-
-          <motion.div
-            className="absolute -bottom-4 -left-4 w-24 h-24 opacity-30"
-            animate={{ rotate: hovered ? 180 : 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <svg viewBox="0 0 100 100" className="w-full h-full text-white/40">
-              <rect
-                x="20"
-                y="20"
-                width="60"
-                height="60"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-                rx="8"
-              />
-              <rect
-                x="35"
-                y="35"
-                width="30"
-                height="30"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="0.5"
-                rx="4"
-              />
-            </svg>
-          </motion.div>
-        </div>
-
-        <motion.div
-          className="absolute inset-0 rounded-2xl"
-          style={{
-            background: `linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.7) 100%)`,
-            transform: "translateZ(5px)",
+          onMouseMove={handleMove}
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+          animate={{
+            rotateX: disabled ? 0 : mousePos.y,
+            rotateY: disabled ? 0 : mousePos.x,
+            z: disabled ? 0 : hovered ? 30 : 0,
           }}
-          animate={{ opacity: hovered ? 0.65 : 0.8 }}
-          transition={{ duration: 0.3 }}
-        />
-
-        <motion.div
-          className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none"
-          style={{ transform: "translateZ(15px)" }}
+          transition={{ type: "spring", stiffness: 400, damping: 35, mass: 0.8 }}
+          whileTap={
+            disabled || (!onClick && !href)
+              ? {}
+              : {
+                  scale: 0.98,
+                  rotateX: mousePos.y + 3,
+                  rotateY: mousePos.x + 3,
+                }
+          }
+          style={{ transformStyle: "preserve-3d", perspective: "1200px" }}
+          {...props}
         >
           <motion.div
-            className="absolute -inset-full"
-            animate={{
-              background: hovered
-                ? `linear-gradient(${mousePos.x + 135}deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%)`
-                : "transparent",
-            }}
-            transition={{ duration: 0.3 }}
-          />
-        </motion.div>
-
-        <motion.div
-          className="relative z-20 flex h-full flex-col justify-between p-6 !text-white"
-          style={{ transform: "translateZ(20px)", color: "#ffffff" }}
-        >
-          <div className="flex justify-between items-start">
-            {icon && (
-              <motion.div
-                className="relative !text-white"
-                style={{ color: "#ffffff" }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <motion.div
-                  className="text-3xl opacity-90 filter drop-shadow-lg !text-white"
-                  style={{ color: "#ffffff" }}
-                  animate={{
-                    rotateZ: hovered ? 5 : 0,
-                    y: hovered ? -2 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {icon}
-                </motion.div>
-              </motion.div>
+            className={cn(
+              "absolute inset-0 rounded-[28px]",
+              image ? "" : `bg-gradient-to-br ${finalGradient}`
             )}
+            animate={{ scale: hovered ? 1.08 : 1 }}
+            transition={{ duration: 0.4 }}
+            style={{ transform: "translateZ(-10px)" }}
+          >
+            {image && (
+              <img
+                src={image}
+                alt={title}
+                className="h-full w-full object-cover transition-transform duration-500"
+                loading="lazy"
+              />
+            )}
+          </motion.div>
+
+          <div className="absolute inset-0 overflow-hidden rounded-[28px] opacity-20">
+            <svg
+              className="absolute -top-4 -right-4 w-32 h-32 text-white/30"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <pattern
+                  id={patternId}
+                  x="0"
+                  y="0"
+                  width="20"
+                  height="20"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <circle
+                    cx="10"
+                    cy="10"
+                    r="1"
+                    fill="currentColor"
+                    opacity="0.3"
+                  />
+                </pattern>
+              </defs>
+              <rect width="100" height="100" fill={`url(#${patternId})`} />
+            </svg>
 
             <motion.div
-              className="relative"
-              animate={{ scale: hovered ? 1.2 : 1 }}
-              transition={{ duration: 0.3 }}
+              className="absolute -bottom-4 -left-4 w-24 h-24 opacity-30"
+              animate={{ rotate: hovered ? 180 : 0 }}
+              transition={{ duration: 0.8 }}
             >
-              <div className="h-2.5 w-2.5 rounded-full bg-white/40 backdrop-blur-sm" />
-              {!disabled && (
-                <motion.div
-                  className="absolute inset-0 h-2.5 w-2.5 rounded-full bg-white/70"
-                  animate={{
-                    scale: hovered ? [1, 1.4, 1] : 1,
-                    opacity: hovered ? [0.7, 0.3, 0.7] : 0.7,
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: hovered ? Infinity : 0,
-                    ease: "easeInOut",
-                  }}
+              <svg viewBox="0 0 100 100" className="w-full h-full text-white/40">
+                <rect
+                  x="20"
+                  y="20"
+                  width="60"
+                  height="60"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  rx="8"
                 />
-              )}
+                <rect
+                  x="35"
+                  y="35"
+                  width="30"
+                  height="30"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.5"
+                  rx="4"
+                />
+              </svg>
             </motion.div>
           </div>
 
           <motion.div
-            className="space-y-3"
-            animate={{ y: hovered ? -3 : 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <motion.h3
-              className="text-xl font-semibold tracking-tight drop-shadow-md !text-white"
-              style={{ color: "#ffffff" }}
-              animate={{ scale: hovered ? 1.02 : 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              {title}
-            </motion.h3>
-
-            <motion.p
-              className="text-sm leading-relaxed drop-shadow-sm line-clamp-3 !text-white/85"
-              style={{ color: "rgba(255, 255, 255, 0.85)" }}
-              animate={{ opacity: hovered ? 1 : 0.85 }}
-              transition={{ duration: 0.3 }}
-            >
-              {description}
-            </motion.p>
-
-            {(onClick || href) && !disabled && (
-              <motion.div
-                className="flex items-center space-x-2"
-                animate={{
-                  x: hovered ? 4 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="h-0.5 w-4 bg-white/70 rounded-full" />
-                <div className="text-xs font-bold opacity-90 !text-white uppercase tracking-wider mr-1" style={{ color: "#ffffff" }}>
-                  {loading ? "Loading..." : "View More"}
-                </div>
-                <ArrowRight className="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
-              </motion.div>
-            )}
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          className="absolute inset-0 rounded-2xl pointer-events-none"
-          style={{
-            background: `linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 30%, transparent 70%, rgba(255,255,255,0.1) 100%)`,
-            transform: "translateZ(25px)",
-          }}
-          animate={{ opacity: hovered ? 1 : 0.7 }}
-          transition={{ duration: 0.3 }}
-        />
-
-        {!disabled && (
-          <motion.div
-            className="absolute -inset-0.5 rounded-2xl opacity-0 pointer-events-none"
+            className="absolute inset-0 rounded-[28px]"
             style={{
-              background: `linear-gradient(135deg, ${finalGradient})`,
-              filter: "blur(15px)",
-              transform: "translateZ(-5px)",
+              background: `linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.7) 100%)`,
+              transform: "translateZ(5px)",
             }}
-            animate={{ opacity: hovered ? 0.2 : 0 }}
-            transition={{ duration: 0.4 }}
-          />
-        )}
-
-        {loading && (
-          <motion.div
-            className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-2xl flex items-center justify-center"
-            style={{ transform: "translateZ(30px)" }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: hovered ? 0.85 : 0.65 }}
             transition={{ duration: 0.3 }}
+          />
+
+          <motion.div
+            className="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none"
+            style={{ transform: "translateZ(15px)" }}
           >
             <motion.div
-              className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-full"
+              animate={{
+                background: hovered
+                  ? `linear-gradient(${mousePos.x + 135}deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%)`
+                  : "transparent",
+              }}
+              transition={{ duration: 0.3 }}
             />
           </motion.div>
-        )}
-      </motion.div>
+
+          <motion.div
+            className="relative z-20 flex h-full flex-col justify-between p-6 !text-white"
+            style={{ transform: "translateZ(20px)", color: "#ffffff" }}
+          >
+            <div className="flex justify-between items-start">
+              {icon && (
+                <motion.div
+                  className="relative !text-white"
+                  style={{ color: "#ffffff" }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <motion.div
+                    className="text-3xl opacity-90 filter drop-shadow-lg !text-white"
+                    style={{ color: "#ffffff" }}
+                    animate={{
+                      rotateZ: hovered ? 5 : 0,
+                      y: hovered ? -2 : 0,
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {icon}
+                  </motion.div>
+                </motion.div>
+              )}
+
+              <motion.div
+                className="relative"
+                animate={{ scale: hovered ? 1.2 : 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="h-2.5 w-2.5 rounded-full bg-white/40 backdrop-blur-sm" />
+                {!disabled && (
+                  <motion.div
+                    className="absolute inset-0 h-2.5 w-2.5 rounded-full bg-white/70"
+                    animate={{
+                      scale: hovered ? [1, 1.4, 1] : 1,
+                      opacity: hovered ? [0.7, 0.3, 0.7] : 0.7,
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: hovered ? Infinity : 0,
+                      ease: "easeInOut",
+                    }}
+                  />
+                )}
+              </motion.div>
+            </div>
+
+            <motion.div
+              className="space-y-3"
+              animate={{ y: hovered ? -3 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.h3
+                className="text-xl font-semibold tracking-tight drop-shadow-md !text-white"
+                style={{ color: "#ffffff" }}
+                animate={{ scale: hovered ? 1.02 : 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                {title}
+              </motion.h3>
+
+              <motion.p
+                className="text-sm leading-relaxed drop-shadow-sm line-clamp-3 !text-white/85"
+                style={{ color: "rgba(255, 255, 255, 0.85)" }}
+                animate={{ opacity: hovered ? 1 : 0.85 }}
+                transition={{ duration: 0.3 }}
+              >
+                {description}
+              </motion.p>
+
+              {(onClick || href) && !disabled && (
+                <motion.div
+                  className="flex items-center space-x-2"
+                  animate={{
+                    x: hovered ? 4 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="h-0.5 w-4 bg-white/70 rounded-full" />
+                  <div className="text-xs font-bold opacity-90 !text-white uppercase tracking-wider mr-1" style={{ color: "#ffffff" }}>
+                    {loading ? "Loading..." : "View More"}
+                  </div>
+                  <ArrowRight className="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
+                </motion.div>
+              )}
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="absolute inset-0 rounded-[28px] pointer-events-none"
+            style={{
+              background: `linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 30%, transparent 70%, rgba(255,255,255,0.1) 100%)`,
+              transform: "translateZ(25px)",
+            }}
+            animate={{ opacity: hovered ? 1 : 0.7 }}
+            transition={{ duration: 0.3 }}
+          />
+
+          {!disabled && (
+            <motion.div
+              className="absolute -inset-0.5 rounded-[28px] opacity-0 pointer-events-none"
+              style={{
+                background: `linear-gradient(135deg, ${finalGradient})`,
+                filter: "blur(15px)",
+                transform: "translateZ(-5px)",
+              }}
+              animate={{ opacity: hovered ? 0.2 : 0 }}
+              transition={{ duration: 0.4 }}
+            />
+          )}
+
+          {loading && (
+            <motion.div
+              className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-[28px] flex items-center justify-center"
+              style={{ transform: "translateZ(30px)" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              />
+            </motion.div>
+          )}
+        </motion.div>
+      </GlowCard>
     );
 
     if (href && !disabled && !loading) {
