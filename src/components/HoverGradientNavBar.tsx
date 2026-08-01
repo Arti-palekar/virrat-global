@@ -142,7 +142,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
         }}
         transition={{ type: 'spring' as const, stiffness: 220, damping: 24, delay: 0.06 }}
         /* Absolutely centred — same "floating" feel as reference */
-        className="hidden lg:flex fixed top-[18px] left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-[980px]"
+        className="hidden lg:flex fixed top-[18px] left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-[980px] xl:max-w-[1100px]"
       >
         <div
           style={{
@@ -163,96 +163,90 @@ export function HoverGradientNavBar(): React.JSX.Element {
             transition:    'background-color 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease',
           }}
         >
-          {/* ── GROUP 1 (LEFT SECTION): Logo + Divider + Navigation Links ── */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
-            {/* Logo */}
-            <Link
-              href="/"
-              style={{
-                display:    'flex',
-                alignItems: 'center',
-                flexShrink: 0,
-              }}
-            >
-              <Image
-                src="/logo.png"
-                alt="Virrat Global"
-                width={100}
-                height={25}
-                style={{ height: '22px', width: 'auto', objectFit: 'contain' }}
-                priority
-              />
-            </Link>
+          {/* Logo (flex-shrink-0) */}
+          <Link
+            href="/"
+            style={{
+              display:    'flex',
+              alignItems: 'center',
+              flexShrink: 0,
+            }}
+          >
+            <Image
+              src="/logo.png"
+              alt="Virrat Global"
+              width={100}
+              height={25}
+              style={{ height: '22px', width: 'auto', objectFit: 'contain' }}
+              priority
+            />
+          </Link>
 
-            {/* Divider */}
-            <div style={{ width: '1px', height: '20px', background: 'rgba(255, 255, 255, 0.35)', flexShrink: 0 }} />
+          {/* Navigation links (flex-1 justify-center) */}
+          <nav style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+            <ul className="flex items-center gap-[28px] xl:gap-[40px]" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+              {navItems.map((item, idx) => {
+                const active  = pathname === item.href;
+                const isHover = hovered === idx;
 
-            {/* Navigation links (grouped together with 30px equal spacing) */}
-            <nav style={{ display: 'flex', alignItems: 'center' }}>
-              <ul style={{ display: 'flex', alignItems: 'center', gap: '30px', listStyle: 'none', margin: 0, padding: 0 }}>
-                {navItems.map((item, idx) => {
-                  const active  = pathname === item.href;
-                  const isHover = hovered === idx;
+                return (
+                  <li
+                    key={item.name}
+                    style={{ position: 'relative' }}
+                    onMouseEnter={() => setHovered(idx)}
+                    onMouseLeave={() => setHovered(null)}
+                  >
+                    {/* sliding pill */}
+                    <AnimatePresence>
+                      {isHover && !active && (
+                        <motion.span
+                          layoutId="navPill"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={spring}
+                          style={{
+                            position:     'absolute',
+                            inset:        '-3px -8px',
+                            borderRadius: '9999px',
+                            background:   'rgba(255, 255, 255, 0.45)',
+                            backdropFilter: 'blur(12px)',
+                            WebkitBackdropFilter: 'blur(12px)',
+                            border:       '1px solid rgba(255, 255, 255, 0.25)',
+                            zIndex:       0,
+                          }}
+                        />
+                      )}
+                    </AnimatePresence>
 
-                  return (
-                    <li
-                      key={item.name}
-                      style={{ position: 'relative' }}
-                      onMouseEnter={() => setHovered(idx)}
-                      onMouseLeave={() => setHovered(null)}
+                    <motion.a
+                      href={item.href}
+                      animate={{ scale: isHover ? 1.03 : 1 }}
+                      transition={spring}
+                      style={{
+                        position:       'relative',
+                        zIndex:         1,
+                        display:        'block',
+                        padding:        '3px 6px',
+                        borderRadius:   '9999px',
+                        fontSize:       '13px',
+                        fontWeight:     active ? 600 : 500,
+                        color:          active ? '#D62020' : isHover ? '#D62020' : '#1A1A1A',
+                        textDecoration: 'none',
+                        cursor:         'pointer',
+                        transition:     'color 0.18s',
+                      }}
                     >
-                      {/* sliding pill */}
-                      <AnimatePresence>
-                        {isHover && !active && (
-                          <motion.span
-                            layoutId="navPill"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={spring}
-                            style={{
-                              position:     'absolute',
-                              inset:        '-3px -8px',
-                              borderRadius: '9999px',
-                              background:   'rgba(255, 255, 255, 0.45)',
-                              backdropFilter: 'blur(12px)',
-                              WebkitBackdropFilter: 'blur(12px)',
-                              border:       '1px solid rgba(255, 255, 255, 0.25)',
-                              zIndex:       0,
-                            }}
-                          />
-                        )}
-                      </AnimatePresence>
-
-                      <motion.a
-                        href={item.href}
-                        animate={{ scale: isHover ? 1.03 : 1 }}
-                        transition={spring}
-                        style={{
-                          position:       'relative',
-                          zIndex:         1,
-                          display:        'block',
-                          padding:        '3px 6px',
-                          borderRadius:   '9999px',
-                          fontSize:       '13px',
-                          fontWeight:     active ? 600 : 500,
-                          color:          active ? '#D62020' : isHover ? '#D62020' : '#1A1A1A',
-                          textDecoration: 'none',
-                          cursor:         'pointer',
-                          transition:     'color 0.18s',
-                        }}
-                      >
-                        {item.name}
-                      </motion.a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
-          </div>
+                      {item.name}
+                    </motion.a>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
 
           {/* ── GROUP 2 (RIGHT SECTION): Social Icons (Instagram, LinkedIn, Search) ── */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
             {socials.map(({ label, href, Icon }) => (
               <motion.a
                 key={label}

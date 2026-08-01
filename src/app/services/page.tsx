@@ -7,6 +7,7 @@ import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { PremiumServiceCardsGrid, PremiumCardItem } from "@/components/ui/cards";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -115,7 +116,7 @@ const containerVariants = {
       staggerChildren: 0.08,
       delayChildren: 0.2,
       duration: 0.5,
-      ease: [0.23, 1, 0.32, 1],
+      ease: [0.23, 1, 0.32, 1] as const,
     },
   },
 };
@@ -127,7 +128,7 @@ const itemVariants = {
     y: 0,
     rotateX: 0,
     scale: 1,
-    transition: { type: "spring", stiffness: 100, damping: 12, mass: 0.7 },
+    transition: { type: "spring" as const, stiffness: 100, damping: 12, mass: 0.7 },
   },
 };
 
@@ -653,7 +654,140 @@ const Card3DList: React.FC<Card3DListProps> = ({
   );
 };
 
-
+const servicesGridItems: PremiumCardItem[] = [
+  {
+    label: "STRATEGY & IDENTITY",
+    title: "Brand Identity & Logo Design",
+    description: "Professional logo systems, brand strategy, color palettes and visual identity.",
+    projects: "32 Projects",
+    href: "/branding-printing",
+    bgBlob: "rgba(255,170,170,.18)",
+    bgHoverBlob: "rgba(255,170,170,.30)",
+    glowColor: "rgba(255,170,170,.35)",
+    titleColor: "#E84A5F",
+  },
+  {
+    label: "EDITORIAL & PRINT",
+    title: "Branding & Printing",
+    description: "Brochures, catalogs, business cards, packaging, standees and premium print.",
+    projects: "28 Projects",
+    href: "/branding-printing",
+    bgBlob: "rgba(255,213,145,.18)",
+    bgHoverBlob: "rgba(255,213,145,.30)",
+    glowColor: "rgba(255,213,145,.35)",
+    titleColor: "#F06C00",
+  },
+  {
+    label: "CODE & STRATEGY",
+    title: "Web Development",
+    description: "Corporate websites, portals, custom web applications and landing pages.",
+    projects: "40 Projects",
+    href: "/web-software",
+    bgBlob: "rgba(165,205,255,.18)",
+    bgHoverBlob: "rgba(165,205,255,.30)",
+    glowColor: "rgba(165,205,255,.35)",
+    titleColor: "#3B82F6",
+  },
+  {
+    label: "RETAIL & COMMERCE",
+    title: "E-Commerce Development",
+    description: "WooCommerce, Shopify, payment integration and online stores.",
+    projects: "24 Projects",
+    href: "/web-software",
+    bgBlob: "rgba(180,230,255,.18)",
+    bgHoverBlob: "rgba(180,230,255,.30)",
+    glowColor: "rgba(180,230,255,.35)",
+    titleColor: "#00A3E8",
+  },
+  {
+    label: "GROWTH & VISIBILITY",
+    title: "Digital Marketing",
+    description: "SEO, Google Ads, Meta Ads, social media marketing and lead generation.",
+    projects: "35 Projects",
+    href: "/digital-marketing",
+    bgBlob: "rgba(214,185,255,.18)",
+    bgHoverBlob: "rgba(214,185,255,.30)",
+    glowColor: "rgba(214,185,255,.35)",
+    titleColor: "#8B5CF6",
+  },
+  {
+    label: "ART DIRECTION",
+    title: "UI / UX Design",
+    description: "Modern interfaces, dashboards, mobile apps and user experience design.",
+    projects: "18 Projects",
+    href: "/web-software",
+    bgBlob: "rgba(198,255,223,.18)",
+    bgHoverBlob: "rgba(198,255,223,.30)",
+    glowColor: "rgba(198,255,223,.35)",
+    titleColor: "#22C55E",
+  },
+  {
+    label: "INTELLIGENT SYSTEMS",
+    title: "AI Automation",
+    description: "AI Chatbots, WhatsApp automation, CRM workflows and business automation.",
+    projects: "22 Projects",
+    href: "/contact",
+    bgBlob: "rgba(255,205,238,.18)",
+    bgHoverBlob: "rgba(255,205,238,.30)",
+    glowColor: "rgba(255,205,238,.35)",
+    titleColor: "#EC4899",
+  },
+  {
+    label: "ENTERPRISE SYSTEMS",
+    title: "ERP & CRM Solutions",
+    description: "Business management software and workflow systems.",
+    projects: "16 Projects",
+    href: "/web-software",
+    bgBlob: "rgba(255,235,186,.18)",
+    bgHoverBlob: "rgba(255,235,186,.30)",
+    glowColor: "rgba(255,235,186,.35)",
+    titleColor: "#F59E0B",
+  },
+  {
+    label: "MOBILE SYSTEMS",
+    title: "Mobile App Development",
+    description: "Android, iOS and Flutter applications.",
+    projects: "19 Projects",
+    href: "/web-software",
+    bgBlob: "rgba(180,255,239,.18)",
+    bgHoverBlob: "rgba(180,255,239,.30)",
+    glowColor: "rgba(180,255,239,.35)",
+    titleColor: "#14B8A6",
+  },
+  {
+    label: "INFRASTRUCTURE",
+    title: "Cloud Hosting & Maintenance",
+    description: "Hosting, server optimization, backup and security.",
+    projects: "26 Projects",
+    href: "/contact",
+    bgBlob: "rgba(255,209,160,.18)",
+    bgHoverBlob: "rgba(255,209,160,.30)",
+    glowColor: "rgba(255,209,160,.35)",
+    titleColor: "#FB923C",
+  },
+  {
+    label: "PERFORMANCE & SEO",
+    title: "SEO & Performance Optimization",
+    description: "Technical SEO, Core Web Vitals and speed optimization.",
+    projects: "31 Projects",
+    href: "/digital-marketing",
+    bgBlob: "rgba(215,210,255,.18)",
+    bgHoverBlob: "rgba(215,210,255,.30)",
+    glowColor: "rgba(215,210,255,.35)",
+    titleColor: "#6366F1",
+  },
+  {
+    label: "ANNUAL SUPPORT",
+    title: "Annual Support & AMC",
+    description: "Continuous maintenance, monitoring and technical support.",
+    projects: "27 Projects",
+    href: "/contact",
+    bgBlob: "rgba(225,245,185,.18)",
+    bgHoverBlob: "rgba(225,245,185,.30)",
+    glowColor: "rgba(225,245,185,.35)",
+    titleColor: "#84CC16",
+  },
+];
 
 export default function ServicesPage() {
   const cards: CardData[] = [
@@ -800,6 +934,28 @@ export default function ServicesPage() {
         {/* Ambient mesh glow gradients */}
         <div className="absolute top-[8%] left-[15%] w-[450px] md:w-[650px] h-[450px] md:h-[650px] bg-red-100/20 rounded-full blur-[130px] pointer-events-none -z-10 mix-blend-multiply" />
         <div className="absolute bottom-[20%] right-[10%] w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-zinc-100/40 rounded-full blur-[160px] pointer-events-none -z-10 mix-blend-multiply" />
+
+        {/* ─── NEW SERVICES SHOWCASE SECTION ─── */}
+        <section className="relative pt-24 pb-16 px-6 md:px-12 z-20 w-full bg-[#FFFFFF]">
+          <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
+            {/* Title Block */}
+            <div className="flex flex-col gap-4 max-w-[600px] text-left">
+              <span className="text-[12px] font-bold tracking-[0.25em] text-[#D62020] uppercase block">
+                OUR SERVICES
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-[900] text-[#111111] tracking-tight leading-[1.1] font-heading">
+                Everything Your Business Needs <br />
+                Under One Roof.
+              </h2>
+              <p className="text-zinc-500 text-sm sm:text-base leading-relaxed font-body mt-2">
+                From branding and websites to AI automation and digital marketing, we build complete business solutions that help companies launch, grow and scale.
+              </p>
+            </div>
+
+            {/* Hover Reveal Cards Component Grid */}
+            <PremiumServiceCardsGrid cards={servicesGridItems} />
+          </div>
+        </section>
 
         {/* ─── 3D CARD GRID SECTION ─── */}
         <section className="relative overflow-hidden pt-12 pb-24 px-6 md:px-12 z-20 w-full bg-[#FFFFFF]">
