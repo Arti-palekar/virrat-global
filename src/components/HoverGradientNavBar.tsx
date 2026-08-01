@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 import { 
   Search, Menu, X, 
   House, Palette, TrendingUp, Code, Bot, ShieldCheck, Briefcase, Phone,
-  Layers, Mail 
+  Layers, Mail, Package
 } from 'lucide-react';
 
 /* ─── 5 main services ─────────────────────────── */
@@ -43,6 +43,7 @@ const mobileNavItems = [
   { name: 'Branding + Printing', href: '/branding-printing', Icon: Palette },
   { name: 'Digital Marketing', href: '/digital-marketing', Icon: TrendingUp },
   { name: 'Services', href: '/services', Icon: Layers },
+  { name: 'Packaging Design', href: '/services/packaging-design', Icon: Package },
   { name: 'Web + Software', href: '/web-software', Icon: Code },
   { name: 'AI + Automation', href: '/ai-automation', Icon: Bot },
   { name: 'Compliance', href: '/compliance', Icon: ShieldCheck },
@@ -239,6 +240,65 @@ export function HoverGradientNavBar(): React.JSX.Element {
                     >
                       {item.name}
                     </motion.a>
+
+                    <AnimatePresence>
+                      {item.name === 'Services' && isHover && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          transition={{ duration: 0.15, ease: "easeOut" }}
+                          style={{
+                            position: 'absolute',
+                            top: '100%',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            paddingTop: '8px',
+                            zIndex: 150,
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: '200px',
+                              borderRadius: '16px',
+                              background: 'rgba(255, 255, 255, 0.98)',
+                              border: '1px solid rgba(0, 0, 0, 0.08)',
+                              boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
+                              backdropFilter: 'blur(20px)',
+                              WebkitBackdropFilter: 'blur(20px)',
+                              padding: '6px',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              gap: '2px',
+                            }}
+                          >
+                            {[
+                              { name: 'All Services', href: '/services' },
+                              { name: 'Packaging Design', href: '/services/packaging-design' }
+                            ].map((sub) => (
+                              <Link
+                                key={sub.name}
+                                href={sub.href}
+                                style={{
+                                  padding: '8px 12px',
+                                  borderRadius: '10px',
+                                  fontSize: '13px',
+                                  fontWeight: 500,
+                                  color: pathname === sub.href ? '#D62020' : '#1A1A1A',
+                                  textDecoration: 'none',
+                                  textAlign: 'left',
+                                  display: 'block',
+                                  transition: 'background-color 0.2s, color 0.2s',
+                                }}
+                                className="hover:bg-zinc-100 hover:text-[#D62020] font-sans"
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </li>
                 );
               })}

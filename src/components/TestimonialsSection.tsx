@@ -147,7 +147,19 @@ const TestimonialsColumn = (props: {
   );
 };
 
-export function TestimonialsSection() {
+interface TestimonialsSectionProps {
+  items?: Testimonial[];
+}
+
+export function TestimonialsSection({ items }: TestimonialsSectionProps = {}) {
+  const displayTestimonials = items || testimonials;
+  const firstCol = displayTestimonials.slice(0, Math.ceil(displayTestimonials.length / 3));
+  const secondCol = displayTestimonials.slice(
+    Math.ceil(displayTestimonials.length / 3),
+    Math.ceil((displayTestimonials.length / 3) * 2)
+  );
+  const thirdCol = displayTestimonials.slice(Math.ceil((displayTestimonials.length / 3) * 2));
+
   return (
     <section 
       aria-labelledby="testimonials-heading"
@@ -172,10 +184,10 @@ export function TestimonialsSection() {
           </div>
 
           <h2 id="testimonials-heading" className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mt-6 text-center text-neutral-900 dark:text-white transition-colors">
-            What our users say
+            What our clients say
           </h2>
           <p className="text-center mt-6 text-neutral-500 dark:text-neutral-400 text-xl leading-relaxed max-w-lg transition-colors">
-            Discover how thousands of teams streamline their operations with our platform.
+            Discover how partnering with Virrat Global transforms packaging design, dielines, and retail performance.
           </p>
         </div>
 
@@ -184,9 +196,9 @@ export function TestimonialsSection() {
           role="region"
           aria-label="Scrolling Testimonials"
         >
-          <TestimonialsColumn testimonials={firstColumn} duration={15} />
-          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
-          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
+          <TestimonialsColumn testimonials={firstCol} duration={15} />
+          {secondCol.length > 0 && <TestimonialsColumn testimonials={secondCol} className="hidden md:block" duration={19} />}
+          {thirdCol.length > 0 && <TestimonialsColumn testimonials={thirdCol} className="hidden lg:block" duration={17} />}
         </div>
       </motion.div>
     </section>

@@ -72,7 +72,19 @@ const palettes = {
   },
 } as const;
 
-function FAQ1() {
+interface FAQItem {
+  question: string;
+  answer: string;
+  meta?: string;
+}
+
+interface FAQ1Props {
+  items?: FAQItem[];
+}
+
+function FAQ1({ items }: FAQ1Props = {}) {
+  const displayFaqs = items || faqs;
+
   const getRootTheme = (): "dark" | "light" => {
     if (typeof document === "undefined") return "dark";
     if (document.documentElement.classList.contains("dark")) return "dark";
@@ -364,7 +376,7 @@ function FAQ1() {
         </header>
 
         <ul className="space-y-4">
-          {faqs.map((item, index) => {
+          {displayFaqs.map((item, index) => {
             const open = activeIndex === index;
             const panelId = `faq-panel-${index}`;
             const buttonId = `faq-trigger-${index}`;
