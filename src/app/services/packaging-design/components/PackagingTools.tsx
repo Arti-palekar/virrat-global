@@ -142,7 +142,7 @@ export default function PackagingTools() {
   };
 
   return (
-    <section className="w-full pt-0 pb-10 lg:pb-12 px-6 md:px-12 lg:px-24 bg-white text-[#111111]">
+    <section className="w-full pt-16 lg:pt-24 pb-10 lg:pb-12 px-6 md:px-12 lg:px-24 bg-white text-[#111111]">
       
       {/* Editorial Horizontal Card Section */}
       <div className="max-w-[1400px] mx-auto relative bg-[#FAF9F6] border border-zinc-200/50 rounded-[40px] p-8 md:p-12 lg:p-14 overflow-hidden shadow-sm">

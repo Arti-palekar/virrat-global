@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 
-import { WebSoftwareHero } from "./components/WebSoftwareHero";
+import { WebSoftwareHeroNew } from "./components/WebSoftwareHeroNew";
 import { WebSoftwareMarquee } from "./components/WebSoftwareMarquee";
 import { WebSoftwareServices } from "./components/WebSoftwareServices";
 import { WebSoftwareProcess } from "./components/WebSoftwareProcess";
@@ -27,7 +27,7 @@ export default function WebSoftwarePage() {
       <Navbar />
       <main className="min-h-screen bg-[#f8f7f5] text-[#111111]">
         {/* 1. Hero Section */}
-        <WebSoftwareHero />
+        <WebSoftwareHeroNew />
 
         {/* 2. Animated Infinite Tagline Slider */}
         <WebSoftwareMarquee />

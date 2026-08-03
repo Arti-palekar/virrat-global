@@ -13,7 +13,10 @@ import PackagingTopPicks from "./components/PackagingTopPicks";
 import PackagingTools from "./components/PackagingTools";
 import PackagingProcess from "./components/PackagingProcess";
 import PackagingConsiderations from "./components/PackagingConsiderations";
-import PackagingFinalCTA from "./components/PackagingFinalCTA";
+import PackagingIndustries from "./components/PackagingIndustries";
+import PackagingMarquee from "./components/PackagingMarquee";
+import PackagingPortfolio from "./components/PackagingPortfolio";
+
 
 // ── CUSTOM FAQ ITEMS FOR PACKAGING ──
 const packagingFaqs = [
@@ -119,8 +122,17 @@ export default function PackagingClient() {
         {/* Our Step-by-Step Process Section */}
         <PackagingProcess />
 
+        {/* Moving Typography Banner Section */}
+        <PackagingMarquee />
+
+        {/* Industries We Design For Section */}
+        <PackagingIndustries />
+
         {/* What We Consider Section */}
         <PackagingConsiderations />
+
+        {/* Selected Work / Portfolio Section */}
+        <PackagingPortfolio />
 
         {/* Section 12: Testimonials (Dynamic Reuse) */}
         <TestimonialsSection items={packagingTestimonials} />
@@ -128,8 +140,6 @@ export default function PackagingClient() {
         {/* Section 13: FAQ (Dynamic Reuse) */}
         <FAQ1 items={packagingFaqs} />
 
-        {/* Section 14: Final CTA */}
-        <PackagingFinalCTA />
       </div>
 
       {/* Shared Footer */}
