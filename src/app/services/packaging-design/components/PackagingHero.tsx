@@ -68,11 +68,42 @@ export default function PackagingHero() {
       onMouseMove={handleMouseMove}
       className="relative w-full min-h-[90vh] lg:min-h-[95vh] flex items-center justify-center pt-24 pb-16 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden"
     >
-      {/* Soft blurred background from the reference image */}
+      {/* Soft blurred studio background from the reference image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-40 pointer-events-none mix-blend-multiply" 
+        className="absolute inset-0 bg-cover bg-center opacity-[0.35] pointer-events-none mix-blend-multiply" 
         style={{ backgroundImage: "url('/images/services/nano_banana_bg.png')" }}
       />
+
+      {/* Subtle print dieline grid guides */}
+      <div 
+        className="absolute inset-0 pointer-events-none mix-blend-multiply opacity-[0.035]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(17, 17, 17, 0.15) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(17, 17, 17, 0.15) 1px, transparent 1px)
+          `,
+          backgroundSize: "60px 60px",
+        }}
+      />
+      
+      {/* Outer print crop marks/targets */}
+      <div className="absolute top-28 left-10 w-8 h-8 pointer-events-none opacity-20 border-l border-t border-[#d62020]" />
+      <div className="absolute top-28 right-10 w-8 h-8 pointer-events-none opacity-20 border-r border-t border-[#d62020]" />
+      <div className="absolute bottom-16 left-10 w-8 h-8 pointer-events-none opacity-20 border-l border-b border-[#d62020]" />
+      <div className="absolute bottom-16 right-10 w-8 h-8 pointer-events-none opacity-20 border-r border-b border-[#d62020]" />
+
+      {/* Packaging calibration color strips (represented on edges of professional dielines) */}
+      <div className="absolute left-6 lg:left-10 top-1/2 -translate-y-1/2 flex flex-col gap-1.5 opacity-15 pointer-events-none select-none">
+        <div className="w-1.5 h-6 bg-[#111111]" />
+        <div className="w-1.5 h-6 bg-[#d62020]" />
+        <div className="w-1.5 h-6 bg-[#FAF9F6] border border-[#111111]/30" />
+      </div>
+      
+      <div className="absolute right-6 lg:right-10 top-1/2 -translate-y-1/2 flex flex-col gap-1.5 opacity-15 pointer-events-none select-none">
+        <div className="w-1.5 h-6 bg-[#FAF9F6] border border-[#111111]/30" />
+        <div className="w-1.5 h-6 bg-[#d62020]" />
+        <div className="w-1.5 h-6 bg-[#111111]" />
+      </div>
 
       <div className="max-w-[1400px] mx-auto z-10 relative w-full flex flex-col items-center justify-center">
         {/* Centered Composition */}

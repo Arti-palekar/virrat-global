@@ -1,9 +1,10 @@
 import React from "react";
 import { Metadata } from "next";
-import { Navbar } from "@/components/shared/Navbar";
-import { Footer } from "@/components/shared/Footer";
+import HoverGradientNavBar from "@/components/HoverGradientNavBar";
+import CinematicFooter from "@/components/CinematicFooter";
 
 import { WebSoftwareHeroNew } from "./components/WebSoftwareHeroNew";
+import { WebSoftwareServicesShowcase } from "./components/WebSoftwareServicesShowcase";
 import { WebSoftwareMarquee } from "./components/WebSoftwareMarquee";
 import { WebSoftwareServices } from "./components/WebSoftwareServices";
 import { WebSoftwareProcess } from "./components/WebSoftwareProcess";
@@ -24,10 +25,13 @@ export const metadata: Metadata = {
 export default function WebSoftwarePage() {
   return (
     <>
-      <Navbar />
+      <HoverGradientNavBar />
       <main className="min-h-screen bg-[#f8f7f5] text-[#111111]">
         {/* 1. Hero Section */}
         <WebSoftwareHeroNew />
+
+        {/* 1.5 NEW — Web + Software Services Showcase */}
+        <WebSoftwareServicesShowcase />
 
         {/* 2. Animated Infinite Tagline Slider */}
         <WebSoftwareMarquee />
@@ -59,7 +63,7 @@ export default function WebSoftwarePage() {
         {/* 11. Call To Action */}
         <WebSoftwareCTA />
       </main>
-      <Footer />
+      <CinematicFooter />
     </>
   );
 }

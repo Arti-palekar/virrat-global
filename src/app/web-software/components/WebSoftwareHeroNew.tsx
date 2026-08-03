@@ -19,7 +19,7 @@ const badges = [
 
 export function WebSoftwareHeroNew() {
   return (
-    <div className="w-full px-4 py-6 sm:px-6 md:px-10 lg:px-16 bg-[#f8f7f5]">
+    <div className="w-full bg-[#f8f7f5]">
       <ShootingStarsGrid
         starCount={55}
         shootingStarCount={7}
@@ -29,7 +29,7 @@ export function WebSoftwareHeroNew() {
         interactive
         showGrid
         showStaticStars
-        className="min-h-[88vh] rounded-[2rem]"
+        className="min-h-[88vh] w-full rounded-none border-x-0"
         contentClassName="py-20 md:py-28"
       >
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center gap-6">
@@ -39,7 +39,7 @@ export function WebSoftwareHeroNew() {
             {badges.map((badge) => (
               <span
                 key={badge.label}
-                className="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-cyan-700 backdrop-blur dark:text-cyan-200"
+                className="inline-flex items-center gap-1.5 rounded-full border border-[#d62020]/20 bg-[#d62020]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#d62020] backdrop-blur dark:text-red-200"
               >
                 <badge.icon className="size-3" />
                 {badge.label}
@@ -51,7 +51,7 @@ export function WebSoftwareHeroNew() {
           <h1 className="text-balance text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl leading-none text-zinc-950 dark:text-white">
             We Build Software
             <br />
-            <span className="text-cyan-600 dark:text-cyan-300">That Works for You</span>
+            <span className="text-[#d62020] dark:text-red-400">That Works for You</span>
           </h1>
 
           {/* Subtitle */}
@@ -63,7 +63,7 @@ export function WebSoftwareHeroNew() {
           <div className="mt-2 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-950/20 transition-all hover:bg-zinc-800 active:scale-[0.98] dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
+              className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-semibold !text-white shadow-lg shadow-red-950/20 transition-all hover:bg-zinc-800 active:scale-[0.98] dark:bg-white dark:!text-zinc-950 dark:hover:bg-zinc-100"
             >
               Start Your Project
               <ArrowRight className="ml-2 size-4" />

@@ -274,7 +274,8 @@ export function HoverGradientNavBar(): React.JSX.Element {
                           >
                             {[
                               { name: 'All Services', href: '/services' },
-                              { name: 'Packaging Design', href: '/services/packaging-design' }
+                              { name: 'Packaging Design', href: '/services/packaging-design' },
+                              { name: 'Web + Software', href: '/web-software' }
                             ].map((sub) => (
                               <Link
                                 key={sub.name}

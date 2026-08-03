@@ -120,8 +120,8 @@ function GridRunner({
         top: isHorizontal ? linePosition : runner.start,
         width: isHorizontal ? runner.length : 1,
         height: isHorizontal ? 1 : runner.length,
-        background: `linear-gradient(${gradientDirection}, transparent 0%, rgba(8,145,178,0.14) 18%, rgba(103,232,249,0.92) 52%, rgba(255,255,255,0.96) 58%, transparent 100%)`,
-        boxShadow: "0 0 16px rgba(6,182,212,0.46), 0 0 28px rgba(148,163,184,0.18)",
+        background: `linear-gradient(${gradientDirection}, transparent 0%, rgba(214,32,32,0.14) 18%, rgba(239,59,59,0.92) 52%, rgba(255,255,255,0.96) 58%, transparent 100%)`,
+        boxShadow: "0 0 16px rgba(214,32,32,0.46), 0 0 28px rgba(148,163,184,0.18)",
       }}
       initial={{ opacity: 0, scaleX: isHorizontal ? 0.35 : 1, scaleY: isHorizontal ? 1 : 0.35 }}
       animate={
@@ -193,9 +193,9 @@ export function ShootingStarsGrid({
       ref={rootRef}
       onPointerMove={onPointerMove}
       className={cn(
-        "group/shooting-stars relative isolate min-h-[520px] w-full overflow-hidden rounded-[2rem] border border-zinc-200 bg-zinc-950 text-white shadow-2xl shadow-cyan-950/20 dark:border-white/10",
-        "dark:bg-[linear-gradient(180deg,#07090f_0%,#0b1020_55%,#07090f_100%)]",
-        "bg-[linear-gradient(180deg,#f8fbff_0%,#eaf4ff_52%,#f8fbff_100%)] text-zinc-950 dark:text-white",
+        "group/shooting-stars relative isolate min-h-[520px] w-full overflow-hidden rounded-[2rem] border border-zinc-200 bg-zinc-950 text-white shadow-2xl shadow-red-950/10 dark:border-white/10",
+        "dark:bg-[linear-gradient(180deg,#090505_0%,#180808_55%,#090505_100%)]",
+        "bg-[linear-gradient(180deg,#faf9f6_0%,#fff5f5_52%,#faf9f6_100%)] text-zinc-950 dark:text-white",
         className,
       )}
       style={
@@ -211,7 +211,7 @@ export function ShootingStarsGrid({
           aria-hidden="true"
           className={cn(
             "pointer-events-none absolute inset-0 -z-30 opacity-60",
-            "[background-image:linear-gradient(to_right,rgba(14,165,233,0.13)_1px,transparent_1px),linear-gradient(to_bottom,rgba(14,165,233,0.13)_1px,transparent_1px)]",
+            "[background-image:linear-gradient(to_right,rgba(214,32,32,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(214,32,32,0.08)_1px,transparent_1px)]",
             "[background-size:var(--shooting-stars-grid-size)_var(--shooting-stars-grid-size)]",
             "dark:[background-image:linear-gradient(to_right,rgba(255,255,255,0.075)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.075)_1px,transparent_1px)]",
           )}
@@ -226,7 +226,7 @@ export function ShootingStarsGrid({
       {glow && (
         <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_var(--shooting-stars-glow-x)_var(--shooting-stars-glow-y),rgba(8,145,178,0.28),transparent_34%),radial-gradient(circle_at_72%_72%,rgba(99,102,241,0.18),transparent_30%)] dark:bg-[radial-gradient(circle_at_var(--shooting-stars-glow-x)_var(--shooting-stars-glow-y),rgba(34,211,238,0.22),transparent_34%),radial-gradient(circle_at_72%_72%,rgba(168,85,247,0.16),transparent_30%)]"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_var(--shooting-stars-glow-x)_var(--shooting-stars-glow-y),rgba(214,32,32,0.18),transparent_34%),radial-gradient(circle_at_72%_72%,rgba(239,59,59,0.10),transparent_30%)] dark:bg-[radial-gradient(circle_at_var(--shooting-stars-glow-x)_var(--shooting-stars-glow-y),rgba(214,32,32,0.15),transparent_34%),radial-gradient(circle_at_72%_72%,rgba(239,59,59,0.08),transparent_30%)]"
           animate={shouldAnimate ? { opacity: [0.72, 1, 0.78], scale: [1, 1.03, 1] } : undefined}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -238,7 +238,7 @@ export function ShootingStarsGrid({
             <motion.span
               key={index}
               className={cn(
-                "absolute rounded-full bg-cyan-700 shadow-[0_0_12px_rgba(14,165,233,0.5)] dark:bg-white dark:shadow-[0_0_12px_rgba(255,255,255,0.55)]",
+                "absolute rounded-full bg-[#d62020] shadow-[0_0_12px_rgba(214,32,32,0.5)] dark:bg-white dark:shadow-[0_0_12px_rgba(255,255,255,0.55)]",
                 index > 34 && "max-sm:hidden",
               )}
               style={{
