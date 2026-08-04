@@ -279,7 +279,7 @@ export function CoverflowCarousel({
           <div
             className="relative select-none"
             style={{
-              height: "var(--cf-card)",
+              height: "calc(var(--cf-card) * 1.35)",
               transformStyle: "preserve-3d",
             }}
           >
@@ -293,7 +293,7 @@ export function CoverflowCarousel({
                 aria-roledescription="slide"
                 aria-label={`${index + 1} of ${count}`}
                 className={cn(
-                  "absolute left-1/2 top-0 aspect-square overflow-hidden rounded-2xl bg-muted shadow-xl will-change-transform",
+                  "absolute left-1/2 top-0 aspect-[3/4] overflow-hidden rounded-[24px] bg-muted shadow-[0_15px_35px_-5px_rgba(0,0,0,0.18),0_10px_20px_-10px_rgba(0,0,0,0.15)] will-change-transform",
                   cardClassName,
                 )}
                 style={{ width: "var(--cf-card)" }}

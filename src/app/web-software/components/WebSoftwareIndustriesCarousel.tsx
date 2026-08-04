@@ -85,7 +85,7 @@ const SLIDES: CoverflowSlide[] = [
 
 export function WebSoftwareIndustriesCarousel() {
   return (
-    <section className="w-full bg-[#f8f7f5] text-[#111111] py-24 border-b border-[#ECECEC] overflow-hidden">
+    <section className="w-full bg-white text-[#111111] py-24 border-b border-[#ECECEC] overflow-hidden">
       <div className="container mx-auto px-6 max-w-[1400px]">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -135,9 +135,9 @@ export function WebSoftwareIndustriesCarousel() {
           <CoverflowCarousel
             slides={SLIDES}
             showCaption
-            showPagination
-            showNavigation
-            cardWidth="clamp(220px, 35vw, 340px)"
+            showPagination={false}
+            showNavigation={false}
+            cardWidth="clamp(200px, 28vw, 300px)"
             className="py-4"
           />
         </div>
