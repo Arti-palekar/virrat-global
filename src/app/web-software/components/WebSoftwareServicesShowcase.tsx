@@ -110,7 +110,7 @@ export function WebSoftwareServicesShowcase() {
       ref={containerRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative w-full bg-[#ffffff] text-[#111111] pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden"
+      className="relative w-full bg-[#ffffff] text-[#111111] pt-16 pb-10 md:pt-20 md:pb-12 overflow-hidden"
     >
       {/* ── SHARED CENTRAL HEADER TEXT BLOCK ── */}
       <div className="max-w-[1400px] mx-auto px-6 relative z-30 flex flex-col items-center text-center">
@@ -156,7 +156,7 @@ export function WebSoftwareServicesShowcase() {
       </div>
 
       {/* ── DESKTOP INTEGRATED COMPOSITION (lg and up) ── */}
-      <div className="hidden lg:block relative w-[94vw] max-w-[1500px] mx-auto h-[480px] mt-16 z-20">
+      <div className="hidden lg:block relative w-[94vw] max-w-[1500px] mx-auto h-[480px] mt-5 z-20">
         {/* Staggered Floating Image Slots */}
         {slotsConfig.map((slot, slotIdx) => {
           // Identify currently active image content in this slot configuration
@@ -174,7 +174,7 @@ export function WebSoftwareServicesShowcase() {
                 ...slot.desktopStyle,
                 y: yVal,
               }}
-              initial={{ opacity: 0, y: 80 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{
@@ -217,7 +217,7 @@ export function WebSoftwareServicesShowcase() {
       </div>
 
       {/* ── TABLET STAGGERED GRID COMPOSITION (md to lg) ── */}
-      <div className="hidden md:block lg:hidden max-w-[1000px] mx-auto px-10 mt-14 z-20">
+      <div className="hidden md:block lg:hidden max-w-[1000px] mx-auto px-10 mt-5 z-20">
         <div className="grid grid-cols-3 gap-8">
           {Array.from({ length: 6 }).map((_, slotIdx) => {
             const card = showcaseImages[(startIndex + slotIdx) % showcaseImages.length];
@@ -260,7 +260,7 @@ export function WebSoftwareServicesShowcase() {
       </div>
 
       {/* ── MOBILE HORIZONTAL SWIPE COMPOSITION (< md) ── */}
-      <div className="block md:hidden mt-12 overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-5 px-6 pb-6">
+      <div className="block md:hidden mt-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-5 px-6 pb-6">
         {Array.from({ length: 6 }).map((_, slotIdx) => {
           const card = showcaseImages[(startIndex + slotIdx) % showcaseImages.length];
 

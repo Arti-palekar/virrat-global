@@ -839,12 +839,14 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 }
 
 
-/* Hide native cursor for precise-pointer devices */
+/* Hide native cursor for precise-pointer devices - disabled to restore native cursor */
+/*
 @media (pointer: fine) {
   body {
     cursor: none;
   }
 }
+*/
 
 @keyframes marquee-down {
   0% {
@@ -872,4 +874,18 @@ section.HomeHero_HomeHero__cp3ND>div>h1 span,
 .HomeHero_HomeHero__cp3ND h1,
 .HomeHero_HomeHero__cp3ND h1 span {
   color: #111111 !important;
+}
+
+html,
+body {
+  cursor: auto !important;
+}
+
+a,
+button,
+[role="button"],
+input[type="submit"],
+select,
+.clickable {
+  cursor: pointer !important;
 }
