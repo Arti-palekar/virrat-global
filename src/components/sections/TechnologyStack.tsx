@@ -73,14 +73,13 @@ function DockIcon({ item }: { item: DockItem }) {
           y: isClicked ? 2 : isHovered ? -12 : 0,
           scale: isHovered ? 1.2 : 1,
           boxShadow: isHovered 
-            ? "0 15px 35px rgba(214,32,32,0.18), inset 0 0 0 1px rgba(255,255,255,0.4)" 
-            : "0 10px 15px -3px rgb(0 0 0 / 0.1), inset 0 0 0 1px rgba(255,255,255,0.05)"
+            ? "0 20px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2)" 
+            : "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)"
         }}
         transition={{
           type: "spring",
-          stiffness: 300,
-          damping: 24,
-          mass: 1
+          stiffness: 400,
+          damping: 17,
         }}
       >
         <div className="flex items-center justify-center w-full h-full">
@@ -89,7 +88,7 @@ function DockIcon({ item }: { item: DockItem }) {
         
         {/* Shine effect */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"
           animate={{
             opacity: isHovered ? 0.3 : 0.1,
           }}
@@ -102,22 +101,15 @@ function DockIcon({ item }: { item: DockItem }) {
         initial={{ opacity: 0, y: 10, scale: 0.8 }}
         animate={{
           opacity: isHovered ? 1 : 0,
-          y: isHovered ? -56 : 10,
+          y: isHovered ? -40 : 10,
           scale: isHovered ? 1 : 0.8,
         }}
         transition={{
           type: "spring",
-          stiffness: 400,
-          damping: 25,
+          stiffness: 500,
+          damping: 30,
         }}
-        className="hidden md:block absolute top-0 left-1/2 transform -translate-x-1/2 text-white px-3 py-1.5 whitespace-nowrap pointer-events-none z-50"
-        style={{ 
-          backgroundColor: '#1B1B1B', 
-          fontSize: '13px', 
-          fontWeight: 600, 
-          borderRadius: '10px', 
-          boxShadow: '0 10px 25px -5px rgba(0,0,0,0.3), 0 8px 10px -6px rgba(0,0,0,0.1)' 
-        }}
+        className="hidden md:block absolute top-0 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-md whitespace-nowrap pointer-events-none shadow-xl font-medium z-50"
       >
         {item.name}
       </motion.div>
@@ -131,8 +123,8 @@ function DockIcon({ item }: { item: DockItem }) {
         }}
         transition={{
           type: "spring",
-          stiffness: 300,
-          damping: 24,
+          stiffness: 500,
+          damping: 30,
         }}
       />
     </motion.div>

@@ -6,15 +6,9 @@ import CinematicFooter from "@/components/CinematicFooter";
 import { WebSoftwareHeroNew } from "./components/WebSoftwareHeroNew";
 import { WebSoftwareServicesShowcase } from "./components/WebSoftwareServicesShowcase";
 import { WebSoftwareMarquee } from "./components/WebSoftwareMarquee";
-import { WebSoftwareServices } from "./components/WebSoftwareServices";
-import { WebSoftwareProcess } from "./components/WebSoftwareProcess";
-import { WebSoftwareBentoTech } from "./components/WebSoftwareBentoTech";
-import { WebSoftwareProjects } from "./components/WebSoftwareProjects";
-import { WebSoftwareIndustries } from "./components/WebSoftwareIndustries";
-import { WebSoftwareWhyUs } from "./components/WebSoftwareWhyUs";
-import { WebSoftwareTestimonials } from "./components/WebSoftwareTestimonials";
-import { WebSoftwareFAQ } from "./components/WebSoftwareFAQ";
-import { WebSoftwareCTA } from "./components/WebSoftwareCTA";
+import { WebSoftwareToolkit } from "./components/WebSoftwareToolkit";
+import { WebSoftwareDevProcess } from "./components/WebSoftwareDevProcess";
+import { WebSoftwarePlatforms } from "./components/WebSoftwarePlatforms";
 
 export const metadata: Metadata = {
   title: "Web & Software Development Services | Virrat Global",
@@ -36,32 +30,14 @@ export default function WebSoftwarePage() {
         {/* 2. Animated Infinite Tagline Slider */}
         <WebSoftwareMarquee />
 
-        {/* 3. Our Services */}
-        <WebSoftwareServices />
+        {/* 3. Development Toolkit */}
+        <WebSoftwareToolkit />
 
-        {/* 4. Development Process */}
-        <WebSoftwareProcess />
+        {/* 3.1 — S-curve Development Process */}
+        <WebSoftwareDevProcess />
 
-        {/* 5. Technologies Bento Grid */}
-        <WebSoftwareBentoTech />
-
-        {/* 6. Featured Projects */}
-        <WebSoftwareProjects />
-
-        {/* 7. Industries We Serve */}
-        <WebSoftwareIndustries />
-
-        {/* 8. Why Businesses Choose Virrat Global */}
-        <WebSoftwareWhyUs />
-
-        {/* 9. Client Testimonials */}
-        <WebSoftwareTestimonials />
-
-        {/* 10. FAQ */}
-        <WebSoftwareFAQ />
-
-        {/* 11. Call To Action */}
-        <WebSoftwareCTA />
+        {/* 3.2 — Development Workflow Platforms */}
+        <WebSoftwarePlatforms />
       </main>
       <CinematicFooter />
     </>
