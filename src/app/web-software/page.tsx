@@ -9,6 +9,7 @@ import { WebSoftwareMarquee } from "./components/WebSoftwareMarquee";
 import { WebSoftwareToolkit } from "./components/WebSoftwareToolkit";
 import { WebSoftwareDevProcess } from "./components/WebSoftwareDevProcess";
 import { WebSoftwarePlatforms } from "./components/WebSoftwarePlatforms";
+import { WebSoftwareIndustriesCarousel } from "./components/WebSoftwareIndustriesCarousel";
 
 export const metadata: Metadata = {
   title: "Web & Software Development Services | Virrat Global",
@@ -38,6 +39,9 @@ export default function WebSoftwarePage() {
 
         {/* 3.2 — Development Workflow Platforms */}
         <WebSoftwarePlatforms />
+
+        {/* 3.3 — Industries We Serve (Coverflow Carousel) */}
+        <WebSoftwareIndustriesCarousel />
       </main>
       <CinematicFooter />
     </>
