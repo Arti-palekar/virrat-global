@@ -1,151 +1,241 @@
 "use client";
 
-import React from "react";
-import { CoverflowCarousel, CoverflowSlide } from "@/components/ui/coverflow-carousel";
+import React, { useEffect, useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { CoverflowCarousel } from "@/components/ui/coverflow-carousel";
+import type { CoverflowSlide } from "@/components/ui/coverflow-carousel";
 
-const R2 = "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/stock-images";
-const UNSPLASH = (id: string) =>
-  `https://images.unsplash.com/photo-${id}?w=640&h=640&fit=crop&q=70&auto=format`;
+/* ─── Service data ────────────────────────────────────────────────────────── */
 
-const SLIDES: CoverflowSlide[] = [
+const SERVICES = [
   {
-    src: `${R2}/767d99bb371a54d0d36751e8cecae43c.jpg`,
-    alt: "Diver silhouetted inside a sunset seascape shaped like a profile",
-    title: "Tidewater",
-    subtitle: "Long Player",
-    meta: [
-      { label: "Year", value: "2019" },
-      { label: "Producer", value: "Ada Ferrow" },
-      { label: "Length", value: "3:42" },
-    ],
+    id: "website-dev",
+    src: "/images/services/website-dev.webp",
+    alt: "Website Development — premium corporate website on large monitor",
+    name: "WEBSITE DEVELOPMENT",
+    tagline: "Corporate • Business • Responsive",
+    description: "High-performance websites built for growth.",
   },
   {
-    src: `${R2}/821d815affa6496c39cbdeeec7a84603.jpg`,
-    alt: "Double-exposure portrait blended with a city skyline at dusk",
-    title: "Nightshift",
-    subtitle: "Long Player",
-    meta: [
-      { label: "Year", value: "2021" },
-      { label: "Producer", value: "Kell Mora" },
-      { label: "Length", value: "4:08" },
-    ],
+    id: "webapp-dev",
+    src: "/images/services/webapp-dev.webp",
+    alt: "Web Application Development — analytics dashboard on laptop",
+    name: "WEB APP DEVELOPMENT",
+    tagline: "Dashboards • Portals • Platforms",
+    description: "Scalable web applications built around your workflow.",
   },
   {
-    src: `${R2}/937438c560ada1c83317f2c11b3454b0.jpg`,
-    alt: "Motion-blurred side-profile portrait against a deep orange backdrop",
-    title: "Overexposed",
-    subtitle: "Single",
-    meta: [
-      { label: "Year", value: "2018" },
-      { label: "Producer", value: "Juno Vale" },
-      { label: "Length", value: "2:57" },
-    ],
+    id: "custom-software",
+    src: "/images/services/custom-software.webp",
+    alt: "Custom Software Development — developer workstation with code editor",
+    name: "CUSTOM SOFTWARE",
+    tagline: "Business • Workflow • Operations",
+    description: "Bespoke software engineered to fit your exact business logic.",
   },
   {
-    src: `${R2}/98f89cb9994f5c382ab964062c4039db.jpg`,
-    alt: "Figure holding a racket that dissolves into a swirling cloud at dusk",
-    title: "Slow Bloom",
-    subtitle: "EP",
-    meta: [
-      { label: "Year", value: "2022" },
-      { label: "Producer", value: "Rue Alcott" },
-      { label: "Length", value: "3:15" },
-    ],
+    id: "erp",
+    src: "/images/services/erp.webp",
+    alt: "ERP Solutions — unified enterprise business management dashboard",
+    name: "ERP SOLUTIONS",
+    tagline: "Finance • Inventory • Operations",
+    description: "Connected business operations in one powerful platform.",
   },
   {
-    src: `${R2}/ddcbee38be8b7274e19e132d7ab35b53.jpg`,
-    alt: "Hand gesture with a cutout of a bird flying through the fingers",
-    title: "Open Palm",
-    subtitle: "Single",
-    meta: [
-      { label: "Year", value: "2020" },
-      { label: "Producer", value: "Ada Ferrow" },
-      { label: "Length", value: "3:01" },
-    ],
+    id: "crm",
+    src: "/images/services/erp_crm_mockup.png",
+    alt: "CRM Solutions — sales pipeline and customer management dashboard",
+    name: "CRM SOLUTIONS",
+    tagline: "Leads • Sales • Customers",
+    description: "Manage leads, customers and sales more efficiently.",
   },
   {
-    src: UNSPLASH("1470071459604-3b5ec3a7fe05"),
-    alt: "Fog rolling through a forested valley at first light",
-    title: "Low Country",
-    subtitle: "Long Player",
-    meta: [
-      { label: "Year", value: "2017" },
-      { label: "Producer", value: "Sim Oyo" },
-      { label: "Length", value: "5:20" },
-    ],
+    id: "saas",
+    src: "/images/services/saas_mockup.png",
+    alt: "SaaS Platform Development — modern SaaS analytics dashboard on tablet",
+    name: "SAAS PLATFORMS",
+    tagline: "Multi-Tenant • Subscription • Cloud",
+    description: "Scalable SaaS products from MVP to enterprise-grade.",
   },
   {
-    src: UNSPLASH("1500534314209-a25ddb2bd429"),
-    alt: "Sunlit dune ridge under a hard blue sky",
-    title: "Dry Season",
-    subtitle: "EP",
-    meta: [
-      { label: "Year", value: "2016" },
-      { label: "Producer", value: "Juno Vale" },
-      { label: "Length", value: "2:44" },
-    ],
+    id: "ecommerce",
+    src: "/images/services/ecommerce_mockup.png",
+    alt: "E-Commerce Development — luxury online store on laptop",
+    name: "E-COMMERCE",
+    tagline: "Stores • Marketplace • Payments",
+    description: "Premium online stores and marketplace platforms that convert.",
   },
   {
-    src: UNSPLASH("1441974231531-c6227db76b6e"),
-    alt: "Sunlight breaking through a dense stand of trees",
-    title: "Understory",
-    subtitle: "Single",
-    meta: [
-      { label: "Year", value: "2023" },
-      { label: "Producer", value: "Kell Mora" },
-      { label: "Length", value: "3:38" },
-    ],
+    id: "mobile",
+    src: "/images/services/mobile_mockup.png",
+    alt: "Mobile App Development — premium smartphone application interface",
+    name: "MOBILE APPS",
+    tagline: "Flutter • Android • iOS",
+    description: "Native and cross-platform mobile apps for any industry.",
   },
   {
-    src: UNSPLASH("1493246507139-91e8fad9978e"),
-    alt: "Pastel abstract of coloured smoke against a pale ground",
-    title: "Paper Lantern",
-    subtitle: "Single",
-    meta: [
-      { label: "Year", value: "2021" },
-      { label: "Producer", value: "Rue Alcott" },
-      { label: "Length", value: "2:19" },
-    ],
+    id: "api",
+    src: "/images/services/ai_automation_mockup.png",
+    alt: "API & System Integrations — connected workflow automation interface",
+    name: "API & INTEGRATIONS",
+    tagline: "REST API • Payments • Systems",
+    description: "Seamlessly connect your platforms, payment systems and tools.",
   },
   {
-    src: UNSPLASH("1501785888041-af3ef285b470"),
-    alt: "Mountain lake mirroring a ridgeline at dusk",
-    title: "Still Water",
-    subtitle: "Long Player",
-    meta: [
-      { label: "Year", value: "2015" },
-      { label: "Producer", value: "Ada Ferrow" },
-      { label: "Length", value: "4:51" },
-    ],
-  },
-  {
-    src: UNSPLASH("1465101162946-4377e57745c3"),
-    alt: "Long exposure of light trails over a dark landscape",
-    title: "Third Rail",
-    subtitle: "EP",
-    meta: [
-      { label: "Year", value: "2024" },
-      { label: "Producer", value: "Sim Oyo" },
-      { label: "Length", value: "3:07" },
-    ],
-  },
-  {
-    src: UNSPLASH("1519681393784-d120267933ba"),
-    alt: "Snow-covered peak lit by a cold morning sun",
-    title: "Undertow",
-    subtitle: "Single",
-    meta: [
-      { label: "Year", value: "2020" },
-      { label: "Producer", value: "Juno Vale" },
-      { label: "Length", value: "3:29" },
-    ],
+    id: "cloud",
+    src: "/images/services/web_app_mockup.png",
+    alt: "Cloud & DevOps Solutions — infrastructure and analytics dashboard",
+    name: "CLOUD & DEVOPS",
+    tagline: "Deployment • CI/CD • Infrastructure",
+    description: "Reliable cloud infrastructure, CI/CD pipelines and DevOps.",
   },
 ];
+
+/* ─── Card overlay ────────────────────────────────────────────────────────── */
+
+function CardOverlay({ name, tagline }: { name: string; tagline: string }) {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        pointerEvents: "none",
+        background:
+          "linear-gradient(to top, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.22) 42%, transparent 65%)",
+        borderRadius: "inherit",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        padding: "14px 16px",
+      }}
+    >
+      <span
+        style={{
+          display: "block",
+          fontSize: "9.5px",
+          fontWeight: 700,
+          letterSpacing: "0.13em",
+          color: "#ffffff",
+          textTransform: "uppercase",
+          lineHeight: 1,
+          marginBottom: "4px",
+        }}
+      >
+        {name}
+      </span>
+      <span
+        style={{
+          display: "block",
+          fontSize: "8.5px",
+          fontWeight: 400,
+          letterSpacing: "0.03em",
+          color: "rgba(255,255,255,0.68)",
+          lineHeight: 1.4,
+        }}
+      >
+        {tagline}
+      </span>
+    </div>
+  );
+}
+
+/* ─── Build slides ────────────────────────────────────────────────────────── */
+
+const SLIDES: CoverflowSlide[] = SERVICES.map((svc) => ({
+  src: svc.src,
+  alt: svc.alt,
+  title: svc.name,
+  subtitle: svc.tagline,
+  overlay: <CardOverlay name={svc.name} tagline={svc.tagline} />,
+}));
+
+/* ─── Active label ────────────────────────────────────────────────────────── */
+
+function ActiveLabel({
+  name,
+  description,
+}: {
+  name: string;
+  description: string;
+}) {
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={name}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -6 }}
+        transition={{ duration: 0.38, ease: [0.4, 0, 0.2, 1] }}
+        style={{ textAlign: "center" }}
+      >
+        <span
+          style={{
+            display: "block",
+            fontSize: "11px",
+            fontWeight: 700,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "#d62020",
+            marginBottom: "6px",
+          }}
+        >
+          {name}
+        </span>
+        <span
+          style={{
+            display: "block",
+            fontSize: "14px",
+            fontWeight: 400,
+            color: "#666666",
+            lineHeight: 1.5,
+          }}
+        >
+          {description}
+        </span>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+/* ─── Auto-advancing carousel ─────────────────────────────────────────────── */
+
+function AutoCoverflowCarousel() {
+  const [active, setActive] = useState(0);
+  const count = SERVICES.length;
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActive((prev) => (prev + 1) % count);
+    }, 3500);
+    return () => clearInterval(id);
+  }, [count]);
+
+  const handleSelect = useCallback((index: number) => {
+    setActive(index);
+  }, []);
+
+  return (
+    <>
+      <CoverflowCarousel
+        slides={SLIDES}
+        showCaption={false}
+        showPagination={false}
+        showNavigation={false}
+        cardWidth="clamp(160px, 20vw, 300px)"
+        className="py-4"
+        activeIndex={active}
+        onSelect={handleSelect}
+      />
+    </>
+  );
+}
+
+/* ─── Section ─────────────────────────────────────────────────────────────── */
 
 export function WebSoftwareIndustriesCarousel() {
   return (
     <section className="w-full bg-white text-[#111111] py-24 border-b border-[#ECECEC] overflow-hidden">
       <div className="container mx-auto px-6 max-w-[1400px]">
+
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span
@@ -161,6 +251,7 @@ export function WebSoftwareIndustriesCarousel() {
           >
             INDUSTRIES WE SERVE
           </span>
+
           <h2
             className="font-heading"
             style={{
@@ -174,9 +265,10 @@ export function WebSoftwareIndustriesCarousel() {
           >
             Domain Expertise Across{" "}
             <span style={{ fontWeight: 700 }} className="text-[#D62020]">
-              Global Sectors
+              Every Industry
             </span>
           </h2>
+
           <p
             style={{
               fontSize: "16px",
@@ -185,21 +277,24 @@ export function WebSoftwareIndustriesCarousel() {
               lineHeight: 1.6,
             }}
           >
-            We deliver tailored web applications and software solutions designed to solve regulatory, operational, and scale challenges in every major industry.
+            We build industry-focused web platforms, software, ERP systems and
+            automation solutions designed around real business workflows,
+            customers and growth.
           </p>
         </div>
 
-        {/* Carousel Container */}
-        <div className="max-w-4xl mx-auto relative mt-8">
-          <CoverflowCarousel
-            slides={SLIDES}
-            showCaption
-            showPagination={false}
-            showNavigation={false}
-            cardWidth="clamp(200px, 28vw, 300px)"
-            className="py-4"
-          />
+        {/* Carousel */}
+        <div
+          className="relative mt-8 mx-auto"
+          style={{
+            width: "min(96vw, 1500px)",
+            paddingLeft: "clamp(40px, 6vw, 110px)",
+            paddingRight: "clamp(40px, 6vw, 110px)",
+          }}
+        >
+          <AutoCoverflowCarousel />
         </div>
+
       </div>
     </section>
   );

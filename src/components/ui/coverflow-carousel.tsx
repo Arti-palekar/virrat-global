@@ -14,6 +14,8 @@ export interface CoverflowSlide {
   title?: string;
   subtitle?: string;
   meta?: { label: string; value: string }[];
+  /** Optional overlay rendered on top of the image inside the card */
+  overlay?: React.ReactNode;
 }
 
 export interface CoverflowCarouselProps {
@@ -40,6 +42,11 @@ export interface CoverflowCarouselProps {
   label?: string;
   className?: string;
   cardClassName?: string;
+  /** Controlled: which card index is centred. When supplied the carousel
+      will animate to this index whenever it changes. */
+  activeIndex?: number;
+  /** Called whenever the centred card changes (drag, keyboard, or auto). */
+  onSelect?: (index: number) => void;
 }
 
 export function CoverflowCarousel({
@@ -58,6 +65,8 @@ export function CoverflowCarousel({
   label = "Cover carousel",
   className,
   cardClassName,
+  activeIndex,
+  onSelect,
 }: CoverflowCarouselProps) {
   const count = slides.length;
 
@@ -78,7 +87,16 @@ export function CoverflowCarousel({
     t: number;
   } | null>(null);
 
-  const [selected, setSelected] = React.useState(0);
+  const [selected, setSelected] = React.useState(activeIndex ?? 0);
+
+  /** Sync internal selected state and fire onSelect callback */
+  const syncSelected = React.useCallback(
+    (idx: number) => {
+      setSelected(idx);
+      onSelect?.(idx);
+    },
+    [onSelect],
+  );
 
   /** Nearest whole card, folded back into 0..count-1. */
   const indexAt = React.useCallback(
@@ -129,7 +147,7 @@ export function CoverflowCarousel({
     (target: number) => {
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
       targetRef.current = target;
-      setSelected(indexAt(target));
+      syncSelected(indexAt(target));
 
       const step = () => {
         const remaining = target - posRef.current;
@@ -147,7 +165,7 @@ export function CoverflowCarousel({
       };
       rafRef.current = requestAnimationFrame(step);
     },
-    [indexAt, paint],
+    [indexAt, paint, syncSelected],
   );
 
   const clamp = React.useCallback(
@@ -241,6 +259,14 @@ export function CoverflowCarousel({
     [],
   );
 
+  /** Respond to external activeIndex changes (controlled mode) */
+  React.useEffect(() => {
+    if (activeIndex !== undefined) {
+      goTo(activeIndex);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex]);
+
   const active = slides[selected];
 
   return (
@@ -268,8 +294,9 @@ export function CoverflowCarousel({
               nudge(1);
             }
           }}
-          // Vertical padding keeps the drop shadows clear of the overflow clip.
-          className="cursor-grab overflow-hidden py-10 outline-none ring-ring focus-visible:ring-2 active:cursor-grabbing"
+          // overflow-visible lets outer rotated cards extend beyond the frame;
+          // the parent section's overflow:hidden is the final clip boundary.
+          className="cursor-grab overflow-visible py-10 outline-none ring-ring focus-visible:ring-2 active:cursor-grabbing"
           style={{
             perspective: `calc(var(--cf-card) * ${perspective})`,
             // Horizontal drag is ours; the page keeps vertical scrolling.
@@ -305,6 +332,7 @@ export function CoverflowCarousel({
                   draggable={false}
                   className="h-full w-full select-none object-cover"
                 />
+                {slide.overlay}
               </div>
             ))}
           </div>
@@ -345,16 +373,7 @@ export function CoverflowCarousel({
               {active.subtitle}
             </p>
           )}
-          {active.meta && active.meta.length > 0 && (
-            <dl className="mt-10 w-full max-w-[230px] text-[12px]">
-              {active.meta.map((row) => (
-                <div key={row.label} className="flex justify-between py-[5px]">
-                  <dt className="text-muted-foreground">{row.label}</dt>
-                  <dd className="font-medium text-foreground">{row.value}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
+
         </div>
       )}
 
