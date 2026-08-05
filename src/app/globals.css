@@ -9,6 +9,30 @@
   
   --font-heading: var(--font-space-grotesk);
   --font-body: var(--font-inter);
+
+  /* Bento Grid specific colors */
+  --color-highlight-light: #DADBF8;
+  --color-accent-light: #D9EAE3;
+  --color-primary-light: #FFCFE1;
+  --color-secondary-light: #FFFCE5;
+  --color-primary-bento: #FF0F67;
+  --color-primary-bento-content: #fff;
+  --color-secondary-bento: #FFF07C;
+  --color-secondary-bento-content: #0A0A0A;
+  --color-accent-bento: #439775;
+  --color-accent-bento-content: #0A0A0A;
+  --color-neutral-bento: #222222;
+  --color-neutral-bento-content: #FFFFFF;
+  --color-base-100-bento: #f0f0f0;
+  --color-base-200-bento: #ffffff;
+  --color-base-300-bento: #F2F2F2;
+  --color-base-content-bento: #0A0A0A;
+  --color-info-bento: #3ABFF8;
+  --color-success-bento: #36D399;
+  --color-warning-bento: #FBBD23;
+  --color-error-bento: #F87272;
+  --color-highlight-bento: #454ADE;
+  --color-muted-bento: #777777;
 }
 
 :root {

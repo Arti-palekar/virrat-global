@@ -9,6 +9,7 @@ import FAQ1 from "@/components/FAQ1";
 
 // Custom page components
 import DMHero from "./components/DMHero";
+import ColorfulBentoGrid from "@/components/ui/colorful-bento-grid";
 import DMTopPicks from "./components/DMTopPicks";
 import DMTools from "./components/DMTools";
 import DMProcess from "./components/DMProcess";
@@ -109,6 +110,9 @@ export default function DigitalMarketingPage() {
       <div className="relative w-full z-10">
         {/* Section 01 & 02: Intro & Hero */}
         <DMHero />
+
+        {/* Free Resources & Tools Bento Grid */}
+        <ColorfulBentoGrid />
 
         {/* Top Picks Showcase Section */}
         <DMTopPicks />
