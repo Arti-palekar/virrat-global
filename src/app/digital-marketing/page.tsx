@@ -11,6 +11,7 @@ import FAQ1 from "@/components/FAQ1";
 import DMHero from "./components/DMHero";
 import ColorfulBentoGrid from "@/components/ui/colorful-bento-grid";
 import DMTopPicks from "./components/DMTopPicks";
+import { ClipPathLinks } from "@/components/ui/clip-path-links";
 import DMTools from "./components/DMTools";
 import DMProcess from "./components/DMProcess";
 import DMConsiderations from "./components/DMConsiderations";
@@ -116,6 +117,9 @@ export default function DigitalMarketingPage() {
 
         {/* Top Picks Showcase Section */}
         <DMTopPicks />
+
+        {/* Clip-Path Ecosystem Links */}
+        <ClipPathLinks />
 
         {/* Tools We Use Section */}
         <DMTools />
