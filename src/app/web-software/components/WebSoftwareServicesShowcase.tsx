@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 const showcaseImages = [
   { title: "CUSTOM WEB APPS", image: "/images/services/web_app_mockup.png" },
@@ -20,277 +20,184 @@ const showcaseImages = [
   { title: "CLIENT DATABASE PORTALS", image: "/images/services/marketing_3.png" },
 ];
 
-const slotsConfig = [
-  {
-    id: "slot-01",
-    desktopStyle: {
-      left: "0%",
-      top: "0px",
-      width: "16%",
-      height: "340px",
-    },
-    parallaxRange: [0, -45],
-  },
-  {
-    id: "slot-02",
-    desktopStyle: {
-      left: "18%",
-      top: "80px",
-      width: "14.5%",
-      height: "300px",
-    },
-    parallaxRange: [0, 30],
-  },
-  {
-    id: "slot-03",
-    desktopStyle: {
-      left: "34.5%",
-      top: "160px",
-      width: "14.5%",
-      height: "300px",
-    },
-    parallaxRange: [0, -25],
-  },
-  {
-    id: "slot-04",
-    desktopStyle: {
-      left: "51%",
-      top: "160px",
-      width: "14.5%",
-      height: "300px",
-    },
-    parallaxRange: [0, 35],
-  },
-  {
-    id: "slot-05",
-    desktopStyle: {
-      left: "67.5%",
-      top: "80px",
-      width: "14.5%",
-      height: "300px",
-    },
-    parallaxRange: [0, -30],
-  },
-  {
-    id: "slot-06",
-    desktopStyle: {
-      left: "84%",
-      top: "0px",
-      width: "16%",
-      height: "340px",
-    },
-    parallaxRange: [0, 50],
-  },
-];
-
 export function WebSoftwareServicesShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [startIndex, setStartIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
 
-  // Parallax hook bound to section scroll progress
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  // Autoplay intervals
-  useEffect(() => {
-    if (isHovered) return;
-
-    const interval = setInterval(() => {
-      setStartIndex((prev) => (prev + 1) % showcaseImages.length);
-    }, 3200);
-
-    return () => clearInterval(interval);
-  }, [isHovered]);
+  const selectedServices = [
+    {
+      title: "Website Development",
+      description: "High-performance digital experiences",
+      image: showcaseImages.find((img) => img.title === "WEBSITE DEVELOPMENT")?.image || "/images/services/website_mockup.png",
+      href: "/services",
+    },
+    {
+      title: "eCommerce Development",
+      description: "Modern online store & checkout systems",
+      image: showcaseImages.find((img) => img.title === "E-COMMERCE")?.image || "/images/services/ecommerce_mockup.png",
+      href: "/services",
+    },
+    {
+      title: "Custom Software",
+      description: "Tailored business logic & automation",
+      image: showcaseImages.find((img) => img.title === "CUSTOM SOFTWARE")?.image || "/images/services/web_1.png",
+      href: "/services",
+    },
+    {
+      title: "Mobile App Development",
+      description: "Premium iOS & Android applications",
+      image: showcaseImages.find((img) => img.title === "MOBILE APPS")?.image || "/images/services/mobile_mockup.png",
+      href: "/services",
+    },
+  ];
 
   return (
     <section
       ref={containerRef}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative w-full bg-[#ffffff] text-[#111111] pt-16 pb-10 md:pt-20 md:pb-12 overflow-hidden"
+      className="relative w-full bg-[#ffffff] text-[#111111] pt-16 pb-16 md:pt-20 md:pb-20 overflow-hidden"
     >
-      {/* ── SHARED CENTRAL HEADER TEXT BLOCK ── */}
-      <div className="max-w-[1400px] mx-auto px-6 relative z-30 flex flex-col items-center text-center">
-        {/* Headline */}
-        <motion.h2
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-          className="text-[#111111] text-3xl md:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-none max-w-2xl"
-        >
-          Digital Products Built
-          <br />
-          Around Your Business
-        </motion.h2>
-
-        {/* Supporting description */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
-          className="text-[#666666] text-sm md:text-base leading-relaxed max-w-2xl mt-5 mb-8"
-        >
-          From high-performance websites and custom software to SaaS platforms, mobile apps and business automation — we build scalable digital solutions designed for real-world growth.
-        </motion.p>
-
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-        >
-          <Link
-            href="/services"
-            className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-semibold !text-white shadow-md hover:bg-zinc-800 transition-all duration-300 group"
-          >
-            Explore Our Services
-            <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-          </Link>
-        </motion.div>
-      </div>
-
-      {/* ── DESKTOP INTEGRATED COMPOSITION (lg and up) ── */}
-      <div className="hidden lg:block relative w-[94vw] max-w-[1500px] mx-auto h-[480px] mt-5 z-20">
-        {/* Staggered Floating Image Slots */}
-        {slotsConfig.map((slot, slotIdx) => {
-          // Identify currently active image content in this slot configuration
-          const card = showcaseImages[(startIndex + slotIdx) % showcaseImages.length];
-          
-          // Calculate individual custom parallax offset
-          // eslint-disable-next-line react-hooks/rules-of-hooks
-          const yVal = useTransform(scrollYProgress, [0, 1], slot.parallaxRange);
-
-          return (
-            <motion.div
-              key={`desktop-${slot.id}`}
-              style={{
-                position: "absolute",
-                ...slot.desktopStyle,
-                y: yVal,
-              }}
+      <div className="max-w-[1400px] mx-auto px-6">
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-10 md:mb-12">
+          <div>
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                duration: 0.85,
-                delay: slotIdx * 0.08,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="pointer-events-auto group cursor-pointer"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-[#111111] text-3xl md:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-[1.1] max-w-xl text-left"
             >
-              {/* Image container with transition swap support */}
-              <div className="relative w-full h-full overflow-hidden rounded-[18px] border border-zinc-100 shadow-sm transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-md bg-white">
-                
-                <AnimatePresence initial={false}>
-                  <motion.img
-                    key={card.image}
-                    src={card.image}
-                    alt={card.title}
-                    initial={{ opacity: 0, x: 22 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -22 }}
-                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
-                    draggable={false}
-                  />
-                </AnimatePresence>
-
-                {/* Dark Hover overlay layer */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10" />
-                
-                {/* Micro title display on hover */}
-                <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
-                  <p className="text-[10px] font-bold text-white tracking-widest uppercase filter drop-shadow">
-                    {card.title}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
-
-      {/* ── TABLET STAGGERED GRID COMPOSITION (md to lg) ── */}
-      <div className="hidden md:block lg:hidden max-w-[1000px] mx-auto px-10 mt-5 z-20">
-        <div className="grid grid-cols-3 gap-8">
-          {Array.from({ length: 6 }).map((_, slotIdx) => {
-            const card = showcaseImages[(startIndex + slotIdx) % showcaseImages.length];
-            const isStaggered = slotIdx % 3 === 1;
-            const isDeepStaggered = slotIdx % 3 === 2;
-            const staggerClass = isStaggered 
-              ? "mt-12" 
-              : isDeepStaggered 
-                ? "mt-6" 
-                : "mt-0";
-
-            return (
-              <div
-                key={`tablet-${slotIdx}`}
-                className={`flex flex-col gap-3 group ${staggerClass}`}
-              >
-                <div className="relative aspect-[3/4] overflow-hidden rounded-[16px] border border-zinc-100 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md bg-white">
-                  <AnimatePresence initial={false}>
-                    <motion.img
-                      key={card.image}
-                      src={card.image}
-                      alt={card.title}
-                      initial={{ opacity: 0, x: 18 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -18 }}
-                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  </AnimatePresence>
-                </div>
-                <div className="px-1 text-center h-8 flex items-center justify-center">
-                  <p className="text-[11px] font-bold text-zinc-800 tracking-wider uppercase">
-                    {card.title}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+              Solutions built for
+              <br />
+              modern businesses
+            </motion.h2>
+          </div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="flex items-center gap-2.5 self-start md:self-end"
+          >
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center rounded-full bg-zinc-950 px-6 py-3.5 text-xs font-bold uppercase tracking-wider !text-white shadow-sm hover:bg-zinc-800 transition-colors duration-300"
+            >
+              Explore All Services
+            </Link>
+            <Link
+              href="/services"
+              className="flex items-center justify-center w-11 h-11 rounded-full bg-zinc-950 !text-white shadow-sm hover:bg-zinc-800 transition-colors duration-300"
+            >
+              <ArrowUpRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
-      </div>
 
-      {/* ── MOBILE HORIZONTAL SWIPE COMPOSITION (< md) ── */}
-      <div className="block md:hidden mt-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-5 px-6 pb-6">
-        {Array.from({ length: 6 }).map((_, slotIdx) => {
-          const card = showcaseImages[(startIndex + slotIdx) % showcaseImages.length];
-
-          return (
-            <div
-              key={`mobile-${slotIdx}`}
-              className="flex-shrink-0 w-[240px] snap-center flex flex-col gap-3"
+        {/* Desktop & Tablet Layout (md and up) */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+          {selectedServices.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
             >
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[16px] border border-zinc-100 shadow-sm bg-white">
-                <AnimatePresence initial={false}>
-                  <motion.img
-                    key={card.image}
-                    src={card.image}
-                    alt={card.title}
-                    initial={{ opacity: 0, x: 18 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -18 }}
-                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                </AnimatePresence>
-              </div>
-              <div className="px-1 text-center h-8 flex items-center justify-center">
-                <p className="text-[11px] font-bold text-zinc-800 tracking-wider uppercase">
-                  {card.title}
-                </p>
-              </div>
+              <Link
+                href={service.href}
+                className="group block relative w-full overflow-hidden rounded-[20px] md:rounded-[24px] bg-zinc-900"
+                style={{ aspectRatio: "0.72 / 1" }}
+              >
+                {/* Image */}
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] select-none"
+                  draggable={false}
+                />
+
+                {/* Subtle dark overlay for text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 pointer-events-none" />
+
+                {/* Micro hover darkening layer */}
+                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-15 pointer-events-none" />
+
+                {/* Top-Right Circular Button */}
+                <div className="absolute top-[18px] right-[18px] z-20 flex items-center justify-center w-[42px] h-[42px] md:w-[46px] md:h-[46px] rounded-full bg-white group-hover:bg-zinc-950 text-zinc-950 group-hover:text-white shadow-sm transition-all duration-500 ease-out">
+                  <ArrowUpRight className="w-5 h-5 transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+
+                {/* Bottom-Left Content */}
+                <div className="absolute bottom-[20px] left-[20px] z-20 pr-4">
+                  <h3 
+                    className="text-white !text-white font-black uppercase tracking-tight text-lg md:text-xl mb-1 leading-tight"
+                    style={{ color: "#ffffff" }}
+                  >
+                    {service.title}
+                  </h3>
+                  <p 
+                    className="text-white/80 !text-white/80 text-xs md:text-sm font-medium leading-snug"
+                    style={{ color: "rgba(255, 255, 255, 0.8)" }}
+                  >
+                    {service.description}
+                  </p>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Mobile Swipe Layout (< md) */}
+        <div 
+          className="md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-6 px-6"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {selectedServices.map((service, index) => (
+            <div key={index} className="flex-shrink-0 w-[280px] snap-center">
+              <Link
+                href={service.href}
+                className="group block relative w-full overflow-hidden rounded-[20px] bg-zinc-900"
+                style={{ aspectRatio: "0.72 / 1" }}
+              >
+                {/* Image */}
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] select-none"
+                  draggable={false}
+                />
+
+                {/* Subtle dark overlay for text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 pointer-events-none" />
+
+                {/* Micro hover darkening layer */}
+                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-15 pointer-events-none" />
+
+                {/* Top-Right Circular Button */}
+                <div className="absolute top-[18px] right-[18px] z-20 flex items-center justify-center w-[42px] h-[42px] rounded-full bg-white group-hover:bg-zinc-950 text-zinc-950 group-hover:text-white shadow-sm transition-all duration-500 ease-out">
+                  <ArrowUpRight className="w-5 h-5 transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+
+                {/* Bottom-Left Content */}
+                <div className="absolute bottom-[20px] left-[20px] z-20 pr-4">
+                  <h3 
+                    className="text-white !text-white font-black uppercase tracking-tight text-lg mb-1 leading-tight"
+                    style={{ color: "#ffffff" }}
+                  >
+                    {service.title}
+                  </h3>
+                  <p 
+                    className="text-white/80 !text-white/80 text-xs font-medium leading-snug"
+                    style={{ color: "rgba(255, 255, 255, 0.8)" }}
+                  >
+                    {service.description}
+                  </p>
+                </div>
+              </Link>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </section>
   );

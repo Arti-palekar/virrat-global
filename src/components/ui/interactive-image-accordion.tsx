@@ -1,144 +1,131 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import * as React from "react";
+import {
+  Pyramid,
+  Castle,
+  Mountain,
+  TowerControl,
+  Building,
+  Landmark,
+} from "lucide-react";
+import { cn } from "@/lib/utils"; 
 
-// --- Data for the image accordion ---
-const accordionItems = [
-  {
-    id: 1,
-    title: "Dedicated Experts",
-    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1974&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    title: "Fast Delivery",
-    imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    id: 3,
-    title: "AI-Powered Tech",
-    imageUrl: "https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    id: 4,
-    title: "Custom Solutions",
-    imageUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2090&auto=format&fit=crop",
-  },
-  {
-    id: 5,
-    title: "Enterprise Support",
-    imageUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
-  },
-];
-
-interface AccordionItemProps {
-  item: {
-    id: number;
-    title: string;
-    imageUrl: string;
-  };
-  isActive: boolean;
-  onMouseEnter: () => void;
+export interface CardItem {
+  id: string | number;
+  title: string;
+  description: string;
+  imgSrc: string;
+  icon: React.ReactNode;
+  linkHref: string;
 }
 
-// --- Accordion Item Component ---
-const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEnter }) => {
-  return (
-    <div
-      className={`
-        relative h-[450px] rounded-2xl overflow-hidden cursor-pointer shrink-0
-        transition-all duration-700 ease-in-out
-        ${isActive ? "w-[300px] sm:w-[360px] md:w-[380px] lg:w-[400px]" : "w-[60px] sm:w-[70px]"}
-      `}
-      onMouseEnter={onMouseEnter}
-    >
-      {/* Background Image */}
-      <img
-        src={item.imageUrl}
-        alt={item.title}
-        className="absolute inset-0 w-full h-full object-cover"
-        onError={(e: any) => {
-          e.target.onerror = null;
-          e.target.src = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80";
-        }}
-      />
-      {/* Dark overlay for readability */}
-      <div className={`absolute inset-0 transition-opacity duration-500 ${isActive ? "bg-gradient-to-t from-black/80 via-black/30 to-transparent" : "bg-black/55"}`}></div>
+interface ExpandingCardsProps extends React.HTMLAttributes<HTMLUListElement> {
+  items: CardItem[];
+  defaultActiveIndex?: number;
+}
 
-      {/* Caption Text */}
-      <span
-        className={`
-          absolute text-white font-semibold whitespace-nowrap
-          transition-all duration-300 ease-in-out
-          ${
-            isActive
-              ? "bottom-6 left-6 text-xl md:text-2xl rotate-0 font-heading"
-              : "w-auto text-left bottom-24 left-1/2 -translate-x-1/2 rotate-90 text-sm opacity-80"
-          }
-        `}
-      >
-        {item.title}
-      </span>
-    </div>
+export const ExpandingCards = React.forwardRef<
+  HTMLUListElement,
+  ExpandingCardsProps
+>(({ className, items, defaultActiveIndex = 0, ...props }, ref) => {
+  const [activeIndex, setActiveIndex] = React.useState<number | null>(
+    defaultActiveIndex,
   );
-};
+  
+  const [isDesktop, setIsDesktop] = React.useState(false);
 
-// --- Main App Component ---
-export function LandingAccordionItem() {
-  const [activeIndex, setActiveIndex] = useState(3);
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-  const handleItemHover = (index: number) => {
+  const gridStyle = React.useMemo(() => {
+    if (activeIndex === null) return {};
+    
+    if (isDesktop) {
+      const columns = items
+        .map((_, index) => (index === activeIndex ? "5fr" : "1fr"))
+        .join(" ");
+      return { gridTemplateColumns: columns };
+    } else {
+      const rows = items
+        .map((_, index) => (index === activeIndex ? "5fr" : "1fr"))
+        .join(" ");
+      return { gridTemplateRows: rows };
+    }
+  }, [activeIndex, items.length, isDesktop]);
+
+  const handleInteraction = (index: number) => {
     setActiveIndex(index);
   };
 
   return (
-    <div className="bg-[#f8f7f5] font-sans">
-      <section className="container mx-auto px-4 py-16 md:py-28 max-w-[1400px]">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          
-          {/* Left Side: Text Content */}
-          <div className="w-full lg:w-5/12 text-center lg:text-left">
-            <span className="homepage-section-tag inline-block mb-3">
-              WHY VIRRAT GLOBAL
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#111111] font-heading leading-tight tracking-tight">
-              Why Businesses Choose <br />
-              <span className="text-[#D62020]">Virrat Global</span>
-            </h2>
-            <p className="mt-6 text-base md:text-lg text-[#666666] max-w-xl mx-auto lg:mx-0 font-body leading-relaxed">
-              Discover why ambitious startups, SMEs, and enterprises trust Virrat Global to build high-performance digital products, automate workflows, and drive measurable revenue growth.
+    <ul
+      className={cn(
+        "w-full max-w-6xl gap-2",
+        "grid",
+        "h-[600px] md:h-[500px]",
+        "transition-[grid-template-columns,grid-template-rows] duration-500 ease-out",
+        className,
+      )}
+      style={{
+        ...gridStyle,
+        ...(isDesktop 
+          ? { gridTemplateRows: '1fr' }
+          : { gridTemplateColumns: '1fr' }
+        )
+      }}
+      ref={ref}
+      {...props}
+    >
+      {items.map((item, index) => (
+        <li
+          key={item.id}
+          className={cn(
+            "group relative cursor-pointer overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm",
+            "md:min-w-[80px]",
+            "min-h-0 min-w-0"
+          )}
+          onMouseEnter={() => handleInteraction(index)}
+          onFocus={() => handleInteraction(index)}
+          onClick={() => handleInteraction(index)}
+          tabIndex={0}
+          data-active={activeIndex === index}
+        >
+          <img
+            src={item.imgSrc}
+            alt={item.title}
+            className="absolute inset-0 h-full w-full object-cover transition-all duration-300 ease-out group-data-[active=true]:scale-100 group-data-[active=true]:grayscale-0 scale-110 grayscale"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+          <article
+            className="absolute inset-0 flex flex-col justify-end gap-2 p-4"
+          >
+            <h3 className="hidden origin-left rotate-90 text-sm font-light uppercase tracking-wider text-white/80 opacity-100 transition-all duration-300 ease-out md:block group-data-[active=true]:opacity-0">
+              {item.title}
+            </h3>
+
+            <div className="text-white/90 opacity-0 transition-all duration-300 delay-75 ease-out group-data-[active=true]:opacity-100">
+              {item.icon}
+            </div>
+
+            <h3 className="text-xl font-bold text-white opacity-0 transition-all duration-300 delay-150 ease-out group-data-[active=true]:opacity-100">
+              {item.title}
+            </h3>
+
+            <p className="w-full max-w-xs text-sm text-white/80 opacity-0 transition-all duration-300 delay-225 ease-out group-data-[active=true]:opacity-100">
+              {item.description}
             </p>
-            <div className="mt-8">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-[#D62020] text-[#FFFFFF] hover:text-[#FFFFFF] font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-full shadow-lg hover:bg-[#BF1A1A] transition-all duration-300 hover:shadow-red-600/30"
-                style={{ color: "#FFFFFF" }}
-              >
-                CONTACT US <ArrowRight className="w-4 h-4 text-[#FFFFFF]" strokeWidth={2.5} />
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Side: Image Accordion */}
-          <div className="w-full lg:w-7/12 overflow-hidden">
-            <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 overflow-x-auto p-2 scrollbar-none">
-              {accordionItems.map((item, index) => (
-                <AccordionItem
-                  key={item.id}
-                  item={item}
-                  isActive={index === activeIndex}
-                  onMouseEnter={() => handleItemHover(index)}
-                />
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </section>
-    </div>
+          </article>
+        </li>
+      ))}
+    </ul>
   );
-}
-
-export default LandingAccordionItem;
+});
+ExpandingCards.displayName = "ExpandingCards";

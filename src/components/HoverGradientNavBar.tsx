@@ -15,6 +15,7 @@ import {
 const navItems = [
   { name: 'Branding',          href: '/branding-printing' },
   { name: 'Digital Marketing', href: '/digital-marketing' },
+  { name: 'Portfolio',         href: '/portfolio'         },
   { name: 'Services',          href: '/services'          },
   { name: 'Web + Software',    href: '/web-software'      },
   { name: 'AI + Automation',   href: '/ai-automation'     },

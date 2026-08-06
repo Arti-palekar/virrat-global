@@ -7,48 +7,49 @@ import { cn } from "@/lib/utils";
 interface IndustryItem {
   name: string;
   image: string;
+  description: string;
 }
 
 const industries: IndustryItem[] = [
   {
+    name: "Healthcare & Medical",
+    image: "/images/services/picks_jar.png",
+    description: "Clear, professional and trustworthy packaging designed for healthcare, medical, and wellness products."
+  },
+  {
+    name: "Real Estate & Infrastructure",
+    image: "/images/services/picks_arch.png",
+    description: "Custom box solutions for architectural models, key presentation boxes, and premium property handover kits."
+  },
+  {
+    name: "Education & E-Learning",
+    image: "/images/services/picks_pouch.png",
+    description: "Sturdy and creative package designs for educational kits, student onboarding boxes, and learning materials."
+  },
+  {
     name: "Food & Beverage",
-    image: "/images/services/picks_bottle.png"
+    image: "/images/services/picks_bottle.png",
+    description: "Packaging designed for shelf appeal, product freshness, compliance, and stronger brand recognition."
   },
   {
-    name: "Cosmetics & Beauty",
-    image: "/images/services/picks_pink.png"
+    name: "Jewelry & Precious Metals",
+    image: "/images/services/luxury_box_portrait.png",
+    description: "Elegant luxury packaging boxes designed to protect and present high-value jewelry and precious metals."
   },
   {
-    name: "FMCG Products",
-    image: "/images/services/picks_box.png"
+    name: "Financial Services & FinTech",
+    image: "/images/services/picks_hand.png",
+    description: "Sleek and secure unboxing designs for premium credit cards, welcome packs, and corporate client gifts."
   },
   {
-    name: "Organic & Natural Products",
-    image: "/images/services/picks_pouch.png"
+    name: "Fashion & Apparel",
+    image: "/images/services/picks_pink.png",
+    description: "Premium retail boxes, garment bags, and tag designs that strengthen fashion product presentation."
   },
   {
-    name: "Healthcare & Wellness",
-    image: "/images/services/picks_jar.png"
-  },
-  {
-    name: "Fashion & Lifestyle",
-    image: "/images/services/picks_hand.png"
-  },
-  {
-    name: "E-commerce",
-    image: "/images/services/picks_box.png"
-  },
-  {
-    name: "Luxury Products",
-    image: "/images/services/luxury_box_portrait.png"
-  },
-  {
-    name: "Electronics",
-    image: "/images/services/picks_arch.png"
-  },
-  {
-    name: "Retail Products",
-    image: "/images/services/cereal_box_portrait.png"
+    name: "Sports & Entertainment",
+    image: "/images/services/picks_box.png",
+    description: "Dynamic and protective packaging solutions for sports gear, merchandise, and fan memorabilia."
   }
 ];
 
@@ -65,7 +66,7 @@ export default function PackagingIndustries() {
   };
 
   return (
-    <section className="relative w-full bg-[#FAF9F6] text-[#111111] pt-20 pb-16 overflow-hidden flex flex-col items-center text-center">
+    <section className="relative w-full bg-[#FAF9F6] text-[#111111] pt-20 pb-20 overflow-hidden flex flex-col items-center text-center">
       {/* ── CENTRAL HEADER TEXT BLOCK ── */}
       <div className="max-w-[1400px] mx-auto px-6 relative z-30 flex flex-col items-center">
 
@@ -117,7 +118,7 @@ export default function PackagingIndustries() {
 
       {/* ── INFINITE MARQUEE SLIDER ── */}
       <div 
-        className="w-full relative py-6 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] z-20"
+        className="w-full relative pt-6 pb-16 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] z-20"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
@@ -139,24 +140,28 @@ export default function PackagingIndustries() {
               <div
                 key={`${item.name}-${index}`}
                 className={cn(
-                  "relative w-[240px] h-[320px] rounded-[24px] overflow-hidden bg-white border border-zinc-100 shadow-md group flex-shrink-0 transition-transform duration-300 hover:shadow-xl",
+                  "relative w-[240px] flex flex-col items-center flex-shrink-0 transition-transform duration-300",
                   isStaggered ? "translate-y-8" : "translate-y-0"
                 )}
-                style={{
-                  rotate: `${index % 2 === 0 ? -1.5 : 2.5}deg`
-                }}
               >
-                {/* Packaging image */}
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover select-none pointer-events-none group-hover:scale-105 transition-transform duration-700"
-                  draggable={false}
-                />
+                {/* Packaging image container (Tilted/rotated) */}
+                <div
+                  className="relative w-[240px] h-[320px] rounded-[24px] overflow-hidden bg-white border border-zinc-100 shadow-md group transition-transform duration-300 hover:shadow-xl"
+                  style={{
+                    rotate: `${index % 2 === 0 ? -1.5 : 2.5}deg`
+                  }}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover select-none pointer-events-none group-hover:scale-105 transition-transform duration-700"
+                    draggable={false}
+                  />
+                </div>
 
-                {/* Bottom glassmorphic label */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/80 backdrop-blur-md border border-white/40 px-3 py-2.5 rounded-xl text-center shadow-sm">
-                  <p className="text-[10px] md:text-[11px] font-bold text-zinc-900 uppercase tracking-widest leading-none">
+                {/* Industry name below image (NOT rotated/tilted) */}
+                <div className="mt-4 px-2 w-full text-center">
+                  <p className="text-[15px] md:text-[16px] font-semibold text-[#171717] uppercase tracking-wider leading-[1.3] font-sans">
                     {item.name}
                   </p>
                 </div>

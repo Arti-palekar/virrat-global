@@ -4,12 +4,12 @@ import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQ1 from "@/components/FAQ1";
+import ProcessSection from "@/components/sections/ProcessSection";
 
 import { WebSoftwareHeroNew } from "./components/WebSoftwareHeroNew";
 import { WebSoftwareServicesShowcase } from "./components/WebSoftwareServicesShowcase";
 import { WebSoftwareMarquee } from "./components/WebSoftwareMarquee";
 import { WebSoftwareToolkit } from "./components/WebSoftwareToolkit";
-import { WebSoftwareDevProcess } from "./components/WebSoftwareDevProcess";
 import { WebSoftwarePlatforms } from "./components/WebSoftwarePlatforms";
 import { WebSoftwareIndustriesCarousel } from "./components/WebSoftwareIndustriesCarousel";
 import WebSoftwareConsiderations from "./components/WebSoftwareConsiderations";
@@ -101,6 +101,39 @@ const webSoftwareFaqs = [
   }
 ];
 
+const developmentSteps = [
+  {
+    title: "Discovery & Strategy",
+    description: "We understand your business, audience, goals and technical requirements to define the right digital solution.",
+    colorTheme: "orange" as const
+  },
+  {
+    title: "Planning & Architecture",
+    description: "We define features, user journeys, technology stack and system architecture to create a clear development roadmap.",
+    colorTheme: "blue" as const
+  },
+  {
+    title: "UI/UX Design",
+    description: "We transform ideas into intuitive wireframes and polished interfaces focused on usability and seamless experiences.",
+    colorTheme: "purple" as const
+  },
+  {
+    title: "Development",
+    description: "We build the approved solution using scalable, secure and performance-focused development practices.",
+    colorTheme: "orange" as const
+  },
+  {
+    title: "Testing & QA",
+    description: "We carefully test functionality, responsiveness, performance and compatibility across devices and browsers.",
+    colorTheme: "blue" as const
+  },
+  {
+    title: "Launch & Support",
+    description: "We deploy the final product and provide ongoing technical support, maintenance and optimization.",
+    colorTheme: "purple" as const
+  }
+];
+
 export default function WebSoftwarePage() {
   return (
     <>
@@ -118,8 +151,13 @@ export default function WebSoftwarePage() {
         {/* 3. Development Toolkit */}
         <WebSoftwareToolkit />
 
-        {/* 3.1 — S-curve Development Process */}
-        <WebSoftwareDevProcess />
+        {/* 3.1 — Step-by-Step Development Process */}
+        <ProcessSection
+          eyebrow="OUR PROCESS"
+          title={"Our Step-by-Step\nDevelopment Process"}
+          description="From strategy and design to development, testing and launch, every stage is carefully planned to create scalable, high-performance digital products."
+          steps={developmentSteps}
+        />
 
         {/* 3.2 — Development Workflow Platforms */}
         <WebSoftwarePlatforms />
