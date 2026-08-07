@@ -10,7 +10,7 @@ import { WebSoftwareHeroNew } from "./components/WebSoftwareHeroNew";
 import { WebSoftwareServicesShowcase } from "./components/WebSoftwareServicesShowcase";
 import { WebSoftwareMarquee } from "./components/WebSoftwareMarquee";
 import { WebSoftwareToolkit } from "./components/WebSoftwareToolkit";
-import { WebSoftwarePlatforms } from "./components/WebSoftwarePlatforms";
+import { WebSoftwareTextMarquee } from "./components/WebSoftwareTextMarquee";
 import { WebSoftwareIndustriesCarousel } from "./components/WebSoftwareIndustriesCarousel";
 import WebSoftwareConsiderations from "./components/WebSoftwareConsiderations";
 import WebSoftwarePortfolio from "./components/WebSoftwarePortfolio";
@@ -159,10 +159,10 @@ export default function WebSoftwarePage() {
           steps={developmentSteps}
         />
 
-        {/* 3.2 — Development Workflow Platforms */}
-        <WebSoftwarePlatforms />
+        {/* 3.2 — New Text Marquee immediately above Industries */}
+        <WebSoftwareTextMarquee />
 
-        {/* 3.3 — Industries We Serve (Coverflow Carousel) */}
+        {/* 3.3 — Industries We Serve */}
         <WebSoftwareIndustriesCarousel />
 
         {/* 3.4 — What We Consider */}

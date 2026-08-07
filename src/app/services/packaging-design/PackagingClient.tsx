@@ -6,6 +6,7 @@ import CinematicFooter from "@/components/CinematicFooter";
 import MobileFloatingMenu from "@/components/MobileFloatingMenu";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQ1 from "@/components/FAQ1";
+import { ExpandOnHover } from "@/components/sections/ExpandOnHover";
 
 // Custom page components
 import PackagingHero from "./components/PackagingHero";
@@ -127,6 +128,9 @@ export default function PackagingClient() {
 
         {/* Industries We Design For Section */}
         <PackagingIndustries />
+
+        {/* Why Businesses Choose Virrat Global */}
+        <ExpandOnHover />
 
         {/* What We Consider Section */}
         <PackagingConsiderations />

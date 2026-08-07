@@ -1,164 +1,128 @@
-"use client";
+import React, { useEffect, useCallback } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import { cn } from '@/lib/utils';
 
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-
-export interface PremiumCardItem {
+export interface CardItem {
+  id: string | number;
   title: string;
-  slug: string;
-  description: string;
-  count: string;
-  tag: string;
-  color: string;
+  subtitle?: string;
+  imageUrl: string;
+  description?: string;
 }
 
-const servicesList: PremiumCardItem[] = [
-  {
-    title: "Branding",
-    slug: "branding",
-    description: "Crafting iconic brand identities, guidelines, and visual narratives that resonate with target audiences.",
-    count: "18 projects",
-    tag: "Strategy & Identity",
-    color: "rgba(242, 139, 168, 0.1)",
-  },
-  {
-    title: "Printing",
-    slug: "printing",
-    description: "Premium physical assets, bespoke editorial layouts, corporate stationery, and high-end collateral.",
-    count: "12 projects",
-    tag: "Editorial & Print",
-    color: "rgba(255, 179, 123, 0.1)",
-  },
-  {
-    title: "Web Development",
-    slug: "web-development",
-    description: "Next-gen web applications, corporate websites, e-commerce storefronts, and premium custom development.",
-    count: "24 projects",
-    tag: "Code & Strategy",
-    color: "rgba(110, 168, 254, 0.1)",
-  },
-  {
-    title: "Digital Marketing",
-    slug: "digital-marketing",
-    description: "Data-driven performance campaigns, SEO strategy, social media growth, and content marketing funnels.",
-    count: "15 projects",
-    tag: "Growth & Visibility",
-    color: "rgba(126, 203, 231, 0.1)",
-  },
-  {
-    title: "Graphic Design",
-    slug: "graphic-design",
-    description: "Sophisticated editorial systems, marketing assets, layouts, and illustrative design solutions.",
-    count: "20 projects",
-    tag: "Art Direction",
-    color: "rgba(198, 166, 255, 0.1)",
-  },
-  {
-    title: "Packaging Design",
-    slug: "packaging-design",
-    description: "Eco-friendly, tactile, and highly memorable product packaging that commands shelf presence.",
-    count: "9 projects",
-    tag: "Industrial & Visual",
-    color: "rgba(126, 244, 203, 0.1)",
-  },
-  {
-    title: "Video Production",
-    slug: "video-production",
-    description: "Cinematic commercial spots, brand storytelling, social content, and dynamic motion graphics.",
-    count: "11 projects",
-    tag: "Motion & Film",
-    color: "rgba(242, 139, 230, 0.1)",
-  },
-  {
-    title: "Corporate Gifting",
-    slug: "corporate-gifting",
-    description: "Bespoke, curated physical merchandise and premium corporate gifts that build lasting relationships.",
-    count: "7 projects",
-    tag: "Merchandise & Curation",
-    color: "rgba(126, 231, 135, 0.1)",
-  },
-];
+export interface HoverRevealCardsProps {
+  items: CardItem[];
+  className?: string;
+  cardClassName?: string;
+}
 
-export function PremiumServiceCardsGrid({ cards }: { cards?: any[] }) {
-  const [cols, setCols] = useState(3);
+const HoverRevealCards: React.FC<HoverRevealCardsProps> = ({
+  items,
+  className,
+  cardClassName,
+}) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    align: 'start',
+    dragFree: false, 
+  });
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setCols(3);
-      } else if (window.innerWidth >= 768) {
-        setCols(2);
-      } else {
-        setCols(1);
-      }
+    if (!emblaApi) return;
+    let intervalId = setInterval(scrollNext, 3200);
+
+    const onPointerDown = () => clearInterval(intervalId);
+    const onPointerUp = () => {
+      clearInterval(intervalId);
+      intervalId = setInterval(scrollNext, 3200);
+    };
+
+    emblaApi.on('pointerDown', onPointerDown);
+    emblaApi.on('pointerUp', onPointerUp);
+
+    const rootNode = emblaApi.rootNode();
+    const handleMouseEnter = () => clearInterval(intervalId);
+    const handleMouseLeave = () => {
+      clearInterval(intervalId);
+      intervalId = setInterval(scrollNext, 3200);
     };
     
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    rootNode.addEventListener('mouseenter', handleMouseEnter);
+    rootNode.addEventListener('mouseleave', handleMouseLeave);
 
-  const rows = [];
-  for (let i = 0; i < servicesList.length; i += cols) {
-    rows.push(servicesList.slice(i, i + cols));
-  }
+    return () => {
+      clearInterval(intervalId);
+      emblaApi.off('pointerDown', onPointerDown);
+      emblaApi.off('pointerUp', onPointerUp);
+      rootNode.removeEventListener('mouseenter', handleMouseEnter);
+      rootNode.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [emblaApi, scrollNext]);
 
   return (
-    <div className="flex flex-col gap-8 max-w-6xl mx-auto w-full">
-      {rows.map((rowCards, rowIndex) => {
-        const direction = rowIndex % 2 === 0 ? 1 : -1;
-        const initialX = direction === 1 ? "100vw" : "-100vw";
-
-        return (
-          <motion.div
-            key={rowIndex}
-            initial={{ opacity: 0, x: initialX }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const }}
-            style={{ willChange: "transform, opacity" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+    <div 
+      className={cn('w-full max-w-[1400px] mx-auto overflow-hidden px-4', className)}
+      ref={emblaRef}
+    >
+      <div className="flex -ml-4 touch-pan-y group">
+        {items.map((item) => (
+          <div
+            key={item.id}
+            className="flex-[0_0_85%] sm:flex-[0_0_45%] md:flex-[0_0_25%] pl-4 min-w-0 py-4"
+            role="group"
+            aria-roledescription="slide"
           >
-            {rowCards.map((service) => (
-              <motion.div
-                key={service.slug}
-                whileHover={{ y: -8, scale: 1.015, boxShadow: `0 20px 40px ${service.color.replace('0.1', '0.25')}` }}
-                className="group relative flex flex-col justify-between p-8 rounded-2xl bg-white border border-black/5 hover:border-black/10 transition-all duration-300 min-h-[280px] cursor-pointer"
-              >
-                <div
-                  className="absolute top-0 right-0 w-24 h-24 rounded-bl-3xl rounded-tr-2xl transition-all duration-500 pointer-events-none group-hover:scale-125 group-hover:rotate-6"
-                  style={{ backgroundColor: service.color }}
-                />
-                
-                <div>
-                  <div className="text-[11px] font-bold uppercase tracking-widest text-zinc-400 mb-3 group-hover:text-zinc-500 transition-colors duration-300">
-                    {service.tag}
-                  </div>
-                  <h3 className="text-2xl font-black text-zinc-800 tracking-tight group-hover:text-pink-500 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-zinc-500 text-sm mt-3 leading-relaxed max-w-[90%] transition-colors duration-300">
-                    {service.description}
-                  </p>
-                </div>
+            <div
+              role="listitem"
+              aria-label={item.subtitle ? `${item.title}, ${item.subtitle}` : item.title}
+              tabIndex={0}
+              className={cn(
+                'relative h-80 cursor-pointer overflow-hidden rounded-xl bg-cover bg-center shadow-lg transition-all duration-500 ease-in-out',
+                'group-hover:scale-[0.97] group-hover:opacity-60 group-hover:blur-[2px]',
+                'hover:!scale-105 hover:!opacity-100 hover:!blur-none focus-visible:!scale-105 focus-visible:!opacity-100 focus-visible:!blur-none',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background',
+                cardClassName
+              )}
+              style={{ backgroundImage: `url(${item.imageUrl})` }}
+            >
+              {/* Subtle dark image overlay for better text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30 pointer-events-none" />
 
-                <div className="flex items-center justify-between mt-8 pt-4 border-t border-black/5">
-                  <span className="text-xs font-semibold text-zinc-400">{service.count}</span>
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-800 hover:text-pink-500 transition-colors duration-200"
+              {/* Card Content */}
+              <div className="absolute bottom-0 left-0 p-6 w-full pointer-events-none">
+                {item.subtitle && (
+                  <p 
+                    className="text-sm font-light uppercase tracking-widest"
+                    style={{ color: '#FFFFFF' }}
                   >
-                    Explore Service
-                    <ArrowRight className="w-4 h-4 text-pink-500 group-hover:translate-x-2 transition-transform duration-300 ease-out" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        );
-      })}
+                    {item.subtitle}
+                  </p>
+                )}
+                <h3 
+                  className="mt-1 text-xl font-semibold uppercase leading-tight"
+                  style={{ color: '#FFFFFF' }}
+                >
+                  {item.title}
+                </h3>
+                {item.description && (
+                  <p 
+                    className="mt-2 text-sm leading-snug line-clamp-2"
+                    style={{ color: '#FFFFFF' }}
+                  >
+                    {item.description}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
+
+export default HoverRevealCards;
