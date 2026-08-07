@@ -25,8 +25,6 @@ export function WebSoftwareHeroNew() {
         shootingStarCount={7}
         gridSize={44}
         speed="normal"
-        glow
-        interactive
         showGrid
         showStaticStars
         className="min-h-[88vh] w-full rounded-none border-x-0"

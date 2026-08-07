@@ -130,7 +130,9 @@ export default function PackagingClient() {
         <PackagingIndustries />
 
         {/* Why Businesses Choose Virrat Global */}
-        <ExpandOnHover />
+        <div className="[&_article_*]:!text-[#ffffff] [&_article]:!text-[#ffffff] [&_ul]:!max-w-[1020px] md:[&_ul]:!h-[420px] [&_.mb-12]:!mb-6">
+          <ExpandOnHover />
+        </div>
 
         {/* What We Consider Section */}
         <PackagingConsiderations />

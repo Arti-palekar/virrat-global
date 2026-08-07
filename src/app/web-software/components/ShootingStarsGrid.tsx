@@ -18,7 +18,6 @@ export type ShootingStarsGridProps = {
   showGrid?: boolean;
   showStaticStars?: boolean;
   reducedMotionFallback?: boolean;
-  interactive?: boolean;
 };
 
 type StaticStar = {
@@ -158,7 +157,6 @@ export function ShootingStarsGrid({
   showGrid = true,
   showStaticStars = true,
   reducedMotionFallback = true,
-  interactive = false,
 }: ShootingStarsGridProps) {
   const reduceMotion = useReducedMotion() === true;
   const rootRef = React.useRef<HTMLDivElement>(null);
@@ -172,26 +170,11 @@ export function ShootingStarsGrid({
   );
   const speedScale = getSpeedScale(speed);
 
-  const onPointerMove = React.useCallback(
-    (event: React.PointerEvent<HTMLDivElement>) => {
-      if (!interactive || reduceMotion) return;
-      const node = rootRef.current;
-      if (!node) return;
-      const rect = node.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      node.style.setProperty("--shooting-stars-glow-x", `${x}%`);
-      node.style.setProperty("--shooting-stars-glow-y", `${y}%`);
-    },
-    [interactive, reduceMotion],
-  );
-
   const shouldAnimate = !reduceMotion || !reducedMotionFallback;
 
   return (
     <section
       ref={rootRef}
-      onPointerMove={onPointerMove}
       className={cn(
         "group/shooting-stars relative isolate min-h-[520px] w-full overflow-hidden rounded-[2rem] border border-zinc-200 bg-zinc-950 text-white shadow-2xl shadow-red-950/10 dark:border-white/10",
         "dark:bg-[linear-gradient(180deg,#090505_0%,#180808_55%,#090505_100%)]",
@@ -201,8 +184,6 @@ export function ShootingStarsGrid({
       style={
         {
           "--shooting-stars-grid-size": `${gridSize}px`,
-          "--shooting-stars-glow-x": "50%",
-          "--shooting-stars-glow-y": "30%",
         } as React.CSSProperties
       }
     >
@@ -222,15 +203,6 @@ export function ShootingStarsGrid({
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.3)_54%,rgba(255,255,255,0.92)_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,rgba(7,9,15,0.22)_52%,rgba(7,9,15,0.96)_100%)]"
       />
-
-      {glow && (
-        <motion.div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_var(--shooting-stars-glow-x)_var(--shooting-stars-glow-y),rgba(214,32,32,0.18),transparent_34%),radial-gradient(circle_at_72%_72%,rgba(239,59,59,0.10),transparent_30%)] dark:bg-[radial-gradient(circle_at_var(--shooting-stars-glow-x)_var(--shooting-stars-glow-y),rgba(214,32,32,0.15),transparent_34%),radial-gradient(circle_at_72%_72%,rgba(239,59,59,0.08),transparent_30%)]"
-          animate={shouldAnimate ? { opacity: [0.72, 1, 0.78], scale: [1, 1.03, 1] } : undefined}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-      )}
 
       {showStaticStars && (
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
