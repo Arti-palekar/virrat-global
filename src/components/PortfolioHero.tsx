@@ -41,24 +41,7 @@ export function PortfolioHero() {
 
       {/* Hero Body Content */}
       <div className="relative flex-1 flex flex-col justify-end items-center max-w-[1600px] mx-auto w-full px-6 z-10 pb-4">
-        {/* Massive overlapping portrait image of priti */}
-        <div className="absolute inset-x-0 bottom-0 top-[10%] flex justify-center items-end pointer-events-none z-10 overflow-hidden">
-          <motion.div 
-            initial={{ opacity: 0, y: 50, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ ...transition, delay: 0.1 }}
-            className="relative w-full max-w-[580px] h-[90%] md:h-[95%] flex items-end justify-center"
-          >
-            <Image 
-              src="/portfolio-wall/img/priti.png"
-              alt="Priti Portrait"
-              fill
-              priority
-              className="object-contain object-bottom select-none"
-              sizes="(max-width: 768px) 100vw, 580px"
-            />
-          </motion.div>
-        </div>
+
 
         {/* Dynamic layered texts overlaying in front of the image background */}
         <div className="relative z-30 flex flex-col items-center text-center max-w-xl mb-[8%] px-4">

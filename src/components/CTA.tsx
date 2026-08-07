@@ -65,10 +65,10 @@ export default function CTA({ centerContent }: { centerContent?: React.ReactNode
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-14"
           >
-            <button className="bg-[#FD2E35] text-white px-8 py-4 rounded-[12px] font-semibold text-[15px] flex items-center justify-center gap-2 transition-transform duration-150 ease-out hover:shadow-[0_10px_30px_rgba(253,46,53,0.3)] active:scale-[0.97]">
+            <button data-magnetic className="bg-[#FD2E35] text-white px-8 py-4 rounded-[12px] font-semibold text-[15px] flex items-center justify-center gap-2 transition-transform duration-150 ease-out hover:shadow-[0_10px_30px_rgba(253,46,53,0.3)] active:scale-[0.97]">
               Start Your Project <ArrowRight size={18} />
             </button>
-            <button className="bg-white text-[#111111] border border-[#E5E5E5] px-8 py-4 rounded-[12px] font-semibold text-[15px] flex items-center justify-center transition-all duration-150 ease-out hover:bg-[#F5F5F5] active:scale-[0.97]">
+            <button data-magnetic className="bg-white text-[#111111] border border-[#E5E5E5] px-8 py-4 rounded-[12px] font-semibold text-[15px] flex items-center justify-center transition-all duration-150 ease-out hover:bg-[#F5F5F5] active:scale-[0.97]">
               Book Free Consultation
             </button>
           </motion.div>

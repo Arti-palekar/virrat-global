@@ -16,36 +16,33 @@ export default function PackagingTools() {
 
   const gap = 16; // 16px gap between cards
 
+  const indesignIcon = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#ff3366"/><text x="50" y="72" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#4a001a" text-anchor="middle">Id</text></svg>`);
+  const dimensionIcon = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#2bffa9"/><text x="50" y="72" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#003822" text-anchor="middle">Dn</text></svg>`);
+
   const tools = [
     { 
-      name: "Illustrator", 
-      desc: "For vector artwork, labels, dielines and print-ready packaging graphics.", 
-      image: "/images/services/branding_5.png" 
+      name: "Photoshop", 
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-plain.svg" 
     },
     { 
-      name: "Photoshop", 
-      desc: "For image editing, product visuals, textures and presentation artwork.", 
-      image: "/images/services/picks_pink.png" 
+      name: "Illustrator", 
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg" 
     },
     { 
       name: "InDesign", 
-      desc: "For packaging documentation, layouts and multi-page brand materials.", 
-      image: "/images/services/brand-identity.webp" 
+      image: indesignIcon 
     },
     { 
       name: "Figma", 
-      desc: "For collaborative concepts, visual systems and design reviews.", 
-      image: "/images/services/picks_box.png" 
-    },
-    { 
-      name: "Blender", 
-      desc: "For realistic 3D packaging visualization and product renders.", 
-      image: "/images/services/picks_pouch.png" 
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" 
     },
     { 
       name: "Dimension", 
-      desc: "For packaging mockups and realistic product presentation.", 
-      image: "/images/services/picks_arch.png" 
+      image: dimensionIcon 
+    },
+    { 
+      name: "Blender", 
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg" 
     }
   ];
 
@@ -192,7 +189,7 @@ export default function PackagingTools() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            className="lg:col-span-7 overflow-hidden relative cursor-grab active:cursor-grabbing"
+            className="lg:col-span-7 overflow-hidden relative cursor-grab active:cursor-grabbing py-2"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => {
               setIsPaused(false);
@@ -219,23 +216,14 @@ export default function PackagingTools() {
                 <div 
                   key={`${tool.name}-${idx}`}
                   style={cardWidthStyle}
-                  className="h-[210px] lg:h-[230px] shrink-0 overflow-hidden rounded-2xl relative group border border-zinc-200/40"
+                  className="h-[210px] lg:h-[230px] shrink-0 rounded-2xl relative border border-zinc-200/40 bg-white flex items-center justify-center transition-transform duration-300 hover:-translate-y-[3px]"
                 >
                   <img 
                     src={tool.image} 
-                    alt={tool.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                    alt={`${tool.name} Logo`} 
+                    className="w-[70px] h-[70px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] object-contain select-none"
                     draggable="false"
                   />
-                  {/* Subtle label bottom-left with hover description fade-in */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent flex flex-col justify-end p-5 select-none text-white">
-                    <span className="text-white text-xs font-black tracking-widest uppercase mb-1">
-                      {tool.name}
-                    </span>
-                    <p className="text-[10px] text-zinc-300 font-medium leading-normal opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {tool.desc}
-                    </p>
-                  </div>
                 </div>
               ))}
             </div>
@@ -243,7 +231,6 @@ export default function PackagingTools() {
 
         </div>
       </div>
-
 
     </section>
   );

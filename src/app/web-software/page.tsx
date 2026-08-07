@@ -13,7 +13,6 @@ import { WebSoftwareToolkit } from "./components/WebSoftwareToolkit";
 import { WebSoftwareTextMarquee } from "./components/WebSoftwareTextMarquee";
 import { WebSoftwareIndustriesCarousel } from "./components/WebSoftwareIndustriesCarousel";
 import WebSoftwareConsiderations from "./components/WebSoftwareConsiderations";
-import WebSoftwarePortfolio from "./components/WebSoftwarePortfolio";
 
 export const metadata: Metadata = {
   title: "Web & Software Development Services | Virrat Global",
@@ -168,8 +167,6 @@ export default function WebSoftwarePage() {
         {/* 3.4 — What We Consider */}
         <WebSoftwareConsiderations />
 
-        {/* 3.5 — Selected Work */}
-        <WebSoftwarePortfolio />
 
         {/* 3.6 — Testimonials */}
         <TestimonialsSection items={webSoftwareTestimonials} />

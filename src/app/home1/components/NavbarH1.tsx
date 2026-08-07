@@ -207,7 +207,7 @@ export default function NavbarH1() {
           <p style={{ margin: 0, fontSize: "12.5px", color: "#666666" }}>
             {menuData.promoText}
           </p>
-          <a
+          <a data-magnetic
             href="https://virratglobal.com/contact/"
             target="_blank"
             rel="noopener noreferrer"
@@ -291,7 +291,7 @@ export default function NavbarH1() {
           }}
         >
           {/* Logo */}
-          <a href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+          <a data-magnetic href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
             <Image src="/logo.png" alt="Virrat Global" width={160} height={40} style={{ objectFit: "contain", height: "32px", width: "auto" }} priority />
           </a>
 
@@ -299,7 +299,7 @@ export default function NavbarH1() {
           <nav className="hidden lg:flex" style={{ gap: "28px", alignItems: "center" }}>
             {/* Branding Dropdown */}
             <div style={{ position: "static" }}>
-              <a
+              <a data-magnetic
                 href="/branding-printing"
                 style={{
                   background: "none",
@@ -322,7 +322,7 @@ export default function NavbarH1() {
 
             {/* Digital Dropdown */}
             <div style={{ position: "static" }}>
-              <button
+              <button data-magnetic
                 onClick={() => toggleDropdown("digital")}
                 style={{
                   background: "none",
@@ -350,7 +350,7 @@ export default function NavbarH1() {
 
             {/* Tech Dropdown */}
             <div style={{ position: "static" }}>
-              <button
+              <button data-magnetic
                 onClick={() => toggleDropdown("tech")}
                 style={{
                   background: "none",
@@ -376,18 +376,18 @@ export default function NavbarH1() {
               </AnimatePresence>
             </div>
 
-            <a href="#features" style={{ fontSize: "1rem", fontWeight: 400, color: "#313131", textDecoration: "none" }}>
+            <a data-magnetic href="#features" style={{ fontSize: "1rem", fontWeight: 400, color: "#313131", textDecoration: "none" }}>
               Core Features
             </a>
 
-            <a href="#faq" style={{ fontSize: "1rem", fontWeight: 400, color: "#313131", textDecoration: "none" }}>
+            <a data-magnetic href="#faq" style={{ fontSize: "1rem", fontWeight: 400, color: "#313131", textDecoration: "none" }}>
               FAQs
             </a>
           </nav>
 
           {/* Action buttons */}
           <div className="hidden lg:flex" style={{ gap: "12px", alignItems: "center" }}>
-            <a
+            <a data-magnetic
               href="https://virratglobal.com/contact/"
               target="_blank"
               rel="noopener noreferrer"
@@ -407,7 +407,7 @@ export default function NavbarH1() {
             >
               Login
             </a>
-            <a
+            <a data-magnetic
               href="https://virratglobal.com/contact/"
               target="_blank"
               rel="noopener noreferrer"
@@ -430,7 +430,7 @@ export default function NavbarH1() {
           </div>
 
           {/* Mobile hamburger menu */}
-          <button
+          <button data-magnetic
             className="lg:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             style={{
@@ -466,7 +466,7 @@ export default function NavbarH1() {
             className="lg:hidden"
           >
             <div>
-              <button
+              <button data-magnetic
                 onClick={() => toggleMobileDropdown("branding")}
                 style={{
                   width: "100%",
@@ -487,7 +487,7 @@ export default function NavbarH1() {
             </div>
 
             <div>
-              <button
+              <button data-magnetic
                 onClick={() => toggleMobileDropdown("digital")}
                 style={{
                   width: "100%",
@@ -508,7 +508,7 @@ export default function NavbarH1() {
             </div>
 
             <div>
-              <button
+              <button data-magnetic
                 onClick={() => toggleMobileDropdown("tech")}
                 style={{
                   width: "100%",
@@ -528,7 +528,7 @@ export default function NavbarH1() {
               {mobileDropdownOpen === "tech" && renderMobileCategoryList(techMega)}
             </div>
 
-            <a
+            <a data-magnetic
               href="#features"
               onClick={() => setMobileMenuOpen(false)}
               style={{ fontSize: "1rem", fontWeight: 400, color: "#313131", textDecoration: "none", padding: "8px 0" }}
@@ -536,7 +536,7 @@ export default function NavbarH1() {
               Core Features
             </a>
 
-            <a
+            <a data-magnetic
               href="#faq"
               onClick={() => setMobileMenuOpen(false)}
               style={{ fontSize: "1rem", fontWeight: 400, color: "#313131", textDecoration: "none", padding: "8px 0" }}
@@ -545,7 +545,7 @@ export default function NavbarH1() {
             </a>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "12px" }}>
-              <a
+              <a data-magnetic
                 href="https://virratglobal.com/contact/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -563,7 +563,7 @@ export default function NavbarH1() {
               >
                 Login
               </a>
-              <a
+              <a data-magnetic
                 href="https://virratglobal.com/contact/"
                 target="_blank"
                 rel="noopener noreferrer"

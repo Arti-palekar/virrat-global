@@ -33,7 +33,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <a href="/" className="flex items-center">
+            <a data-magnetic href="/" className="flex items-center">
               <Image
                 src="/logo.png"
                 alt="Virrat Global Pvt. Ltd."
@@ -54,7 +54,7 @@ export default function Navbar() {
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-2.5">
             {/* Login: outlined */}
-            <a
+            <a data-magnetic
               href="#"
               className="font-semibold rounded border transition-all hover:border-[#fd2e35] hover:text-[#fd2e35]"
               style={{
@@ -68,7 +68,7 @@ export default function Navbar() {
               Login
             </a>
             {/* Start a Project: solid red + arrow */}
-            <a
+            <a data-magnetic
               href="#"
               className="font-semibold rounded flex items-center gap-1.5 transition-opacity hover:opacity-90 !text-[#FFFFFF] hover:!text-[#FFFFFF] focus:!text-[#FFFFFF] active:!text-[#FFFFFF]"
               style={{
@@ -87,7 +87,7 @@ export default function Navbar() {
 
           {/* Mobile toggle */}
           <div className="flex items-center lg:hidden">
-            <button
+            <button data-magnetic
               onClick={() => setIsMobileOpen(!isMobileOpen)}
               className="text-slate-500 hover:text-slate-700 p-2 rounded transition-colors"
               aria-label="Toggle menu"
@@ -104,7 +104,7 @@ export default function Navbar() {
         <div className="lg:hidden bg-white border-t border-slate-100 shadow-lg">
           <div className="px-5 pt-3 pb-6 space-y-1">
             {["Branding + Printing", "Digital Marketing", "Web + Software", "AI + Automation", "Compliance"].map(item => (
-              <a
+              <a data-magnetic
                 key={item}
                 href="#"
                 className="block px-3 py-2.5 rounded-md font-medium text-slate-700 hover:text-[#fd2e35] hover:bg-red-50 transition-colors"
@@ -114,14 +114,14 @@ export default function Navbar() {
               </a>
             ))}
             <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2.5">
-              <a
+              <a data-magnetic
                 href="#"
                 className="w-full py-2.5 text-center rounded border font-semibold text-slate-700"
                 style={{ border: "1.5px solid #d1d5db", fontSize: "1rem" }}
               >
                 Login
               </a>
-              <a
+              <a data-magnetic
                 href="#"
                 className="w-full py-2.5 text-center rounded font-semibold !text-[#FFFFFF] hover:!text-[#FFFFFF] focus:!text-[#FFFFFF] active:!text-[#FFFFFF]"
                 style={{ background: "#fd2e35", fontSize: "1rem" }}

@@ -1,83 +1,164 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
-
-// ── REST API custom inline SVG ──────────────────────────────────────────────
-const RestApiSvg = () => (
-  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-    <circle cx="40" cy="40" r="10" fill="#d62020" />
-    <circle cx="12" cy="20" r="7" fill="#2563eb" />
-    <circle cx="68" cy="20" r="7" fill="#2563eb" />
-    <circle cx="12" cy="60" r="7" fill="#2563eb" />
-    <circle cx="68" cy="60" r="7" fill="#2563eb" />
-    <line x1="18" y1="23" x2="31" y2="33" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" />
-    <line x1="62" y1="23" x2="49" y2="33" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" />
-    <line x1="18" y1="57" x2="31" y2="47" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" />
-    <line x1="62" y1="57" x2="49" y2="47" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" />
-    <text x="40" y="44" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold" fontFamily="monospace">API</text>
-  </svg>
-);
+import React, { useRef, useEffect, useState } from "react";
+import { motion, useAnimationFrame, useMotionValue, useReducedMotion } from "framer-motion";
 
 // ── Technology cards data ───────────────────────────────────────────────────
-const tools = [
-  {
-    name: "Next.js",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
-  },
-  {
-    name: "React",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
-  },
-  {
-    name: "Node.js",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
-  },
-  {
-    name: "Laravel",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
-  },
-  {
-    name: "WordPress",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-original.svg"
-  },
-  {
-    name: "PHP",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg"
-  },
-  {
-    name: "MySQL",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
-  },
-  {
-    name: "Flutter",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg"
-  },
-  {
-    name: "Figma",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
-  },
-  {
-    name: "GitHub",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
-  },
-  {
-    name: "Docker",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
-  },
-  {
-    name: "REST API",
-    logo: null // uses inline SVG
-  }
+
+const row1Tools = [
+  { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
+  { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+  { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
+  { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
+  { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+  { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" },
+  { name: "Laravel", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" },
 ];
 
-// ── Component ───────────────────────────────────────────────────────────────
+const row2Tools = [
+  { name: "HTML5", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
+  { name: "CSS3", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
+  { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
+  { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
+  { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
+  { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+];
+
+// ── Marquee Row Component ───────────────────────────────────────────────────
+
+function MarqueeRow({ 
+  tools, 
+  direction, 
+  speed, 
+  isHovered 
+}: { 
+  tools: any[]; 
+  direction: "left" | "right"; 
+  speed: number; 
+  isHovered: boolean;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const currentSpeed = useMotionValue(speed);
+  const isReducedMotion = useReducedMotion();
+  
+  // Create 3 sets to allow smooth infinite wrapping
+  const tripleTools = [...tools, ...tools, ...tools];
+
+  useAnimationFrame((time, delta) => {
+    if (isReducedMotion || !containerRef.current) return;
+    
+    // Smoothly interpolate speed (slows down when hovered)
+    const targetSpeed = isHovered ? speed * 0.2 : speed;
+    currentSpeed.set(currentSpeed.get() + (targetSpeed - currentSpeed.get()) * 0.05);
+    
+    // Normalize movement to 60fps frame time (~16.66ms per frame)
+    const moveAmount = currentSpeed.get() * (delta / 16.66);
+    
+    // A single set's width is 1/3 of the total scrollable width
+    const singleSetWidth = containerRef.current.scrollWidth / 3;
+    
+    if (singleSetWidth === 0) return;
+    
+    let newX = x.get() + (direction === "left" ? -moveAmount : moveAmount);
+    
+    if (direction === "left") {
+      if (newX <= -singleSetWidth) {
+        newX += singleSetWidth;
+      }
+    } else {
+      if (newX >= 0) {
+        newX -= singleSetWidth;
+      }
+    }
+    
+    x.set(newX);
+  });
+
+  useEffect(() => {
+    if (isReducedMotion) return;
+    // For right-moving marquee, start at -singleSetWidth so there's content to the left
+    if (direction === "right" && containerRef.current) {
+      const singleSetWidth = containerRef.current.scrollWidth / 3;
+      x.set(-singleSetWidth);
+    }
+  }, [direction, x, isReducedMotion]);
+
+  if (isReducedMotion) {
+    return (
+      <div className="flex gap-4 w-full overflow-x-auto pb-4 snap-x">
+        {tools.map((tool, i) => (
+          <div 
+            key={`${tool.name}-${i}`} 
+            className="tool-card aspect-square rounded-2xl bg-white flex items-center justify-center overflow-hidden group cursor-default shadow-sm shrink-0 snap-center"
+          >
+            <img 
+              src={tool.logo} 
+              alt={`${tool.name} logo`} 
+              className="w-[55%] h-[55%] object-contain select-none" 
+              draggable="false" 
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <motion.div 
+      ref={containerRef}
+      className="flex gap-4 w-max"
+      style={{ x }}
+    >
+      {tripleTools.map((tool, i) => (
+        <div 
+          key={`${tool.name}-${i}`} 
+          className="tool-card aspect-square rounded-2xl bg-white flex items-center justify-center overflow-hidden group cursor-default shadow-sm transition-transform duration-300 hover:-translate-y-1 shrink-0"
+        >
+          <img
+            src={tool.logo}
+            alt={`${tool.name} logo`}
+            className="w-[55%] h-[55%] object-contain select-none transition-transform duration-500 group-hover:scale-110"
+            draggable="false"
+          />
+        </div>
+      ))}
+    </motion.div>
+  );
+}
+
+
+// ── Main Component ──────────────────────────────────────────────────────────
+
 export function WebSoftwareToolkit() {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <section className="w-full pt-16 lg:pt-24 pb-10 lg:pb-12 px-6 md:px-12 lg:px-24 bg-[#f8f7f5]">
+      {/* Dynamic styles for container queries to perfectly fit exactly 6 cards */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .marquee-container {
+          container-type: inline-size;
+        }
+        .tool-card {
+          /* Mobile: exactly 2 cards visible */
+          width: calc((100cqw - 1 * 1rem) / 2);
+        }
+        @media (min-width: 768px) {
+          .tool-card {
+            /* Tablet: exactly 4 cards visible */
+            width: calc((100cqw - 3 * 1rem) / 4);
+          }
+        }
+        @media (min-width: 1024px) {
+          .tool-card {
+            /* Desktop: EXACTLY 6 cards visible */
+            width: calc((100cqw - 5 * 1rem) / 6);
+          }
+        }
+      `}} />
+
       {/* ── Outer premium red container ── */}
       <div className="max-w-[1400px] mx-auto relative bg-[#d62020] border border-white/20 rounded-[40px] p-8 md:p-12 lg:p-14 overflow-hidden">
 
@@ -131,69 +212,32 @@ export function WebSoftwareToolkit() {
             </p>
           </motion.div>
 
-          {/* ── RIGHT SIDE — 60%: Swiper carousel ── */}
+          {/* ── RIGHT SIDE — 60%: Marquee Rows ── */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            className="lg:col-span-7"
+            className="marquee-container lg:col-span-7 flex flex-col gap-4 overflow-hidden relative py-2"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onFocus={() => setIsHovered(true)}
+            onBlur={() => setIsHovered(false)}
           >
-            <Swiper
-              modules={[Autoplay]}
-              slidesPerView={1}
-              spaceBetween={16}
-              loop={true}
-              speed={700}
-              autoplay={{
-                delay: 2800,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              grabCursor={true}
-              breakpoints={{
-                768: { slidesPerView: 2, spaceBetween: 16 },
-                1024: { slidesPerView: 3, spaceBetween: 16 },
-              }}
-              style={{ overflow: "hidden" }}
-            >
-              {tools.map((tool, idx) => (
-                <SwiperSlide key={`${tool.name}-${idx}`}>
-                  {/* White technology card */}
-                  <div className="h-[210px] lg:h-[230px] rounded-2xl bg-white flex flex-col overflow-hidden group cursor-grab active:cursor-grabbing">
-                    {/* Centered colored logo */}
-                    <div className="flex-1 flex items-center justify-center p-6">
-                      {tool.logo ? (
-                        <img
-                          src={tool.logo}
-                          alt={`${tool.name} logo`}
-                          className="w-16 h-16 lg:w-20 lg:h-20 object-contain select-none transition-transform duration-500 group-hover:scale-110"
-                          draggable="false"
-                        />
-                      ) : (
-                        <div className="w-16 h-16 lg:w-20 lg:h-20 transition-transform duration-500 group-hover:scale-110">
-                          <RestApiSvg />
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Tool name — bottom-left */}
-                    <div className="px-5 pb-4">
-                      <span style={{
-                        color: "#111111",
-                        fontSize: "13px",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.06em",
-                        display: "block",
-                      }}>
-                        {tool.name}
-                      </span>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            {/* Removed the absolute gradient edge mask to ensure 6 cards are fully visible unmasked */}
+            
+            <MarqueeRow 
+              tools={row1Tools} 
+              direction="left" 
+              speed={0.9} 
+              isHovered={isHovered} 
+            />
+            <MarqueeRow 
+              tools={row2Tools} 
+              direction="right" 
+              speed={1.05} 
+              isHovered={isHovered} 
+            />
           </motion.div>
 
         </div>

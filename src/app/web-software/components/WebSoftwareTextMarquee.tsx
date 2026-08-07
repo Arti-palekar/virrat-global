@@ -2,30 +2,23 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
+import SplashCursor from "@/components/ui/SplashCursor";
+
+type MarqueeItem = {
+  text: string;
+  accent: boolean;
+  isSeparator?: boolean;
+  outline?: boolean;
+};
 
 /* ─── Data ────────────────────────────────────────────────────────────────── */
 
 const ROW_1_ITEMS = [
-  { text: "WEB DEVELOPMENT", accent: false },
-  { text: "✦", accent: true, isSeparator: true },
-  { text: "CUSTOM SOFTWARE", accent: true },
+  { text: "CUSTOM SOFTWARE", accent: false },
   { text: "✦", accent: true, isSeparator: true },
   { text: "MOBILE APPS", accent: false },
   { text: "✦", accent: true, isSeparator: true },
-  { text: "ECOMMERCE", accent: false },
-  { text: "✦", accent: true, isSeparator: true },
-  { text: "SAAS", accent: false, outline: true },
-  { text: "✦", accent: true, isSeparator: true },
-];
-
-const ROW_2_ITEMS = [
-  { text: "AI AUTOMATION", accent: true },
-  { text: "✦", accent: true, isSeparator: true },
-  { text: "API INTEGRATION", accent: false },
-  { text: "✦", accent: true, isSeparator: true },
-  { text: "CLOUD SOLUTIONS", accent: false, outline: true },
-  { text: "✦", accent: true, isSeparator: true },
-  { text: "DIGITAL PRODUCTS", accent: false },
+  { text: "AI AUTOMATION", accent: false },
   { text: "✦", accent: true, isSeparator: true },
 ];
 
@@ -105,7 +98,7 @@ function MarqueeRow({
   prefersReducedMotion,
   initialX
 }: {
-  items: typeof ROW_1_ITEMS;
+  items: MarqueeItem[];
   direction: "left" | "right";
   baseSpeed: number;
   isHovered: boolean;
@@ -181,24 +174,17 @@ export function WebSoftwareTextMarquee() {
         onMouseLeave={() => setIsHovered(false)}
         aria-label="Services Marquee"
       >
-        <div className="flex flex-col gap-4 md:gap-6 w-full items-center">
+        <SplashCursor RAINBOW_MODE={false} COLOR="#d62020" TRANSPARENT={true} />
+        
+        <div className="flex flex-col w-full items-center relative z-10 pointer-events-none">
           <MarqueeRow 
             items={ROW_1_ITEMS} 
             direction="left" 
-            baseSpeed={0.08} // Adjust speed as needed (~30s loop)
+            baseSpeed={0.08}
             isHovered={isHovered} 
             isInView={isInView} 
             prefersReducedMotion={prefersReducedMotion}
             initialX={100}
-          />
-          <MarqueeRow 
-            items={ROW_2_ITEMS} 
-            direction="right" 
-            baseSpeed={0.07} // Slightly slower for parallax feel
-            isHovered={isHovered} 
-            isInView={isInView} 
-            prefersReducedMotion={prefersReducedMotion}
-            initialX={-100}
           />
         </div>
       </section>
@@ -218,9 +204,9 @@ const marqueeStyles = /* css */ `
   margin-left: -50vw;
   margin-right: -50vw;
   overflow: hidden;
-  padding-top: 70px;
-  padding-bottom: 70px;
-  background: transparent; /* inherits page bg */
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: #000000;
   z-index: 10;
   
   /* Subtle edge mask for elegant entrance/exit */
@@ -246,7 +232,7 @@ const marqueeStyles = /* css */ `
   font-weight: 600;
   line-height: 1.1;
   text-transform: uppercase;
-  color: #111111;
+  color: #FFFFFF;
   white-space: nowrap;
   letter-spacing: -0.02em;
   will-change: transform;
@@ -258,13 +244,13 @@ const marqueeStyles = /* css */ `
 
 .ws-text-marquee-outline {
   color: transparent;
-  -webkit-text-stroke: 1.5px #111111;
+  -webkit-text-stroke: 1px #FFFFFF;
 }
 
 @media (max-width: 768px) {
   .ws-text-marquee-section {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
   .ws-text-marquee-item {
     font-size: 32px;

@@ -213,6 +213,7 @@ export function CinematicFooter() {
               {/* Primary CTA pills */}
               <div className="flex flex-wrap justify-center gap-4 w-full">
                 <MagneticButton
+                  data-magnetic
                   as="a"
                   href="mailto:hello@virrat.co"
                   className="footer-glass-pill px-10 py-5 rounded-full text-black dark:text-black font-bold text-sm md:text-base flex items-center gap-3 group"
@@ -224,6 +225,7 @@ export function CinematicFooter() {
                 </MagneticButton>
 
                 <MagneticButton
+                  data-magnetic
                   as="a"
                   href="#"
                   className="footer-glass-pill px-10 py-5 rounded-full text-black dark:text-black font-bold text-sm md:text-base flex items-center gap-3 group"
@@ -239,6 +241,7 @@ export function CinematicFooter() {
               <div className="flex flex-wrap justify-center gap-3 md:gap-6 w-full mt-2">
                 {["Work", "Services", "About", "Privacy Policy"].map((label) => (
                   <MagneticButton
+                    data-magnetic
                     key={label}
                     as="a"
                     href="#"
@@ -263,6 +266,7 @@ export function CinematicFooter() {
 
             {/* Back to top */}
             <MagneticButton
+              data-magnetic
               as="button"
               onClick={scrollToTop}
               aria-label="Back to top"

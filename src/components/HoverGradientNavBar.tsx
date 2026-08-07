@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 import { 
   Search, Menu, X, 
   House, Palette, TrendingUp, Code, Bot, ShieldCheck, Briefcase, Phone,
-  Layers, Mail, Package
+  Layers, Mail, Package, ShoppingBag
 } from 'lucide-react';
 
 /* ─── 5 main services ─────────────────────────── */
@@ -45,6 +45,7 @@ const mobileNavItems = [
   { name: 'Digital Marketing', href: '/digital-marketing', Icon: TrendingUp },
   { name: 'Services', href: '/services', Icon: Layers },
   { name: 'Packaging Design', href: '/services/packaging-design', Icon: Package },
+  { name: 'Merchandise', href: '/services/merchandise', Icon: ShoppingBag },
   { name: 'Web + Software', href: '/web-software', Icon: Code },
   { name: 'AI + Automation', href: '/ai-automation', Icon: Bot },
   { name: 'Compliance', href: '/compliance', Icon: ShieldCheck },
@@ -167,6 +168,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
         >
           {/* Logo (flex-shrink-0) */}
           <Link
+            data-magnetic
             href="/"
             style={{
               display:    'flex',
@@ -222,6 +224,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
                     </AnimatePresence>
 
                     <motion.a
+                      data-magnetic
                       href={item.href}
                       animate={{ scale: isHover ? 1.03 : 1 }}
                       transition={spring}
@@ -276,9 +279,11 @@ export function HoverGradientNavBar(): React.JSX.Element {
                             {[
                               { name: 'All Services', href: '/services' },
                               { name: 'Packaging Design', href: '/services/packaging-design' },
+                              { name: 'Merchandise', href: '/services/merchandise' },
                               { name: 'Web + Software', href: '/web-software' }
                             ].map((sub) => (
                               <Link
+                                data-magnetic
                                 key={sub.name}
                                 href={sub.href}
                                 style={{
@@ -311,6 +316,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
             {socials.map(({ label, href, Icon }) => (
               <motion.a
+                data-magnetic
                 key={label}
                 href={href}
                 target="_blank"
@@ -348,6 +354,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
 
             {/* Search */}
             <motion.button
+              data-magnetic
               aria-label="Search"
               whileHover={{
                 scale:           1.08,
@@ -411,7 +418,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
             transition:    'background-color 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease',
           }}
         >
-          <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
+          <Link data-magnetic href="/" style={{ display: 'flex', alignItems: 'center' }}>
             <Image
               src="/logo.png"
               alt="Virrat Global"
@@ -423,6 +430,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
           </Link>
 
           <button
+            data-magnetic
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
             style={{
@@ -477,6 +485,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
               <div className="flex items-center justify-between w-full pb-2 border-b border-zinc-100">
                 <span className="text-[11px] font-bold tracking-[0.2em] text-zinc-400 uppercase">Navigation</span>
                 <button 
+                  data-magnetic
                   onClick={() => setMobileOpen(false)}
                   className="p-1 rounded-full hover:bg-zinc-100 text-zinc-500 transition-colors focus:outline-none"
                   aria-label="Close menu"
@@ -497,6 +506,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
                       transition={{ delay: idx * 0.03, type: "spring", stiffness: 260, damping: 22 }}
                     >
                       <Link
+                        data-magnetic
                         href={item.href}
                         onClick={() => setMobileOpen(false)}
                         className="flex items-center gap-4 py-2.5 px-4 rounded-2xl transition-all duration-200 select-none hover:bg-zinc-50 active:scale-[0.98]"
@@ -521,6 +531,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
                 className="w-full"
               >
                 <Link 
+                  data-magnetic
                   href="/contact" 
                   onClick={() => setMobileOpen(false)}
                   className="w-full h-12 flex items-center justify-center text-white font-semibold text-sm tracking-wide rounded-full transition-all duration-200 active:scale-95 shadow-[0_4px_14px_0_rgba(214,32,32,0.3)] hover:shadow-[0_6px_20px_0_rgba(214,32,32,0.4)]"
@@ -539,6 +550,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
               >
                 {mobileSocials.map((social) => (
                   <motion.a
+                    data-magnetic
                     key={social.label}
                     href={social.href}
                     target="_blank"

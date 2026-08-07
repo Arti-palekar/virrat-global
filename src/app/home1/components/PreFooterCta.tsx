@@ -80,7 +80,7 @@ export default function PreFooterCta() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2 }}
         >
-          <a
+          <a data-magnetic
             href="https://virratglobal.com/contact/"
             target="_blank"
             rel="noopener noreferrer"

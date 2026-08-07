@@ -27,6 +27,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 import SmoothScroll from "@/components/shared/SmoothScroll";
+import { MagneticCursor } from "@/components/MagneticCursor";
 
 export const metadata: Metadata = {
   title: "Virrat Global — Premium Creative & Tech Agency",
@@ -51,9 +52,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${plusJakartaSans.variable} ${geistSans.variable} antialiased`}>
       <body className="min-h-screen flex flex-col font-body bg-[var(--color-background)] text-[var(--color-foreground)]">
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <MagneticCursor>
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
+        </MagneticCursor>
       </body>
     </html>
   );

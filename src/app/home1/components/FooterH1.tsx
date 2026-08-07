@@ -116,7 +116,7 @@ export default function FooterH1() {
             {/* Socials */}
             <div style={{ display: "flex", gap: "10px" }}>
               {socials.map((social) => (
-                <a
+                <a data-magnetic
                   key={social.label}
                   href={social.href}
                   target="_blank"
@@ -168,7 +168,7 @@ export default function FooterH1() {
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <a data-magnetic
                       href={link.href}
                       style={{
                         color: "#666666",
@@ -207,7 +207,7 @@ export default function FooterH1() {
           </p>
           <div style={{ display: "flex", gap: "24px" }}>
             {["Privacy", "Terms", "Legal"].map((item) => (
-              <a
+              <a data-magnetic
                 key={item}
                 href="#"
                 style={{ color: "#666666", fontSize: "1rem", textDecoration: "none", fontWeight: 500 }}
