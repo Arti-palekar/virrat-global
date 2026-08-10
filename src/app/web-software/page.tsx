@@ -4,8 +4,6 @@ import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQ1 from "@/components/FAQ1";
-import ProcessSection from "@/components/sections/ProcessSection";
-
 import { WebSoftwareHeroNew } from "./components/WebSoftwareHeroNew";
 import { WebSoftwareServicesShowcase } from "./components/WebSoftwareServicesShowcase";
 import { WebSoftwareMarquee } from "./components/WebSoftwareMarquee";
@@ -13,6 +11,7 @@ import { WebSoftwareToolkit } from "./components/WebSoftwareToolkit";
 import { WebSoftwareTextMarquee } from "./components/WebSoftwareTextMarquee";
 import { WebSoftwareIndustriesCarousel } from "./components/WebSoftwareIndustriesCarousel";
 import WebSoftwareConsiderations from "./components/WebSoftwareConsiderations";
+import WebSoftwareProcess from "./components/WebSoftwareProcess";
 
 export const metadata: Metadata = {
   title: "Web & Software Development Services | Virrat Global",
@@ -151,7 +150,7 @@ export default function WebSoftwarePage() {
         <WebSoftwareToolkit />
 
         {/* 3.1 — Step-by-Step Development Process */}
-        <ProcessSection
+        <WebSoftwareProcess
           eyebrow="OUR PROCESS"
           title={"Our Step-by-Step\nDevelopment Process"}
           description="From strategy and design to development, testing and launch, every stage is carefully planned to create scalable, high-performance digital products."

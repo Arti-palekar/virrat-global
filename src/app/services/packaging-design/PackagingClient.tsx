@@ -6,17 +6,16 @@ import CinematicFooter from "@/components/CinematicFooter";
 import MobileFloatingMenu from "@/components/MobileFloatingMenu";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQ1 from "@/components/FAQ1";
-import { ExpandOnHover } from "@/components/sections/ExpandOnHover";
+import PackagingIndustriesExpand from "./components/PackagingIndustriesExpand";
 
 // Custom page components
 import PackagingHero from "./components/PackagingHero";
 import PackagingTopPicks from "./components/PackagingTopPicks";
 import PackagingTools from "./components/PackagingTools";
+
 import PackagingProcess from "./components/PackagingProcess";
-import PackagingConsiderations from "./components/PackagingConsiderations";
-import PackagingIndustries from "./components/PackagingIndustries";
 import PackagingMarquee from "./components/PackagingMarquee";
-import PackagingPortfolio from "./components/PackagingPortfolio";
+
 
 
 // ── CUSTOM FAQ ITEMS FOR PACKAGING ──
@@ -126,19 +125,10 @@ export default function PackagingClient() {
         {/* Moving Typography Banner Section */}
         <PackagingMarquee />
 
-        {/* Industries We Design For Section */}
-        <PackagingIndustries />
-
-        {/* Why Businesses Choose Virrat Global */}
         <div className="[&_article_*]:!text-[#ffffff] [&_article]:!text-[#ffffff] [&_ul]:!max-w-[1020px] md:[&_ul]:!h-[420px] [&_.mb-12]:!mb-6">
-          <ExpandOnHover />
+          <PackagingIndustriesExpand />
         </div>
 
-        {/* What We Consider Section */}
-        <PackagingConsiderations />
-
-        {/* Selected Work / Portfolio Section */}
-        <PackagingPortfolio />
 
         {/* Section 12: Testimonials (Dynamic Reuse) */}
         <TestimonialsSection items={packagingTestimonials} />
