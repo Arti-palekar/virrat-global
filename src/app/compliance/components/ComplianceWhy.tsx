@@ -2,73 +2,95 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { CheckCircle2, Clock, Globe2, MessageSquare } from "lucide-react";
 
-const benefits = [
-  "Reduce regulatory and operational risk",
-  "Protect sensitive business and customer information",
-  "Improve internal processes and accountability",
-  "Build trust with customers and partners",
-  "Stay prepared for audits and regulatory changes"
+const valuePoints = [
+  {
+    title: "Dedicated Expertise",
+    desc: "Get structured assistance for each compliance requirement.",
+    icon: CheckCircle2
+  },
+  {
+    title: "Timely Processing",
+    desc: "Keep applications, filings and documentation organized and on schedule.",
+    icon: Clock
+  },
+  {
+    title: "Digital-First Process",
+    desc: "Submit documents and manage compliance requirements through a streamlined digital workflow.",
+    icon: Globe2
+  },
+  {
+    title: "Transparent Support",
+    desc: "Clear requirements, process information and communication throughout the engagement.",
+    icon: MessageSquare
+  }
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
 
 export default function ComplianceWhy() {
   return (
-    <section className="relative w-full py-20 lg:py-32 bg-white overflow-hidden">
-      {/* Very subtle background line/gradient */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1/3 h-[600px] bg-gradient-to-r from-black/[0.02] to-transparent rounded-full blur-3xl pointer-events-none" />
-
+    <section className="relative w-full py-20 lg:py-24 bg-white border-y border-[#E8E8E8]">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
-          {/* Left: Heading and Text */}
-          <div className="flex flex-col z-10">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              className="text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight text-[#111111] leading-[1.1] mb-8"
-            >
-              REDUCE RISK.<br />
-              PROTECT DATA.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E31E24] to-[#FF7A59]">BUILD TRUST.</span>
-            </motion.h2>
-
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-[#666666] max-w-[480px] leading-relaxed"
-            >
-              Compliance is more than meeting requirements. It creates stronger processes, protects your business and gives customers and partners greater confidence.
-            </motion.p>
-          </div>
-
-          {/* Right: Benefits List */}
-          <div className="flex flex-col gap-6 z-10">
-            {benefits.map((benefit, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="flex items-start gap-4 p-4 rounded-xl hover:bg-[#FAF9F6] border border-transparent hover:border-[#E8E8E8] transition-colors duration-300 group"
-              >
-                <div className="w-8 h-8 rounded-full bg-[#E31E24]/10 flex items-center justify-center flex-shrink-0 mt-0.5 relative">
-                  {/* Subtle hover pulse */}
-                  <div className="absolute inset-0 rounded-full border border-[#E31E24] opacity-0 group-hover:animate-ping" style={{ animationDuration: '2s' }} />
-                  <Check className="w-4 h-4 text-[#E31E24]" strokeWidth={2.5} />
-                </div>
-                <span className="text-lg font-medium text-[#111111] leading-snug pt-1">
-                  {benefit}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-
+        
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center space-x-2 bg-black/5 px-3 py-1.5 rounded-full mb-6"
+          >
+            <span className="w-2 h-2 rounded-full bg-[#E31E24] animate-pulse"></span>
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-black/70">
+              WHY BUSINESSES CHOOSE US
+            </span>
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-[#111111] max-w-2xl leading-tight"
+          >
+            Reliable Support for Your Business Compliance
+          </motion.h2>
         </div>
+
+        {/* 4 Column Grid */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-10%" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
+        >
+          {valuePoints.map((point, idx) => (
+            <motion.div 
+              key={idx}
+              variants={cardVariants}
+              className="flex flex-col items-start group"
+            >
+              <div className="w-12 h-12 rounded-full bg-[#FAF9F6] border border-[#E8E8E8] flex items-center justify-center mb-6 group-hover:bg-[#E31E24]/5 group-hover:border-[#E31E24]/30 transition-all duration-300">
+                <point.icon className="w-5 h-5 text-[#666666] group-hover:text-[#E31E24] transition-colors duration-300" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-[17px] font-bold text-[#111111] mb-3 leading-tight">{point.title}</h3>
+              <p className="text-sm text-[#666666] leading-relaxed">
+                {point.desc}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+
       </div>
     </section>
   );

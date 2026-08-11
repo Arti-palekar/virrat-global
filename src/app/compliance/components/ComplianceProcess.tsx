@@ -1,280 +1,204 @@
 "use client";
 
-import React from "react";
-import { Search, ShieldAlert, Map, Settings, ShieldCheck, RefreshCw } from "lucide-react";
+import React, { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { Search, ShieldAlert, FileEdit, Send, RefreshCw } from "lucide-react";
 
 const processSteps = [
   {
     num: "01",
-    title: "Assess",
-    description: "Understand your current compliance position.",
-    icon: Search,
+    title: "Understand",
+    description: "Understand the business and its requirements.",
+    icon: Search
   },
   {
     num: "02",
-    title: "Identify Gaps",
-    description: "Find weaknesses, risks and missing controls.",
-    icon: ShieldAlert,
+    title: "Identify",
+    description: "Identify applicable registrations, licences and compliance obligations.",
+    icon: ShieldAlert
   },
   {
     num: "03",
-    title: "Plan",
-    description: "Create a practical compliance roadmap.",
-    icon: Map,
+    title: "Prepare",
+    description: "Prepare documents, forms and required information.",
+    icon: FileEdit
   },
   {
     num: "04",
-    title: "Implement",
-    description: "Put policies, controls and processes into action.",
-    icon: Settings,
+    title: "File",
+    description: "Submit applications, registrations or returns.",
+    icon: Send
   },
   {
     num: "05",
-    title: "Validate",
-    description: "Review, test and prepare for audits.",
-    icon: ShieldCheck,
-  },
-  {
-    num: "06",
-    title: "Monitor",
-    description: "Continuously track and improve compliance.",
-    icon: RefreshCw,
+    title: "Maintain",
+    description: "Track renewals, filings and ongoing compliance requirements.",
+    icon: RefreshCw
   }
 ];
 
 export default function ComplianceProcess() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Create a continuous animation value for the line
+  const [dashOffset, setDashOffset] = useState(0);
+
+  useEffect(() => {
+    let animationFrameId: number;
+    let start = performance.now();
+    const duration = 8000; // 8 seconds per loop
+
+    const animate = (time: number) => {
+      const elapsed = time - start;
+      const progress = (elapsed % duration) / duration;
+      // dashoffset moves from 0 to -200 to push the segment forward
+      // We use a large pathLength so 100 is just a fraction
+      setDashOffset(progress * -100);
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
+
   return (
-    <section className="relative w-full py-24 md:py-32 px-4 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden">
-      
-      {/* CSS Animations */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        @media (prefers-reduced-motion: no-preference) {
-          .process-line-animated {
-            stroke-dasharray: 12 150;
-            animation: line-run 14s linear infinite;
-            filter: drop-shadow(0 0 6px rgba(227,38,32,0.6));
-          }
-          .node-pulse-0 { animation: pulse-node 14s infinite; animation-delay: 0s; }
-          .node-pulse-1 { animation: pulse-node 14s infinite; animation-delay: 2s; }
-          .node-pulse-2 { animation: pulse-node 14s infinite; animation-delay: 4s; }
-          .node-pulse-3 { animation: pulse-node 14s infinite; animation-delay: 6s; }
-          .node-pulse-4 { animation: pulse-node 14s infinite; animation-delay: 8s; }
-          .node-pulse-5 { animation: pulse-node 14s infinite; animation-delay: 10s; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .process-line-animated {
-            stroke-dasharray: 120;
-            stroke-dashoffset: 0;
-          }
-        }
-        @keyframes line-run {
-          0% { stroke-dashoffset: 6; }
-          100% { stroke-dashoffset: -134; }
-        }
-        @keyframes pulse-node {
-          0%, 15%, 100% { box-shadow: 0 0 0px rgba(227,38,32,0); border-color: white; transform: scale(1); }
-          7.14% { box-shadow: 0 0 35px rgba(227,38,32,0.8); border-color: #E31E24; transform: scale(1.15); }
-        }
-      `}} />
-
-      <div className="max-w-[1200px] mx-auto relative z-10">
+    <section className="relative w-full py-20 lg:py-32 bg-[#FAF9F6] border-t border-[#E8E8E8] overflow-hidden" ref={containerRef}>
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
         
-        {/* Header Section */}
-        <div className="mb-20 md:mb-28 flex flex-col items-center text-center max-w-3xl mx-auto">
-          <span className="text-[#E31E24] text-[10px] md:text-[12px] font-bold tracking-[0.3em] uppercase mb-4">OUR PROCESS</span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1]">
-            A Practical Path to Better Compliance
-          </h2>
+        {/* Header */}
+        <div className="flex flex-col items-center text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center space-x-2 bg-black/5 px-3 py-1.5 rounded-full mb-6"
+          >
+            <span className="w-2 h-2 rounded-full bg-[#E31E24] animate-pulse"></span>
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-black/70">
+              OUR COMPLIANCE PROCESS
+            </span>
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-[#111111] max-w-2xl leading-tight"
+          >
+            A Streamlined Path to Compliance
+          </motion.h2>
         </div>
 
-        {/* Winding Path Container - Desktop */}
-        <div className="hidden md:block relative w-full aspect-[3/1] max-w-[1200px] mx-auto">
-          
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#E31E24" />
-                <stop offset="100%" stopColor="#FF7A59" />
-              </linearGradient>
-            </defs>
-            
-            {/* Base dotted path */}
-            <path 
-              d="
-                M 0,200 
-                C 50,200 50,100 100,100 
-                C 200,100 200,300 300,300 
-                C 400,300 400,100 500,100 
-                C 600,100 600,300 700,300 
-                C 800,300 800,100 900,100 
-                C 1000,100 1000,300 1100,300 
-                C 1150,300 1150,200 1200,200
-              " 
-              fill="none" 
-              stroke="#e5e7eb" 
-              strokeWidth="2" 
-              strokeDasharray="6 6" 
-            />
+        <div className="relative">
+          {/* Desktop SVG Path */}
+          <div className="hidden lg:block absolute top-[60px] left-0 w-full h-[300px] pointer-events-none -z-10">
+            <svg width="100%" height="100%" viewBox="0 0 1000 200" preserveAspectRatio="none" fill="none">
+              {/* Base grey dotted path */}
+              <path 
+                d="M 50,100 C 200,100 250,20 400,20 C 550,20 600,180 750,180 C 900,180 950,100 1050,100" 
+                stroke="#E8E8E8" 
+                strokeWidth="2" 
+                strokeDasharray="4 6" 
+                fill="none" 
+              />
+              {/* Animated red process line - short segment */}
+              <path 
+                d="M 50,100 C 200,100 250,20 400,20 C 550,20 600,180 750,180 C 900,180 950,100 1050,100" 
+                stroke="url(#processGradient)" 
+                strokeWidth="3"
+                strokeLinecap="round"
+                fill="none" 
+                strokeDasharray="10 90" /* 10% dash, 90% gap */
+                strokeDashoffset={dashOffset}
+                pathLength="100"
+                style={{ filter: "drop-shadow(0 0 6px rgba(227,30,36,0.5))" }}
+              />
+              <defs>
+                <linearGradient id="processGradient" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#E31E24" stopOpacity="0" />
+                  <stop offset="50%" stopColor="#E31E24" />
+                  <stop offset="100%" stopColor="#FF7A59" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
 
-            {/* Animated line */}
-            <path 
-              className="process-line-animated"
-              d="
-                M 0,200 
-                C 50,200 50,100 100,100 
-                C 200,100 200,300 300,300 
-                C 400,300 400,100 500,100 
-                C 600,100 600,300 700,300 
-                C 800,300 800,100 900,100 
-                C 1000,100 1000,300 1100,300 
-                C 1150,300 1150,200 1200,200
-              " 
-              fill="none" 
-              stroke="url(#redGradient)" 
-              strokeWidth="2.5" 
-              strokeLinecap="round"
-              pathLength="120"
-            />
-            {/* End Arrow */}
-            <path d="M 1190,193 L 1200,200 L 1190,207" fill="none" stroke="#e5e7eb" strokeWidth="2" />
-          </svg>
+          {/* Mobile SVG Path (Vertical) */}
+          <div className="block lg:hidden absolute top-0 left-[23px] w-[50px] h-full pointer-events-none -z-10">
+            <svg width="100%" height="100%" viewBox="0 0 50 1000" preserveAspectRatio="none" fill="none">
+              <path 
+                d="M 25,0 L 25,1000" 
+                stroke="#E8E8E8" 
+                strokeWidth="2" 
+                strokeDasharray="4 6" 
+                fill="none" 
+              />
+              <path 
+                d="M 25,0 L 25,1000" 
+                stroke="url(#processGradientVertical)" 
+                strokeWidth="3"
+                strokeLinecap="round"
+                fill="none" 
+                strokeDasharray="10 90"
+                strokeDashoffset={dashOffset}
+                pathLength="100"
+                style={{ filter: "drop-shadow(0 0 6px rgba(227,30,36,0.5))" }}
+              />
+              <defs>
+                <linearGradient id="processGradientVertical" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#E31E24" stopOpacity="0" />
+                  <stop offset="50%" stopColor="#E31E24" />
+                  <stop offset="100%" stopColor="#FF7A59" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
 
-          {/* Desktop Nodes */}
-          {processSteps.map((step, idx) => {
-            const isTop = idx % 2 === 0;
-            const xPercent = ((idx * 200 + 100) / 1200) * 100;
-            const yPercent = isTop ? 25 : 75;
-            const IconComp = step.icon;
+          {/* 5 Process Steps */}
+          <div className="flex flex-col lg:flex-row justify-between relative z-10 gap-16 lg:gap-4">
+            {processSteps.map((step, idx) => {
+              // Custom vertical positioning for desktop wave effect
+              const yOffset = 
+                idx === 0 ? "0px" : 
+                idx === 1 ? "-80px" : 
+                idx === 2 ? "10px" : 
+                idx === 3 ? "80px" : "0px";
 
-            return (
-              <div 
-                key={step.num}
-                className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10"
-                style={{ left: `${xPercent}%`, top: `${yPercent}%` }}
-              >
-                {/* Text Above */}
-                {isTop && (
-                  <div className="absolute bottom-full mb-6 w-[200px] text-center">
-                    <span className="text-[#E31E24] font-bold text-sm mb-1 block">{step.num}</span>
-                    <h3 className="text-[17px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
-                    <p className="text-[13px] text-gray-500 font-medium leading-snug">{step.description}</p>
-                  </div>
-                )}
-
-                {/* Node Circle */}
-                <div 
-                  className={`node-pulse-${idx} w-[70px] h-[70px] rounded-full flex items-center justify-center border-4 border-white relative z-20 bg-gradient-to-br from-[#E31E24] to-[#FF7A59] transition-transform duration-300`}
+              return (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-10%" }}
+                  transition={{ duration: 0.5, delay: idx * 0.15 }}
+                  className="flex flex-row lg:flex-col items-start lg:items-center relative w-full lg:w-1/5 group"
+                  style={{ transform: `translateY(${typeof window !== 'undefined' && window.innerWidth >= 1024 ? yOffset : '0px'})` }}
                 >
-                  <IconComp className="text-white w-8 h-8" strokeWidth={1.5} />
-                </div>
-
-                {/* Text Below */}
-                {!isTop && (
-                  <div className="absolute top-full mt-6 w-[200px] text-center">
-                    <span className="text-[#E31E24] font-bold text-sm mb-1 block">{step.num}</span>
-                    <h3 className="text-[17px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
-                    <p className="text-[13px] text-gray-500 font-medium leading-snug">{step.description}</p>
+                  {/* Step Node */}
+                  <div className="relative flex-shrink-0 lg:mb-6 mr-6 lg:mr-0 z-10">
+                    <div className="w-12 h-12 rounded-full bg-white border-2 border-[#E8E8E8] flex items-center justify-center relative z-20 group-hover:border-[#E31E24] group-hover:shadow-[0_0_20px_rgba(227,30,36,0.2)] transition-all duration-300">
+                      <span className="text-sm font-bold text-[#111111] group-hover:text-[#E31E24] transition-colors duration-300">
+                        {step.num}
+                      </span>
+                    </div>
                   </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
 
-        {/* Winding Path Container - Mobile */}
-        <div className="block md:hidden relative w-full h-[1200px] max-w-[400px] mx-auto mt-10">
-          
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 1200" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <linearGradient id="redGradientMobile" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#E31E24" />
-                <stop offset="100%" stopColor="#FF7A59" />
-              </linearGradient>
-            </defs>
-
-            {/* Base dotted path */}
-            <path 
-              d="
-                M 200,0 
-                C 200,50 100,50 100,100 
-                C 100,200 300,200 300,300 
-                C 300,400 100,400 100,500 
-                C 100,600 300,600 300,700 
-                C 300,800 100,800 100,900 
-                C 100,1000 300,1000 300,1100 
-                C 300,1150 200,1150 200,1200
-              " 
-              fill="none" 
-              stroke="#e5e7eb" 
-              strokeWidth="2" 
-              strokeDasharray="6 6" 
-            />
-
-            {/* Animated line */}
-            <path 
-              className="process-line-animated"
-              d="
-                M 200,0 
-                C 200,50 100,50 100,100 
-                C 100,200 300,200 300,300 
-                C 300,400 100,400 100,500 
-                C 100,600 300,600 300,700 
-                C 300,800 100,800 100,900 
-                C 100,1000 300,1000 300,1100 
-                C 300,1150 200,1150 200,1200
-              " 
-              fill="none" 
-              stroke="url(#redGradientMobile)" 
-              strokeWidth="2.5" 
-              strokeLinecap="round"
-              pathLength="120"
-            />
-            {/* End Arrow */}
-            <path d="M 193,1190 L 200,1200 L 207,1190" fill="none" stroke="#e5e7eb" strokeWidth="2" />
-          </svg>
-
-          {/* Mobile Nodes */}
-          {processSteps.map((step, idx) => {
-            const isLeft = idx % 2 === 0;
-            const xPercent = isLeft ? 25 : 75;
-            const yPercent = ((idx * 200 + 100) / 1200) * 100;
-            const IconComp = step.icon;
-
-            return (
-              <div 
-                key={step.num}
-                className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10"
-                style={{ left: `${xPercent}%`, top: `${yPercent}%` }}
-              >
-                
-                {/* Text Left (for Right nodes) */}
-                {!isLeft && (
-                  <div className="absolute right-full mr-4 w-[140px] text-right">
-                    <span className="text-[#E31E24] font-bold text-sm mb-0.5 block">{step.num}</span>
-                    <h3 className="text-[15px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
-                    <p className="text-[12px] text-gray-500 font-medium leading-tight">{step.description}</p>
+                  {/* Content */}
+                  <div className="flex flex-col lg:items-center lg:text-center mt-1 lg:mt-0 pt-2 lg:pt-0">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <step.icon className="w-5 h-5 text-[#E31E24]" strokeWidth={2} />
+                      <h3 className="text-[19px] font-bold text-[#111111] leading-tight">
+                        {step.title}
+                      </h3>
+                    </div>
+                    <p className="text-sm text-[#666666] leading-relaxed max-w-[220px]">
+                      {step.description}
+                    </p>
                   </div>
-                )}
-
-                {/* Node Circle */}
-                <div 
-                  className={`node-pulse-${idx} w-[60px] h-[60px] rounded-full flex items-center justify-center border-4 border-white relative z-20 bg-gradient-to-br from-[#E31E24] to-[#FF7A59] transition-transform duration-300`}
-                >
-                  <IconComp className="text-white w-6 h-6" strokeWidth={1.5} />
-                </div>
-
-                {/* Text Right (for Left nodes) */}
-                {isLeft && (
-                  <div className="absolute left-full ml-4 w-[140px] text-left">
-                    <span className="text-[#E31E24] font-bold text-sm mb-0.5 block">{step.num}</span>
-                    <h3 className="text-[15px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
-                    <p className="text-[12px] text-gray-500 font-medium leading-tight">{step.description}</p>
-                  </div>
-                )}
-
-              </div>
-            );
-          })}
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
       </div>

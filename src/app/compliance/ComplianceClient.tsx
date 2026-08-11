@@ -9,42 +9,42 @@ import ComplianceHero from "./components/ComplianceHero";
 import ComplianceValueStrip from "./components/ComplianceValueStrip";
 import ComplianceServicesGrid from "./components/ComplianceServicesGrid";
 import ComplianceWhy from "./components/ComplianceWhy";
-import ComplianceProcess from "./components/ComplianceProcess";
-import ComplianceFrameworks from "./components/ComplianceFrameworks";
 import ComplianceIndustries from "./components/ComplianceIndustries";
-import ComplianceTechWorkflow from "./components/ComplianceTechWorkflow";
+import CompliancePackages from "./components/CompliancePackages";
+import ComplianceProcess from "./components/ComplianceProcess";
+import ComplianceConsultation from "./components/ComplianceConsultation";
 import ComplianceCTA from "./components/ComplianceCTA";
 
 const complianceFaqs = [
   {
-    question: "What is compliance and why does it matter?",
-    answer: "Compliance means ensuring your business follows applicable laws, regulations, and industry standards. It matters because it protects sensitive data, avoids legal penalties, builds customer trust, and creates stronger internal processes.",
-    meta: "Overview"
+    question: "What licences does my business need?",
+    answer: "The specific licences depend on your business type, industry, and location. For example, food businesses need FSSAI, importers need IEC, and retail shops need Shop & Establishment registration. We help identify exactly what you need.",
+    meta: "Licences"
   },
   {
-    question: "Which compliance requirements apply to my business?",
-    answer: "The requirements depend on your industry, location, and the type of data you handle. For example, healthcare businesses need HIPAA, companies handling European data need GDPR, and B2B SaaS companies often need SOC 2.",
-    meta: "Requirements"
+    question: "How do I know which registrations apply to my business?",
+    answer: "We conduct a thorough review of your business activities, corporate structure, and operational locations to provide a comprehensive list of all mandatory registrations and applicable regulatory filings.",
+    meta: "Registrations"
   },
   {
-    question: "Can you help us identify compliance gaps?",
-    answer: "Yes, our first step is typically a comprehensive risk and gap assessment to identify where your current processes fall short of regulatory or security standards.",
+    question: "Can you help with GST registration and returns?",
+    answer: "Yes, we provide end-to-end GST support. This includes initial GST registration, monthly/quarterly return filings (GSTR-1, GSTR-3B), annual returns, and addressing any departmental notices.",
+    meta: "GST"
+  },
+  {
+    question: "Can you help with company registration?",
+    answer: "Absolutely. We assist with incorporating Private Limited Companies, LLPs, One Person Companies, and Partnership firms, ensuring all initial compliance requirements like PAN, TAN, and DIN are met.",
+    meta: "Incorporation"
+  },
+  {
+    question: "Do you provide ongoing compliance support?",
+    answer: "Yes, our ongoing support packages cover periodic tax filings, annual MCA compliance, license renewals, and continuous regulatory monitoring so you can focus on running your business.",
+    meta: "Ongoing Support"
+  },
+  {
+    question: "How can I get a compliance assessment?",
+    answer: "Simply reach out via our consultation form. Our team will schedule a brief call to understand your business and subsequently provide a roadmap outlining your compliance status and required next steps.",
     meta: "Assessment"
-  },
-  {
-    question: "Do you help prepare businesses for audits?",
-    answer: "Absolutely. We help you build the necessary policies, implement security controls, gather evidence, and conduct readiness assessments so you can confidently face internal or external audits.",
-    meta: "Audits"
-  },
-  {
-    question: "Can compliance processes be automated?",
-    answer: "Yes. We specialize in blending compliance with technology. By integrating automated monitoring, alerts, and reporting workflows, we can significantly reduce the manual burden of maintaining compliance.",
-    meta: "Automation"
-  },
-  {
-    question: "How do you monitor compliance over time?",
-    answer: "We help establish continuous monitoring practices, regular reviews, and automated check-ins to ensure your organization remains compliant as regulations and your business evolve.",
-    meta: "Monitoring"
   }
 ];
 
@@ -59,10 +59,10 @@ export default function ComplianceClient() {
         <ComplianceValueStrip />
         <ComplianceServicesGrid />
         <ComplianceWhy />
-        <ComplianceProcess />
-        <ComplianceFrameworks />
         <ComplianceIndustries />
-        <ComplianceTechWorkflow />
+        <CompliancePackages />
+        <ComplianceProcess />
+        <ComplianceConsultation />
         <FAQ1 items={complianceFaqs} />
         <ComplianceCTA />
       </div>
