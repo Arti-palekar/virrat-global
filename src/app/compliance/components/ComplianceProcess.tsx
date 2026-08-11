@@ -158,11 +158,11 @@ export default function ComplianceProcess() {
           <div className="flex flex-col lg:flex-row justify-between relative z-10 gap-16 lg:gap-4">
             {processSteps.map((step, idx) => {
               // Custom vertical positioning for desktop wave effect
-              const yOffset = 
-                idx === 0 ? "0px" : 
-                idx === 1 ? "-80px" : 
-                idx === 2 ? "10px" : 
-                idx === 3 ? "80px" : "0px";
+              const yOffsetClass = 
+                idx === 0 ? "lg:translate-y-0" : 
+                idx === 1 ? "lg:-translate-y-[80px]" : 
+                idx === 2 ? "lg:translate-y-[10px]" : 
+                idx === 3 ? "lg:translate-y-[80px]" : "lg:translate-y-0";
 
               return (
                 <motion.div 
@@ -171,8 +171,7 @@ export default function ComplianceProcess() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-10%" }}
                   transition={{ duration: 0.5, delay: idx * 0.15 }}
-                  className="flex flex-row lg:flex-col items-start lg:items-center relative w-full lg:w-1/5 group"
-                  style={{ transform: `translateY(${typeof window !== 'undefined' && window.innerWidth >= 1024 ? yOffset : '0px'})` }}
+                  className={`flex flex-row lg:flex-col items-start lg:items-center relative w-full lg:w-1/5 group ${yOffsetClass}`}
                 >
                   {/* Step Node */}
                   <div className="relative flex-shrink-0 lg:mb-6 mr-6 lg:mr-0 z-10">
