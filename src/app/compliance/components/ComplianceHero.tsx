@@ -18,7 +18,7 @@ export default function ComplianceHero() {
           priority
         />
         {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#09111A] via-[#09111A]/80 to-[#09111A]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#081321] via-[#081321]/80 to-[#081321]/30" />
       </div>
 
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 lg:px-8">
@@ -28,23 +28,31 @@ export default function ComplianceHero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-[900px]"
         >
-          <h1 className="text-3xl md:text-5xl lg:text-[52px] font-bold text-white leading-[1.2] mb-4 tracking-tight">
+          <p 
+            className="font-[800] !text-[#FFFFFF] leading-[1.1] mb-4 tracking-tight"
+            style={{ fontSize: "clamp(36px, 5vw, 54px)", color: "#FFFFFF" }}
+          >
             Licensing, Compliance & Business Support — All in One Place
-          </h1>
-          <p className="text-base md:text-[19px] text-white/80 mb-8 max-w-3xl font-medium">
+          </p>
+          <p 
+            className="text-[18px] md:text-[20px] !text-[#FFFFFF] mb-8 max-w-3xl font-medium leading-[1.5]"
+            style={{ color: "#FFFFFF" }}
+          >
             Simplify your regulatory journey with expert guidance and seamless business support solutions.
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-[500px]">
             <Link 
               href="/contact"
-              className="px-8 py-3.5 bg-[#3B6A35] hover:bg-[#2d5228] text-white font-semibold rounded text-center shadow-lg transition-colors border border-transparent"
+              className="px-8 py-3.5 bg-[#E52521] hover:bg-[#C91A16] !text-[#FFFFFF] font-semibold rounded text-center shadow-lg transition-colors border border-transparent"
+              style={{ color: "#FFFFFF" }}
             >
               Get Started
             </Link>
             <Link 
               href="/services"
-              className="px-8 py-3.5 bg-transparent border border-white/40 hover:bg-white/10 text-white font-semibold rounded transition-colors text-center"
+              className="px-8 py-3.5 bg-transparent border border-white/40 hover:bg-white/10 !text-[#FFFFFF] font-semibold rounded transition-colors text-center"
+              style={{ color: "#FFFFFF" }}
             >
               Learn More
             </Link>

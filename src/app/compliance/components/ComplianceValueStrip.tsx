@@ -21,9 +21,9 @@ export default function ComplianceValueStrip() {
           </div>
 
           {/* Card 2 */}
-          <div className="flex items-center gap-4 bg-[#F1F9F3] p-5 rounded-lg">
+          <div className="flex items-center gap-4 bg-[#FDF2F2] p-5 rounded-lg">
             <div className="flex-shrink-0">
-               <CheckSquare className="w-8 h-8 fill-[#57BA57] text-white" strokeWidth={1} />
+               <CheckSquare className="w-8 h-8 fill-[#E52521] text-white" strokeWidth={1} />
             </div>
             <div>
               <h4 className="font-bold text-[#111111] text-[15px] leading-tight mb-0.5">Fast Processing</h4>
