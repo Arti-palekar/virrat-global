@@ -18,7 +18,6 @@ const navItems = [
   { name: 'Portfolio',         href: '/portfolio'         },
   { name: 'Services',          href: '/services'          },
   { name: 'Web + Software',    href: '/web-software'      },
-  { name: 'AI + Automation',   href: '/ai-automation'     },
   { name: 'Compliance',        href: '/compliance'        },
 ];
 
@@ -190,7 +189,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
           <nav style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
             <ul className="flex items-center gap-[28px] xl:gap-[40px]" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
               {navItems.map((item, idx) => {
-                const active  = pathname === item.href;
+                const active  = pathname === item.href || (item.name === 'Services' && ['/services/packaging-design', '/services/merchandise', '/web-software', '/ai-automation'].includes(pathname));
                 const isHover = hovered === idx;
 
                 return (
@@ -280,7 +279,8 @@ export function HoverGradientNavBar(): React.JSX.Element {
                               { name: 'All Services', href: '/services' },
                               { name: 'Packaging Design', href: '/services/packaging-design' },
                               { name: 'Merchandise', href: '/services/merchandise' },
-                              { name: 'Web + Software', href: '/web-software' }
+                              { name: 'Web + Software', href: '/web-software' },
+                              { name: 'AI + Automation', href: '/ai-automation' }
                             ].map((sub) => (
                               <Link
                                 data-magnetic

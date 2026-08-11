@@ -33,7 +33,7 @@ const AnimatedDot = ({ scrollYProgress, pathD, width, height }: { scrollYProgres
     }
   }, [scrollYProgress, dotX, dotY]);
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  useMotionValueEvent(scrollYProgress, "change", (latest: number) => {
     if (pathRef.current) {
       const totalLength = pathRef.current.getTotalLength();
       const point = pathRef.current.getPointAtLength(latest * totalLength);

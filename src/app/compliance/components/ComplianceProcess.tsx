@@ -1,48 +1,48 @@
 "use client";
 
 import React from "react";
-import { Lightbulb, Layers, Compass, LayoutGrid, CheckCircle, Rocket } from "lucide-react";
+import { Search, ShieldAlert, Map, Settings, ShieldCheck, RefreshCw } from "lucide-react";
 
-const aiProcessSteps = [
+const processSteps = [
   {
     num: "01",
-    title: "Discovery & Strategy",
-    description: "Understand business goals and identify high-impact AI opportunities.",
-    icon: Lightbulb,
+    title: "Assess",
+    description: "Understand your current compliance position.",
+    icon: Search,
   },
   {
     num: "02",
-    title: "Process Mapping",
-    description: "Map workflows and find opportunities to remove manual work.",
-    icon: Layers,
+    title: "Identify Gaps",
+    description: "Find weaknesses, risks and missing controls.",
+    icon: ShieldAlert,
   },
   {
     num: "03",
-    title: "Solution Design",
-    description: "Design AI workflows and user experiences tailored to your business.",
-    icon: Compass,
+    title: "Plan",
+    description: "Create a practical compliance roadmap.",
+    icon: Map,
   },
   {
     num: "04",
-    title: "Build & Integrate",
-    description: "Build the solution and connect it with existing business systems.",
-    icon: LayoutGrid,
+    title: "Implement",
+    description: "Put policies, controls and processes into action.",
+    icon: Settings,
   },
   {
     num: "05",
-    title: "Testing & Optimize",
-    description: "Test, refine and optimize workflows for accuracy and performance.",
-    icon: CheckCircle,
+    title: "Validate",
+    description: "Review, test and prepare for audits.",
+    icon: ShieldCheck,
   },
   {
     num: "06",
-    title: "Launch & Support",
-    description: "Deploy and continuously improve the solution as your business grows.",
-    icon: Rocket,
+    title: "Monitor",
+    description: "Continuously track and improve compliance.",
+    icon: RefreshCw,
   }
 ];
 
-export default function AiAutomationProcess() {
+export default function ComplianceProcess() {
   return (
     <section className="relative w-full py-24 md:py-32 px-4 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden">
       
@@ -73,7 +73,7 @@ export default function AiAutomationProcess() {
         }
         @keyframes pulse-node {
           0%, 15%, 100% { box-shadow: 0 0 0px rgba(227,38,32,0); border-color: white; transform: scale(1); }
-          7.14% { box-shadow: 0 0 35px rgba(227,38,32,0.8); border-color: #E32620; transform: scale(1.15); }
+          7.14% { box-shadow: 0 0 35px rgba(227,38,32,0.8); border-color: #E31E24; transform: scale(1.15); }
         }
       `}} />
 
@@ -81,10 +81,9 @@ export default function AiAutomationProcess() {
         
         {/* Header Section */}
         <div className="mb-20 md:mb-28 flex flex-col items-center text-center max-w-3xl mx-auto">
-          <span className="text-[#E32620] text-[10px] md:text-[12px] font-bold tracking-[0.3em] uppercase mb-4">OUR PROCESS</span>
-          <h2 className="text-3xl md:text-5xl font-heading font-black tracking-tighter leading-[1.1] uppercase">
-            The 6 Pillars of our<br />
-            AI Automation Strategy
+          <span className="text-[#E31E24] text-[10px] md:text-[12px] font-bold tracking-[0.3em] uppercase mb-4">OUR PROCESS</span>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1]">
+            A Practical Path to Better Compliance
           </h2>
         </div>
 
@@ -94,7 +93,7 @@ export default function AiAutomationProcess() {
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid meet">
             <defs>
               <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#E32620" />
+                <stop offset="0%" stopColor="#E31E24" />
                 <stop offset="100%" stopColor="#FF7A59" />
               </linearGradient>
             </defs>
@@ -141,7 +140,7 @@ export default function AiAutomationProcess() {
           </svg>
 
           {/* Desktop Nodes */}
-          {aiProcessSteps.map((step, idx) => {
+          {processSteps.map((step, idx) => {
             const isTop = idx % 2 === 0;
             const xPercent = ((idx * 200 + 100) / 1200) * 100;
             const yPercent = isTop ? 25 : 75;
@@ -156,6 +155,7 @@ export default function AiAutomationProcess() {
                 {/* Text Above */}
                 {isTop && (
                   <div className="absolute bottom-full mb-6 w-[200px] text-center">
+                    <span className="text-[#E31E24] font-bold text-sm mb-1 block">{step.num}</span>
                     <h3 className="text-[17px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
                     <p className="text-[13px] text-gray-500 font-medium leading-snug">{step.description}</p>
                   </div>
@@ -163,7 +163,7 @@ export default function AiAutomationProcess() {
 
                 {/* Node Circle */}
                 <div 
-                  className={`node-pulse-${idx} w-[70px] h-[70px] rounded-full flex items-center justify-center border-4 border-white relative z-20 bg-gradient-to-br from-[#E32620] to-[#ff5a5f] transition-transform duration-300`}
+                  className={`node-pulse-${idx} w-[70px] h-[70px] rounded-full flex items-center justify-center border-4 border-white relative z-20 bg-gradient-to-br from-[#E31E24] to-[#FF7A59] transition-transform duration-300`}
                 >
                   <IconComp className="text-white w-8 h-8" strokeWidth={1.5} />
                 </div>
@@ -171,6 +171,7 @@ export default function AiAutomationProcess() {
                 {/* Text Below */}
                 {!isTop && (
                   <div className="absolute top-full mt-6 w-[200px] text-center">
+                    <span className="text-[#E31E24] font-bold text-sm mb-1 block">{step.num}</span>
                     <h3 className="text-[17px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
                     <p className="text-[13px] text-gray-500 font-medium leading-snug">{step.description}</p>
                   </div>
@@ -180,14 +181,13 @@ export default function AiAutomationProcess() {
           })}
         </div>
 
-
         {/* Winding Path Container - Mobile */}
         <div className="block md:hidden relative w-full h-[1200px] max-w-[400px] mx-auto mt-10">
           
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 1200" preserveAspectRatio="xMidYMid meet">
             <defs>
               <linearGradient id="redGradientMobile" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#E32620" />
+                <stop offset="0%" stopColor="#E31E24" />
                 <stop offset="100%" stopColor="#FF7A59" />
               </linearGradient>
             </defs>
@@ -234,7 +234,7 @@ export default function AiAutomationProcess() {
           </svg>
 
           {/* Mobile Nodes */}
-          {aiProcessSteps.map((step, idx) => {
+          {processSteps.map((step, idx) => {
             const isLeft = idx % 2 === 0;
             const xPercent = isLeft ? 25 : 75;
             const yPercent = ((idx * 200 + 100) / 1200) * 100;
@@ -250,6 +250,7 @@ export default function AiAutomationProcess() {
                 {/* Text Left (for Right nodes) */}
                 {!isLeft && (
                   <div className="absolute right-full mr-4 w-[140px] text-right">
+                    <span className="text-[#E31E24] font-bold text-sm mb-0.5 block">{step.num}</span>
                     <h3 className="text-[15px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
                     <p className="text-[12px] text-gray-500 font-medium leading-tight">{step.description}</p>
                   </div>
@@ -257,7 +258,7 @@ export default function AiAutomationProcess() {
 
                 {/* Node Circle */}
                 <div 
-                  className={`node-pulse-${idx} w-[60px] h-[60px] rounded-full flex items-center justify-center border-4 border-white relative z-20 bg-gradient-to-br from-[#E32620] to-[#ff5a5f] transition-transform duration-300`}
+                  className={`node-pulse-${idx} w-[60px] h-[60px] rounded-full flex items-center justify-center border-4 border-white relative z-20 bg-gradient-to-br from-[#E31E24] to-[#FF7A59] transition-transform duration-300`}
                 >
                   <IconComp className="text-white w-6 h-6" strokeWidth={1.5} />
                 </div>
@@ -265,6 +266,7 @@ export default function AiAutomationProcess() {
                 {/* Text Right (for Left nodes) */}
                 {isLeft && (
                   <div className="absolute left-full ml-4 w-[140px] text-left">
+                    <span className="text-[#E31E24] font-bold text-sm mb-0.5 block">{step.num}</span>
                     <h3 className="text-[15px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
                     <p className="text-[12px] text-gray-500 font-medium leading-tight">{step.description}</p>
                   </div>

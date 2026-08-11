@@ -5,13 +5,13 @@ import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
 import AiAutomationHero from "./components/AiAutomationHero";
 import AiAutomationServicesSlider from "./components/AiAutomationServicesSlider";
-import OrbitingCirclesGlobe from "@/components/ui/orbiting-circles-02";
 import AiAutomationProcess from "./components/AiAutomationProcess";
 import AiAutomationConsiderations from "./components/AiAutomationConsiderations";
 import AiAutomationIndustries from "./components/AiAutomationIndustries";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQ1 from "@/components/FAQ1";
 import AiAutomationTextSlider from "./components/AiAutomationTextSlider";
+import AiAutomationStack from "./components/AiAutomationStack";
 
 // ── CUSTOM AI AUTOMATION FAQS ──
 const aiFaqs = [
@@ -94,7 +94,7 @@ export default function AiAutomationClient() {
       <div className="relative w-full z-10">
         <AiAutomationHero />
         <AiAutomationServicesSlider />
-        <OrbitingCirclesGlobe />
+        <AiAutomationStack />
         <AiAutomationProcess />
         <AiAutomationTextSlider />
         <AiAutomationIndustries />
