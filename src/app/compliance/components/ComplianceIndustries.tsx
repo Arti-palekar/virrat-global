@@ -31,17 +31,7 @@ export default function ComplianceIndustries() {
         
         {/* Section Header */}
         <div className="flex flex-col items-start mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center space-x-2 bg-black/5 px-3 py-1.5 rounded-full mb-6"
-          >
-            <span className="w-2 h-2 rounded-full bg-[#E31E24] animate-pulse"></span>
-            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-black/70">
-              WHO WE SUPPORT
-            </span>
-          </motion.div>
+
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -82,11 +72,11 @@ export default function ComplianceIndustries() {
           {/* CTA Card in the grid */}
           <motion.div
             variants={cardVariants}
-            className="group flex flex-col justify-center bg-gradient-to-br from-[#111111] to-[#222222] border border-[#333333] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+            className="group flex flex-col justify-center bg-[#E31E24] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
           >
-            <h3 className="text-lg font-bold text-white mb-2 leading-tight">Don't see your industry?</h3>
-            <p className="text-sm text-gray-400 mb-4">We adapt our compliance solutions to fit your unique requirements.</p>
-            <a href="/contact" className="text-[#E31E24] font-semibold text-sm flex items-center group-hover:text-white transition-colors duration-300">
+            <h3 className="text-lg font-bold text-[#ffffff] mb-2 leading-tight">Don't see your industry?</h3>
+            <p className="text-sm text-[#ffffff] mb-4">We adapt our compliance solutions to fit your unique requirements.</p>
+            <a href="/contact" className="text-[#ffffff] font-semibold text-sm flex items-center group-hover:opacity-80 transition-opacity duration-300">
               Let's Talk &rarr;
             </a>
           </motion.div>

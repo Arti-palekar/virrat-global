@@ -1,51 +1,48 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-
-const valuePoints = [
-  { value: "100+", label: "Compliance & Business Services" },
-  { value: "Business", label: "Registration & Licensing" },
-  { value: "Tax", label: "Filing & Compliance" },
-  { value: "End-to-End", label: "Compliance Support" },
-];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
+import { Shield, CheckSquare, Headset } from "lucide-react";
 
 export default function ComplianceValueStrip() {
   return (
-    <div className="w-full bg-white border-y border-[#E8E8E8] relative z-20 shadow-sm">
+    <div className="w-full bg-white relative z-20 py-8 border-b border-gray-100">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-10%" }}
-          className="grid grid-cols-2 md:grid-cols-4 divide-x md:divide-x divide-[#E8E8E8]"
-        >
-          {valuePoints.map((point, idx) => (
-            <motion.div 
-              key={idx}
-              variants={itemVariants}
-              className="py-10 px-4 md:px-8 flex flex-col items-center text-center justify-center group"
-            >
-              <h3 className="text-2xl md:text-3xl font-bold text-[#E31E24] mb-2 leading-none transition-transform duration-300 group-hover:scale-110 origin-bottom">
-                {point.value}
-              </h3>
-              <p className="text-xs md:text-sm font-semibold tracking-wider text-[#111111] uppercase max-w-[150px]">
-                {point.label}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          {/* Card 1 */}
+          <div className="flex items-center gap-4 bg-[#F2F6FB] p-5 rounded-lg">
+            <div className="flex-shrink-0">
+               <Shield className="w-8 h-8 fill-slate-900 text-slate-900" strokeWidth={1} />
+            </div>
+            <div>
+              <h4 className="font-bold text-[#111111] text-[15px] leading-tight mb-0.5">100% Compliant</h4>
+              <p className="text-[13px] text-[#666666]">Guaranteed accuracy.</p>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="flex items-center gap-4 bg-[#F1F9F3] p-5 rounded-lg">
+            <div className="flex-shrink-0">
+               <CheckSquare className="w-8 h-8 fill-[#57BA57] text-white" strokeWidth={1} />
+            </div>
+            <div>
+              <h4 className="font-bold text-[#111111] text-[15px] leading-tight mb-0.5">Fast Processing</h4>
+              <p className="text-[13px] text-[#666666]">Streamlined workflows.</p>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="flex items-center gap-4 bg-[#F6F7F9] p-5 rounded-lg">
+            <div className="flex-shrink-0">
+               <Headset className="w-8 h-8 text-slate-800" strokeWidth={1.5} />
+            </div>
+            <div>
+              <h4 className="font-bold text-[#111111] text-[15px] leading-tight mb-0.5">Expert Support</h4>
+              <p className="text-[13px] text-[#666666]">Available 24/7.</p>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   );

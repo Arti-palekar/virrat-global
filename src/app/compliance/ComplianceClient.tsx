@@ -4,16 +4,17 @@ import React from "react";
 import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
 import FAQ1 from "@/components/FAQ1";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 import ComplianceHero from "./components/ComplianceHero";
 import ComplianceValueStrip from "./components/ComplianceValueStrip";
 import ComplianceServicesGrid from "./components/ComplianceServicesGrid";
-import ComplianceWhy from "./components/ComplianceWhy";
+
 import ComplianceIndustries from "./components/ComplianceIndustries";
-import CompliancePackages from "./components/CompliancePackages";
+
 import ComplianceProcess from "./components/ComplianceProcess";
-import ComplianceConsultation from "./components/ComplianceConsultation";
-import ComplianceCTA from "./components/ComplianceCTA";
+
+
 
 const complianceFaqs = [
   {
@@ -50,7 +51,7 @@ const complianceFaqs = [
 
 export default function ComplianceClient() {
   return (
-    <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111111] overflow-x-hidden font-body selection:bg-[#E31E24]/10 selection:text-[#E31E24]">
+    <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111111] font-body selection:bg-[#E31E24]/10 selection:text-[#E31E24]">
       {/* Shared Navbar */}
       <HoverGradientNavBar />
 
@@ -58,14 +59,16 @@ export default function ComplianceClient() {
         <ComplianceHero />
         <ComplianceValueStrip />
         <ComplianceServicesGrid />
-        <ComplianceWhy />
-        <ComplianceIndustries />
-        <CompliancePackages />
+
         <ComplianceProcess />
-        <ComplianceConsultation />
-        <FAQ1 items={complianceFaqs} />
-        <ComplianceCTA />
+
+        <ComplianceIndustries />
+
       </div>
+
+      <TestimonialsSection />
+      
+      <FAQ1 items={complianceFaqs} />
 
       <CinematicFooter />
     </main>
