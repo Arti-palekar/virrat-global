@@ -146,6 +146,19 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), sans-serif !important;
 }
 
+/* Scoped Qubic Grid Heading Override for AI Automation Page */
+.ai-automation-page .font-syne,
+.ai-automation-page h1,
+.ai-automation-page h2,
+.ai-automation-page h3,
+.ai-automation-page h4,
+.ai-automation-page h5,
+.ai-automation-page h6 {
+  font-family: "Qubic Grid", sans-serif !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.05 !important;
+}
+
 /* ── HEADING TOKENS ── */
 
 /* Heading XL (Hero Headings & Oversized Titles) */
@@ -912,4 +925,45 @@ input[type="submit"],
 select,
 .clickable {
   cursor: pointer !important;
+}
+
+/* Qubic Grid Font Family Declarations */
+@font-face {
+  font-family: "Qubic Grid";
+  src: url("/fonts/Qubic-Grid-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Qubic Grid";
+  src: url("/fonts/Qubic-Grid-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Qubic Grid";
+  src: url("/fonts/Qubic-Grid-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Qubic Grid";
+  src: url("/fonts/Qubic-Grid-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Qubic Grid";
+  src: url("/fonts/Qubic-Grid-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }

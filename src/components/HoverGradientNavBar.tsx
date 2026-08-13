@@ -92,6 +92,7 @@ const mobileSocials = [
    ═══════════════════════════════════════════════ */
 export function HoverGradientNavBar(): React.JSX.Element {
   const pathname  = usePathname();
+  const isAiAutomation = pathname === '/ai-automation';
   const [hovered, setHovered]     = useState<number | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -234,7 +235,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
                         borderRadius:   '9999px',
                         fontSize:       '13px',
                         fontWeight:     active ? 600 : 500,
-                        color:          active ? '#D62020' : isHover ? '#D62020' : '#1A1A1A',
+                        color:          active ? '#D62020' : isHover ? '#D62020' : isAiAutomation ? '#ffffff' : '#1A1A1A',
                         textDecoration: 'none',
                         cursor:         'pointer',
                         transition:     'color 0.18s',
@@ -335,10 +336,10 @@ export function HoverGradientNavBar(): React.JSX.Element {
                   height:         '32px',
                   borderRadius:   '50%',
                   border:         '1px solid rgba(255, 255, 255, 0.45)',
-                  background:     'rgba(255, 255, 255, 0.30)',
+                  background:     isAiAutomation ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.30)',
                   backdropFilter: 'blur(14px)',
                   WebkitBackdropFilter: 'blur(14px)',
-                  color:          '#1A1A1A',
+                  color:          isAiAutomation ? '#ffffff' : '#1A1A1A',
                   display:        'flex',
                   alignItems:     'center',
                   justifyContent: 'center',
@@ -369,10 +370,10 @@ export function HoverGradientNavBar(): React.JSX.Element {
                 height:         '32px',
                 borderRadius:   '50%',
                 border:         '1px solid rgba(255, 255, 255, 0.45)',
-                background:     'rgba(255, 255, 255, 0.30)',
+                background:     isAiAutomation ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.30)',
                 backdropFilter: 'blur(14px)',
                 WebkitBackdropFilter: 'blur(14px)',
-                color:          '#1A1A1A',
+                color:          isAiAutomation ? '#ffffff' : '#1A1A1A',
                 display:        'flex',
                 alignItems:     'center',
                 justifyContent: 'center',
@@ -438,10 +439,10 @@ export function HoverGradientNavBar(): React.JSX.Element {
               height:         '32px',
               borderRadius:   '50%',
               border:         '1px solid rgba(255, 255, 255, 0.45)',
-              background:     'rgba(255, 255, 255, 0.30)',
+              background:     isAiAutomation ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.30)',
               backdropFilter: 'blur(14px)',
               WebkitBackdropFilter: 'blur(14px)',
-              color:          '#1A1A1A',
+              color:          isAiAutomation ? '#ffffff' : '#1A1A1A',
               display:        'flex',
               alignItems:     'center',
               justifyContent: 'center',

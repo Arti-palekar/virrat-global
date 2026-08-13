@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import AiAutomationBlankClient from "./AiAutomationClient";
+import AiAutomationClient from "./AiAutomationClient";
 
 export const metadata: Metadata = {
   title: "AI + Automation Services | Virrat Global",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function AiAutomationPage() {
-  return <AiAutomationBlankClient />;
+  return <AiAutomationClient />;
 }

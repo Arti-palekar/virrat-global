@@ -18,7 +18,19 @@ export default function ComplianceHero() {
           priority
         />
         {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#081321] via-[#081321]/80 to-[#081321]/30" />
+        <div 
+          className="absolute inset-0 z-0" 
+          style={{
+            background: `linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0) 0%,
+              rgba(0, 0, 0, 0.01) 25%,
+              rgba(0, 0, 0, 0.15) 45%,
+              rgba(5, 15, 28, 0.65) 75%,
+              rgba(5, 15, 28, 0.9) 100%
+            )`
+          }}
+        />
       </div>
 
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 lg:px-8">

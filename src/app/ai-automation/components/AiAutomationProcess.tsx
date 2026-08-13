@@ -1,280 +1,312 @@
 "use client";
 
-import React from "react";
-import { Lightbulb, Layers, Compass, LayoutGrid, CheckCircle, Rocket } from "lucide-react";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 
-const aiProcessSteps = [
+interface ProcessStep {
+  num: string;
+  title: string;
+  desc: string;
+}
+
+const processSteps: ProcessStep[] = [
   {
     num: "01",
-    title: "Discovery & Strategy",
-    description: "Understand business goals and identify high-impact AI opportunities.",
-    icon: Lightbulb,
+    title: "Discovery & AI Strategy",
+    desc: "Understand the business, identify repetitive tasks, and find high-impact AI automation opportunities.",
   },
   {
     num: "02",
     title: "Process Mapping",
-    description: "Map workflows and find opportunities to remove manual work.",
-    icon: Layers,
+    desc: "Map existing workflows and identify bottlenecks, repetitive work and automation opportunities.",
   },
   {
     num: "03",
     title: "Solution Design",
-    description: "Design AI workflows and user experiences tailored to your business.",
-    icon: Compass,
+    desc: "Design the AI workflow, automation logic, integrations and user experience.",
   },
   {
     num: "04",
     title: "Build & Integrate",
-    description: "Build the solution and connect it with existing business systems.",
-    icon: LayoutGrid,
+    desc: "Develop the automation system and connect it with existing business tools and platforms.",
   },
   {
     num: "05",
-    title: "Testing & Optimize",
-    description: "Test, refine and optimize workflows for accuracy and performance.",
-    icon: CheckCircle,
+    title: "Testing & Optimization",
+    desc: "Test workflows, improve reliability and optimize the automation for real-world performance.",
   },
   {
     num: "06",
     title: "Launch & Support",
-    description: "Deploy and continuously improve the solution as your business grows.",
-    icon: Rocket,
-  }
+    desc: "Deploy the solution, monitor performance and continuously improve the automation.",
+  },
 ];
 
 export default function AiAutomationProcess() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [points, setPoints] = useState<{ x: number; y: number }[]>([]);
+  const [activeStep, setActiveStep] = useState(0);
+
+  // Set up scroll tracking for the progress line animation
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"],
+  });
+
+  // Create a spring physics smoothing for the scroll timeline progress
+  const pathLength = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 25,
+    restDelta: 0.001,
+  });
+
+  // Calculate coordinates of node circles dynamically
+  const updatePath = () => {
+    if (!containerRef.current) return;
+    const containerRect = containerRef.current.getBoundingClientRect();
+    const newPoints = nodeRefs.current.map((node) => {
+      if (!node) return { x: 0, y: 0 };
+      const rect = node.getBoundingClientRect();
+      return {
+        x: rect.left - containerRect.left + rect.width / 2,
+        y: rect.top - containerRect.top + rect.height / 2,
+      };
+    });
+    setPoints(newPoints);
+  };
+
+  useEffect(() => {
+    updatePath();
+
+    window.addEventListener("resize", updatePath);
+
+    // Set up ResizeObserver to handle dynamic height shifts
+    let resizeObserver: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== "undefined" && containerRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        updatePath();
+      });
+      resizeObserver.observe(containerRef.current);
+    }
+
+    // Dynamic checks for post-hydration height updates
+    const timer1 = setTimeout(updatePath, 150);
+    const timer2 = setTimeout(updatePath, 600);
+    const timer3 = setTimeout(updatePath, 1500);
+
+    return () => {
+      window.removeEventListener("resize", updatePath);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
+  }, []);
+
+  // Update active step based on scroll progress
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (latest) => {
+      let activeIdx = 0;
+      if (latest >= 0.9) activeIdx = 5;
+      else if (latest >= 0.72) activeIdx = 4;
+      else if (latest >= 0.54) activeIdx = 3;
+      else if (latest >= 0.36) activeIdx = 2;
+      else if (latest >= 0.18) activeIdx = 1;
+      else activeIdx = 0;
+
+      setActiveStep(activeIdx);
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress]);
+
+  // Construct a smooth curved vertical timeline path
+  const getPathD = () => {
+    if (points.length === 0) return "";
+    let d = `M ${points[0].x} 0`;
+    d += ` L ${points[0].x} ${points[0].y}`;
+    for (let i = 0; i < points.length - 1; i++) {
+      const p1 = points[i];
+      const p2 = points[i + 1];
+      const cy1 = p1.y + (p2.y - p1.y) / 2;
+      const cy2 = p2.y - (p2.y - p1.y) / 2;
+      d += ` C ${p1.x} ${cy1}, ${p2.x} ${cy2}, ${p2.x} ${p2.y}`;
+    }
+    d += ` L ${points[points.length - 1].x} ${
+      containerRef.current?.clientHeight || 2000
+    }`;
+    return d;
+  };
+
   return (
-    <section className="relative w-full py-24 md:py-32 px-4 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden">
-      
-      {/* CSS Animations */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        @media (prefers-reduced-motion: no-preference) {
-          .process-line-animated {
-            stroke-dasharray: 12 150;
-            animation: line-run 14s linear infinite;
-            filter: drop-shadow(0 0 6px rgba(227,38,32,0.6));
-          }
-          .node-pulse-0 { animation: pulse-node 14s infinite; animation-delay: 0s; }
-          .node-pulse-1 { animation: pulse-node 14s infinite; animation-delay: 2s; }
-          .node-pulse-2 { animation: pulse-node 14s infinite; animation-delay: 4s; }
-          .node-pulse-3 { animation: pulse-node 14s infinite; animation-delay: 6s; }
-          .node-pulse-4 { animation: pulse-node 14s infinite; animation-delay: 8s; }
-          .node-pulse-5 { animation: pulse-node 14s infinite; animation-delay: 10s; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .process-line-animated {
-            stroke-dasharray: 120;
-            stroke-dashoffset: 0;
-          }
-        }
-        @keyframes line-run {
-          0% { stroke-dashoffset: 6; }
-          100% { stroke-dashoffset: -134; }
-        }
-        @keyframes pulse-node {
-          0%, 15%, 100% { box-shadow: 0 0 0px rgba(227,38,32,0); border-color: white; transform: scale(1); }
-          7.14% { box-shadow: 0 0 35px rgba(227,38,32,0.8); border-color: #E32620; transform: scale(1.15); }
-        }
-      `}} />
+    <section
+      ref={containerRef}
+      className="w-full bg-[#050b09] py-24 md:py-32 lg:py-40 px-6 md:px-12 lg:px-24 border-b border-zinc-900 relative overflow-hidden"
+    >
+      {/* Subtle dotted technical background pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.15] z-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(239, 31, 37, 0.15) 1px, transparent 0)",
+          backgroundSize: "24px 24px",
+        }}
+      />
 
-      <div className="max-w-[1200px] mx-auto relative z-10">
-        
-        {/* Header Section */}
-        <div className="mb-20 md:mb-28 flex flex-col items-center text-center max-w-3xl mx-auto">
-          <span className="text-[#E32620] text-[10px] md:text-[12px] font-bold tracking-[0.3em] uppercase mb-4">OUR PROCESS</span>
-          <h2 className="text-3xl md:text-5xl font-heading font-black tracking-tighter leading-[1.1] uppercase">
-            The 6 Pillars of our<br />
-            AI Automation Strategy
+      {/* Red ambient background glow */}
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#EF1F25]/[0.02] blur-[130px] pointer-events-none z-0" />
+
+      <div className="max-w-[1400px] mx-auto z-10 relative">
+        {/* Section Header */}
+        <div className="text-center mb-24 max-w-3xl mx-auto">
+          <span className="text-[#EF1F25] text-[11px] font-bold tracking-[0.25em] uppercase mb-4 block">
+            OUR PROCESS
+          </span>
+          <h2 className="font-heading font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-[1.1] tracking-tight mb-6 !text-white">
+            AI AUTOMATION PROCESS
           </h2>
+          <p className="font-sans text-[15px] sm:text-[16px] lg:text-[18px] leading-[1.6] text-white/70">
+            From discovery to deployment, we design and build practical AI
+            automation systems that simplify work and create measurable impact.
+          </p>
         </div>
 
-        {/* Winding Path Container - Desktop */}
-        <div className="hidden md:block relative w-full aspect-[3/1] max-w-[1200px] mx-auto">
-          
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#E32620" />
-                <stop offset="100%" stopColor="#FF7A59" />
-              </linearGradient>
-            </defs>
-            
-            {/* Base dotted path */}
-            <path 
-              d="
-                M 0,200 
-                C 50,200 50,100 100,100 
-                C 200,100 200,300 300,300 
-                C 400,300 400,100 500,100 
-                C 600,100 600,300 700,300 
-                C 800,300 800,100 900,100 
-                C 1000,100 1000,300 1100,300 
-                C 1150,300 1150,200 1200,200
-              " 
-              fill="none" 
-              stroke="#e5e7eb" 
-              strokeWidth="2" 
-              strokeDasharray="6 6" 
-            />
+        {/* Timeline container */}
+        <div className="relative w-full">
+          {/* Curved Timeline SVG */}
+          <svg
+            className="absolute top-0 bottom-0 left-0 right-0 w-full h-full pointer-events-none z-0"
+            style={{ minHeight: "100%" }}
+          >
+            {/* Background inactive line */}
+            {points.length > 0 && (
+              <path
+                d={getPathD()}
+                fill="none"
+                stroke="rgba(255,255,255,0.06)"
+                strokeWidth="2.5"
+                strokeDasharray="5 5"
+              />
+            )}
 
-            {/* Animated line */}
-            <path 
-              className="process-line-animated"
-              d="
-                M 0,200 
-                C 50,200 50,100 100,100 
-                C 200,100 200,300 300,300 
-                C 400,300 400,100 500,100 
-                C 600,100 600,300 700,300 
-                C 800,300 800,100 900,100 
-                C 1000,100 1000,300 1100,300 
-                C 1150,300 1150,200 1200,200
-              " 
-              fill="none" 
-              stroke="url(#redGradient)" 
-              strokeWidth="2.5" 
-              strokeLinecap="round"
-              pathLength="120"
-            />
-            {/* End Arrow */}
-            <path d="M 1190,193 L 1200,200 L 1190,207" fill="none" stroke="#e5e7eb" strokeWidth="2" />
+            {/* Foreground active line */}
+            {points.length > 0 && (
+              <motion.path
+                d={getPathD()}
+                fill="none"
+                stroke="#EF1F25"
+                strokeWidth="3"
+                style={{ pathLength }}
+              />
+            )}
           </svg>
 
-          {/* Desktop Nodes */}
-          {aiProcessSteps.map((step, idx) => {
-            const isTop = idx % 2 === 0;
-            const xPercent = ((idx * 200 + 100) / 1200) * 100;
-            const yPercent = isTop ? 25 : 75;
-            const IconComp = step.icon;
+          {/* Timeline steps list */}
+          <div className="flex flex-col gap-12 lg:gap-16 relative z-10">
+            {processSteps.map((step, idx) => {
+              const isActive = idx === activeStep;
+              const isCompleted = idx < activeStep;
 
-            return (
-              <div 
-                key={step.num}
-                className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10"
-                style={{ left: `${xPercent}%`, top: `${yPercent}%` }}
-              >
-                {/* Text Above */}
-                {isTop && (
-                  <div className="absolute bottom-full mb-6 w-[200px] text-center">
-                    <h3 className="text-[17px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
-                    <p className="text-[13px] text-gray-500 font-medium leading-snug">{step.description}</p>
-                  </div>
-                )}
-
-                {/* Node Circle */}
-                <div 
-                  className={`node-pulse-${idx} w-[70px] h-[70px] rounded-full flex items-center justify-center border-4 border-white relative z-20 bg-gradient-to-br from-[#E32620] to-[#ff5a5f] transition-transform duration-300`}
+              return (
+                <div
+                  key={step.num}
+                  className="relative flex flex-col lg:grid lg:grid-cols-12 items-center gap-6 lg:gap-8 min-h-[160px] lg:min-h-[200px] w-full"
                 >
-                  <IconComp className="text-white w-8 h-8" strokeWidth={1.5} />
+                  {/* Node Circle Container */}
+                  <div className="absolute lg:relative left-4 lg:left-0 lg:col-span-1 lg:col-start-4 flex justify-center z-20">
+                    <div
+                      ref={(el) => {
+                        nodeRefs.current[idx] = el;
+                      }}
+                      className={`relative w-12 h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center bg-white border-2 transition-all duration-300 ${
+                        isActive
+                          ? "border-[#EF1F25] shadow-[0_0_20px_rgba(239,31,37,0.35)] scale-110"
+                          : isCompleted
+                          ? "border-[#EF1F25]/60"
+                          : "border-zinc-700/50"
+                      }`}
+                    >
+                      {/* Pulsing active aura */}
+                      {isActive && (
+                        <motion.div
+                          className="absolute inset-0 rounded-full bg-[#EF1F25]/10 pointer-events-none"
+                          animate={{ scale: [1, 1.3, 1] }}
+                          transition={{
+                            repeat: Infinity,
+                            duration: 2,
+                            ease: "easeInOut",
+                          }}
+                        />
+                      )}
+
+                      <span
+                        className={`font-mono text-sm lg:text-lg font-bold transition-colors duration-300 ${
+                          isActive
+                            ? "text-[#EF1F25]"
+                            : isCompleted
+                            ? "text-[#EF1F25]/85"
+                            : "text-zinc-400"
+                        }`}
+                      >
+                        {step.num}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Horizontal Connector line (Desktop only) */}
+                  <div
+                    className={`hidden lg:block absolute top-1/2 -translate-y-1/2 h-[1px] border-t border-dashed transition-colors duration-300 ${
+                      isActive ? "border-[#EF1F25]/40" : "border-zinc-800"
+                    }`}
+                    style={{
+                      left: "33.33%",
+                      width: idx % 2 === 0 ? "8.33%" : "16.66%",
+                    }}
+                  />
+
+                  {/* Card Container */}
+                  <div
+                    className={`w-full pl-20 lg:pl-0 lg:col-span-6 ${
+                      idx % 2 === 0 ? "lg:col-start-5" : "lg:col-start-6"
+                    } relative z-10`}
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                      className={`p-6 lg:p-8 bg-white border rounded-2xl shadow-sm transition-all duration-500 ${
+                        isActive
+                          ? "border-[#EF1F25]/30 shadow-[0_12px_40px_rgba(239,31,37,0.06)] lg:scale-[1.01]"
+                          : "border-zinc-200/50"
+                      }`}
+                    >
+                      <span
+                        className={`text-[10px] font-bold tracking-[0.15em] uppercase mb-2 block ${
+                          isActive ? "text-[#EF1F25]" : "text-zinc-400"
+                        }`}
+                      >
+                        Step {step.num}
+                      </span>
+                      <h3
+                        className={`text-lg lg:text-xl font-bold tracking-tight mb-3 font-heading transition-colors duration-300 ${
+                          isActive ? "text-[#EF1F25]" : "text-zinc-800"
+                        }`}
+                      >
+                        {step.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-zinc-500 font-sans">
+                        {step.desc}
+                      </p>
+                    </motion.div>
+                  </div>
                 </div>
-
-                {/* Text Below */}
-                {!isTop && (
-                  <div className="absolute top-full mt-6 w-[200px] text-center">
-                    <h3 className="text-[17px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
-                    <p className="text-[13px] text-gray-500 font-medium leading-snug">{step.description}</p>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-
-
-        {/* Winding Path Container - Mobile */}
-        <div className="block md:hidden relative w-full h-[1200px] max-w-[400px] mx-auto mt-10">
-          
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 1200" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <linearGradient id="redGradientMobile" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#E32620" />
-                <stop offset="100%" stopColor="#FF7A59" />
-              </linearGradient>
-            </defs>
-
-            {/* Base dotted path */}
-            <path 
-              d="
-                M 200,0 
-                C 200,50 100,50 100,100 
-                C 100,200 300,200 300,300 
-                C 300,400 100,400 100,500 
-                C 100,600 300,600 300,700 
-                C 300,800 100,800 100,900 
-                C 100,1000 300,1000 300,1100 
-                C 300,1150 200,1150 200,1200
-              " 
-              fill="none" 
-              stroke="#e5e7eb" 
-              strokeWidth="2" 
-              strokeDasharray="6 6" 
-            />
-
-            {/* Animated line */}
-            <path 
-              className="process-line-animated"
-              d="
-                M 200,0 
-                C 200,50 100,50 100,100 
-                C 100,200 300,200 300,300 
-                C 300,400 100,400 100,500 
-                C 100,600 300,600 300,700 
-                C 300,800 100,800 100,900 
-                C 100,1000 300,1000 300,1100 
-                C 300,1150 200,1150 200,1200
-              " 
-              fill="none" 
-              stroke="url(#redGradientMobile)" 
-              strokeWidth="2.5" 
-              strokeLinecap="round"
-              pathLength="120"
-            />
-            {/* End Arrow */}
-            <path d="M 193,1190 L 200,1200 L 207,1190" fill="none" stroke="#e5e7eb" strokeWidth="2" />
-          </svg>
-
-          {/* Mobile Nodes */}
-          {aiProcessSteps.map((step, idx) => {
-            const isLeft = idx % 2 === 0;
-            const xPercent = isLeft ? 25 : 75;
-            const yPercent = ((idx * 200 + 100) / 1200) * 100;
-            const IconComp = step.icon;
-
-            return (
-              <div 
-                key={step.num}
-                className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10"
-                style={{ left: `${xPercent}%`, top: `${yPercent}%` }}
-              >
-                
-                {/* Text Left (for Right nodes) */}
-                {!isLeft && (
-                  <div className="absolute right-full mr-4 w-[140px] text-right">
-                    <h3 className="text-[15px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
-                    <p className="text-[12px] text-gray-500 font-medium leading-tight">{step.description}</p>
-                  </div>
-                )}
-
-                {/* Node Circle */}
-                <div 
-                  className={`node-pulse-${idx} w-[60px] h-[60px] rounded-full flex items-center justify-center border-4 border-white relative z-20 bg-gradient-to-br from-[#E32620] to-[#ff5a5f] transition-transform duration-300`}
-                >
-                  <IconComp className="text-white w-6 h-6" strokeWidth={1.5} />
-                </div>
-
-                {/* Text Right (for Left nodes) */}
-                {isLeft && (
-                  <div className="absolute left-full ml-4 w-[140px] text-left">
-                    <h3 className="text-[15px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
-                    <p className="text-[12px] text-gray-500 font-medium leading-tight">{step.description}</p>
-                  </div>
-                )}
-
-              </div>
-            );
-          })}
-        </div>
-
       </div>
     </section>
   );
