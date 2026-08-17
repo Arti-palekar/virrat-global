@@ -8,16 +8,15 @@ import { usePathname } from 'next/navigation';
 import { 
   Search, Menu, X, 
   House, Palette, TrendingUp, Code, Bot, ShieldCheck, Briefcase, Phone,
-  Layers, Mail, Package, ShoppingBag
+  Layers, Mail, Package, ShoppingBag, Info
 } from 'lucide-react';
 
-/* ─── 5 main services ─────────────────────────── */
 const navItems = [
-  { name: 'Branding',          href: '/branding-printing' },
-  { name: 'Digital Marketing', href: '/digital-marketing' },
-  { name: 'Portfolio',         href: '/portfolio'         },
-  { name: 'Services',          href: '/services'          },
-  { name: 'Web + Software',    href: '/web-software'      },
+  { name: 'Home',          href: '/' },
+  { name: 'About',         href: '/about' },
+  { name: 'Services',      href: '/services' },
+  { name: 'Portfolio',     href: '/portfolio' },
+  { name: 'Contact',       href: '/contact' },
 ];
 
 /* ─── Instagram SVG ───────────────────────────── */
@@ -39,14 +38,8 @@ const spring = { type: 'spring' as const, stiffness: 400, damping: 30 };
 
 const mobileNavItems = [
   { name: 'Home', href: '/', Icon: House },
-  { name: 'Branding + Printing', href: '/branding-printing', Icon: Palette },
-  { name: 'Digital Marketing', href: '/digital-marketing', Icon: TrendingUp },
+  { name: 'About', href: '/about', Icon: Info },
   { name: 'Services', href: '/services', Icon: Layers },
-  { name: 'Packaging Design', href: '/services/packaging-design', Icon: Package },
-  { name: 'Merchandise', href: '/services/merchandise', Icon: ShoppingBag },
-  { name: 'Web + Software', href: '/web-software', Icon: Code },
-  { name: 'AI + Automation', href: '/ai-automation', Icon: Bot },
-  { name: 'Compliance', href: '/compliance', Icon: ShieldCheck },
   { name: 'Portfolio', href: '/portfolio', Icon: Briefcase },
   { name: 'Contact', href: '/contact', Icon: Phone },
 ];
@@ -189,7 +182,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
           <nav style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
             <ul className="flex items-center gap-[28px] xl:gap-[40px]" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
               {navItems.map((item, idx) => {
-                const active  = pathname === item.href || (item.name === 'Services' && ['/services/packaging-design', '/services/merchandise', '/web-software', '/ai-automation', '/compliance'].includes(pathname));
+                const active  = pathname === item.href || (item.name === 'Services' && ['/digital-marketing', '/services/packaging-design', '/web-software', '/ai-automation', '/compliance'].includes(pathname));
                 const isHover = hovered === idx;
 
                 return (
@@ -276,9 +269,8 @@ export function HoverGradientNavBar(): React.JSX.Element {
                             }}
                           >
                             {[
-                              { name: 'All Services', href: '/services' },
+                              { name: 'Digital Marketing', href: '/digital-marketing' },
                               { name: 'Packaging Design', href: '/services/packaging-design' },
-                              { name: 'Merchandise', href: '/services/merchandise' },
                               { name: 'Web + Software', href: '/web-software' },
                               { name: 'AI + Automation', href: '/ai-automation' },
                               { name: 'Compliance', href: '/compliance' }

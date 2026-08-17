@@ -1,15 +1,16 @@
-import { Navbar } from "@/components/shared/Navbar";
-import { Footer } from "@/components/shared/Footer";
-import { AboutStory } from "@/components/sections/AboutStory";
+import { HoverGradientNavBar } from "@/components/HoverGradientNavBar";
+import CinematicFooter from "@/components/CinematicFooter";
 
 export default function AboutPage() {
   return (
-    <>
-      <Navbar />
-      <main className="flex-grow pt-32">
-        <AboutStory />
-      </main>
-      <Footer />
-    </>
+    <main className="min-h-screen bg-[var(--color-background)] font-body text-[var(--color-foreground)] overflow-x-hidden flex flex-col">
+      <HoverGradientNavBar />
+      
+      <div className="flex-grow pt-32 pb-32">
+        {/* Blank content for now */}
+      </div>
+
+      <CinematicFooter />
+    </main>
   );
 }
