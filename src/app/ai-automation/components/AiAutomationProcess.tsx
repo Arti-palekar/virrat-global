@@ -1,44 +1,52 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
+import { Search, Activity, PenTool, Zap, Rocket, BarChart2 } from "lucide-react";
 
 interface ProcessStep {
   num: string;
   title: string;
   desc: string;
+  icon: React.ReactNode;
 }
 
 const processSteps: ProcessStep[] = [
   {
-    num: "01",
-    title: "Discovery & AI Strategy",
-    desc: "Understand the business, identify repetitive tasks, and find high-impact AI automation opportunities.",
+    num: "1",
+    title: "Discovery & Requirements",
+    desc: "Use AI models to extract key requirements, identify business goals, and find high-impact automation opportunities.",
+    icon: <Search className="w-6 h-6 text-white" strokeWidth={2} />,
   },
   {
-    num: "02",
-    title: "Process Mapping",
-    desc: "Map existing workflows and identify bottlenecks, repetitive work and automation opportunities.",
+    num: "2",
+    title: "Identifying Enhancements",
+    desc: "Leverage AI to suggest potential enhancements, analyze bottlenecks, and identify gaps in existing workflows.",
+    icon: <Activity className="w-6 h-6 text-white" strokeWidth={2} />,
   },
   {
-    num: "03",
-    title: "Solution Design",
-    desc: "Design the AI workflow, automation logic, integrations and user experience.",
+    num: "3",
+    title: "Structuring the Architecture",
+    desc: "Use AI to structure requirements into intelligent workflows, defining AI agents and RPA solutions for a clear roadmap.",
+    icon: <PenTool className="w-6 h-6 text-white" strokeWidth={2} />,
   },
   {
-    num: "04",
-    title: "Build & Integrate",
-    desc: "Develop the automation system and connect it with existing business tools and platforms.",
+    num: "4",
+    title: "Building & Integration",
+    desc: "Deploy AI-powered automation, integrating intelligent tools seamlessly into your existing platforms and management systems.",
+    icon: <Zap className="w-6 h-6 text-white" strokeWidth={2} />,
   },
   {
-    num: "05",
-    title: "Testing & Optimization",
-    desc: "Test workflows, improve reliability and optimize the automation for real-world performance.",
+    num: "5",
+    title: "Designing the UI & UX",
+    desc: "Let AI propose optimized user interfaces based on the automated workflows, accelerating the design process.",
+    icon: <Rocket className="w-6 h-6 text-white" strokeWidth={2} />,
   },
   {
-    num: "06",
-    title: "Launch & Support",
-    desc: "Deploy the solution, monitor performance and continuously improve the automation.",
+    num: "6",
+    title: "Scaling & Optimization",
+    desc: "Continuously monitor results, scale automation across teams, and optimize performance for long-term growth.",
+    icon: <BarChart2 className="w-6 h-6 text-white" strokeWidth={2} />,
   },
 ];
 
@@ -46,104 +54,69 @@ export default function AiAutomationProcess() {
   const containerRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [points, setPoints] = useState<{ x: number; y: number }[]>([]);
-  const [activeStep, setActiveStep] = useState(0);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-  // Set up scroll tracking for the progress line animation
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"],
   });
 
-  // Create a spring physics smoothing for the scroll timeline progress
   const pathLength = useSpring(scrollYProgress, {
     stiffness: 80,
-    damping: 25,
+    damping: 20,
     restDelta: 0.001,
   });
 
-  // Calculate coordinates of node circles dynamically
-  const updatePath = () => {
+  const updateLayout = () => {
     if (!containerRef.current) return;
-    const containerRect = containerRef.current.getBoundingClientRect();
+    const rect = containerRef.current.getBoundingClientRect();
+    setDimensions({ width: rect.width, height: rect.height });
+
     const newPoints = nodeRefs.current.map((node) => {
       if (!node) return { x: 0, y: 0 };
-      const rect = node.getBoundingClientRect();
+      const nodeRect = node.getBoundingClientRect();
       return {
-        x: rect.left - containerRect.left + rect.width / 2,
-        y: rect.top - containerRect.top + rect.height / 2,
+        x: nodeRect.left - rect.left + nodeRect.width / 2,
+        y: nodeRect.top - rect.top + nodeRect.height / 2,
       };
     });
     setPoints(newPoints);
   };
 
   useEffect(() => {
-    updatePath();
+    updateLayout();
+    window.addEventListener("resize", updateLayout);
 
-    window.addEventListener("resize", updatePath);
-
-    // Set up ResizeObserver to handle dynamic height shifts
     let resizeObserver: ResizeObserver | null = null;
     if (typeof ResizeObserver !== "undefined" && containerRef.current) {
-      resizeObserver = new ResizeObserver(() => {
-        updatePath();
-      });
+      resizeObserver = new ResizeObserver(updateLayout);
       resizeObserver.observe(containerRef.current);
     }
 
-    // Dynamic checks for post-hydration height updates
-    const timer1 = setTimeout(updatePath, 150);
-    const timer2 = setTimeout(updatePath, 600);
-    const timer3 = setTimeout(updatePath, 1500);
+    // Post-hydration layout checks
+    const timers = [100, 500, 1000].map((t) => setTimeout(updateLayout, t));
 
     return () => {
-      window.removeEventListener("resize", updatePath);
-      if (resizeObserver) {
-        resizeObserver.disconnect();
-      }
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
+      window.removeEventListener("resize", updateLayout);
+      resizeObserver?.disconnect();
+      timers.forEach(clearTimeout);
     };
   }, []);
 
-  // Update active step based on scroll progress
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (latest) => {
-      let activeIdx = 0;
-      if (latest >= 0.9) activeIdx = 5;
-      else if (latest >= 0.72) activeIdx = 4;
-      else if (latest >= 0.54) activeIdx = 3;
-      else if (latest >= 0.36) activeIdx = 2;
-      else if (latest >= 0.18) activeIdx = 1;
-      else activeIdx = 0;
+  // Calculate diagonal spine coordinates
+  const spineTopX = dimensions.width * 0.58; // Starts slightly right of center
+  const spineTopY = 80;
+  const spineBottomX = dimensions.width * 0.42; // Ends slightly left of center
+  const spineBottomY = dimensions.height - 80;
 
-      setActiveStep(activeIdx);
-    });
-    return () => unsubscribe();
-  }, [scrollYProgress]);
-
-  // Construct a smooth curved vertical timeline path
-  const getPathD = () => {
-    if (points.length === 0) return "";
-    let d = `M ${points[0].x} 0`;
-    d += ` L ${points[0].x} ${points[0].y}`;
-    for (let i = 0; i < points.length - 1; i++) {
-      const p1 = points[i];
-      const p2 = points[i + 1];
-      const cy1 = p1.y + (p2.y - p1.y) / 2;
-      const cy2 = p2.y - (p2.y - p1.y) / 2;
-      d += ` C ${p1.x} ${cy1}, ${p2.x} ${cy2}, ${p2.x} ${p2.y}`;
-    }
-    d += ` L ${points[points.length - 1].x} ${
-      containerRef.current?.clientHeight || 2000
-    }`;
-    return d;
-  };
+  // Ensure spine visually covers the nodes vertically
+  const actualSpineTopY = Math.min(spineTopY, points[0]?.y || spineTopY) - 50;
+  const actualSpineBottomY = Math.max(spineBottomY, points[points.length - 1]?.y || spineBottomY) + 50;
 
   return (
-    <section
+    <section 
       ref={containerRef}
-      className="w-full bg-[#050b09] py-24 md:py-32 lg:py-40 px-6 md:px-12 lg:px-24 border-b border-zinc-900 relative overflow-hidden"
+      className="relative w-full min-h-screen py-24 md:py-32 lg:py-40 overflow-hidden bg-[#050b09] border-b border-zinc-900 font-sans ai-process-section-override"
     >
       {/* Subtle dotted technical background pattern */}
       <div
@@ -154,160 +127,192 @@ export default function AiAutomationProcess() {
           backgroundSize: "24px 24px",
         }}
       />
-
       {/* Red ambient background glow */}
       <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#EF1F25]/[0.02] blur-[130px] pointer-events-none z-0" />
 
-      <div className="max-w-[1400px] mx-auto z-10 relative">
-        {/* Section Header */}
-        <div className="text-center mb-24 max-w-3xl mx-auto">
-          <span className="text-[#EF1F25] text-[11px] font-bold tracking-[0.25em] uppercase mb-4 block">
-            OUR PROCESS
-          </span>
-          <h2 className="font-heading font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-[1.1] tracking-tight mb-6 !text-white">
-            AI AUTOMATION PROCESS
-          </h2>
-          <p className="font-sans text-[15px] sm:text-[16px] lg:text-[18px] leading-[1.6] text-white/70">
-            From discovery to deployment, we design and build practical AI
-            automation systems that simplify work and create measurable impact.
-          </p>
+      {/* SVG CONNECTING LINES (SPINE & BRANCHES) */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
+        {/* Draw branches from icons to the diagonal spine */}
+        {points.map((p, i) => {
+          if (p.x === 0 && p.y === 0) return null;
+          
+          // Calculate the X coordinate of the diagonal spine at this Y
+          const spineXAtY = 
+            spineTopX + 
+            ((spineBottomX - spineTopX) * (p.y - actualSpineTopY)) / 
+            (actualSpineBottomY - actualSpineTopY);
+
+          return (
+            <motion.line
+              key={`branch-${i}`}
+              x1={p.x}
+              y1={p.y}
+              x2={spineXAtY}
+              y2={p.y}
+              stroke="#EF1F25"
+              strokeWidth="2"
+              strokeOpacity="0.6"
+              initial={{ pathLength: 0, opacity: 0 }}
+              whileInView={{ pathLength: 1, opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2 + i * 0.1 }}
+            />
+          );
+        })}
+
+        {/* Diagonal Spine */}
+        {dimensions.width > 0 && (
+          <motion.line
+            x1={spineTopX}
+            y1={actualSpineTopY}
+            x2={spineBottomX}
+            y2={actualSpineBottomY}
+            stroke="#EF1F25"
+            strokeWidth="3"
+            strokeOpacity="0.8"
+            style={{ pathLength }}
+          />
+        )}
+      </svg>
+
+      <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 relative z-20">
+        
+        {/* HEADER */}
+        <div className="text-center mb-20">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight drop-shadow-lg"
+          >
+            Our Automation Process
+          </motion.h2>
         </div>
 
-        {/* Timeline container */}
-        <div className="relative w-full">
-          {/* Curved Timeline SVG */}
-          <svg
-            className="absolute top-0 bottom-0 left-0 right-0 w-full h-full pointer-events-none z-0"
-            style={{ minHeight: "100%" }}
-          >
-            {/* Background inactive line */}
-            {points.length > 0 && (
-              <path
-                d={getPathD()}
-                fill="none"
-                stroke="rgba(255,255,255,0.06)"
-                strokeWidth="2.5"
-                strokeDasharray="5 5"
-              />
-            )}
+        {/* STEPS LIST */}
+        <div className="flex flex-col gap-12 md:gap-16 lg:gap-20">
+          {processSteps.map((step, idx) => {
+            const isLeft = idx % 2 === 0;
 
-            {/* Foreground active line */}
-            {points.length > 0 && (
-              <motion.path
-                d={getPathD()}
-                fill="none"
-                stroke="#EF1F25"
-                strokeWidth="3"
-                style={{ pathLength }}
-              />
-            )}
-          </svg>
-
-          {/* Timeline steps list */}
-          <div className="flex flex-col gap-12 lg:gap-16 relative z-10">
-            {processSteps.map((step, idx) => {
-              const isActive = idx === activeStep;
-              const isCompleted = idx < activeStep;
-
-              return (
-                <div
-                  key={step.num}
-                  className="relative flex flex-col lg:grid lg:grid-cols-12 items-center gap-6 lg:gap-8 min-h-[160px] lg:min-h-[200px] w-full"
-                >
-                  {/* Node Circle Container */}
-                  <div className="absolute lg:relative left-4 lg:left-0 lg:col-span-1 lg:col-start-4 flex justify-center z-20">
-                    <div
-                      ref={(el) => {
-                        nodeRefs.current[idx] = el;
-                      }}
-                      className={`relative w-12 h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center bg-white border-2 transition-all duration-300 ${
-                        isActive
-                          ? "border-[#EF1F25] shadow-[0_0_20px_rgba(239,31,37,0.35)] scale-110"
-                          : isCompleted
-                          ? "border-[#EF1F25]/60"
-                          : "border-zinc-700/50"
-                      }`}
+            return (
+              <div key={idx} className="flex w-full items-center relative group">
+                
+                {/* Mobile Layout (Visible on small screens, hidden on md+) */}
+                <div className="md:hidden flex flex-col w-full relative z-20 bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-xl">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div 
+                      ref={isLeft ? el => nodeRefs.current[idx] = el : undefined} // Track for mobile spine? We'll hide spine on mobile.
+                      className="w-12 h-12 rounded-xl bg-[#EF1F25] shadow-[0_0_20px_rgba(239,31,37,0.4)] flex items-center justify-center shrink-0"
                     >
-                      {/* Pulsing active aura */}
-                      {isActive && (
-                        <motion.div
-                          className="absolute inset-0 rounded-full bg-[#EF1F25]/10 pointer-events-none"
-                          animate={{ scale: [1, 1.3, 1] }}
-                          transition={{
-                            repeat: Infinity,
-                            duration: 2,
-                            ease: "easeInOut",
-                          }}
-                        />
-                      )}
-
-                      <span
-                        className={`font-mono text-sm lg:text-lg font-bold transition-colors duration-300 ${
-                          isActive
-                            ? "text-[#EF1F25]"
-                            : isCompleted
-                            ? "text-[#EF1F25]/85"
-                            : "text-zinc-400"
-                        }`}
-                      >
-                        {step.num}
-                      </span>
+                      {step.icon}
                     </div>
+                    <h3 className="text-xl font-semibold text-white">{step.num}. {step.title}</h3>
                   </div>
-
-                  {/* Horizontal Connector line (Desktop only) */}
-                  <div
-                    className={`hidden lg:block absolute top-1/2 -translate-y-1/2 h-[1px] border-t border-dashed transition-colors duration-300 ${
-                      isActive ? "border-[#EF1F25]/40" : "border-zinc-800"
-                    }`}
-                    style={{
-                      left: "33.33%",
-                      width: idx % 2 === 0 ? "8.33%" : "16.66%",
-                    }}
-                  />
-
-                  {/* Card Container */}
-                  <div
-                    className={`w-full pl-20 lg:pl-0 lg:col-span-6 ${
-                      idx % 2 === 0 ? "lg:col-start-5" : "lg:col-start-6"
-                    } relative z-10`}
-                  >
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                      className={`p-6 lg:p-8 bg-white border rounded-2xl shadow-sm transition-all duration-500 ${
-                        isActive
-                          ? "border-[#EF1F25]/30 shadow-[0_12px_40px_rgba(239,31,37,0.06)] lg:scale-[1.01]"
-                          : "border-zinc-200/50"
-                      }`}
-                    >
-                      <span
-                        className={`text-[10px] font-bold tracking-[0.15em] uppercase mb-2 block ${
-                          isActive ? "text-[#EF1F25]" : "text-zinc-400"
-                        }`}
-                      >
-                        Step {step.num}
-                      </span>
-                      <h3
-                        className={`text-lg lg:text-xl font-bold tracking-tight mb-3 font-heading transition-colors duration-300 ${
-                          isActive ? "text-[#EF1F25]" : "text-zinc-800"
-                        }`}
-                      >
-                        {step.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed text-zinc-500 font-sans">
-                        {step.desc}
-                      </p>
-                    </motion.div>
-                  </div>
+                  <p className="text-gray-300 text-sm leading-relaxed">{step.desc}</p>
                 </div>
-              );
-            })}
-          </div>
+
+                {/* Desktop Layout (Hidden on mobile) */}
+                <div className="hidden md:flex w-full items-center">
+                  
+                  {isLeft ? (
+                    /* LEFT ALIGNED STEP */
+                    <>
+                      <div className="w-1/2 flex items-center justify-end pr-8 lg:pr-12">
+                        {/* Text Content */}
+                        <motion.div 
+                          initial={{ opacity: 0, x: -60 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+                          className="flex-1 text-left pr-6 lg:pr-12 max-w-[400px]"
+                        >
+                          <h3 className="text-[20px] lg:text-[22px] font-semibold text-white mb-3 drop-shadow-md">
+                            {step.num}. {step.title}
+                          </h3>
+                          <p className="text-[14px] lg:text-[15px] text-gray-300 leading-relaxed drop-shadow-sm">
+                            {step.desc}
+                          </p>
+                        </motion.div>
+                        
+                        {/* Connecting Dot & Line */}
+                        <div className="flex items-center shrink-0">
+                          <div className="w-[6px] h-[6px] rounded-full bg-[#EF1F25] shadow-[0_0_8px_rgba(239,31,37,0.8)]" />
+                          <div className="w-8 lg:w-16 h-[2px] bg-[#EF1F25]/80" />
+                          
+                          {/* Icon Box */}
+                          <div 
+                            ref={el => nodeRefs.current[idx] = el}
+                            className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-[#EF1F25] shadow-[0_0_25px_rgba(239,31,37,0.5)] flex items-center justify-center shrink-0 relative z-20 group-hover:scale-110 transition-transform duration-300"
+                          >
+                            {step.icon}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="w-1/2" />
+                    </>
+                  ) : (
+                    /* RIGHT ALIGNED STEP */
+                    <>
+                      <div className="w-1/2" />
+                      <div className="w-1/2 flex items-center justify-start pl-8 lg:pl-12">
+                        {/* Connecting Icon, Line & Dot */}
+                        <div className="flex items-center shrink-0">
+                          {/* Icon Box */}
+                          <div 
+                            ref={el => nodeRefs.current[idx] = el}
+                            className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-[#EF1F25] shadow-[0_0_25px_rgba(239,31,37,0.5)] flex items-center justify-center shrink-0 relative z-20 group-hover:scale-110 transition-transform duration-300"
+                          >
+                            {step.icon}
+                          </div>
+                          
+                          <div className="w-8 lg:w-16 h-[2px] bg-[#EF1F25]/80" />
+                          <div className="w-[6px] h-[6px] rounded-full bg-[#EF1F25] shadow-[0_0_8px_rgba(239,31,37,0.8)]" />
+                        </div>
+
+                        {/* Text Content */}
+                        <motion.div 
+                          initial={{ opacity: 0, x: 60 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+                          className="flex-1 text-left pl-6 lg:pl-12 max-w-[400px]"
+                        >
+                          <h3 className="text-[20px] lg:text-[22px] font-semibold text-white mb-3 drop-shadow-md">
+                            {step.num}. {step.title}
+                          </h3>
+                          <p className="text-[14px] lg:text-[15px] text-gray-300 leading-relaxed drop-shadow-sm">
+                            {step.desc}
+                          </p>
+                        </motion.div>
+                      </div>
+                    </>
+                  )}
+                </div>
+
+              </div>
+            );
+          })}
         </div>
       </div>
+
+      {/* Global styles for mobile adjustments & text overrides */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .ai-process-section-override h2,
+        .ai-process-section-override h3,
+        .ai-process-section-override span,
+        .ai-process-section-override div.text-white {
+          color: #FFFFFF !important;
+        }
+        .ai-process-section-override p {
+          color: rgba(255, 255, 255, 0.85) !important;
+        }
+        @media (max-width: 767px) {
+          /* Hide the SVG connecting lines on mobile since layout shifts */
+          svg.pointer-events-none {
+            display: none;
+          }
+        }
+      `}} />
     </section>
   );
 }

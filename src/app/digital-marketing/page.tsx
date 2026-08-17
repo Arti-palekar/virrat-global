@@ -10,12 +10,11 @@ import FAQ1 from "@/components/FAQ1";
 // Custom page components
 import DMHero from "./components/DMHero";
 import DMServices from "./components/DMServices";
-import ColorfulBentoGrid from "@/components/ui/colorful-bento-grid";
-import { ClipPathLinks } from "@/components/ui/clip-path-links";
 import DMTools from "./components/DMTools";
 import DMProcess from "./components/DMProcess";
-import DMConsiderations from "./components/DMConsiderations";
-import DMCTA from "./components/DMCTA";
+import AiAutomationTextSlider from "@/app/demo/components/AiAutomationTextSlider";
+import AiAutomationIndustries from "@/app/demo/components/AiAutomationIndustries";
+import AiAutomationConsiderations from "@/app/demo/components/AiAutomationConsiderations";
 
 // ── CUSTOM FAQ ITEMS FOR DIGITAL MARKETING ──
 const dmFaqs = [
@@ -115,29 +114,26 @@ export default function DigitalMarketingPage() {
         {/* Premium Digital Marketing Services Section */}
         <DMServices />
 
-        {/* Free Resources & Tools Bento Grid */}
-        <ColorfulBentoGrid />
-
-        {/* Clip-Path Ecosystem Links */}
-        <ClipPathLinks />
-
         {/* Tools We Use Section */}
         <DMTools />
 
         {/* Our Step-by-Step Process Section */}
         <DMProcess />
 
-        {/* What We Focus On Section */}
-        <DMConsiderations />
+        {/* Animated Marquee */}
+        <AiAutomationTextSlider />
+
+        {/* Industries We Build For */}
+        <AiAutomationIndustries />
+
+        {/* Why Businesses Choose Virrat Global */}
+        <AiAutomationConsiderations />
 
         {/* Section 12: Testimonials (Dynamic Reuse) */}
         <TestimonialsSection items={dmTestimonials} />
 
         {/* Section 13: FAQ (Dynamic Reuse) */}
         <FAQ1 items={dmFaqs} />
-
-        {/* Section 14: Final CTA */}
-        <DMCTA />
       </div>
 
       {/* Shared Footer */}

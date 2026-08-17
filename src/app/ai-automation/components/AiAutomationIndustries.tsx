@@ -1,42 +1,7 @@
 "use client";
 
 import React from "react";
-import ImageStreamHero from "@/components/ui/image-stream-hero";
-
-const industriesData = [
-  {
-    name: "SaaS & Technology",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "E-commerce",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "Real Estate",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "Marketing & Agencies",
-    image: "https://images.unsplash.com/photo-1542744094-3a31f103e35f?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "Healthcare",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "Finance & Accounting",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "Professional Services",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "Startups",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
-  },
-];
+import CarouselStacked from "@/components/ui/carousel-07";
 
 export default function AiAutomationIndustries() {
   return (
@@ -61,14 +26,9 @@ export default function AiAutomationIndustries() {
         </p>
       </div>
 
-      {/* Interactive 3D Corridor Layout */}
-      <div className="w-full h-full relative z-10">
-        <ImageStreamHero
-          industries={industriesData}
-          cards={8}
-          speed={18}
-          axis={55}
-        />
+      {/* Stacked Carousel Component */}
+      <div className="w-full relative z-10 flex items-center justify-center -mt-6">
+        <CarouselStacked />
       </div>
     </section>
   );
