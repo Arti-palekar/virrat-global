@@ -85,7 +85,7 @@ const mobileSocials = [
    ═══════════════════════════════════════════════ */
 export function HoverGradientNavBar(): React.JSX.Element {
   const pathname  = usePathname();
-  const isAiAutomation = pathname === '/ai-automation';
+  const isAiAutomation = pathname === '/ai-automation' || pathname === '/digital-marketing';
   const [hovered, setHovered]     = useState<number | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
