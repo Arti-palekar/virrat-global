@@ -201,7 +201,7 @@ export default function AiAutomationProcess() {
                 <div className="md:hidden flex flex-col w-full relative z-20 bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-xl">
                   <div className="flex items-center gap-4 mb-4">
                     <div 
-                      ref={isLeft ? el => nodeRefs.current[idx] = el : undefined} // Track for mobile spine? We'll hide spine on mobile.
+                      ref={isLeft ? el => { nodeRefs.current[idx] = el; } : undefined} // Track for mobile spine? We'll hide spine on mobile.
                       className="w-12 h-12 rounded-xl bg-[#EF1F25] shadow-[0_0_20px_rgba(239,31,37,0.4)] flex items-center justify-center shrink-0"
                     >
                       {step.icon}
@@ -241,7 +241,7 @@ export default function AiAutomationProcess() {
                           
                           {/* Icon Box */}
                           <div 
-                            ref={el => nodeRefs.current[idx] = el}
+                            ref={el => { nodeRefs.current[idx] = el; }}
                             className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-[#EF1F25] shadow-[0_0_25px_rgba(239,31,37,0.5)] flex items-center justify-center shrink-0 relative z-20 group-hover:scale-110 transition-transform duration-300"
                           >
                             {step.icon}
@@ -259,7 +259,7 @@ export default function AiAutomationProcess() {
                         <div className="flex items-center shrink-0">
                           {/* Icon Box */}
                           <div 
-                            ref={el => nodeRefs.current[idx] = el}
+                            ref={el => { nodeRefs.current[idx] = el; }}
                             className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-[#EF1F25] shadow-[0_0_25px_rgba(239,31,37,0.5)] flex items-center justify-center shrink-0 relative z-20 group-hover:scale-110 transition-transform duration-300"
                           >
                             {step.icon}
