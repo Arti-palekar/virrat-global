@@ -134,7 +134,7 @@ const developmentSteps = [
 
 export default function WebSoftwarePage() {
   return (
-    <>
+    <div className="web-software-page">
       <HoverGradientNavBar />
       <main className="min-h-screen bg-[#f8f7f5] text-[#111111]">
         {/* 1. Hero Section */}
@@ -174,6 +174,6 @@ export default function WebSoftwarePage() {
         <FAQ1 items={webSoftwareFaqs} />
       </main>
       <CinematicFooter />
-    </>
+    </div>
   );
 }
