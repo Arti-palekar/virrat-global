@@ -104,7 +104,7 @@ const packagingTestimonials = [
 
 export default function PackagingClient() {
   return (
-    <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111111] overflow-x-hidden font-body selection:bg-[#fd2e35]/10 selection:text-[#fd2e35]">
+    <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111111] overflow-x-hidden font-body selection:bg-[#fd2e35]/10 selection:text-[#fd2e35] packaging-design-page">
       {/* Shared Navbar */}
       <HoverGradientNavBar />
 
