@@ -1062,3 +1062,112 @@ html body .web-software-page label {
   letter-spacing: 0.008em !important;
   word-spacing: 0.01em !important;
 }
+
+/* nv-dune-hero-font-family definitions */
+@font-face {
+  font-family: "nv-dune-hero-font-family";
+  src: url("/fonts/NVDuneHeroDemo-Regular-BF6a0426b148ece.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nv-dune-hero-font-family";
+  src: url("/fonts/NVDuneHeroDemo-Bold-BF6a0426c42185f.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nv-dune-hero-font-family";
+  src: url("/fonts/NVDuneHeroDemo-Light-BF6a0426ac96748.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nv-dune-hero-font-family";
+  src: url("/fonts/NVDuneHeroDemo-Medium-BF6a0426b49704e.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nv-dune-hero-font-family";
+  src: url("/fonts/NVDuneHeroDemo-SemiBold-BF6a0426bc288be.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nv-dune-hero-font-family";
+  src: url("/fonts/NVDuneHeroDemo-ExtraBold-BF6a0426c7b9c78.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nv-dune-hero-font-family";
+  src: url("/fonts/NVDuneHeroDemo-Thin-BF6a0426a33447f.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nv-dune-hero-font-family";
+  src: url("/fonts/NVDuneHeroDemo-ExtraLight-BF6a0426a880d0a.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+html body .home-page,
+html body .home-page *:not(svg):not(path):not(rect):not(circle):not(line):not(polyline):not(polygon):not(g):not([class*="icon"]):not([class*="fa-"]):not([class*="swiper-icon"]) {
+  font-family: "nv-dune-hero-font-family", sans-serif !important;
+}
+
+/* nv-dune-hero-font-family letter-spacing and word-spacing overrides */
+html body .home-page h1,
+html body .home-page .heading-xl {
+  letter-spacing: 0.01em !important;
+  word-spacing: 0.02em !important;
+}
+
+html body .home-page h2,
+html body .home-page h3,
+html body .home-page .heading-l,
+html body .home-page .heading-m {
+  letter-spacing: 0.008em !important;
+  word-spacing: 0.015em !important;
+}
+
+html body .home-page h1 *,
+html body .home-page h2 *,
+html body .home-page h3 *,
+html body .home-page [class*="heading-"] * {
+  letter-spacing: inherit !important;
+  word-spacing: inherit !important;
+}
+
+html body .home-page p,
+html body .home-page li,
+html body .home-page td,
+html body .home-page th {
+  letter-spacing: 0.003em !important;
+  word-spacing: 0.008em !important;
+}
+
+html body .home-page a,
+html body .home-page button,
+html body .home-page span:not(h1 *):not(h2 *):not(h3 *):not([class*="heading"] *),
+html body .home-page label {
+  letter-spacing: 0.006em !important;
+  word-spacing: 0.01em !important;
+}

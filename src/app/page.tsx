@@ -57,7 +57,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="w-full min-h-screen bg-[#FAF9F6] text-slate-900">
+    <main className="w-full min-h-screen bg-[#FAF9F6] text-slate-900 home-page">
       <div className="relative w-full">
         <div
           ref={containerRef}
