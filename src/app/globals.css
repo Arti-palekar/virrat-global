@@ -1023,3 +1023,42 @@ html body .web-software-page,
 html body .web-software-page *:not(svg):not(path):not(rect):not(circle):not(line):not(polyline):not(polygon):not(g):not([class*="icon"]):not([class*="fa-"]):not([class*="swiper-icon"]) {
   font-family: "Funnel Display", sans-serif !important;
 }
+
+/* Funnel Display letter-spacing and word-spacing overrides */
+html body .web-software-page h1,
+html body .web-software-page .heading-xl {
+  letter-spacing: 0.015em !important;
+  word-spacing: 0.02em !important;
+}
+
+html body .web-software-page h2,
+html body .web-software-page h3,
+html body .web-software-page .heading-l,
+html body .web-software-page .heading-m {
+  letter-spacing: 0.008em !important;
+  word-spacing: 0.015em !important;
+}
+
+html body .web-software-page h1 *,
+html body .web-software-page h2 *,
+html body .web-software-page h3 *,
+html body .web-software-page [class*="heading-"] * {
+  letter-spacing: inherit !important;
+  word-spacing: inherit !important;
+}
+
+html body .web-software-page p,
+html body .web-software-page li,
+html body .web-software-page td,
+html body .web-software-page th {
+  letter-spacing: 0.005em !important;
+  word-spacing: 0.01em !important;
+}
+
+html body .web-software-page a,
+html body .web-software-page button,
+html body .web-software-page span:not(h1 *):not(h2 *):not(h3 *):not([class*="heading"] *),
+html body .web-software-page label {
+  letter-spacing: 0.008em !important;
+  word-spacing: 0.01em !important;
+}
