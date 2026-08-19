@@ -122,7 +122,7 @@ export default function PackagingHero() {
               className="w-full flex items-center justify-center"
             >
               <h1 
-                style={{ fontSize: "clamp(32px, 10.5vw, 190px)", letterSpacing: "-0.04em", whiteSpace: "nowrap" }}
+                style={{ fontSize: "clamp(32px, 10.5vw, 190px)", letterSpacing: "0.05em", whiteSpace: "nowrap" }}
                 className="text-center font-heading font-black text-[#111111] uppercase tracking-tighter select-none"
               >
                 PACKAGING DESIGN

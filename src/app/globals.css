@@ -980,3 +980,33 @@ html body .packaging-design-page,
 html body .packaging-design-page *:not(svg):not(path):not(rect):not(circle):not(line):not(polyline):not(polygon):not(g):not([class*="icon"]):not([class*="fa-"]):not([class*="swiper-icon"]) {
   font-family: "Vastrone", serif !important;
 }
+
+/* Vastrone font letter-spacing refinement */
+html body .packaging-design-page h1,
+html body .packaging-design-page .heading-xl,
+html body .packaging-design-page h1[class*="tracking-"] {
+  letter-spacing: 0.1em !important;
+  line-height: 1.25 !important;
+}
+
+html body .packaging-design-page h2,
+html body .packaging-design-page .heading-l,
+html body .packaging-design-page h2[class*="tracking-"] {
+  letter-spacing: 0.08em !important;
+  line-height: 1.3 !important;
+}
+
+html body .packaging-design-page h3,
+html body .packaging-design-page .heading-m,
+html body .packaging-design-page h3[class*="tracking-"] {
+  letter-spacing: 0.06em !important;
+  line-height: 1.35 !important;
+}
+
+/* Scope body copy slightly for premium look */
+html body .packaging-design-page p,
+html body .packaging-design-page li,
+html body .packaging-design-page a,
+html body .packaging-design-page button {
+  letter-spacing: 0.025em;
+}

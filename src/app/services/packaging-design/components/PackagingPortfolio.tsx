@@ -387,9 +387,9 @@ export default function PackagingPortfolio() {
                 style={{
                   color: "#ffffff",
                   fontSize: "clamp(42px, 3.8vw, 64px)",
-                  lineHeight: 0.95,
+                  lineHeight: 1.1,
                   fontWeight: 700,
-                  letterSpacing: "-0.04em",
+                  letterSpacing: "0.03em",
                   textTransform: "uppercase",
                   margin: "22px 0 26px",
                 }}
