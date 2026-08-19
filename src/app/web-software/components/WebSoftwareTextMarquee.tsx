@@ -227,7 +227,7 @@ const marqueeStyles = /* css */ `
 }
 
 .ws-text-marquee-item {
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: 75px;
   font-weight: 600;
   line-height: 1.1;

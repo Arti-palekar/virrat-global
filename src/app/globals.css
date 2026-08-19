@@ -7,8 +7,8 @@
   --color-foreground: #111111;
   --color-accent: #D62020;
   
-  --font-heading: var(--font-space-grotesk);
-  --font-body: var(--font-inter);
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'Sora', sans-serif;
 
   /* Bento Grid specific colors */
   --color-highlight-light: #DADBF8;
@@ -154,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
 .ai-automation-page h4,
 .ai-automation-page h5,
 .ai-automation-page h6 {
-  font-family: "Qubic Grid", sans-serif !important;
+  font-family: 'Sora', sans-serif !important;
   letter-spacing: -0.03em !important;
   line-height: 1.05 !important;
 }
@@ -978,10 +978,11 @@ select,
 
 html body .packaging-design-page,
 html body .packaging-design-page *:not(svg):not(path):not(rect):not(circle):not(line):not(polyline):not(polygon):not(g):not([class*="icon"]):not([class*="fa-"]):not([class*="swiper-icon"]) {
-  font-family: "Vastrone", serif !important;
+  font-family: 'Sora', sans-serif !important;
 }
 
-/* Vastrone font letter-spacing refinement */
+
+/* Hero title — font-size + letter-spacing refinement */
 html body .packaging-design-page h1,
 html body .packaging-design-page .heading-xl,
 html body .packaging-design-page h1[class*="tracking-"] {
@@ -989,11 +990,21 @@ html body .packaging-design-page h1[class*="tracking-"] {
   line-height: 1.25 !important;
 }
 
+/* ── Packaging Design Hero Title (highest specificity — wins over the h1 rule above) ── */
+html body .packaging-design-page .packaging-design-hero-title {
+  font-size: clamp(24px, 8.5vw, 140px) !important;
+  letter-spacing: -0.04em !important;
+  line-height: 1.1 !important;
+  white-space: nowrap !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
 html body .packaging-design-page h2,
 html body .packaging-design-page .heading-l,
 html body .packaging-design-page h2[class*="tracking-"] {
-  letter-spacing: 0.08em !important;
-  line-height: 1.3 !important;
+  letter-spacing: 0em !important;
+  line-height: 1.2 !important;
 }
 
 html body .packaging-design-page h3,
@@ -1021,7 +1032,7 @@ html body .packaging-design-page button {
 
 html body .web-software-page,
 html body .web-software-page *:not(svg):not(path):not(rect):not(circle):not(line):not(polyline):not(polygon):not(g):not([class*="icon"]):not([class*="fa-"]):not([class*="swiper-icon"]) {
-  font-family: "Funnel Display", sans-serif !important;
+  font-family: 'Sora', sans-serif !important;
 }
 
 /* Funnel Display letter-spacing and word-spacing overrides */
@@ -1063,77 +1074,87 @@ html body .web-software-page label {
   word-spacing: 0.01em !important;
 }
 
-/* nv-dune-hero-font-family definitions */
+/* glancyr-neue-font definition */
 @font-face {
-  font-family: "nv-dune-hero-font-family";
-  src: url("/fonts/NVDuneHeroDemo-Regular-BF6a0426b148ece.ttf") format("truetype");
+  font-family: "glancyr-neue-font";
+  src: url("/fonts/glancyr-neue-demo.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
+/* Sora font definition */
 @font-face {
-  font-family: "nv-dune-hero-font-family";
-  src: url("/fonts/NVDuneHeroDemo-Bold-BF6a0426c42185f.ttf") format("truetype");
-  font-weight: bold;
+  font-family: 'Sora';
+  src: url('/fonts/Sora-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 800;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "nv-dune-hero-font-family";
-  src: url("/fonts/NVDuneHeroDemo-Light-BF6a0426ac96748.ttf") format("truetype");
+  font-family: 'Sora';
+  src: url('/fonts/Sora-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sora';
+  src: url('/fonts/Sora-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sora';
+  src: url('/fonts/Sora-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "nv-dune-hero-font-family";
-  src: url("/fonts/NVDuneHeroDemo-Medium-BF6a0426b49704e.ttf") format("truetype");
+  font-family: 'Sora';
+  src: url('/fonts/Sora-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sora';
+  src: url('/fonts/Sora-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "nv-dune-hero-font-family";
-  src: url("/fonts/NVDuneHeroDemo-SemiBold-BF6a0426bc288be.ttf") format("truetype");
+  font-family: 'Sora';
+  src: url('/fonts/Sora-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "nv-dune-hero-font-family";
-  src: url("/fonts/NVDuneHeroDemo-ExtraBold-BF6a0426c7b9c78.ttf") format("truetype");
+  font-family: 'Sora';
+  src: url('/fonts/Sora-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sora';
+  src: url('/fonts/Sora-ExtraBold.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
-  font-family: "nv-dune-hero-font-family";
-  src: url("/fonts/NVDuneHeroDemo-Thin-BF6a0426a33447f.ttf") format("truetype");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
+html body,
+html body *:not(svg):not(path):not(rect):not(circle):not(line):not(polyline):not(polygon):not(g):not([class*="icon"]):not([class*="fa-"]):not([class*="swiper-icon"]) {
+  font-family: 'Sora', sans-serif !important;
 }
 
-@font-face {
-  font-family: "nv-dune-hero-font-family";
-  src: url("/fonts/NVDuneHeroDemo-ExtraLight-BF6a0426a880d0a.ttf") format("truetype");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
 
-html body .home-page,
-html body .home-page *:not(svg):not(path):not(rect):not(circle):not(line):not(polyline):not(polygon):not(g):not([class*="icon"]):not([class*="fa-"]):not([class*="swiper-icon"]) {
-  font-family: "nv-dune-hero-font-family", sans-serif !important;
-}
-
-/* nv-dune-hero-font-family letter-spacing and word-spacing overrides */
+/* glancyr-neue-font letter-spacing and word-spacing overrides */
 html body .home-page h1,
 html body .home-page .heading-xl {
   letter-spacing: 0.01em !important;
@@ -1171,3 +1192,132 @@ html body .home-page label {
   letter-spacing: 0.006em !important;
   word-spacing: 0.01em !important;
 }
+
+/* ─────────────────────────────────────────────────────────────
+   PACKAGING DESIGN PAGE — SPECTRAL FONT
+   Scoped to .packaging-design-page only.
+   Does NOT affect any other page.
+───────────────────────────────────────────────────────────── */
+
+/* ── Spectral @font-face — all weights from local files ── */
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Apply Sora to every element inside the packaging page */
+.packaging-design-page,
+.packaging-design-page * {
+  font-family: 'Sora' !important;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   COMPLIANCE PAGE — SORA FONT
+   Scoped to .compliance-page only.
+   Does NOT affect any other page.
+───────────────────────────────────────────────────────────── */
+
+/* Apply Sora to every element inside the compliance page */
+.compliance-page,
+.compliance-page * {
+  font-family: 'Sora' !important;
+}
+
+
+
+

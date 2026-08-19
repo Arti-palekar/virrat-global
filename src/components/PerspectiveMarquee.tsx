@@ -18,7 +18,7 @@ export interface PerspectiveMarqueeProps {
 }
 
 const FONT_FAMILY =
-  "var(--font-geist-sans), -apple-system, BlinkMacSystemFont, sans-serif";
+  "'Sora', sans-serif";
 
 const DEFAULT_ITEMS = [
   "Branding & Strategy",

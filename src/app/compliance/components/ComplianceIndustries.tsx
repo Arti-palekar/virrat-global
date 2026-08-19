@@ -72,11 +72,11 @@ export default function ComplianceIndustries() {
           {/* CTA Card in the grid */}
           <motion.div
             variants={cardVariants}
-            className="group flex flex-col justify-center bg-[#E31E24] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+            className="compliance-cta-card group flex flex-col justify-center bg-[#E31E24] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
           >
-            <h3 className="text-lg font-bold text-[#ffffff] mb-2 leading-tight">Don't see your industry?</h3>
-            <p className="text-sm text-[#ffffff] mb-4">We adapt our compliance solutions to fit your unique requirements.</p>
-            <a href="/contact" className="text-[#ffffff] font-semibold text-sm flex items-center group-hover:opacity-80 transition-opacity duration-300">
+            <h3 className="text-lg font-bold mb-2 leading-tight" style={{color: '#ffffff'}}>Don't see your industry?</h3>
+            <p className="text-sm mb-4" style={{color: '#ffffff'}}>We adapt our compliance solutions to fit your unique requirements.</p>
+            <a href="/contact" className="font-semibold text-sm flex items-center group-hover:opacity-80 transition-opacity duration-300" style={{color: '#ffffff'}}>
               Let's Talk &rarr;
             </a>
           </motion.div>

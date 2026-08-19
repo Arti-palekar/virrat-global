@@ -265,7 +265,6 @@ function Header() {
       </span>
       <p 
         className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-[900] text-[#111111] leading-none tracking-[-0.04em] mb-4 font-heading"
-        style={{ fontFamily: '"Syne", sans-serif' }}
       >
         Crafting Brands <br />
         That Stand Out.

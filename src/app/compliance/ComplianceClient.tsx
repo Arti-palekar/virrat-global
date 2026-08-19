@@ -51,7 +51,7 @@ const complianceFaqs = [
 
 export default function ComplianceClient() {
   return (
-    <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111111] font-body selection:bg-[#E31E24]/10 selection:text-[#E31E24]">
+    <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111111] font-body selection:bg-[#E31E24]/10 selection:text-[#E31E24] compliance-page">
       {/* Shared Navbar */}
       <HoverGradientNavBar />
 
