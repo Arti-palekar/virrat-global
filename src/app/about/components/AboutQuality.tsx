@@ -45,11 +45,11 @@ export default function AboutQuality() {
   const [activeIndex, setActiveIndex] = useState(2);
 
   return (
-    <section className="py-24 bg-[#fafafa] relative overflow-hidden font-body">
+    <section className="py-24 bg-[#fafafa] relative font-body">
       <div className="max-w-[1200px] mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-28 flex flex-col items-center relative z-40">
+        <div className="text-center max-w-3xl mx-auto mb-8 lg:mb-12 flex flex-col items-center relative z-40">
           <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-6">
             Built on Vision. Driven by Excellence.
           </h2>
@@ -90,10 +90,10 @@ export default function AboutQuality() {
             </defs>
             
             {/* 01: Top Left to Outer Left Image */}
-            <path d="M 230 180 C 320 100, 220 280, 360 210" fill="none" stroke="#E10600" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrow)" />
+            <path d="M 150 180 C 240 100, 200 280, 360 210" fill="none" stroke="#E10600" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrow)" />
             
             {/* 02: Top Right to Outer Right Image */}
-            <path d="M 970 180 C 880 100, 980 280, 840 210" fill="none" stroke="#E10600" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrow)" />
+            <path d="M 1050 180 C 960 100, 1000 280, 840 210" fill="none" stroke="#E10600" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrow)" />
 
             {/* 03: Bottom Left to Inner Left Image */}
             <path d="M 250 510 C 350 580, 260 410, 420 440" fill="none" stroke="#E10600" strokeWidth="2" strokeDasharray="4 4" markerEnd="url(#arrow)" />
@@ -107,12 +107,12 @@ export default function AboutQuality() {
 
           {/* Floating Points */}
           {/* 01 - Top Left */}
-          <div className="absolute left-0 top-[15%] opacity-0 animate-[fade-in-up-margin_0.8s_ease-out_forwards] z-40" style={{ animationDelay: "0.1s" }}>
+          <div className="absolute -left-[6%] xl:-left-[8%] top-[15%] opacity-0 animate-[fade-in-up-margin_0.8s_ease-out_forwards] z-40" style={{ animationDelay: "0.1s" }}>
             <QualityPoint number="01" title="Our Vision" desc="Creative ideas that create meaningful business impact." />
           </div>
           
           {/* 02 - Top Right */}
-          <div className="absolute right-0 top-[15%] opacity-0 animate-[fade-in-up-margin_0.8s_ease-out_forwards] z-40" style={{ animationDelay: "0.2s" }}>
+          <div className="absolute -right-[6%] xl:-right-[8%] top-[15%] opacity-0 animate-[fade-in-up-margin_0.8s_ease-out_forwards] z-40" style={{ animationDelay: "0.2s" }}>
             <QualityPoint number="02" title="Customer First" desc="We build solutions around real customer needs." />
           </div>
           

@@ -3,6 +3,7 @@ import CinematicFooter from "@/components/CinematicFooter";
 import AboutHero from "./components/AboutHero";
 import AboutStory from "./components/AboutStory";
 import AboutQuality from "./components/AboutQuality";
+import AboutGallery from "./components/AboutGallery";
 
 export default function AboutPage() {
   return (
@@ -13,6 +14,7 @@ export default function AboutPage() {
         <AboutHero />
         <AboutStory />
         <AboutQuality />
+        <AboutGallery />
       </div>
 
       <CinematicFooter />
