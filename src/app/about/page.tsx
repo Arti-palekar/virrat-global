@@ -1,9 +1,12 @@
 import { HoverGradientNavBar } from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
-import AboutHero from "./components/AboutHero";
+import ToonhubHero from "./components/ToonhubHero";
+import AboutEmpower from "./components/AboutEmpower";
+import AboutMission from "./components/AboutMission";
 import AboutStory from "./components/AboutStory";
 import AboutQuality from "./components/AboutQuality";
-import AboutGallery from "./components/AboutGallery";
+import AboutJoinClan from "./components/AboutJoinClan";
+import AboutImageSlider from "./components/AboutImageSlider";
 
 export default function AboutPage() {
   return (
@@ -11,10 +14,13 @@ export default function AboutPage() {
       <HoverGradientNavBar />
       
       <div className="flex-grow">
-        <AboutHero />
+        <ToonhubHero />
+        <AboutEmpower />
+        <AboutMission />
         <AboutStory />
         <AboutQuality />
-        <AboutGallery />
+        <AboutJoinClan />
+        <AboutImageSlider />
       </div>
 
       <CinematicFooter />

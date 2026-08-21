@@ -155,8 +155,8 @@ export function IndustryExpertise() {
                         {activeIndustry.projects} Completed Projects
                       </span>
                     </div>
-                    <h3 className="text-3xl font-bold font-heading mb-2">{activeIndustry.name}</h3>
-                    <p className="text-white/80 text-sm max-w-sm">{activeIndustry.description}</p>
+                    <h3 className="text-3xl font-bold font-heading mb-2 !text-white">{activeIndustry.name}</h3>
+                    <p className="!text-white/80 text-sm max-w-sm">{activeIndustry.description}</p>
                   </motion.div>
                 </AnimatePresence>
               </div>
