@@ -1,4 +1,8 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FadeIn from './ui/FadeIn';
 
 const SERVICES = [
@@ -29,7 +33,44 @@ const SERVICES = [
   }
 ];
 
-export default function ServicesSection() {
+interface ServicesSectionProps {
+  scrollLinkedColor?: boolean;
+}
+
+export default function ServicesSection({ scrollLinkedColor = false }: ServicesSectionProps) {
+  const numbersRef = useRef<(HTMLSpanElement | null)[]>([]);
+  const rowsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    if (!scrollLinkedColor) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      rowsRef.current.forEach((row, index) => {
+        if (!row) return;
+        const numberSpan = numbersRef.current[index];
+        if (!numberSpan) return;
+
+        gsap.fromTo(numberSpan, 
+          { color: '#FF6B6B' }, 
+          {
+            color: '#D90000',
+            scrollTrigger: {
+              trigger: row,
+              start: 'top 85%',    // starts when top of row enters viewport (85% from top of window)
+              end: 'top 35%',      // completes transition when it reaches the active/center viewing area
+              scrub: true,
+              invalidateOnRefresh: true,
+            }
+          }
+        );
+      });
+    });
+
+    return () => ctx.revert();
+  }, [scrollLinkedColor]);
+
   return (
     <section className="bg-[#FFFFFF] text-[#1F1F1F] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32 relative z-10 w-full">
       <h2 className="font-black uppercase text-center text-[clamp(3rem,12vw,160px)] mb-16 sm:mb-20 md:mb-28 text-[#1F1F1F]">
@@ -39,9 +80,16 @@ export default function ServicesSection() {
       <div className="max-w-5xl mx-auto flex flex-col">
         {SERVICES.map((service, i) => (
           <FadeIn key={service.num} delay={i * 0.1} y={30} className="w-full">
-            <div className="flex items-start md:items-center py-8 sm:py-10 md:py-12 border-t border-[#E5E5E5] last:border-b">
+            <div 
+              ref={scrollLinkedColor ? (el => { rowsRef.current[i] = el; }) : undefined}
+              className="flex items-start md:items-center py-8 sm:py-10 md:py-12 border-t border-[#E5E5E5] last:border-b"
+            >
               <div className="w-[30%] sm:w-[25%] shrink-0">
-                <span className="font-black text-[clamp(3rem,10vw,140px)] leading-none block text-[#E10600]">
+                <span 
+                  ref={scrollLinkedColor ? (el => { numbersRef.current[i] = el; }) : undefined}
+                  className="font-black text-[clamp(3rem,10vw,140px)] leading-none block"
+                  style={scrollLinkedColor ? { color: '#FF6B6B' } : { color: '#E10600' }}
+                >
                   {service.num}
                 </span>
               </div>

@@ -15,7 +15,7 @@ export default function About2Page() {
       <HeroSection />
       <MarqueeSection />
       <AboutSection theme="dark" />
-      <ServicesSection />
+      <ServicesSection scrollLinkedColor={true} />
       <ProjectsSection />
       <CinematicFooter />
       <MobileFloatingMenu />
