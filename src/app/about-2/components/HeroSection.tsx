@@ -216,15 +216,15 @@ export default function HeroSection() {
   return (
     <section 
       ref={sceneRef}
-      className="relative w-full h-screen min-h-[700px] overflow-hidden bg-black matter-box"
+      className="relative w-full h-screen min-h-[700px] overflow-hidden bg-white matter-box"
     >
       {/* Scoped style for dark theme and custom matter elements */}
       <style dangerouslySetInnerHTML={{__html: `
         .matter-box {
-          background-color: #000000;
+          background-color: #FFFFFF;
           background-image:
-            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px);
           background-size: 109px 109px;
         }
 
@@ -263,7 +263,7 @@ export default function HeroSection() {
           <Link 
             key={item} 
             href={`#${item.toLowerCase()}`}
-            className="pointer-events-auto text-[#FFFFFF] font-semibold uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:text-[#FFE500] transition-colors duration-200"
+            className="pointer-events-auto text-[#050505] font-semibold uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:text-[#E10600] transition-colors duration-200"
           >
             {item}
           </Link>
@@ -396,14 +396,14 @@ export default function HeroSection() {
       <div className="absolute inset-0 pointer-events-none z-[10] flex flex-col md:block">
         {/* Main Heading */}
         <h1 
-          className="pointer-events-auto select-none font-extrabold uppercase tracking-tight leading-[0.9] text-white md:absolute md:left-[15%] md:top-[38%] md:-translate-y-1/2 w-full md:w-[500px] text-[clamp(3.5rem,7vw,7rem)] text-center md:text-left px-6 md:px-0 mt-28 md:mt-0"
+          className="pointer-events-auto select-none font-extrabold uppercase tracking-tight leading-[0.9] text-[#050505] md:absolute md:left-[15%] md:top-[38%] md:-translate-y-1/2 w-full md:w-[500px] text-[clamp(3.5rem,7vw,7rem)] text-center md:text-left px-6 md:px-0 mt-28 md:mt-0"
           style={{ letterSpacing: '-0.06em' }}
         >
           Who are<br />We
         </h1>
 
         {/* Description */}
-        <p className="pointer-events-auto font-light text-white leading-[1.2] md:absolute md:left-[63%] md:top-[48%] md:-translate-y-1/2 w-full md:w-[360px] text-[clamp(1.1rem,1.8vw,1.6rem)] text-center md:text-left px-6 md:px-0 mt-8 md:mt-0 opacity-80">
+        <p className="pointer-events-auto font-light text-[#050505] leading-[1.2] md:absolute md:left-[63%] md:top-[48%] md:-translate-y-1/2 w-full md:w-[360px] text-[clamp(1.1rem,1.8vw,1.6rem)] text-center md:text-left px-6 md:px-0 mt-8 md:mt-0 opacity-80">
           Creative growth partners delivering<br />
           impactful, modern, and strategic brand<br />
           solutions.
