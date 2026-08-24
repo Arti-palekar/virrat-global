@@ -6,14 +6,14 @@ import FadeIn from './ui/FadeIn';
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-screen flex flex-col overflow-x-clip bg-[#0C0C0C]">
+    <section className="relative w-full h-screen flex flex-col overflow-x-clip bg-[var(--about-off-white)]">
       {/* Navbar */}
       <FadeIn delay={0} y={-20} as="nav" className="flex justify-between items-center w-full px-6 md:px-10 pt-6 md:pt-8 z-50">
         {['About', 'Price', 'Projects', 'Contact'].map((item) => (
           <Link 
             key={item} 
             href={`#${item.toLowerCase()}`}
-            className="text-[#D7E2EA] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:opacity-70 transition-opacity duration-200"
+            className="text-[var(--about-secondary-text)] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:text-[var(--about-primary-red)] transition-colors duration-200"
           >
             {item}
           </Link>
@@ -50,7 +50,7 @@ export default function HeroSection() {
       {/* Bottom bar */}
       <div className="flex justify-between items-end w-full px-6 md:px-10 pb-7 sm:pb-8 md:pb-10 z-30">
         <FadeIn delay={0.35} y={20}>
-          <p className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug text-[clamp(0.75rem,1.4vw,1.5rem)] max-w-[160px] sm:max-w-[220px] md:max-w-[260px]">
+          <p className="text-[var(--about-secondary-text)] font-light uppercase tracking-wide leading-snug text-[clamp(0.75rem,1.4vw,1.5rem)] max-w-[160px] sm:max-w-[220px] md:max-w-[260px]">
             a 3d creator driven by crafting striking and unforgettable projects
           </p>
         </FadeIn>

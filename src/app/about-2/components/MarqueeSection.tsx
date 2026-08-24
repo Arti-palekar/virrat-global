@@ -52,7 +52,7 @@ export default function MarqueeSection() {
   return (
     <section 
       id="marquee-section" 
-      className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden w-full"
+      className="bg-[var(--about-off-white)] pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden w-full"
     >
       <div className="flex flex-col gap-3 w-full">
         {/* Row 1 - Moves Right */}

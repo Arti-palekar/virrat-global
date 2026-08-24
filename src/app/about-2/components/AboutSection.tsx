@@ -5,7 +5,7 @@ import ContactButton from './ui/ContactButton';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative min-h-screen w-full px-5 sm:px-8 md:px-10 py-20 bg-[#0C0C0C] flex flex-col items-center justify-center overflow-hidden">
+    <section id="about" className="relative min-h-screen w-full px-5 sm:px-8 md:px-10 py-20 bg-[var(--about-off-white)] flex flex-col items-center justify-center overflow-hidden">
       
       {/* Decorative Icons */}
       <FadeIn delay={0.1} x={-80} y={0} duration={0.9} className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[120px] sm:w-[160px] md:w-[210px]">
@@ -35,7 +35,7 @@ export default function AboutSection() {
         <div className="mt-10 sm:mt-14 md:mt-16 flex flex-col items-center">
           <AnimatedText 
             text="With more than five years of experience in design, i focus on branding, web design, and user experience, i truly enjoy working with businesses that aim to stand out and present their best image. Let's build something incredible together!"
-            className="text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[560px] text-[clamp(1rem,2vw,1.35rem)]"
+            className="text-[var(--about-secondary-text)] font-medium text-center leading-relaxed max-w-[560px] text-[clamp(1rem,2vw,1.35rem)]"
           />
         </div>
 

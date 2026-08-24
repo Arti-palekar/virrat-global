@@ -41,7 +41,7 @@ export default function ProjectsSection() {
   return (
     <section 
       id="projects" 
-      className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 z-20 w-full relative pb-40"
+      className="bg-[var(--about-off-white)] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 z-20 w-full relative pb-40"
     >
       <div className="pt-20 sm:pt-24 md:pt-32 px-5 sm:px-8 md:px-10">
         <h2 className="hero-heading font-black uppercase text-center text-[clamp(3rem,12vw,160px)] mb-16 md:mb-24 leading-none">
@@ -77,7 +77,7 @@ function ProjectCard({ project, index, total }: { project: typeof PROJECTS[0], i
   return (
     <div ref={containerRef} className="h-[85vh] w-full flex items-start justify-center">
       <motion.div 
-        className="sticky top-24 md:top-32 w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-4 sm:p-6 md:p-8 flex flex-col gap-4 sm:gap-6"
+        className="sticky top-24 md:top-32 w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[var(--about-border)] bg-[var(--about-white)] p-4 sm:p-6 md:p-8 flex flex-col gap-4 sm:gap-6"
         style={{
           scale,
           top: `calc(6rem + ${index * 28}px)`,
@@ -87,14 +87,14 @@ function ProjectCard({ project, index, total }: { project: typeof PROJECTS[0], i
         {/* Top Row */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
-            <span className="font-black text-[clamp(3rem,10vw,140px)] leading-none text-white">
+            <span className="font-black text-[clamp(3rem,10vw,140px)] leading-none text-[var(--about-primary-red)]">
               {project.num}
             </span>
             <div className="flex flex-col items-start gap-1">
-              <span className="font-medium text-[#D7E2EA] text-xs sm:text-sm md:text-base opacity-70">
+              <span className="font-medium text-[var(--about-secondary-text)] text-xs sm:text-sm md:text-base">
                 {project.label}
               </span>
-              <span className="font-bold text-white uppercase text-lg sm:text-xl md:text-3xl tracking-wide">
+              <span className="font-bold text-[var(--about-main-text)] uppercase text-lg sm:text-xl md:text-3xl tracking-wide">
                 {project.name}
               </span>
             </div>
