@@ -13,6 +13,10 @@ import { PerspectiveMarquee } from "@/components/PerspectiveMarquee";
 import { IndustryExpertise } from "@/components/sections/IndustryExpertise";
 import { LandingAccordion } from "@/components/sections/LandingAccordion";
 import MobileFloatingMenu from "@/components/MobileFloatingMenu";
+import MarqueeSection from "./about-2/components/MarqueeSection";
+import AboutSection from "./about-2/components/AboutSection";
+import ServicesSection from "./about-2/components/ServicesSection";
+import ProjectsSection from "./about-2/components/ProjectsSection";
 
 const webSoftwareTestimonials = [
   {
@@ -65,7 +69,6 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: heroHtml }}
         />
         <HoverGradientNavBar />
-
       </div>
       <div className="relative z-20">
         <IndustryExpertise />
@@ -91,6 +94,12 @@ export default function Home() {
       <div className="relative z-20 h-[30vh] min-h-[250px] w-full overflow-hidden bg-[#FAF9F6]">
         <PerspectiveMarquee />
       </div>
+      <section id="about-2">
+        <MarqueeSection />
+        <AboutSection />
+        <ServicesSection />
+        <ProjectsSection />
+      </section>
       <FAQ1 />
       <CinematicFooter />
       <MobileFloatingMenu />

@@ -6,13 +6,35 @@ import FadeIn from './ui/FadeIn';
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-screen flex flex-col overflow-x-clip bg-[var(--about-off-white)]">
+    <section className="relative w-full h-screen flex flex-col overflow-x-clip bg-[#F5F5F5] text-[#1F1F1F]">
+      <style dangerouslySetInnerHTML={{__html: `
+        #about-2-hero .hero-heading {
+          background: linear-gradient(180deg, #E10600 0%, #B00000 100%) !important;
+          -webkit-background-clip: text !important;
+          -webkit-text-fill-color: transparent !important;
+          color: transparent !important;
+        }
+      `}} />
+
+      {/* Navbar */}
+      <FadeIn delay={0} y={-20} as="nav" id="about-2-hero" className="flex justify-between items-center w-full px-6 md:px-10 pt-6 md:pt-8 z-50">
+        {['About', 'Price', 'Projects', 'Contact'].map((item) => (
+          <Link 
+            key={item} 
+            href={`#${item.toLowerCase()}`}
+            className="text-[#B00000] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:text-[#FF1A1A] transition-colors duration-200"
+          >
+            {item}
+          </Link>
+        ))}
+      </FadeIn>
+
       {/* Hero Heading */}
       <div className="flex-grow flex items-center justify-center relative w-full mt-6 sm:mt-4 md:-mt-5">
         <div className="w-full overflow-hidden text-center z-20">
           <FadeIn delay={0.15} y={40}>
             <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw]">
-              virrat
+              Hi, i&apos;m jack
             </h1>
           </FadeIn>
         </div>
@@ -37,7 +59,7 @@ export default function HeroSection() {
       {/* Bottom bar */}
       <div className="flex justify-between items-end w-full px-6 md:px-10 pb-7 sm:pb-8 md:pb-10 z-30">
         <FadeIn delay={0.35} y={20}>
-          <p className="text-[var(--about-secondary-text)] font-light uppercase tracking-wide leading-snug text-[clamp(0.75rem,1.4vw,1.5rem)] max-w-[160px] sm:max-w-[220px] md:max-w-[260px]">
+          <p className="text-[#666666] font-light uppercase tracking-wide leading-snug text-[clamp(0.75rem,1.4vw,1.5rem)] max-w-[160px] sm:max-w-[220px] md:max-w-[260px]">
             a 3d creator driven by crafting striking and unforgettable projects
           </p>
         </FadeIn>

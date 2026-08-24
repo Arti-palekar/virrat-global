@@ -13,7 +13,7 @@ import {
 
 const navItems = [
   { name: 'Home',          href: '/' },
-  { name: 'About',         href: '/about' },
+  { name: 'About',         href: '/#about-2' },
   { name: 'Services',      href: '/services' },
   { name: 'Portfolio',     href: '/portfolio' },
   { name: 'Contact',       href: '/contact' },
@@ -38,7 +38,7 @@ const spring = { type: 'spring' as const, stiffness: 400, damping: 30 };
 
 const mobileNavItems = [
   { name: 'Home', href: '/', Icon: House },
-  { name: 'About', href: '/about', Icon: Info },
+  { name: 'About', href: '/#about-2', Icon: Info },
   { name: 'Services', href: '/services', Icon: Layers },
   { name: 'Portfolio', href: '/portfolio', Icon: Briefcase },
   { name: 'Contact', href: '/contact', Icon: Phone },

@@ -1,8 +1,15 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import { Kanit } from 'next/font/google';
+
+const kanit = Kanit({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-kanit',
+});
 
 export const metadata: Metadata = {
-  title: "Marcus — Bennet",
+  title: "Jack -- 3D Creator",
 };
 
 export default function About2Layout({
@@ -11,101 +18,36 @@ export default function About2Layout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="about-2-container bg-black h-[100dvh] w-full overflow-hidden relative">
+    <div className={`${kanit.variable} about-2-container font-sans bg-[#0C0C0C] min-h-screen w-full text-[#D7E2EA] overflow-x-hidden`}>
       <style dangerouslySetInnerHTML={{__html: `
-        @import url('https://db.onlinewebfonts.com/c/95cecf452d3208890088a5b4c19c7ecf?family=Helvetica+Neue+ME');
-
         .about-2-container {
-          --about-cream: #efeee9;
-          font-family: 'Helvetica Neue ME', Helvetica, Arial, sans-serif;
+          font-family: var(--font-kanit), sans-serif;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
         }
 
-        .font-hn {
-          font-family: 'Helvetica Neue ME', Helvetica, Arial, sans-serif;
+        .about-2-container *, .about-2-container *::before, .about-2-container *::after {
+          box-sizing: inherit;
         }
 
-        .text-cream {
-          color: #efeee9;
+        .about-2-container .hero-heading {
+          background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%) !important;
+          -webkit-background-clip: text !important;
+          -webkit-text-fill-color: transparent !important;
+          color: transparent !important;
         }
 
-        .bg-cream {
-          background-color: #efeee9;
-        }
-
-        .border-cream {
-          border-color: #efeee9;
-        }
-
-        /* Entrance Animations */
-        .anim-fade-in {
-          animation: fadeIn 1.2s ease-out both;
-        }
-
-        .anim-rise-in {
-          animation: riseIn 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
-        }
-
-        .anim-fade-up {
-          animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-        }
-
-        .anim-line {
-          animation: lineGrow 1.1s cubic-bezier(0.76, 0, 0.24, 1) both;
-        }
-
-        .marquee-track {
-          animation: marqueeScroll 30s linear infinite;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        @keyframes riseIn {
-          from {
-            opacity: 0;
-            transform: translateY(4vh) scale(1.03);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(28px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes lineGrow {
-          from { transform: scaleX(0); }
-          to { transform: scaleX(1); }
-        }
-
-        @keyframes marqueeScroll {
-          from { transform: translate3d(0, 0, 0); }
-          to { transform: translate3d(-50%, 0, 0); }
-        }
-
-        /* Accessibility: prefers-reduced-motion */
-        @media (prefers-reduced-motion: reduce) {
-          .anim-fade-in, .anim-rise-in, .anim-fade-up, .anim-line {
-            animation-duration: 0.01ms !important;
-            animation-delay: 0s !important;
-          }
-          .marquee-track {
-            animation-duration: 0.01ms !important;
-          }
+        /* Reset defaults for internal elements if needed */
+        .about-2-container body {
+          background-color: #0C0C0C;
+          margin: 0;
+          padding: 0;
         }
       `}} />
-      {children}
+      <div className="w-full overflow-x-clip">
+        {children}
+      </div>
     </div>
   );
 }
