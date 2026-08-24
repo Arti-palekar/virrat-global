@@ -30,7 +30,7 @@ export default function HeroSection() {
 
     // 1. Create Matter.js Engine
     const engine = Matter.Engine.create({
-      gravity: { y: 0.25, x: 0 } // Gentle gravity pulling down
+      gravity: { y: 0.35, x: 0 } // Standard gravity so they settle naturally
     });
     const world = engine.world;
 
@@ -54,7 +54,7 @@ export default function HeroSection() {
     const wallThickness = 100;
     const boundaryOptions = {
       isStatic: true,
-      render: { visible: false }
+      render: { visible: false } // Keep invisible
     };
 
     const floor = Matter.Bodies.rectangle(
@@ -88,7 +88,23 @@ export default function HeroSection() {
 
     Matter.Composite.add(world, [floor, ceiling, leftWall, rightWall]);
 
-    // 5. Select HTML elements to map to Matter.js bodies
+    // 5. Explicit initial positions (percentages of width/height) matching the reference layout
+    const initialPositions = [
+      { name: 'Strategists', px: 0.08, py: 0.65 },
+      { name: 'Leaders', px: 0.14, py: 0.65 },
+      { name: 'Mehfil', px: 0.22, py: 0.65 },
+      { name: 'Visionaries', px: 0.35, py: 0.58 },
+      { name: 'Developers', px: 0.32, py: 0.68 },
+      { name: 'Partner', px: 0.45, py: 0.68 },
+      { name: 'Creators', px: 0.37, py: 0.78 },
+      { name: 'Designers', px: 0.48, py: 0.78 },
+      { name: 'Just Chill', px: 0.62, py: 0.65 },
+      { name: 'Jagat Bhaari', px: 0.75, py: 0.65 },
+      { name: 'Good Idea', px: 0.86, py: 0.65 },
+      { name: 'Innovators', px: 0.94, py: 0.65 },
+    ];
+
+    // 6. Select HTML elements and create matching physics bodies
     const elements = Array.from(container.querySelectorAll<HTMLElement>(
       '.dm-matter-elem, .dm-matter-elem-circle, .dm-matter-elem-pill'
     ));
@@ -98,9 +114,12 @@ export default function HeroSection() {
       const elWidth = el.offsetWidth;
       const elHeight = el.offsetHeight;
 
-      // Position them randomly in the top half of the screen
-      const x = Math.random() * (width - elWidth - 100) + elWidth / 2 + 50;
-      const y = Math.random() * (height * 0.3) + elHeight / 2 + 50;
+      // Find the mapped initial position
+      const dataName = el.getAttribute('data-name');
+      const pos = initialPositions.find(p => p.name === dataName);
+      
+      const x = pos ? pos.px * width : Math.random() * (width - elWidth - 100) + elWidth / 2 + 50;
+      const y = pos ? pos.py * height : Math.random() * (height * 0.3) + elHeight / 2 + 50;
 
       // Initialize inline positioning styles
       el.style.position = 'absolute';
@@ -116,6 +135,7 @@ export default function HeroSection() {
         density: 0.01,
         friction: 0.1,
         restitution: 0.5,
+        render: { visible: false } // Prevent default matter-js rendering
       };
 
       if (isCircle) {
@@ -141,7 +161,7 @@ export default function HeroSection() {
       };
     });
 
-    // 6. Add mouse constraint
+    // 7. Add mouse constraint
     const mouse = Matter.Mouse.create(canvas);
     const mouseConstraint = Matter.MouseConstraint.create(engine, {
       mouse: mouse,
@@ -154,7 +174,7 @@ export default function HeroSection() {
     Matter.Composite.add(world, mouseConstraint);
     render.mouse = mouse;
 
-    // 7. Update HTML positions/rotations on afterUpdate
+    // 8. Update HTML positions/rotations on afterUpdate
     const updatePosition = () => {
       bodiesMap.forEach(({ element, body, width: w, height: h }) => {
         const x = body.position.x - w / 2;
@@ -169,7 +189,7 @@ export default function HeroSection() {
     Matter.Events.on(engine, 'afterUpdate', updatePosition);
     updatePosition();
 
-    // 8. Start physics loop only when hero is visible in viewport
+    // 9. Start physics loop only when hero is visible in viewport
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -196,24 +216,44 @@ export default function HeroSection() {
   return (
     <section 
       ref={sceneRef}
-      className="relative w-full h-screen min-h-[700px] overflow-hidden bg-[#FFFFFF] matter-box"
+      className="relative w-full h-screen min-h-[700px] overflow-hidden bg-black matter-box"
     >
-      {/* Global Scoped style for this component */}
+      {/* Scoped style for dark theme and custom matter elements */}
       <style dangerouslySetInnerHTML={{__html: `
         .matter-box {
+          background-color: #000000;
           background-image:
-            linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px);
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
           background-size: 109px 109px;
         }
 
-        .dm-matter-elem,
-        .dm-matter-elem-circle,
-        .dm-matter-elem-pill {
-          opacity: 0;
+        .dm-matter-elem {
+          position: absolute;
+          width: max-content;
+          max-width: 240px;
           pointer-events: none;
           white-space: nowrap;
-          transition: opacity 0.2s ease;
+          opacity: 0;
+        }
+
+        .dm-matter-elem-pill {
+          position: absolute;
+          width: max-content;
+          min-width: 120px;
+          max-width: 220px;
+          padding: 14px 28px;
+          border-radius: 999px;
+          white-space: nowrap;
+          opacity: 0;
+        }
+
+        .dm-matter-elem-circle {
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          opacity: 0;
         }
       `}} />
 
@@ -223,7 +263,7 @@ export default function HeroSection() {
           <Link 
             key={item} 
             href={`#${item.toLowerCase()}`}
-            className="pointer-events-auto text-[#050505] font-semibold uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:text-[#E10600] transition-colors duration-200"
+            className="pointer-events-auto text-[#FFFFFF] font-semibold uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:text-[#FFE500] transition-colors duration-200"
           >
             {item}
           </Link>
@@ -238,97 +278,117 @@ export default function HeroSection() {
 
       {/* Physics HTML Elements */}
       <div className="absolute inset-0 pointer-events-none z-[2]">
-        {/* Strategists */}
-        <div className="dm-matter-elem px-5 py-2.5 bg-[#050505] text-[#FFFFFF] font-bold uppercase tracking-widest text-xs sm:text-sm border-2 border-[#050505] shadow-[4px_4px_0px_#FFE500]">
+        {/* Strategists (White vertical label) */}
+        <div 
+          data-name="Strategists" 
+          className="dm-matter-elem bg-white text-black font-extrabold uppercase text-center border-2 border-black rounded-xl shadow-[4px_4px_0px_rgba(0,0,0,1)] w-[56px] py-6 flex items-center justify-center select-none"
+          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+        >
           Strategists
         </div>
 
-        {/* Leaders */}
-        <div className="dm-matter-elem px-5 py-2.5 bg-[#FFFFFF] text-[#050505] font-bold uppercase tracking-widest text-xs sm:text-sm border-2 border-[#050505] shadow-[4px_4px_0px_#E10600]">
+        {/* Leaders (White vertical label) */}
+        <div 
+          data-name="Leaders" 
+          className="dm-matter-elem bg-white text-black font-extrabold uppercase text-center border-2 border-black rounded-xl shadow-[4px_4px_0px_rgba(0,0,0,1)] w-[56px] py-6 flex items-center justify-center select-none"
+          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+        >
           Leaders
         </div>
 
-        {/* Visionaries */}
-        <div className="dm-matter-elem-pill px-6 py-2.5 bg-[#FFE500] text-[#050505] font-extrabold uppercase tracking-wider text-xs sm:text-sm border-2 border-[#050505] rounded-full shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+        {/* Mehfil Sticker */}
+        <div 
+          data-name="Mehfil" 
+          className="dm-matter-elem bg-[#1E0B36] text-[#FF007F] font-black rounded-2xl border-4 border-white px-5 py-2.5 shadow-lg text-2xl font-serif uppercase tracking-wider select-none"
+        >
+          महफ़िल
+        </div>
+
+        {/* Visionaries (Yellow Pill) */}
+        <div 
+          data-name="Visionaries" 
+          className="dm-matter-elem-pill bg-[#FFE500] text-black font-extrabold uppercase tracking-wider text-xs sm:text-sm border-2 border-black shadow-[3px_3px_0px_rgba(0,0,0,1)] flex items-center justify-center select-none"
+        >
           Visionaries
         </div>
 
-        {/* Developers */}
-        <div className="dm-matter-elem-pill px-6 py-2.5 bg-[#FFE500] text-[#050505] font-extrabold uppercase tracking-wider text-xs sm:text-sm border-2 border-[#050505] rounded-full shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+        {/* Developers (Yellow Pill) */}
+        <div 
+          data-name="Developers" 
+          className="dm-matter-elem-pill bg-[#FFE500] text-black font-extrabold uppercase tracking-wider text-xs sm:text-sm border-2 border-black shadow-[3px_3px_0px_rgba(0,0,0,1)] flex items-center justify-center select-none"
+        >
           Developers
         </div>
 
-        {/* Partner */}
-        <div className="dm-matter-elem-pill px-6 py-2.5 bg-[#FFE500] text-[#050505] font-extrabold uppercase tracking-wider text-xs sm:text-sm border-2 border-[#050505] rounded-full shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+        {/* Partner (Yellow Pill) */}
+        <div 
+          data-name="Partner" 
+          className="dm-matter-elem-pill bg-[#FFE500] text-black font-extrabold uppercase tracking-wider text-xs sm:text-sm border-2 border-black shadow-[3px_3px_0px_rgba(0,0,0,1)] flex items-center justify-center select-none"
+        >
           Partner
         </div>
 
-        {/* Creators */}
-        <div className="dm-matter-elem-pill px-6 py-2.5 bg-[#FFE500] text-[#050505] font-extrabold uppercase tracking-wider text-xs sm:text-sm border-2 border-[#050505] rounded-full shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+        {/* Creators (White Pill) */}
+        <div 
+          data-name="Creators" 
+          className="dm-matter-elem-pill bg-white text-black font-extrabold uppercase tracking-wider text-xs sm:text-sm border-2 border-black shadow-[3px_3px_0px_rgba(0,0,0,1)] flex items-center justify-center select-none"
+        >
           Creators
         </div>
 
-        {/* Designers */}
-        <div className="dm-matter-elem-pill px-6 py-2.5 bg-[#FFE500] text-[#050505] font-extrabold uppercase tracking-wider text-xs sm:text-sm border-2 border-[#050505] rounded-full shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+        {/* Designers (White Pill) */}
+        <div 
+          data-name="Designers" 
+          className="dm-matter-elem-pill bg-white text-black font-extrabold uppercase tracking-wider text-xs sm:text-sm border-2 border-black shadow-[3px_3px_0px_rgba(0,0,0,1)] flex items-center justify-center select-none"
+        >
           Designers
         </div>
 
-        {/* Innovators */}
-        <div className="dm-matter-elem-pill px-6 py-2.5 bg-[#FFE500] text-[#050505] font-extrabold uppercase tracking-wider text-xs sm:text-sm border-2 border-[#050505] rounded-full shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-          Innovators
-        </div>
-
-        {/* Doodle Sticker */}
-        <div className="dm-matter-elem w-[120px] h-[60px] flex items-center justify-center">
-          <svg width="100%" height="100%" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(2px 2px 0px rgba(0,0,0,0.15))' }}>
-            <path d="M10 30C25 10 35 50 50 30C65 10 75 50 90 30C105 10 110 30 110 30" stroke="#FF1A1A" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M10 30C25 10 35 50 50 30C65 10 75 50 90 30C105 10 110 30 110 30" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Just Chill Flower Sticker */}
+        <div 
+          data-name="Just Chill" 
+          className="dm-matter-elem bg-[#FF7BE5] text-white border-2 border-white rounded-3xl p-3 shadow-lg flex items-center gap-2 select-none"
+        >
+          <svg width="36" height="36" viewBox="0 0 36 36">
+            <circle cx="18" cy="18" r="14" fill="#9D4EDD" />
+            <circle cx="18" cy="18" r="7" fill="#FFE500" stroke="black" strokeWidth="1.5" />
+            <circle cx="16" cy="17" r="1" fill="black" />
+            <circle cx="20" cy="17" r="1" fill="black" />
+            <path d="M15 20 C16 22, 20 22, 21 20" stroke="black" strokeWidth="1.5" fill="none" />
           </svg>
+          <span className="bg-[#FFE500] text-black font-black px-2 py-0.5 rounded border border-black text-[10px] uppercase rotate-[-3deg] tracking-wider">
+            जस्त CHILL
+          </span>
         </div>
 
-        {/* Flower Sticker */}
-        <div className="dm-matter-elem-circle w-[90px] h-[90px] flex items-center justify-center">
-          <svg width="100%" height="100%" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(2px 2px 0px rgba(0,0,0,0.15))' }}>
-            <circle cx="45" cy="45" r="42" fill="white" />
-            <g fill="#E10600">
-              <circle cx="45" cy="22" r="12" />
-              <circle cx="45" cy="68" r="12" />
-              <circle cx="22" cy="45" r="12" />
-              <circle cx="68" cy="45" r="12" />
-              <circle cx="29" cy="29" r="12" />
-              <circle cx="61" cy="61" r="12" />
-              <circle cx="29" cy="61" r="12" />
-              <circle cx="61" cy="29" r="12" />
-            </g>
-            <circle cx="45" cy="45" r="18" fill="#FFE500" stroke="black" strokeWidth="2" />
-            <circle cx="40" cy="42" r="2.5" fill="black" />
-            <circle cx="50" cy="42" r="2.5" fill="black" />
-            <path d="M39 49 C42 53, 48 53, 51 49" stroke="black" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-          </svg>
+        {/* Jagat Bhaari Sticker */}
+        <div 
+          data-name="Jagat Bhaari" 
+          className="dm-matter-elem bg-[#E10600] text-white font-extrabold rounded-full border-4 border-[#FFE500] px-4 py-4 shadow-lg text-center flex flex-col justify-center items-center w-[85px] h-[85px] leading-tight select-none"
+        >
+          <span className="text-[9px] text-[#FFE500] uppercase font-black">जगात</span>
+          <span className="text-sm font-black uppercase">भारी</span>
         </div>
 
-        {/* Lightbulb Sticker */}
-        <div className="dm-matter-elem w-[90px] h-[110px] bg-white border-2 border-black p-2 rounded-2xl flex flex-col items-center justify-center shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#FFE500] fill-[#FFE500]">
+        {/* Good Idea Lightbulb Sticker */}
+        <div 
+          data-name="Good Idea" 
+          className="dm-matter-elem bg-white border-2 border-black p-2 rounded-2xl flex flex-col items-center justify-center shadow-[3px_3px_0px_rgba(0,0,0,1)] w-[80px] select-none"
+        >
+          <span className="text-[8px] font-black uppercase text-white bg-[#5D3FD3] px-1 rounded mb-1">GOOD IDEA</span>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" className="text-[#FFE500] fill-[#FFE500]">
             <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5.5 5.5 0 0 0 7 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5" />
             <path d="M9 18h6" />
             <path d="M10 22h4" />
           </svg>
-          <span className="text-[9px] font-black uppercase tracking-widest text-black mt-1 bg-[#FFE500] px-1.5 py-0.5 rounded border border-black">
-            Good Idea
-          </span>
         </div>
 
-        {/* Hindi Typography Sticker */}
-        <div className="dm-matter-elem px-5 py-2.5 bg-[#E10600] text-white font-black rounded-xl border-2 border-white shadow-[3px_3px_6px_rgba(0,0,0,0.25)] text-lg tracking-wider font-sans">
-          सृजन
-        </div>
-
-        {/* Starburst Sparkle */}
-        <div className="dm-matter-elem-circle w-[70px] h-[70px] flex items-center justify-center">
-          <svg width="100%" height="100%" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(2px 2px 0px rgba(0,0,0,0.15))' }}>
-            <path d="M35 5 L39 25 L59 21 L43 35 L59 49 L39 45 L35 65 L31 45 L11 49 L27 35 L11 21 L31 25 Z" fill="#FFE500" stroke="black" strokeWidth="2" />
-          </svg>
+        {/* Innovators (Yellow Pill) */}
+        <div 
+          data-name="Innovators" 
+          className="dm-matter-elem-pill bg-[#FFE500] text-black font-extrabold uppercase tracking-wider text-xs sm:text-sm border-2 border-black shadow-[3px_3px_0px_rgba(0,0,0,1)] flex items-center justify-center select-none"
+        >
+          Innovators
         </div>
       </div>
 
@@ -336,14 +396,14 @@ export default function HeroSection() {
       <div className="absolute inset-0 pointer-events-none z-[10] flex flex-col md:block">
         {/* Main Heading */}
         <h1 
-          className="pointer-events-auto select-none font-extrabold uppercase tracking-tight leading-[0.9] text-[#050505] md:absolute md:left-[15%] md:top-[38%] md:-translate-y-1/2 w-full md:w-[500px] text-[clamp(3.5rem,7vw,7rem)] text-center md:text-left px-6 md:px-0 mt-28 md:mt-0"
+          className="pointer-events-auto select-none font-extrabold uppercase tracking-tight leading-[0.9] text-white md:absolute md:left-[15%] md:top-[38%] md:-translate-y-1/2 w-full md:w-[500px] text-[clamp(3.5rem,7vw,7rem)] text-center md:text-left px-6 md:px-0 mt-28 md:mt-0"
           style={{ letterSpacing: '-0.06em' }}
         >
           Who are<br />We
         </h1>
 
         {/* Description */}
-        <p className="pointer-events-auto font-light text-[#050505] leading-[1.2] md:absolute md:left-[63%] md:top-[48%] md:-translate-y-1/2 w-full md:w-[360px] text-[clamp(1.1rem,1.8vw,1.6rem)] text-center md:text-left px-6 md:px-0 mt-8 md:mt-0 opacity-80">
+        <p className="pointer-events-auto font-light text-white leading-[1.2] md:absolute md:left-[63%] md:top-[48%] md:-translate-y-1/2 w-full md:w-[360px] text-[clamp(1.1rem,1.8vw,1.6rem)] text-center md:text-left px-6 md:px-0 mt-8 md:mt-0 opacity-80">
           Creative growth partners delivering<br />
           impactful, modern, and strategic brand<br />
           solutions.
