@@ -25,7 +25,7 @@ export default function HeroSection() {
         <div className="w-full overflow-hidden text-center z-20">
           <FadeIn delay={0.15} y={40}>
             <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw]">
-              Hi, i&apos;m jack
+              virrat
             </h1>
           </FadeIn>
         </div>
