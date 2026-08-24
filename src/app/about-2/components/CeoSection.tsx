@@ -48,6 +48,20 @@ export default function CeoSection() {
             >
               Under her guidance, Virrat Global has partnered with ambitious founders to scale their businesses through custom technology and performance-driven branding solutions, fostering a culture of innovation, creativity, and relentless growth.
             </p>
+
+            <p 
+              className="text-base md:text-lg font-light leading-relaxed"
+              style={{ color: 'rgba(255, 255, 255, 0.90)' }}
+            >
+              Our journey so far has been possible because of your unwavering support and collaboration. As we step forward as Virrat Global Pvt. Ltd., our focus remains on driving innovation, building long-term partnerships, and delivering measurable results that help your business grow. We look forward to achieving greater milestones with you.
+            </p>
+
+            <p 
+              className="text-base md:text-lg font-light leading-relaxed"
+              style={{ color: 'rgba(255, 255, 255, 0.90)' }}
+            >
+              Thank you for trusting us with your vision together. We will continue to create success stories that inspire.
+            </p>
           </div>
 
           {/* Quote Block */}
