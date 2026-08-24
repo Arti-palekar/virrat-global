@@ -257,18 +257,7 @@ export default function HeroSection() {
         }
       `}} />
 
-      {/* Header/Navbar */}
-      <div className="absolute top-0 left-0 w-full px-6 md:px-10 pt-6 md:pt-8 z-50 flex justify-between items-center pointer-events-none">
-        {['About', 'Price', 'Projects', 'Contact'].map((item) => (
-          <Link 
-            key={item} 
-            href={`#${item.toLowerCase()}`}
-            className="pointer-events-auto text-[#050505] font-semibold uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:text-[#E10600] transition-colors duration-200"
-          >
-            {item}
-          </Link>
-        ))}
-      </div>
+
 
       {/* Matter.js Canvas */}
       <canvas 
