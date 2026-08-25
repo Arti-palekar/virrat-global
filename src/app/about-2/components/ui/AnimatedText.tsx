@@ -35,6 +35,9 @@ export default function AnimatedText({ text, className = "" }: AnimatedTextProps
       {chars.map((char, i) => {
         const start = i / chars.length;
         const end = start + (1 / chars.length);
+        if (char === ' ') {
+          return <span key={i}>&nbsp;</span>;
+        }
         return (
           <Character key={i} progress={scrollYProgress} range={[start, end]}>
             {char}

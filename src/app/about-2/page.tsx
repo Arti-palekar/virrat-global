@@ -4,8 +4,10 @@ import React from 'react';
 import HeroSection from './components/HeroSection';
 import MarqueeSection from './components/MarqueeSection';
 import AboutSection from './components/AboutSection';
+import LumenIndexSection from './components/LumenIndexSection';
 import ServicesSection from './components/ServicesSection';
 import CeoSection from './components/CeoSection';
+import AboutJoinClan from './components/AboutJoinClan';
 import ProjectsSection from './components/ProjectsSection';
 import CinematicFooter from "@/components/CinematicFooter";
 import MobileFloatingMenu from "@/components/MobileFloatingMenu";
@@ -18,8 +20,10 @@ export default function About2Page() {
       <HeroSection />
       <MarqueeSection />
       <AboutSection theme="dark" />
-      <ServicesSection />
       <CeoSection />
+      <AboutJoinClan />
+      <LumenIndexSection />
+      <ServicesSection />
       <ProjectsSection />
       <CinematicFooter />
       <MobileFloatingMenu />

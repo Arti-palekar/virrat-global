@@ -39,20 +39,6 @@ export default function CeoSection() {
               className="text-base md:text-lg font-light leading-relaxed"
               style={{ color: '#FFFFFF' }}
             >
-              Priti Palekar is the Founder and CEO of Virrat Global. With over a decade of experience in strategic design, web development, and digital marketing, Priti has guided the company from a boutique design studio to a premier creative agency. Her leadership is defined by a commitment to bridging the gap between artistic vision and technical performance.
-            </p>
-            
-            <p 
-              className="text-base md:text-lg font-light leading-relaxed"
-              style={{ color: 'rgba(255, 255, 255, 0.90)' }}
-            >
-              Under her guidance, Virrat Global has partnered with ambitious founders to scale their businesses through custom technology and performance-driven branding solutions, fostering a culture of innovation, creativity, and relentless growth.
-            </p>
-
-            <p 
-              className="text-base md:text-lg font-light leading-relaxed"
-              style={{ color: 'rgba(255, 255, 255, 0.90)' }}
-            >
               Our journey so far has been possible because of your unwavering support and collaboration. As we step forward as Virrat Global Pvt. Ltd., our focus remains on driving innovation, building long-term partnerships, and delivering measurable results that help your business grow. We look forward to achieving greater milestones with you.
             </p>
 
@@ -70,20 +56,20 @@ export default function CeoSection() {
               className="italic text-lg md:text-xl font-medium leading-relaxed"
               style={{ color: '#FFE500' }}
             >
-              &ldquo;We don't just build websites; we design digital experiences that scale businesses and turn complex ideas into elegant, realities.&rdquo;
+              &ldquo;We don't just build websites; we design digital experiences that scale businesses and turn complex ideas into elegant realities.&rdquo;
             </p>
             <div className="mt-4">
               <p 
                 className="font-extrabold text-sm md:text-base uppercase tracking-wider"
                 style={{ color: '#FFFFFF' }}
               >
-                Priti Palekar
+                Ram Khuspe
               </p>
               <p 
                 className="text-xs md:text-sm uppercase tracking-widest mt-0.5"
                 style={{ color: 'rgba(255, 255, 255, 0.80)' }}
               >
-                Founder &amp; CEO, Virrat Global
+                CEO, Virrat Global Pvt. Ltd. (Formerly Smartup India Ventures)
               </p>
             </div>
           </div>
@@ -101,7 +87,7 @@ export default function CeoSection() {
           <div className="relative w-full max-w-[440px] aspect-[4/5] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[10px_10px_0px_0px_#B00000] border-4 border-white bg-[#B00000]">
             <Image 
               src="/team/priti.png"
-              alt="Priti Palekar, CEO of Virrat Global"
+              alt="Ram Khuspe, CEO of Virrat Global Pvt. Ltd."
               fill
               className="object-cover object-center scale-[1.02]"
               sizes="(max-width: 768px) 100vw, 50vw"

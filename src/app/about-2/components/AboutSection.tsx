@@ -1,11 +1,8 @@
 import React from 'react';
 import FadeIn from './ui/FadeIn';
-import AnimatedText from './ui/AnimatedText';
 import ContactButton from './ui/ContactButton';
 
-export default function AboutSection() {
-  const redImageFilter = 'sepia(1) saturate(8) hue-rotate(-55deg) brightness(0.95)';
-
+export default function AboutSection({ theme }: { theme?: string }) {
   return (
     <section 
       id="about" 
@@ -20,57 +17,28 @@ export default function AboutSection() {
         }
       `}} />
       
-      {/* Decorative Icons (Monochrome Red filter applied) */}
-      <FadeIn delay={0.1} x={-80} y={0} duration={0.9} className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[120px] sm:w-[160px] md:w-[210px]">
-        <img 
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png" 
-          alt="Moon icon" 
-          className="w-full object-contain" 
-          style={{ filter: redImageFilter }}
-        />
-      </FadeIn>
-      
-      <FadeIn delay={0.25} x={-80} y={0} duration={0.9} className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] w-[100px] sm:w-[140px] md:w-[180px]">
-        <img 
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png" 
-          alt="3D object" 
-          className="w-full object-contain" 
-          style={{ filter: redImageFilter }}
-        />
-      </FadeIn>
-
-      <FadeIn delay={0.15} x={80} y={0} duration={0.9} className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] w-[120px] sm:w-[160px] md:w-[210px]">
-        <img 
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png" 
-          alt="Lego icon" 
-          className="w-full object-contain" 
-          style={{ filter: redImageFilter }}
-        />
-      </FadeIn>
-
-      <FadeIn delay={0.3} x={80} y={0} duration={0.9} className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] w-[130px] sm:w-[170px] md:w-[220px]">
-        <img 
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png" 
-          alt="3D group" 
-          className="w-full object-contain" 
-          style={{ filter: redImageFilter }}
-        />
-      </FadeIn>
-
       {/* Content */}
       <div className="z-10 flex flex-col items-center">
         <FadeIn delay={0} y={40}>
-          <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-center text-[clamp(3rem,12vw,160px)]">
-            About me
+          <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-center text-[clamp(2.5rem,8vw,110px)]">
+            Bold Beginnings
           </h2>
         </FadeIn>
 
-        <div className="mt-10 sm:mt-14 md:mt-16 flex flex-col items-center">
-          <AnimatedText 
-            text="With more than five years of experience in design, i focus on branding, web design, and user experience, i truly enjoy working with businesses that aim to stand out and present their best image. Let's build something incredible together!"
-            className="text-[#1F1F1F] font-medium text-center leading-relaxed max-w-[560px] text-[clamp(1rem,2vw,1.35rem)]"
-          />
-        </div>
+        <FadeIn delay={0.2} y={30} className="mt-10 sm:mt-12 md:mt-14 flex flex-col items-center text-center max-w-[800px] gap-6 px-4">
+          <p className="text-[#E10600] font-bold text-lg md:text-2xl uppercase tracking-wider">
+            A new name, a bigger vision and endless possibilities ahead!
+          </p>
+          <p className="text-[#1F1F1F] font-semibold text-base md:text-xl leading-relaxed">
+            Smartup India Ventures has rebranded as <strong>Virrat Global Pvt. Ltd.</strong>, marking a renewed vision to help businesses grow through creativity, innovation, and strategy.
+          </p>
+          <p className="text-[#333333] font-medium text-sm md:text-lg leading-relaxed">
+            With a legacy of 600+ brands, we offer end-to-end solutions in branding, packaging, digital marketing, website development, UI/UX, corporate gifting, and printing.
+          </p>
+          <p className="text-[#333333] font-medium text-sm md:text-lg leading-relaxed">
+            Our strength lies in combining creative excellence with strategic thinking, while staying committed to integrity, commitment, and excellence as we build bold, modern, and globally relevant brands.
+          </p>
+        </FadeIn>
 
         <div className="mt-16 sm:mt-20 md:mt-24">
           <ContactButton />
