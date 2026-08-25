@@ -58,7 +58,7 @@ export default function KollektivaHero() {
   const activeSlide = team[activeIndex];
 
   return (
-    <section className="relative h-screen w-full overflow-hidden font-geist text-white select-none">
+    <section className="relative h-[75vh] min-h-[600px] md:min-h-0 w-full overflow-hidden font-geist text-white select-none">
       
       {/* Background Portraits Stack */}
       <div className="absolute inset-0 z-0">
@@ -78,7 +78,7 @@ export default function KollektivaHero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-black/25 z-5 pointer-events-none" />
 
       {/* Content Layer */}
-      <div className="relative z-10 flex h-full flex-col justify-between px-6 pb-6 pt-10 sm:px-10 sm:pb-8 sm:pt-14 lg:px-16 lg:pb-16 lg:pt-16">
+      <div className="relative z-10 flex h-full flex-col justify-between px-6 pb-6 pt-8 sm:px-10 sm:pb-8 sm:pt-10 lg:px-16 lg:pb-12 lg:pt-12">
         
         {/* Top Zone - Headline + Bio */}
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between md:gap-16">
