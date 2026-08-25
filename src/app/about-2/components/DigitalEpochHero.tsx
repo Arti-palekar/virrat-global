@@ -22,7 +22,7 @@ import { TbBrandOpenai } from 'react-icons/tb';
 // Custom inline SVGs for icons not available or differing in current simple-icons packages
 const CanvaIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.89 16.48c-1.42 1.4-3.52 1.77-5.02 1.77-3.67 0-6.17-2.68-6.17-6.22 0-3.37 2.37-6.24 6.03-6.24 1.62 0 3.32.55 4.37 1.65l-1.35 1.35c-.75-.72-1.88-1.12-3.02-1.12-2.3 0-3.83 1.83-3.83 4.26 0 2.38 1.57 4.26 3.93 4.26.98 0 2.18-.32 3.02-1.12l1.07 1.17z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.89 16.48c-1.42 1.4-3.52 1.77-5.02 1.77-3.67 0-6.17-2.68-6.17-6.22 0-3.37 2.37-6.24 6.03-6.24 1.62 0 3.32.55 4.37 1.65l-1.35 1.35c-.75-.72-1.88-1.12-3.02-1.12-2.3 0-3.83 1.83-3.83 4.26 0 2.38 1.57 4.26 3.93 4.26.98 0 2.18-.32 3.02-1.12l1.07 1.17zm1.61-6.18h-1.4v-1.5h1.4v1.5z"/>
   </svg>
 );
 
@@ -34,25 +34,19 @@ const SalesforceIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const AutomationIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M19 12a3 3 0 1 1-3-3 3 3 0 0 1 3 3zm-9-3a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 6a3 3 0 1 0 3 3 3 3 0 0 0-3-3zm9 0a3 3 0 1 0 3 3 3 3 0 0 0-3-3zm-6-2.5a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+    <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
   </svg>
 );
 
 const PhotoshopIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-    <path d="M9 17V9h2a2 2 0 0 1 2 2 2 2 0 0 1-2 2H9" fill="none"/>
-    <path d="M14 13.5a1.5 1.5 0 0 0 1.5-1.5.5.5 0 0 0-.5-.5H14v2z" fill="currentColor"/>
-    <path d="M15 17a2 2 0 0 0 2-2 1 1 0 0 0-1-1h-2v3" fill="none"/>
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9.6 11.5H8.2V15H6.8V9h2.8c1.3 0 2 .7 2 1.3s-.7 1.2-2 1.2zm5.7 1.8c0 .7-.6 1-1.3 1-.7 0-1.2-.3-1.4-.7l-1.1.7c.4.8 1.3 1.3 2.5 1.3 1.5 0 2.6-.9 2.6-2.2 0-1.2-.7-1.8-2.1-2.1-1-.2-1.3-.4-1.3-.8s.4-.6.9-.6c.6 0 1 .3 1.2.6l1.1-.7c-.4-.7-1.1-1.2-2.3-1.2-1.5 0-2.4.9-2.4 2.1 0 1.2.9 1.7 2.1 2 1 .2 1.5.5 1.5.9zm-5.7-3.1H8.2v1.3h1.4c.5 0 .8-.2.8-.6s-.3-.7-.8-.7z"/>
   </svg>
 );
 
 const IllustratorIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-    <path d="M8 15V9h2a1.5 1.5 0 0 1 1.5 1.5v0A1.5 1.5 0 0 1 10 12H8" fill="none"/>
-    <line x1="14" y1="9" x2="14" y2="15"/>
-    <circle cx="14" cy="7" r="0.5" fill="currentColor"/>
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9.3 12H8.3l-.6-1.8H5.1L4.5 15H3.1l2.4-7h1.6l2.6 7zm5.6 0h-1.4v-5h1.4v5zm0-6.2h-1.4V7.3h1.4v1.5zm-5.6 4.3L6.4 9.8l-.8 3.3h1.6z"/>
   </svg>
 );
 
@@ -76,6 +70,33 @@ const logos = [
   { name: "Meta Ads", Icon: SiMeta, color: "#0668e1", gradient: "linear-gradient(135deg, #0668e1, #00f2fe)" },
   { name: "Google Analytics", Icon: SiGoogleanalytics, color: "#e37400", gradient: "linear-gradient(135deg, #e37400, #ff9100)" },
 ];
+
+function LogoCard({ logo }: { logo: typeof logos[0] }) {
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="group relative h-24 w-40 shrink-0 flex items-center justify-center rounded-full bg-white border border-slate-200/60 shadow-sm hover:border-slate-300 transition-all overflow-hidden cursor-pointer"
+    >
+      {/* Hover Background Gradient */}
+      <div 
+        className="absolute inset-0 transition-all duration-300 ease-out opacity-0 scale-[1.5] group-hover:opacity-100 group-hover:scale-100 pointer-events-none z-0"
+        style={{ background: logo.gradient }}
+      />
+      
+      {/* Brand Logo Component */}
+      <logo.Icon 
+        className="w-11 h-11 relative z-10"
+        style={{ 
+          color: isHovered ? '#ffffff' : logo.color,
+          transition: 'color 250ms ease-in-out'
+        }}
+      />
+    </div>
+  );
+}
 
 export default function DigitalEpochHero() {
   const doubleLogos = [...logos, ...logos];
@@ -126,11 +147,11 @@ export default function DigitalEpochHero() {
           >
             <h2 
               className="font-display font-medium text-[42px] md:text-[56px] leading-[1.08] tracking-tight text-[#0a1b33]"
-              dangerouslySetInnerHTML={{ __html: "Foundation of the<br />new digital epoch" }}
+              dangerouslySetInnerHTML={{ __html: "Ready to Create<br />What’s Next?" }}
             />
             
             <p className="font-sans text-[14px] md:text-[15px] leading-relaxed text-[#64748b] max-w-[500px]">
-              Designing products, powering ecosystems and laying the foundation of a decentralized web for enterprises, builders and communities alike.
+              Let’s turn your vision into a brand, website, or digital experience that stands out.
             </p>
 
             <motion.button
@@ -157,14 +178,6 @@ export default function DigitalEpochHero() {
               ✦
             </div>
 
-            {/* Nav Links */}
-            <button className="text-[12px] font-semibold text-slate-500 hover:text-[#0a1b33] px-3.5 py-2 transition-colors cursor-pointer rounded-full">
-              Products
-            </button>
-            <button className="text-[12px] font-semibold text-slate-500 hover:text-[#0a1b33] px-3.5 py-2 transition-colors cursor-pointer rounded-full">
-              Docs
-            </button>
-
             {/* Get in touch CTA */}
             <button className="bg-white px-5 py-2 rounded-full text-[12px] font-semibold text-[#0a1b33] border border-slate-200/60 shadow-sm hover:border-slate-300 transition-all flex items-center gap-1 cursor-pointer">
               Get in touch
@@ -185,22 +198,7 @@ export default function DigitalEpochHero() {
       >
         <div className="epoch-marquee-track">
           {doubleLogos.map((logo, idx) => (
-            <div
-              key={`logo-card-${idx}`}
-              className="group relative h-24 w-40 shrink-0 flex items-center justify-center rounded-full bg-white border border-slate-200/60 shadow-sm hover:border-slate-300 transition-all overflow-hidden cursor-pointer"
-            >
-              {/* Hover Background Gradient */}
-              <div 
-                className="absolute inset-0 transition-all duration-300 ease-out opacity-0 scale-[1.5] group-hover:opacity-100 group-hover:scale-100 pointer-events-none z-0"
-                style={{ background: logo.gradient }}
-              />
-              
-              {/* Brand Logo Component */}
-              <logo.Icon 
-                className="w-8 h-8 transition-all duration-300 relative z-10 group-hover:text-white"
-                style={{ color: logo.color }}
-              />
-            </div>
+            <LogoCard logo={logo} key={`logo-card-${idx}`} />
           ))}
         </div>
       </div>
