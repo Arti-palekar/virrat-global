@@ -42,12 +42,32 @@ const team = [
     name: "Ksenia Romanova",
     role: "Studio Head",
     image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260727_230413_62e8b331-89be-4d35-84fe-330ba9b1b64f.png&w=1280&q=85"
+  },
+  {
+    name: "Alexey Volkov",
+    role: "Technical Director",
+    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260727_225202_f9e684f3-dc19-469a-8142-eb391bfc601b.png&w=1280&q=85"
+  },
+  {
+    name: "Ekaterina Voronina",
+    role: "Account Director",
+    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260727_225149_7937e8ea-3b0a-46ab-919f-775627695a23.png&w=1280&q=85"
+  },
+  {
+    name: "Mikhail Morozov",
+    role: "Lead Developer",
+    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260727_225153_f2b1fc04-776a-4f2e-879b-b764ea762e77.png&w=1280&q=85"
+  },
+  {
+    name: "Svetlana Kuznetsova",
+    role: "Operations Manager",
+    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260727_225847_f456fd9c-8938-4103-836d-51b0e88a9510.png&w=1280&q=85"
   }
 ];
 
 export default function KollektivaHero() {
   return (
-    <section className="w-full bg-[#1b1c21] py-16 md:py-24 px-6 sm:px-10 lg:px-16 text-white font-sans select-none overflow-hidden">
+    <section className="w-full bg-[#1b1c21] py-16 md:py-20 px-6 sm:px-10 lg:px-16 text-white font-sans select-none overflow-hidden">
       
       {/* Top Header Line */}
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
@@ -82,42 +102,34 @@ export default function KollektivaHero() {
         — OUR TEAM
       </div>
 
-      {/* Staggered Masonry Cards Grid */}
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-12 pb-16">
-        {team.map((member, idx) => {
-          // Staggering values based on column indices:
-          // Odd columns (indices 1, 3, 5, 7) are translated down on sm/lg screens.
-          const isStaggeredCol = idx % 2 === 1;
+      {/* Perfectly Aligned 6+6 Grid */}
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 md:gap-6 mt-12 pb-4">
+        {team.map((member, idx) => (
+          <div
+            key={`team-card-${idx}`}
+            className="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-slate-800 shadow-md border border-slate-700/20"
+          >
+            {/* Image with grayscale hover transition */}
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-full h-full object-cover grayscale contrast-[1.1] transition-all duration-[450ms] ease-in-out group-hover:grayscale-0 group-hover:contrast-100"
+            />
 
-          return (
-            <div
-              key={`team-card-${idx}`}
-              className={`group relative aspect-[3/4] rounded-3xl overflow-hidden bg-slate-800 shadow-lg border border-slate-700/20 transform transition-transform duration-500 ${
-                isStaggeredCol ? 'sm:translate-y-8 lg:translate-y-12' : 'translate-y-0'
-              }`}
-            >
-              {/* Image with grayscale hover transition */}
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-cover grayscale contrast-[1.1] transition-all duration-[450ms] ease-in-out group-hover:grayscale-0 group-hover:contrast-100"
-              />
+            {/* Bottom Dark Overlay Vignette for readability */}
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-5" />
 
-              {/* Bottom Dark Overlay Vignette for readability */}
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/75 to-transparent pointer-events-none z-5" />
-
-              {/* Text Meta Info */}
-              <div className="absolute bottom-5 left-5 right-5 z-10 text-left">
-                <h3 className="text-[16px] md:text-[18px] font-bold text-white leading-tight">
-                  {member.name}
-                </h3>
-                <p className="text-[12px] md:text-[13px] text-slate-300 font-medium mt-0.5">
-                  {member.role}
-                </p>
-              </div>
+            {/* Text Meta Info */}
+            <div className="absolute bottom-4 left-4 right-4 z-10 text-left">
+              <h3 className="text-[14px] md:text-[15px] font-bold text-white leading-tight">
+                {member.name}
+              </h3>
+              <p className="text-[11px] md:text-[12px] text-slate-300 font-medium mt-0.5">
+                {member.role}
+              </p>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
 
     </section>

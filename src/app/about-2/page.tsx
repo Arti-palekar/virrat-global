@@ -9,6 +9,7 @@ import ServicesSection from './components/ServicesSection';
 import CeoSection from './components/CeoSection';
 import AboutJoinClan from './components/AboutJoinClan';
 import KollektivaHero from './components/KollektivaHero';
+import KollektivaAdvisors from './components/KollektivaAdvisors';
 import DigitalEpochHero from './components/DigitalEpochHero';
 import ProjectsSection from './components/ProjectsSection';
 import CinematicFooter from "@/components/CinematicFooter";
@@ -25,6 +26,7 @@ export default function About2Page() {
       <CeoSection />
       <AboutJoinClan />
       <KollektivaHero />
+      <KollektivaAdvisors />
       <DigitalEpochHero />
       <LumenIndexSection />
       <ServicesSection />
