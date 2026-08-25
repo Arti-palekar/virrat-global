@@ -8,6 +8,7 @@ import LumenIndexSection from './components/LumenIndexSection';
 import ServicesSection from './components/ServicesSection';
 import CeoSection from './components/CeoSection';
 import AboutJoinClan from './components/AboutJoinClan';
+import DigitalEpochHero from './components/DigitalEpochHero';
 import ProjectsSection from './components/ProjectsSection';
 import CinematicFooter from "@/components/CinematicFooter";
 import MobileFloatingMenu from "@/components/MobileFloatingMenu";
@@ -22,6 +23,7 @@ export default function About2Page() {
       <AboutSection theme="dark" />
       <CeoSection />
       <AboutJoinClan />
+      <DigitalEpochHero />
       <LumenIndexSection />
       <ServicesSection />
       <ProjectsSection />
