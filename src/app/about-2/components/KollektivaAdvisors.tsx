@@ -102,7 +102,7 @@ export default function KollektivaAdvisors() {
     <section className="w-full bg-white py-16 md:py-24 px-6 sm:px-10 lg:px-16 text-[#111111] font-sans select-none overflow-hidden">
       
       <div className="max-w-[1400px] mx-auto mb-20 md:mb-28 flex justify-center w-full px-4">
-        <h2 className="relative inline-flex items-center flex-wrap justify-center text-4xl md:text-[54px] font-bold tracking-tighter leading-[1.2] text-[#111111]">
+        <h2 className="relative inline-flex items-center flex-wrap justify-center text-4xl md:text-[58px] font-bold tracking-tighter leading-[1.2] text-[#111111]">
           
           <span className="relative flex items-center mr-4 md:mr-6">
             T
@@ -116,10 +116,10 @@ export default function KollektivaAdvisors() {
             gether,
           </span>
 
-          <span className="mr-4 md:mr-6">we</span>
+          <span className="mr-4 md:mr-6">We</span>
 
           <span className="relative inline-flex items-center text-[#E50909]">
-            s
+            S
             <span className="relative inline-flex items-end">
               <img 
                 src="/team/boy_laptop.png" 
