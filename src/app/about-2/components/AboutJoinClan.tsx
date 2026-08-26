@@ -89,12 +89,10 @@ export default function AboutJoinClan() {
           </h3>
 
           <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-6 max-w-[720px]">
-            We believe great work happens when energy, ideas, and a little chaos collide. Get a glimpse of the real people behind Virrat—no filters, no scripts. Just our everyday culture, office banter, and the moments that make us who we are.
+            Great work happens when energy, ideas, and a little chaos come together. Get a glimpse of the real people behind Virrat our culture, banter, and everyday moments.
           </p>
           
-          <span className="text-[#0f172a] font-bold text-sm md:text-base tracking-wide uppercase">
-            More laughs. More creativity. More Virrat.
-          </span>
+
         </div>
 
         {/* Middle Content - Row of 6 Cards */}
