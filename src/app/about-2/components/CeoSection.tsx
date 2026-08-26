@@ -28,7 +28,7 @@ export default function CeoSection() {
             ABOUT THE CEO
           </span>
           <h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight mb-4 leading-tight"
+            className="text-4xl md:text-[54px] font-black tracking-tight mb-4 leading-tight"
             style={{ color: '#FFFFFF' }}
           >
             Meet Our CEO
@@ -52,12 +52,6 @@ export default function CeoSection() {
 
           {/* Quote Block */}
           <div className="mt-6 pt-5 border-t border-white/20 max-w-[550px]">
-            <p 
-              className="italic text-base md:text-lg font-medium leading-relaxed"
-              style={{ color: '#FFE500' }}
-            >
-              &ldquo;We don't just build websites; we design digital experiences that scale businesses and turn complex ideas into elegant realities.&rdquo;
-            </p>
             <div className="mt-3">
               <p 
                 className="font-extrabold text-sm md:text-base uppercase tracking-wider"

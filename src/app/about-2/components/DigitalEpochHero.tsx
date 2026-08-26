@@ -146,7 +146,7 @@ export default function DigitalEpochHero() {
             className="flex flex-col items-start gap-5"
           >
             <h2 
-              className="font-display font-medium text-[42px] md:text-[56px] leading-[1.08] tracking-tight text-[#0a1b33]"
+              className="font-display font-medium text-[42px] md:text-[54px] leading-[1.08] tracking-tight text-[#0a1b33]"
               dangerouslySetInnerHTML={{ __html: "Ready to Create<br />What’s Next?" }}
             />
             

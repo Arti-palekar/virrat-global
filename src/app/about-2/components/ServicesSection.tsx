@@ -32,7 +32,7 @@ const SERVICES = [
 export default function ServicesSection() {
   return (
     <section className="bg-[#FFFFFF] text-[#1F1F1F] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32 relative z-10 w-full">
-      <h2 className="font-black uppercase text-center text-[clamp(3rem,12vw,160px)] mb-16 sm:mb-20 md:mb-28 text-[#1F1F1F]">
+      <h2 className="font-black uppercase text-center text-4xl md:text-[54px] mb-16 sm:mb-20 md:mb-28 text-[#1F1F1F]">
         Services
       </h2>
 

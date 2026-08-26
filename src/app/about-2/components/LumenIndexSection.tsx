@@ -146,7 +146,7 @@ export default function LumenIndexSection() {
 
         {/* Main Heading */}
         <h1 
-          className="font-graphik text-black font-normal leading-[1em] absolute anim-fade-up text-[32px] sm:text-[48px] md:text-[68px] top-[140px] sm:top-[160px] md:top-[178px] left-5 md:left-[35px] max-w-[300px] sm:max-w-[420px] md:max-w-[554px] select-none"
+          className="font-graphik text-black font-normal leading-[1em] absolute anim-fade-up text-[32px] sm:text-[48px] md:text-[54px] top-[140px] sm:top-[160px] md:top-[178px] left-5 md:left-[35px] max-w-[300px] sm:max-w-[420px] md:max-w-[554px] select-none"
           style={{ animationDelay: '400ms' }}
         >
           Liquid Assets. Luminous Returns.

@@ -20,7 +20,7 @@ export default function AboutSection({ theme }: { theme?: string }) {
       {/* Content */}
       <div className="z-10 flex flex-col items-center">
         <FadeIn delay={0} y={40}>
-          <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-center text-[clamp(2.5rem,8vw,110px)]">
+          <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-center text-4xl md:text-[54px]">
             Bold Beginnings
           </h2>
         </FadeIn>
@@ -30,7 +30,7 @@ export default function AboutSection({ theme }: { theme?: string }) {
             A new name, a bigger vision and endless possibilities ahead!
           </p>
           <p className="text-[#1F1F1F] font-semibold text-base md:text-xl leading-relaxed">
-            Smartup India Ventures has rebranded as <strong>Virrat Global Pvt. Ltd.</strong>, marking a renewed vision to help businesses grow through creativity, innovation, and strategy.
+            Smartup India Ventures has rebranded as <strong className="text-[#E10600]">Virrat Global Pvt. Ltd.</strong>, marking a renewed vision to help businesses grow through creativity, innovation, and strategy.
           </p>
           <p className="text-[#333333] font-medium text-sm md:text-lg leading-relaxed">
             With a legacy of 600+ brands, we offer end-to-end solutions in branding, packaging, digital marketing, website development, UI/UX, corporate gifting, and printing.

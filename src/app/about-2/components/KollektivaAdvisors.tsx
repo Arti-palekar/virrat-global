@@ -7,8 +7,8 @@ const team = [
     name: "Sara Alcalde",
     role: "Designer",
     firstName: "Sara",
-    image: "/team/paula-new.jpg",
-    hoverImage: "/team/paula-new.jpg",
+    image: "/team/priti-1.jpg",
+    hoverImage: "/team/priti-2.jpg",
     color: "#a259ff",
     position: "left-3 bottom-[25%] flex items-center gap-1",
     isDog: false
@@ -101,6 +101,39 @@ export default function KollektivaAdvisors() {
   return (
     <section className="w-full bg-white py-16 md:py-24 px-6 sm:px-10 lg:px-16 text-[#111111] font-sans select-none overflow-hidden">
       
+      <div className="max-w-[1400px] mx-auto mb-20 md:mb-28 flex justify-center w-full px-4">
+        <h2 className="relative inline-flex items-center flex-wrap justify-center text-4xl md:text-[54px] font-bold tracking-tighter leading-[1.2] text-[#111111]">
+          
+          <span className="relative flex items-center mr-4 md:mr-6">
+            T
+            <span className="relative inline-flex items-center justify-center w-[0.7em] h-[0.7em] mx-[0.04em] mt-[0.1em]">
+              <img 
+                src="/team/boy_peeking.png" 
+                alt="Peeking Boy" 
+                className="absolute w-[160%] max-w-none h-auto scale-[1.2] -translate-y-[5%] z-10"
+              />
+            </span>
+            gether,
+          </span>
+
+          <span className="mr-4 md:mr-6">we</span>
+
+          <span className="relative inline-flex items-center text-[#E50909]">
+            s
+            <span className="relative inline-flex items-end">
+              <img 
+                src="/team/boy_laptop.png" 
+                alt="Sitting Boy with Laptop" 
+                className="absolute bottom-[65%] left-[5%] -translate-x-1/2 w-[1.4em] max-w-none h-auto z-20 pointer-events-none"
+                style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 64%, 68% 64%, 68% 100%, 32% 100%, 32% 64%, 0% 64%)' }}
+              />
+              <span className="relative z-10">h</span>
+            </span>
+            ine.
+          </span>
+        </h2>
+      </div>
+
       {/* 5-Column Grid Container */}
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-12">
         {team.map((member, idx) => (

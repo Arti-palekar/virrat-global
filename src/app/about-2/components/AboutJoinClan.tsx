@@ -80,7 +80,7 @@ export default function AboutJoinClan() {
         
         {/* Top Text Content */}
         <div className="text-center max-w-[800px] mb-12 relative z-10 flex flex-col items-center">
-          <h2 className="text-4xl md:text-5xl lg:text-[3.2rem] font-bold text-slate-900 leading-[1.1] mb-5 tracking-tight">
+          <h2 className="text-4xl md:text-[54px] font-bold text-slate-900 leading-[1.1] mb-5 tracking-tight">
             Behind the <span className="text-[#E10600]">Madness</span>
           </h2>
           
