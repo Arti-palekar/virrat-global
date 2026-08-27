@@ -13,7 +13,7 @@ import {
 
 const navItems = [
   { name: 'Home',          href: '/' },
-  { name: 'About',         href: '/#about-2' },
+  { name: 'About',         href: '/about-2' },
   { name: 'Services',      href: '/services' },
   { name: 'Portfolio',     href: '/portfolio' },
   { name: 'Contact',       href: '/contact' },
@@ -38,7 +38,7 @@ const spring = { type: 'spring' as const, stiffness: 400, damping: 30 };
 
 const mobileNavItems = [
   { name: 'Home', href: '/', Icon: House },
-  { name: 'About', href: '/#about-2', Icon: Info },
+  { name: 'About', href: '/about-2', Icon: Info },
   { name: 'Services', href: '/services', Icon: Layers },
   { name: 'Portfolio', href: '/portfolio', Icon: Briefcase },
   { name: 'Contact', href: '/contact', Icon: Phone },
@@ -228,7 +228,7 @@ export function HoverGradientNavBar(): React.JSX.Element {
                         borderRadius:   '9999px',
                         fontSize:       '13px',
                         fontWeight:     active ? 600 : 500,
-                        color:          active ? '#D62020' : isHover ? '#D62020' : isAiAutomation ? '#ffffff' : '#1A1A1A',
+                        color:          active ? '#D62020' : isHover ? '#D62020' : (pathname === '/digital-marketing' ? '#111111' : (pathname === '/ai-automation' ? '#ffffff' : '#1A1A1A')),
                         textDecoration: 'none',
                         cursor:         'pointer',
                         transition:     'color 0.18s',

@@ -13,10 +13,6 @@ import { PerspectiveMarquee } from "@/components/PerspectiveMarquee";
 import { IndustryExpertise } from "@/components/sections/IndustryExpertise";
 import { LandingAccordion } from "@/components/sections/LandingAccordion";
 import MobileFloatingMenu from "@/components/MobileFloatingMenu";
-import MarqueeSection from "./about-2/components/MarqueeSection";
-import AboutSection from "./about-2/components/AboutSection";
-import ServicesSection from "./about-2/components/ServicesSection";
-import ProjectsSection from "./about-2/components/ProjectsSection";
 
 const webSoftwareTestimonials = [
   {
@@ -62,7 +58,23 @@ export default function Home() {
 
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-slate-900 home-page">
-      <div className="relative w-full">
+      <div className="relative w-full bg-[#FAF9F6]">
+        <style dangerouslySetInnerHTML={{ __html: `
+          .singlefile-root {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            width: 100vw !important;
+            max-width: 100% !important;
+            background-color: #FAF9F6 !important;
+            overflow: hidden !important;
+          }
+          .singlefile-root > header,
+          .singlefile-root > section {
+            margin: 0 auto !important;
+            background-color: transparent !important;
+          }
+        `}} />
         <div
           ref={containerRef}
           className="w-full relative singlefile-root"
@@ -94,12 +106,7 @@ export default function Home() {
       <div className="relative z-20 h-[30vh] min-h-[250px] w-full overflow-hidden bg-[#FAF9F6]">
         <PerspectiveMarquee />
       </div>
-      <section id="about-2">
-        <MarqueeSection />
-        <AboutSection />
-        <ServicesSection />
-        <ProjectsSection />
-      </section>
+
       <FAQ1 />
       <CinematicFooter />
       <MobileFloatingMenu />

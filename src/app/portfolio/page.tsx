@@ -205,11 +205,11 @@ export default function PortfolioPage() {
       
       <PortfolioHero />
       
-      <div className="pb-24 md:pb-32 px-4 md:px-8 max-w-[1600px] mx-auto">
+      <div className="pb-24 md:pb-32 px-6 sm:px-10 md:px-16 lg:px-24 max-w-[1600px] mx-auto">
 
         {/* CONTROLS ROW */}
         <motion.div
-          className="flex flex-col-reverse md:flex-row md:items-center justify-between gap-6 mb-10"
+          className="flex flex-col-reverse md:flex-row md:items-center justify-between gap-6 mt-8 md:mt-12 mb-10"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
@@ -271,7 +271,7 @@ export default function PortfolioPage() {
           flattenedProjects.length > 0 ? (
             <motion.div 
               layout
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5"
             >
               <AnimatePresence>
                 {flattenedProjects.map((project: any, index: number) => (
@@ -290,13 +290,13 @@ export default function PortfolioPage() {
                       alt={project.title}
                       fill
                       className="object-cover transition-transform duration-[450ms] cubic-bezier(0.22, 1, 0.36, 1) group-hover:scale-[1.04]"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 25vw, 20vw"
                     />
                     {/* Subtle dark overlay on hover */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-[450ms] pointer-events-none" />
                     
                     {/* Top-Right Arrow Button */}
-                    <div className="absolute top-4 right-4 w-[44px] h-[44px] bg-white/70 backdrop-blur-md rounded-full flex items-center justify-center text-gray-900 transition-all duration-[400ms] group-hover:bg-[var(--color-primary)] group-hover:text-white group-hover:-translate-y-1 group-hover:translate-x-1 shadow-sm">
+                    <div className="absolute top-4 right-4 w-[44px] h-[44px] bg-white/70 backdrop-blur-md rounded-full flex items-center justify-center text-gray-900 transition-all duration-[400ms] group-hover:bg-[#E50909] group-hover:text-white group-hover:-translate-y-1 group-hover:translate-x-1 shadow-sm">
                       <ArrowUpRight className="w-5 h-5" />
                     </div>
                     
@@ -346,7 +346,7 @@ export default function PortfolioPage() {
                     </Link>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5">
                     <AnimatePresence>
                       {service.projects.map((project: any, index: number) => (
                         <motion.div
@@ -364,13 +364,13 @@ export default function PortfolioPage() {
                             alt={project.title}
                             fill
                             className="object-cover transition-transform duration-[450ms] cubic-bezier(0.22, 1, 0.36, 1) group-hover:scale-[1.04]"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 25vw, 20vw"
                           />
                           {/* Subtle dark overlay on hover */}
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-[450ms] pointer-events-none" />
                           
                           {/* Top-Right Arrow Button */}
-                          <div className="absolute top-4 right-4 w-[44px] h-[44px] bg-white/70 backdrop-blur-md rounded-full flex items-center justify-center text-gray-900 transition-all duration-[400ms] group-hover:bg-[var(--color-primary)] group-hover:text-white group-hover:-translate-y-1 group-hover:translate-x-1 shadow-sm">
+                          <div className="absolute top-4 right-4 w-[44px] h-[44px] bg-white/70 backdrop-blur-md rounded-full flex items-center justify-center text-gray-900 transition-all duration-[400ms] group-hover:bg-[#E50909] group-hover:text-white group-hover:-translate-y-1 group-hover:translate-x-1 shadow-sm">
                             <ArrowUpRight className="w-5 h-5" />
                           </div>
                           

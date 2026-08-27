@@ -252,14 +252,18 @@ export default function DMServices() {
             <span className="inline-block text-[#d62020] text-xs font-bold tracking-[0.25em] uppercase mb-4">
               OUR DIGITAL MARKETING SERVICES
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-none uppercase text-[#111111] mb-6">
-              Marketing Built for<br />
-              <span className="text-[#d62020]">Measurable Growth</span>
+            <h2 
+              className="text-4xl md:text-[54px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#111111] mb-[20px]"
+              style={{ fontFamily: 'Sora, sans-serif' }}
+            >
+              Marketing for<br />
+              <span className="text-[#d62020]">measurable growth</span>
             </h2>
-            <p className="text-base md:text-lg text-[#666666] leading-relaxed max-w-[65ch]">
-              From search visibility and paid campaigns to social media and content,
-              we build data-driven marketing systems designed to attract, engage
-              and convert the right audience.
+            <p 
+              className="text-[18px] text-[#666666] leading-[1.67] mb-[24px] max-w-[720px]"
+              style={{ fontFamily: 'Sora, sans-serif' }}
+            >
+              We build data-driven marketing systems that attract, engage, and convert the right audience.
             </p>
           </div>
           <div className="shrink-0 select-none">

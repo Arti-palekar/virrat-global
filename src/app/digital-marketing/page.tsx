@@ -4,17 +4,17 @@ import React from "react";
 import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
 import MobileFloatingMenu from "@/components/MobileFloatingMenu";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import FAQ1 from "@/components/FAQ1";
+import DMTestimonials from "./components/DMTestimonials";
+import DMFAQ1 from "./components/DMFAQ1";
 
 // Custom page components
 import DMHero from "./components/DMHero";
 import DMServices from "./components/DMServices";
-import DMTools from "./components/DMTools";
+import { SocialConnect } from "@/components/ui/connect-with-us";
 import DMProcess from "./components/DMProcess";
-import AiAutomationTextSlider from "@/app/demo/components/AiAutomationTextSlider";
-import AiAutomationIndustries from "@/app/demo/components/AiAutomationIndustries";
-import AiAutomationConsiderations from "@/app/demo/components/AiAutomationConsiderations";
+import DMTextSlider from "./components/DMTextSlider";
+import DMIndustries from "./components/DMIndustries";
+import DMConsiderations from "./components/DMConsiderations";
 
 // ── CUSTOM FAQ ITEMS FOR DIGITAL MARKETING ──
 const dmFaqs = [
@@ -114,26 +114,26 @@ export default function DigitalMarketingPage() {
         {/* Premium Digital Marketing Services Section */}
         <DMServices />
 
-        {/* Tools We Use Section */}
-        <DMTools />
+        {/* Connect With Us Section */}
+        <SocialConnect />
 
         {/* Our Step-by-Step Process Section */}
         <DMProcess />
 
         {/* Animated Marquee */}
-        <AiAutomationTextSlider />
+        <DMTextSlider />
 
         {/* Industries We Build For */}
-        <AiAutomationIndustries />
+        <DMIndustries />
 
         {/* Why Businesses Choose Virrat Global */}
-        <AiAutomationConsiderations />
+        <DMConsiderations />
 
         {/* Section 12: Testimonials (Dynamic Reuse) */}
-        <TestimonialsSection items={dmTestimonials} />
+        <DMTestimonials items={dmTestimonials} />
 
         {/* Section 13: FAQ (Dynamic Reuse) */}
-        <FAQ1 items={dmFaqs} />
+        <DMFAQ1 items={dmFaqs} />
       </div>
 
       {/* Shared Footer */}

@@ -104,7 +104,8 @@ export function LandingAccordion() {
             <div className="mt-8">
               <a
                 href="/contact"
-                className="inline-block bg-black text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-[#D62020] transition-colors duration-300"
+                className="inline-block bg-black !text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-[#D62020] transition-colors duration-300"
+                style={{ color: '#FFFFFF' }}
               >
                 Contact Us
               </a>

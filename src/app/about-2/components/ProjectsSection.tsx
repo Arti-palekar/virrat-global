@@ -52,7 +52,7 @@ export default function ProjectsSection() {
         }
       `}} />
       <div className="pt-20 sm:pt-24 md:pt-32 px-5 sm:px-8 md:px-10">
-        <h2 className="hero-heading font-black uppercase text-center text-4xl md:text-[54px] mb-16 md:mb-24 leading-none">
+        <h2 className="hero-heading text-center text-4xl md:text-[54px] font-bold text-slate-900 leading-[1.1] mb-5 tracking-tight">
           Project
         </h2>
 

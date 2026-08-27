@@ -47,20 +47,10 @@ const ReelCard = ({ src, likes, comments }: { src: string, likes: number, commen
     </div>
     
     {/* Engagement info bottom */}
-    <div className="absolute bottom-4 left-4 flex flex-col gap-2">
-      <div className="flex items-center gap-4 text-white text-sm font-medium drop-shadow-md">
-        <span className="flex items-center gap-1.5 hover:text-red-400 transition-colors">
-          <Heart className="w-4 h-4" />
-          {likes}
-        </span>
-        <span className="flex items-center gap-1.5">
-          <MessageCircle className="w-4 h-4" />
-          {comments}
-        </span>
-      </div>
+    <div className="absolute bottom-4 left-4">
       <div className="flex items-center gap-2">
-        <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center overflow-hidden border border-white/20">
-          <img src="/logo-circle.png" alt="Virrat" className="w-full h-full object-cover" />
+        <div className="w-6 h-6 flex items-center justify-center">
+          <img src="/virrat-red-logo.png" alt="Virrat" className="w-[85%] h-[85%] object-contain object-center" />
         </div>
         <span className="text-white text-xs font-semibold drop-shadow-md">virratglobal</span>
       </div>

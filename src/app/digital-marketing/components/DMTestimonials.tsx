@@ -1,176 +1,217 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Star, ArrowUpRight } from "lucide-react";
+import React from 'react';
+import { motion } from 'framer-motion';
 
-const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+// --- Types ---
+interface Testimonial {
+  text: string;
+  image: string;
+  name: string;
+  role: string;
+}
 
-const TESTIMONIALS = [
+// --- Data ---
+const testimonials: Testimonial[] = [
   {
-    id: "01",
-    quote:
-      "Virrat Global scaled our D2C brand from ₹15L to ₹80L monthly revenue in under 6 months. Their Meta ad creatives and Google PMax strategy are by far the best in the market.",
-    name: "Vikramaditya Mehta",
-    role: "Co-Founder",
-    company: "Aura Home & Living",
-    initial: "V",
-    service: "Meta & Google Ads",
-    result: "8.4x ROAS",
+    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Briana Patton",
+    role: "Operations Manager",
   },
   {
-    id: "02",
-    quote:
-      "Our B2B software startup was struggling with high CPL on LinkedIn. Virrat Global restructured our campaign funnel and dropped our cost-per-qualified-lead by 62%.",
-    name: "Ananya Roy",
-    role: "Head of Growth",
-    company: "CloudFlow SaaS",
-    initial: "A",
-    service: "LinkedIn B2B Lead Gen",
-    result: "-62% CPL",
+    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Bilal Ahmed",
+    role: "IT Manager",
   },
   {
-    id: "03",
-    quote:
-      "Our organic traffic jumped by 450% in 7 months. Their technical SEO audit and content strategy pushed us to #1 rankings for our most lucrative keywords.",
-    name: "Karan Johar",
-    role: "Managing Director",
-    company: "Apex Healthcare",
-    initial: "K",
-    service: "SEO & Content Engine",
-    result: "+450% Organic",
+    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Saman Malik",
+    role: "Customer Support Lead",
   },
   {
-    id: "04",
-    quote:
-      "The transparency and speed of execution are phenomenal. We get real-time revenue reporting, weekly creative tests, and immediate campaign optimizations.",
-    name: "Neha Agarwal",
-    role: "CMO",
-    company: "Glow & Co. Cosmetics",
-    initial: "N",
-    service: "Full-Funnel Marketing",
-    result: "+320% Revenue",
+    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Omar Raza",
+    role: "CEO",
+  },
+  {
+    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Zainab Hussain",
+    role: "Project Manager",
+  },
+  {
+    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Aliza Khan",
+    role: "Business Analyst",
+  },
+  {
+    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Farhan Siddiqui",
+    role: "Marketing Director",
+  },
+  {
+    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Sana Sheikh",
+    role: "Sales Manager",
+  },
+  {
+    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Hassan Ali",
+    role: "E-commerce Manager",
   },
 ];
 
-export default function DMTestimonials() {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const activeReview = TESTIMONIALS[activeIdx];
-  const sideReviews = TESTIMONIALS.filter((_, i) => i !== activeIdx);
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
+
+// --- Sub-Components ---
+const TestimonialsColumn = (props: {
+  className?: string;
+  testimonials: Testimonial[];
+  duration?: number;
+}) => {
+  return (
+    <div className={props.className}>
+      <motion.ul
+        animate={{
+          translateY: "-50%",
+        }}
+        transition={{
+          duration: props.duration || 10,
+          repeat: Infinity,
+          ease: "linear",
+          repeatType: "loop",
+        }}
+        className="flex flex-col gap-6 pb-6 bg-transparent transition-colors duration-300 list-none m-0 p-0"
+      >
+        {[
+          ...new Array(2).fill(0).map((_, index) => (
+            <React.Fragment key={index}>
+              {props.testimonials.map(({ text, image, name, role }, i) => (
+                <motion.li 
+                  key={`${index}-${i}`}
+                  aria-hidden={index === 1 ? "true" : "false"}
+                  tabIndex={index === 1 ? -1 : 0}
+                  whileHover={{ 
+                    scale: 1.03,
+                    y: -8,
+                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05)",
+                    transition: { type: "spring", stiffness: 400, damping: 17 }
+                  }}
+                  whileFocus={{ 
+                    scale: 1.03,
+                    y: -8,
+                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05)",
+                    transition: { type: "spring", stiffness: 400, damping: 17 }
+                  }}
+                  className="p-12 rounded-3xl border border-neutral-200 dark:border-neutral-800 shadow-lg shadow-black/5 max-w-sm w-full bg-[#FAF9F6] dark:bg-neutral-900 transition-all duration-300 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary/30" 
+                >
+                  <blockquote className="m-0 p-0">
+                    <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal m-0 transition-colors duration-300 text-lg">
+                      {text}
+                    </p>
+                    <footer className="flex items-center gap-3 mt-6">
+                      <img
+                        width={52}
+                        height={52}
+                        src={image}
+                        alt={`Avatar of ${name}`}
+                        className="h-13 w-13 rounded-full object-cover ring-2 ring-neutral-100 dark:ring-neutral-800 group-hover:ring-primary/30 transition-all duration-300 ease-in-out"
+                      />
+                      <div className="flex flex-col">
+                        <cite className="font-semibold not-italic tracking-tight leading-5 text-neutral-900 dark:text-white transition-colors duration-300">
+                          {name}
+                        </cite>
+                        <span className="text-sm leading-5 tracking-tight text-neutral-500 dark:text-neutral-500 mt-0.5 transition-colors duration-300">
+                          {role}
+                        </span>
+                      </div>
+                    </footer>
+                  </blockquote>
+                </motion.li>
+              ))}
+            </React.Fragment>
+          )),
+        ]}
+      </motion.ul>
+    </div>
+  );
+};
+
+interface TestimonialsSectionProps {
+  items?: Testimonial[];
+}
+
+export function TestimonialsSection({ items }: TestimonialsSectionProps = {}) {
+  const displayTestimonials = items || testimonials;
+  const firstCol = displayTestimonials.slice(0, Math.ceil(displayTestimonials.length / 3));
+  const secondCol = displayTestimonials.slice(
+    Math.ceil(displayTestimonials.length / 3),
+    Math.ceil((displayTestimonials.length / 3) * 2)
+  );
+  const thirdCol = displayTestimonials.slice(Math.ceil((displayTestimonials.length / 3) * 2));
 
   return (
-    <section className="w-full bg-white text-[#111111] py-24 md:py-32 border-b border-[#EBEBEB]" aria-label="Client Testimonials">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-8 border-b border-[#EBEBEB]">
-          <div>
-            <motion.span
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: EASE }}
-              className="homepage-section-tag inline-block mb-3"
-            >
-              CLIENT RESULTS & REVIEWS
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.08, ease: EASE }}
-              className="homepage-section-title m-0"
-            >
-              What Growth Leaders Say <br />
-              <span>About Partnering With Us.</span>
-            </motion.h2>
+    <section 
+      aria-labelledby="testimonials-heading"
+      className="bg-[#FAF9F6] dark:bg-neutral-950 text-neutral-900 dark:text-white py-36 relative overflow-hidden border-t border-black/5 z-10"
+    >
+      <motion.div 
+        initial={{ opacity: 0, y: 50, rotate: -2 }}
+        whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ 
+          duration: 1.2, 
+          ease: [0.16, 1, 0.3, 1],
+          opacity: { duration: 0.8 }
+        }}
+        className="container px-4 z-10 mx-auto"
+      >
+        <div className="flex flex-col items-center justify-center max-w-[680px] mx-auto mb-20">
+          <div className="flex justify-center">
+            <div className="border border-neutral-300 dark:border-neutral-700 py-1 px-4 rounded-full text-xs font-semibold tracking-wide uppercase text-neutral-600 dark:text-neutral-400 bg-neutral-100/50 dark:bg-neutral-800/50 transition-colors">
+              Testimonials
+            </div>
           </div>
-          <p className="text-[14px] text-[#777777] font-mono">
-            Verified Client Feedback & Case Validation
+
+          <h2 
+            id="testimonials-heading" 
+            className="text-4xl md:text-[54px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#111111] mb-[20px]"
+            style={{ fontFamily: 'Sora, sans-serif' }}
+          >
+            What our clients say
+          </h2>
+          <p 
+            className="text-[18px] text-[#666666] leading-[1.67] mb-[24px] max-w-[720px] mx-auto text-center"
+            style={{ fontFamily: 'Sora, sans-serif' }}
+          >
+            Discover how partnering with Virrat Global transforms packaging design, dielines, and retail performance.
           </p>
         </div>
 
-        {/* Unique Non-Slider Testimonial Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          
-          {/* Left Column (7 Cols): Featured Review Card */}
-          <div className="lg:col-span-7">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeReview.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.45, ease: EASE }}
-                className="relative flex flex-col h-full min-h-[420px] rounded-[24px] bg-[#F8F9FA] border border-[#EBEBEB] p-8 md:p-12 overflow-hidden shadow-sm"
-              >
-                {/* Background Accent Quote Mark */}
-                <span className="absolute -top-6 -right-2 font-heading font-black text-[#D62020] opacity-[0.06] text-[180px] pointer-events-none select-none leading-none">
-                  “
-                </span>
-
-                <div className="flex items-center justify-between mb-6 relative z-10">
-                  <span className="text-[11px] font-mono font-bold tracking-widest text-[#D62020] bg-[#D62020]/10 px-3 py-1 rounded-full uppercase">
-                    {activeReview.service}
-                  </span>
-                  <span className="text-[13px] font-mono text-[#27C93F] font-bold bg-[#27C93F]/10 px-3 py-1 rounded-full">
-                    {activeReview.result}
-                  </span>
-                </div>
-
-                {/* Stars */}
-                <div className="flex items-center gap-1 mb-6 relative z-10">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#D62020] text-[#D62020]" />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <p className="text-[20px] md:text-[24px] font-medium font-heading text-[#111111] leading-relaxed mb-10 relative z-10">
-                  "{activeReview.quote}"
-                </p>
-
-                {/* Author Info */}
-                <div className="flex items-center gap-4 mt-auto pt-6 border-t border-[#EBEBEB] relative z-10">
-                  <div className="w-12 h-12 rounded-full bg-[#D62020] text-white flex items-center justify-center font-bold text-[18px] shadow-sm">
-                    {activeReview.initial}
-                  </div>
-                  <div>
-                    <h4 className="text-[16px] font-bold text-[#111111] font-heading leading-tight">{activeReview.name}</h4>
-                    <p className="text-[13px] text-[#666666]">{activeReview.role} · {activeReview.company}</p>
-                  </div>
-                </div>
-
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Right Column (5 Cols): Interactive Side Review Selection Cards */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
-            {sideReviews.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActiveIdx(TESTIMONIALS.findIndex((t) => t.id === item.id))}
-                className="group text-left p-6 rounded-[20px] bg-[#F8F9FA] border border-[#EBEBEB] hover:border-[#D62020]/50 hover:bg-white hover:shadow-[0_16px_40px_rgba(214,32,32,0.08)] transition-all duration-300"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[11px] font-mono font-bold text-[#D62020] uppercase">{item.service}</span>
-                  <span className="text-[12px] font-mono text-[#27C93F] font-bold">{item.result}</span>
-                </div>
-                <p className="text-[14px] text-[#555555] font-body leading-snug line-clamp-2 mb-3 group-hover:text-[#111111] transition-colors">
-                  "{item.quote}"
-                </p>
-                <div className="flex items-center justify-between">
-                  <p className="text-[12px] font-bold text-[#111111] font-heading">{item.name} <span className="text-[#888888] font-normal">({item.company})</span></p>
-                  <ArrowUpRight className="w-4 h-4 text-[#888888] group-hover:text-[#D62020] transition-colors" />
-                </div>
-              </button>
-            ))}
-          </div>
-
+        <div 
+          className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] max-h-[900px] overflow-hidden"
+          role="region"
+          aria-label="Scrolling Testimonials"
+        >
+          <TestimonialsColumn testimonials={firstCol} duration={15} />
+          {secondCol.length > 0 && <TestimonialsColumn testimonials={secondCol} className="hidden md:block" duration={19} />}
+          {thirdCol.length > 0 && <TestimonialsColumn testimonials={thirdCol} className="hidden lg:block" duration={17} />}
         </div>
-
-      </div>
+      </motion.div>
     </section>
   );
+}
+
+export default function DMTestimonials(props: TestimonialsSectionProps) {
+  return <TestimonialsSection {...props} />;
 }

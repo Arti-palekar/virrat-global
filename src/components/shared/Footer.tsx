@@ -77,8 +77,8 @@ export function Footer() {
               <p className="text-[17px] font-semibold tracking-wide text-[#FFFFFF] leading-none">Quick links</p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <Link href="/about" className={pillClass}>ABOUT</Link>
-              <Link href="/about" className={pillClass}>WHO WE ARE</Link>
+              <Link href="/about-2" className={pillClass}>ABOUT</Link>
+              <Link href="/about-2" className={pillClass}>WHO WE ARE</Link>
               <Link href="/services" className={pillClass}>SERVICES</Link>
               <Link href="/portfolio" className={pillClass}>PROJECTS</Link>
               <Link href="/blog" className={pillClass}>BLOG</Link>

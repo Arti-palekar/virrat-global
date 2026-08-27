@@ -129,7 +129,7 @@ export default function ComplianceServicesGrid() {
 
   return (
     <section id="services" className="relative w-full py-20 lg:py-32 bg-[#FAF9F6]">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1450px] mx-auto px-6 md:px-8 lg:px-10">
         
         {/* Header & Search */}
         <div className="flex flex-col items-center text-center mb-16">
@@ -183,47 +183,61 @@ export default function ComplianceServicesGrid() {
         </div>
 
         {/* Services Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-l border-t border-[#E8E8E8]">
           <AnimatePresence mode="popLayout">
             {filteredServices.length > 0 ? (
               filteredServices.map((service, idx) => (
                 <motion.div
                   key={service.title}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className="group flex flex-col bg-white border border-[#E8E8E8] rounded-2xl p-8 hover:-translate-y-2 hover:border-[#E31E24]/30 hover:shadow-[0_12px_40px_rgba(227,30,36,0.08)] transition-all duration-300 relative"
+                  className="group/feature flex flex-col bg-white border-r border-b border-[#E8E8E8] p-6 md:p-[30px] lg:p-10 relative overflow-hidden"
                 >
-                  {/* Category Badge */}
-                  <div className="absolute top-6 right-6 px-3 py-1 bg-[#FAF9F6] border border-[#E8E8E8] rounded-full text-[10px] font-bold text-[#666666] uppercase tracking-wider group-hover:border-[#E31E24]/20 group-hover:bg-[#E31E24]/5 group-hover:text-[#E31E24] transition-colors duration-300">
-                    {service.category}
-                  </div>
+                  {/* Subtle hover gradient */}
+                  <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover/feature:opacity-100 bg-gradient-to-t from-[#E31E24]/5 to-transparent z-0" />
 
                   {/* Icon */}
-                  <div className="w-14 h-14 rounded-2xl bg-[#FAF9F6] border border-[#E8E8E8] flex items-center justify-center mb-6 group-hover:border-[#E31E24]/50 group-hover:shadow-[0_0_15px_rgba(227,30,36,0.15)] transition-all duration-300">
-                    <service.icon className="w-6 h-6 text-[#111111] group-hover:text-[#E31E24] transition-colors duration-300" strokeWidth={1.5} />
+                  <div className="relative z-10 mb-8 text-[#111111] group-hover/feature:text-[#E31E24] transition-colors duration-200">
+                    <service.icon className="w-8 h-8 md:w-10 md:h-10" strokeWidth={1.5} />
                   </div>
 
-                  {/* Title & Desc */}
-                  <h3 className="text-xl font-bold text-[#111111] mb-3 leading-tight">{service.title}</h3>
-                  <p className="text-sm text-[#666666] leading-relaxed mb-6 flex-grow">
+                  {/* Title & Category Wrapper */}
+                  <div className="relative z-10 mb-4">
+                    {/* Vertical Hover Indicator */}
+                    <div className="absolute -left-6 md:-left-[30px] lg:-left-10 top-1/2 -translate-y-1/2 h-8 w-1 opacity-0 group-hover/feature:opacity-100 transition-all duration-200 origin-center rounded-tr-full rounded-br-full bg-[#E31E24]" />
+                    
+                    <div className="text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 group-hover/feature:text-[#E31E24]/80 transition-colors duration-200">
+                      {service.category}
+                    </div>
+                    
+                    <h3 className="text-[20px] md:text-[22px] lg:text-[24px] font-bold text-[#111111] leading-tight transition-transform duration-200 group-hover/feature:translate-x-2">
+                      {service.title}
+                    </h3>
+                  </div>
+
+                  {/* Description */}
+                  <p className="relative z-10 text-[15px] md:text-[16px] text-gray-500 leading-relaxed max-w-[320px] mb-8 flex-grow">
                     {service.desc}
                   </p>
 
-                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#E8E8E8]">
-                    <span className="text-xs font-semibold text-gray-400">
-                      ⏱ {service.timeline}
+                  {/* Bottom: Timeline & View Details */}
+                  <div className="relative z-10 mt-auto flex items-center justify-between w-full pt-4">
+                    <span className="text-[12px] md:text-[13px] font-medium text-gray-400 flex items-center gap-1.5">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      {service.timeline}
                     </span>
-                    <Link href="/contact" className="text-[#111111] font-semibold text-sm flex items-center group-hover:text-[#E31E24] transition-colors duration-300">
-                      View Details &rarr;
+                    <Link href="/contact" className="text-[13px] md:text-[14px] font-semibold text-[#111111] flex items-center gap-1 group-hover/feature:text-[#E31E24] transition-colors duration-200">
+                      View Details 
+                      <span className="transition-transform duration-200 group-hover/feature:translate-x-1">&rarr;</span>
                     </Link>
                   </div>
                 </motion.div>
               ))
             ) : (
-              <div className="col-span-full py-20 text-center">
+              <div className="col-span-full py-20 text-center border-r border-b border-[#E8E8E8]">
                 <p className="text-lg text-gray-500">No services found matching your criteria.</p>
                 <button 
                   onClick={() => { setSearchQuery(""); setActiveCategory("All Services"); }}
