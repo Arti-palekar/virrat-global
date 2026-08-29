@@ -4,7 +4,6 @@ import React from 'react';
 import HeroSection from './components/HeroSection';
 import MarqueeSection from './components/MarqueeSection';
 import AboutSection from './components/AboutSection';
-import LumenIndexSection from './components/LumenIndexSection';
 import ServicesSection from './components/ServicesSection';
 import CeoSection from './components/CeoSection';
 import AboutJoinClan from './components/AboutJoinClan';
@@ -26,7 +25,6 @@ export default function About2Page() {
       <AboutJoinClan />
       <KollektivaAdvisors />
       <DigitalEpochHero />
-      <LumenIndexSection />
       <ServicesSection />
       <ProjectsSection />
       <CinematicFooter />
