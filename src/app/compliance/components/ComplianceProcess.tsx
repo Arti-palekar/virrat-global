@@ -39,8 +39,8 @@ const processSteps = [
 
 export default function ComplianceProcess() {
   return (
-    <section className="relative w-full bg-white py-24 md:py-32 border-t border-[#E8E8E8] overflow-hidden text-[#111111]">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-12 md:px-16 mb-6 text-left">
+    <section className="relative w-full bg-white py-16 md:py-20 border-t border-[#E8E8E8] overflow-hidden text-[#111111]">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-12 md:px-16 mb-4 text-left">
         <p className="text-xs uppercase tracking-widest text-[#E31E24] font-bold mb-3">Our Process</p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#111111] max-w-3xl leading-tight">
           A Streamlined Path to Compliance
@@ -56,11 +56,11 @@ export default function ComplianceProcess() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="relative flex flex-col md:grid md:grid-cols-[1fr_560px_100px] items-start md:items-center py-6 md:py-8 border-t border-gray-200/60 transition-all duration-300 group cursor-pointer hover:bg-gray-50/30 px-4 md:px-8"
+              className="compliance-row relative flex flex-col md:grid md:grid-cols-[1fr_560px_100px] items-start md:items-center py-4 md:py-6 border-t border-gray-200/60 transition-all duration-300 group cursor-pointer hover:bg-gray-50/30 px-4 md:px-8"
             >
               {/* Title Column */}
               <div className="pr-16 md:pr-0">
-                <span className={`block text-xs uppercase tracking-widest text-gray-400 font-bold mb-2 transition-colors duration-200 ${idx === 0 ? "group-hover:text-[#111111]" : "group-hover:text-[#E52521]"}`}>
+                <span className="compliance-step-num block text-xs uppercase tracking-widest text-gray-400 font-bold mb-2 transition-colors duration-200 group-hover:!text-black">
                   {step.num}
                 </span>
                 <h3 className="text-[24px] font-bold text-[#111111] tracking-tight transition-colors duration-200 group-hover:!text-[#E52521] leading-tight">

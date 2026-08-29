@@ -81,6 +81,9 @@ export default function ComplianceClient() {
           margin: 0 0 2rem 0 !important;
           max-width: 36rem !important;
         }
+        .compliance-page .compliance-row:hover .compliance-step-num {
+          color: #000000 !important;
+        }
       `}</style>
       {/* Shared Navbar */}
       <HoverGradientNavBar />
