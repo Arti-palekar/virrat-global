@@ -23,20 +23,6 @@ export function PortfolioHero() {
         fontFamily: "'Inter', sans-serif"
       }}
     >
-      <style>{`
-        @keyframes waveMove {
-          0% {
-            transform: translate(-1440px, 0);
-          }
-          100% {
-            transform: translate(0px, 0);
-          }
-        }
-        .animate-wave-move {
-          animation: waveMove 35s linear infinite;
-        }
-      `}</style>
-
       {/* Abstract neon ribbon overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <svg 
@@ -45,31 +31,31 @@ export function PortfolioHero() {
           xmlns="http://www.w3.org/2000/svg" 
           className="absolute w-full h-full min-w-[1200px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 opacity-90"
         >
-          <g className="animate-wave-move">
+          <g>
             {/* Path 1: Pale warm red */}
             <path 
-              d="M 0 490 C 300 290, 400 240, 500 360 C 580 460, 420 580, 500 580 C 600 580, 800 400, 1000 380 C 1200 360, 1300 490, 1440 490 C 1740 290, 1840 240, 1940 360 C 2020 460, 1860 580, 1940 580 C 2040 580, 2240 400, 2440 380 C 2640 360, 2740 490, 2880 490" 
+              d="M -100 500 C 150 300, 350 200, 450 320 C 520 400, 400 500, 450 520 C 500 540, 750 380, 950 360 C 1150 340, 1300 430, 1600 400" 
               stroke="#FFE3E3" 
               strokeWidth="24" 
               strokeLinecap="round"
             />
             {/* Path 2: Soft rose-red */}
             <path 
-              d="M 0 470 C 300 270, 400 220, 500 340 C 580 440, 420 560, 500 560 C 600 560, 800 380, 1000 360 C 1200 340, 1300 470, 1440 470 C 1740 270, 1840 220, 1940 340 C 2020 440, 1860 560, 1940 560 C 2040 560, 2240 380, 2440 360 C 2640 340, 2740 470, 2880 470" 
+              d="M -100 480 C 150 280, 350 180, 450 300 C 520 380, 400 480, 450 500 C 500 540, 750 360, 950 340 C 1150 320, 1300 410, 1600 380" 
               stroke="#FFB3B3" 
               strokeWidth="24" 
               strokeLinecap="round"
             />
             {/* Path 3: Bright red */}
             <path 
-              d="M 0 450 C 300 250, 400 200, 500 320 C 580 420, 420 540, 500 540 C 600 540, 800 360, 1000 340 C 1200 320, 1300 450, 1440 450 C 1740 250, 1840 200, 1940 320 C 2020 420, 1860 540, 1940 540 C 2040 540, 2240 360, 2440 340 C 2640 320, 2740 450, 2880 450" 
+              d="M -100 460 C 150 260, 350 160, 450 280 C 520 360, 400 460, 450 480 C 500 500, 750 340, 950 320 C 1150 300, 1300 390, 1600 360" 
               stroke="#FF4D4D" 
               strokeWidth="24" 
               strokeLinecap="round"
             />
             {/* Path 4: Virrat brand red */}
             <path 
-              d="M 0 430 C 300 230, 400 180, 500 300 C 580 400, 420 520, 500 520 C 600 520, 800 340, 1000 320 C 1200 300, 1300 430, 1440 430 C 1740 230, 1840 180, 1940 300 C 2020 400, 1860 520, 1940 520 C 2040 520, 2240 340, 2440 320 C 2640 300, 2740 430, 2880 430" 
+              d="M -100 440 C 150 240, 350 140, 450 260 C 520 340, 400 440, 450 460 C 500 480, 750 320, 950 300 C 1150 280, 1300 370, 1600 340" 
               stroke="#D62020" 
               strokeWidth="24" 
               strokeLinecap="round"
@@ -139,7 +125,7 @@ export function PortfolioHero() {
           animate={{ opacity: 1, rotate: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         >
-          <svg viewBox="0 0 100 100" className="w-full h-full animate-[spin_30s_linear_infinite]">
+          <svg viewBox="0 0 100 100" className="w-full h-full">
             <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
             <text className="text-[6.2px] font-bold fill-gray-800 tracking-[0.05em] uppercase">
               <textPath href="#circlePath">
