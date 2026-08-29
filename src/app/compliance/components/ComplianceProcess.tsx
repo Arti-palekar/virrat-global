@@ -60,10 +60,10 @@ export default function ComplianceProcess() {
             >
               {/* Title Column */}
               <div className="pr-16 md:pr-0">
-                <span className="block text-xs uppercase tracking-widest text-[#E31E24] font-bold mb-2 opacity-60 group-hover:opacity-100 transition-opacity">
+                <span className="block text-xs uppercase tracking-widest text-gray-400 font-bold mb-2 transition-colors duration-200 group-hover:text-[#E52521]">
                   {step.num}
                 </span>
-                <h3 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-[#111111] tracking-tight transition-colors duration-300 group-hover:!text-[#84CC16] leading-tight">
+                <h3 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-[#111111] tracking-tight transition-colors duration-200 group-hover:!text-[#E52521] leading-tight">
                   {step.title}
                 </h3>
               </div>
@@ -77,7 +77,7 @@ export default function ComplianceProcess() {
 
               {/* Circular Icon Container */}
               <div className="absolute right-4 top-8 md:static md:flex md:justify-end md:w-full mt-2 md:mt-0">
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-gray-200 flex items-center justify-center text-gray-800 bg-white transition-all duration-300 group-hover:border-[#84CC16] group-hover:text-[#84CC16] group-hover:translate-y-[-4px] group-hover:shadow-md">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-gray-200 flex items-center justify-center text-gray-800 bg-white transition-all duration-200 group-hover:border-[#E52521] group-hover:text-[#E52521] group-hover:translate-y-[-4px] group-hover:shadow-md">
                   <step.icon className="w-6 h-6 md:w-7 md:h-7 stroke-[1.5]" />
                 </div>
               </div>
