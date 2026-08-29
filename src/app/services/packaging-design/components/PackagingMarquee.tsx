@@ -1,97 +1,131 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function PackagingMarquee() {
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const xRef = useRef(0);
-  
-  const targetSpeed = useRef(1.2); // Pixels per frame normal speed
-  const currentSpeed = useRef(1.2);
+  const isHoveredRef = useRef(false);
+  const currentSpeedRef = useRef(1.2);
+  const [fontSize, setFontSize] = useState(84);
 
-  const marqueeText = [
-    { text: "PACKAGING THAT", solid: false },
-    { text: "SELLS", solid: true },
-    { text: "• DESIGNED TO", solid: false },
-    { text: "STAND OUT", solid: true },
-    { text: "• BUILT FOR", solid: false },
-    { text: "YOUR BRAND", solid: true },
-    { text: "•", solid: false }
-  ];
-
-  // Triplicate array to ensure container is fully packed and loops seamlessly
-  const extendedText = [...marqueeText, ...marqueeText, ...marqueeText];
-
-  // Start at -segmentWidth so rightward movement begins seamlessly
   useEffect(() => {
-    if (trackRef.current) {
-      const segmentWidth = trackRef.current.scrollWidth / 3;
-      xRef.current = -segmentWidth;
-    }
-    let animationId: number;
-    
-    const animate = () => {
-      // Smoothly interpolate current speed towards target speed (lerping)
-      currentSpeed.current += (targetSpeed.current - currentSpeed.current) * 0.08;
-      
-      // Move track rightwards (Left → Right)
-      xRef.current += currentSpeed.current;
+    if (!containerRef.current) return;
+    const handleResize = () => {
+      if (containerRef.current) {
+        const width = containerRef.current.clientWidth;
+        setFontSize(width < 768 ? 42 : 84);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
+  useEffect(() => {
+    let animationFrameId: number;
+    
+    const tick = () => {
+      const targetSpeed = isHoveredRef.current ? 0.3 : 1.2;
+      // Lerp speed for smooth slowdown/acceleration
+      currentSpeedRef.current += (targetSpeed - currentSpeedRef.current) * 0.08;
+      
+      // Move track leftwards (Right → Left)
+      xRef.current -= currentSpeedRef.current;
+      
       if (trackRef.current) {
-        // Since we triplicated the array, reset at 1/3 segment to loop seamlessly
         const segmentWidth = trackRef.current.scrollWidth / 3;
-        // When moving right, once xRef exceeds 0 from a negative start, reset backward
-        if (xRef.current >= 0) {
-          xRef.current = -segmentWidth;
+        if (Math.abs(xRef.current) >= segmentWidth) {
+          xRef.current += segmentWidth;
         }
         trackRef.current.style.transform = `translate3d(${xRef.current}px, 0, 0)`;
       }
-
-      animationId = requestAnimationFrame(animate);
+      
+      animationFrameId = requestAnimationFrame(tick);
     };
-
-    animationId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationId);
+    
+    animationFrameId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
-  const handleMouseEnter = () => {
-    targetSpeed.current = 0.4; // Decelerate on hover
-  };
-
-  const handleMouseLeave = () => {
-    targetSpeed.current = 1.2; // Accelerate back to normal
-  };
+  const items = ["Digital Growth", "Custom Software", "AI Workflows"];
+  // Triplicate the items array to ensure seamless looping
+  const extendedItems = [...items, ...items, ...items];
+  const itemPadding = fontSize * 0.9;
 
   return (
-    <section className="w-full bg-white pt-[10px] pb-0 overflow-hidden">
-      <div 
+    <section className="w-full bg-[#ffffff] py-16 md:py-24 overflow-hidden border-t border-gray-100">
+      <style>{`
+        .perspective-blur-overlay {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          backdrop-filter: blur(8px);
+          -webkit-mask-image: linear-gradient(90deg, black 0%, transparent 20%, transparent 80%, black 100%);
+          mask-image: linear-gradient(90deg, black 0%, transparent 20%, transparent 80%, black 100%);
+          z-index: 10;
+        }
+        .perspective-fade-overlay {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.4) 15%, transparent 30%, transparent 70%, rgba(255, 255, 255, 0.4) 85%, #ffffff 100%);
+          z-index: 11;
+        }
+      `}</style>
+      <div
         ref={containerRef}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className="w-full bg-[#d62020] py-4 md:py-6 overflow-hidden relative flex items-center border-y border-[#b81c1c]/20 cursor-default select-none shadow-sm"
+        onMouseEnter={() => { isHoveredRef.current = true; }}
+        onMouseLeave={() => { isHoveredRef.current = false; }}
+        className="w-full relative h-[180px] md:h-[260px] flex items-center justify-center overflow-hidden cursor-default select-none bg-[#ffffff]"
+        style={{
+          perspective: "1200px",
+        }}
       >
-        <div 
-          ref={trackRef}
-          className="flex whitespace-nowrap items-center gap-6 md:gap-8 will-change-transform"
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            transform: "rotateX(8deg) rotateY(-28deg)",
+            transformStyle: "preserve-3d",
+          }}
         >
-          {extendedText.map((item, idx) => (
-            <span
-              key={`${item.text}-${idx}`}
-              className={`text-[36px] md:text-[50px] lg:text-[75px] font-heading font-black tracking-tighter uppercase select-none`}
-              style={
-                item.solid 
-                  ? { color: "#ffffff" } 
-                  : { 
-                      WebkitTextStroke: "1.5px rgba(255, 255, 255, 0.85)", 
-                      color: "transparent" 
-                    }
-              }
-            >
-              {item.text}
-            </span>
-          ))}
+          <div
+            ref={trackRef}
+            style={{
+              display: "flex",
+              whiteSpace: "nowrap",
+              willChange: "transform",
+            }}
+          >
+            {extendedItems.map((item, i) => (
+              <span
+                key={i}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  fontFamily: "'Sora', sans-serif",
+                  fontSize: `${fontSize}px`,
+                  fontWeight: 700,
+                  color: "#111111",
+                  letterSpacing: "-0.03em",
+                  paddingRight: `${itemPadding}px`,
+                }}
+              >
+                <span className="transition-colors hover:text-[#d62020] cursor-default">{item}</span>
+                <span className="text-[#d62020] text-[0.5em] opacity-80" style={{ marginLeft: `${itemPadding / 2}px` }}>✦</span>
+              </span>
+            ))}
+          </div>
         </div>
+
+        {/* Edge Blur & Fade Overlays */}
+        <div className="perspective-blur-overlay" />
+        <div className="perspective-fade-overlay" />
       </div>
     </section>
   );
