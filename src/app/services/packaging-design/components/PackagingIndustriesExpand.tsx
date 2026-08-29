@@ -82,7 +82,7 @@ export function PackagingIndustriesExpand() {
   ];
 
   return (
-    <section className="bg-[#f8f7f5] py-20 flex flex-col items-center justify-center">
+    <section className="bg-[#ffffff] py-20 flex flex-col items-center justify-center">
       <div className="container mx-auto px-6 mb-12 text-center">
         <span className="text-[12px] font-semibold uppercase tracking-widest text-[var(--color-secondary)] mb-3 inline-block">
           EXPLORE INDUSTRIES

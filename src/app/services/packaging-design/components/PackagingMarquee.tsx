@@ -55,7 +55,7 @@ export default function PackagingMarquee() {
   const itemPadding = fontSize * 0.9;
 
   return (
-    <section className="w-full bg-[#ffffff] py-16 md:py-24 overflow-hidden border-t border-gray-100">
+    <section className="w-full bg-[#ffffff] py-6 md:py-10 overflow-hidden border-t border-gray-100">
       <style>{`
         .perspective-blur-overlay {
           position: absolute;
@@ -78,7 +78,7 @@ export default function PackagingMarquee() {
         ref={containerRef}
         onMouseEnter={() => { isHoveredRef.current = true; }}
         onMouseLeave={() => { isHoveredRef.current = false; }}
-        className="w-full relative h-[180px] md:h-[260px] flex items-center justify-center overflow-hidden cursor-default select-none bg-[#ffffff]"
+        className="w-full relative h-[120px] md:h-[180px] flex items-center justify-center overflow-hidden cursor-default select-none bg-[#ffffff]"
         style={{
           perspective: "1200px",
         }}
