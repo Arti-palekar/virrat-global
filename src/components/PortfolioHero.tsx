@@ -19,7 +19,7 @@ export function PortfolioHero() {
     <section 
       className="relative w-full min-h-[85vh] lg:min-h-screen flex flex-col justify-between pt-32 pb-16 overflow-hidden text-[#1A1A1A]"
       style={{
-        background: 'radial-gradient(circle at 15% 15%, #b9f397 0%, #fafcf5 55%, #faf9f6 100%)',
+        background: 'radial-gradient(circle at 15% 15%, #ffecec 0%, #fafafa 55%, #fcfbfa 100%)',
         fontFamily: "'Inter', sans-serif"
       }}
     >
@@ -31,31 +31,31 @@ export function PortfolioHero() {
           xmlns="http://www.w3.org/2000/svg" 
           className="absolute w-full h-full min-w-[1200px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 opacity-90"
         >
-          {/* Path 1: Lime yellow */}
+          {/* Path 1: Pale warm red */}
           <path 
             d="M -100 500 C 150 300, 350 200, 450 320 C 520 400, 400 500, 450 520 C 500 540, 750 380, 950 360 C 1150 340, 1300 430, 1600 400" 
-            stroke="#CCFF33" 
+            stroke="#FFE3E3" 
             strokeWidth="24" 
             strokeLinecap="round"
           />
-          {/* Path 2: Lime green */}
+          {/* Path 2: Soft rose-red */}
           <path 
             d="M -100 480 C 150 280, 350 180, 450 300 C 520 380, 400 480, 450 500 C 500 520, 750 360, 950 340 C 1150 320, 1300 410, 1600 380" 
-            stroke="#9EF01A" 
+            stroke="#FFB3B3" 
             strokeWidth="24" 
             strokeLinecap="round"
           />
-          {/* Path 3: Neon green */}
+          {/* Path 3: Bright red */}
           <path 
             d="M -100 460 C 150 260, 350 160, 450 280 C 520 360, 400 460, 450 480 C 500 500, 750 340, 950 320 C 1150 300, 1300 390, 1600 360" 
-            stroke="#70E000" 
+            stroke="#FF4D4D" 
             strokeWidth="24" 
             strokeLinecap="round"
           />
-          {/* Path 4: Bright grass green */}
+          {/* Path 4: Virrat brand red */}
           <path 
-            d="M -100 440 C 150 240, 350 140, 450 260 C 520 340, 400 440, 450 480 C 500 500, 750 340, 950 320 C 1150 280, 1300 370, 1600 340" 
-            stroke="#38B000" 
+            d="M -100 440 C 150 240, 350 140, 450 260 C 520 340, 400 440, 450 460 C 500 480, 750 320, 950 300 C 1150 280, 1300 370, 1600 340" 
+            stroke="#D62020" 
             strokeWidth="24" 
             strokeLinecap="round"
           />
@@ -112,13 +112,13 @@ export function PortfolioHero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="font-serif italic font-normal mr-[-0.02em] text-[#0F0F11] translate-y-[-0.05em]">virrat</span>
+          <span className="font-serif italic font-normal mr-[-0.02em] text-[#0F0F11] translate-y-[-0.05em]">port</span>
           <span className="font-sans font-bold">folio</span>
         </motion.h1>
 
         {/* Circular Sticker Badge */}
         <motion.div 
-          className="absolute right-[8%] sm:right-[15%] md:right-[20%] top-[35%] md:top-[38%] z-20 w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-md flex items-center justify-center border border-gray-100"
+          className="absolute right-[6%] sm:right-[10%] md:right-[14%] top-[55%] md:top-[60%] z-20 w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-md flex items-center justify-center border border-gray-100"
           initial={{ opacity: 0, rotate: -45 }}
           animate={{ opacity: 1, rotate: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
