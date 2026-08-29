@@ -54,32 +54,32 @@ export default function ComplianceClient() {
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111111] font-body selection:bg-[#E31E24]/10 selection:text-[#E31E24] compliance-page">
       <style>{`
         .compliance-page h2:not(.compliance-hero *):not(header *):not(nav *) {
-          font-size: 32px !important;
+          font-size: 2.25rem !important;
           font-weight: 700 !important;
           line-height: 1.1 !important;
-          color: #111111 !important;
-          font-family: "Sora", sans-serif !important;
-          margin: 0 0 20px !important;
+          color: #0f172a !important;
+          font-family: 'Inter', sans-serif !important;
+          margin: 0 0 1.5rem 0 !important;
+          letter-spacing: -0.025em !important;
         }
         @media (min-width: 768px) {
           .compliance-page h2:not(.compliance-hero *):not(header *):not(nav *) {
-            font-size: 54px !important;
-            line-height: 1 !important;
+            font-size: 3rem !important;
+          }
+        }
+        @media (min-width: 1024px) {
+          .compliance-page h2:not(.compliance-hero *):not(header *):not(nav *) {
+            font-size: 3.5rem !important;
           }
         }
         .compliance-page p:not(.compliance-hero *):not(header *):not(nav *) {
-          font-size: 16px !important;
-          font-weight: 600 !important;
-          line-height: 1.2 !important;
-          color: #666666 !important;
-          font-family: "Sora", sans-serif !important;
-          margin: 0 0 24px !important;
-          max-width: 720px !important;
-        }
-        @media (min-width: 768px) {
-          .compliance-page p:not(.compliance-hero *):not(header *):not(nav *) {
-            font-size: 18px !important;
-          }
+          font-size: 1.125rem !important;
+          font-weight: 400 !important;
+          line-height: 1.625 !important;
+          color: #64748b !important;
+          font-family: 'Inter', sans-serif !important;
+          margin: 0 0 2rem 0 !important;
+          max-width: 36rem !important;
         }
       `}</style>
       {/* Shared Navbar */}
