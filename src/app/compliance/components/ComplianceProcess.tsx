@@ -56,7 +56,7 @@ export default function ComplianceProcess() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="relative flex flex-col md:grid md:grid-cols-[1fr_380px_100px] items-start md:items-center py-8 md:py-12 border-t border-gray-200/60 transition-all duration-300 group cursor-pointer hover:bg-gray-50/30 px-4 md:px-8"
+              className="relative flex flex-col md:grid md:grid-cols-[1fr_560px_100px] items-start md:items-center py-8 md:py-12 border-t border-gray-200/60 transition-all duration-300 group cursor-pointer hover:bg-gray-50/30 px-4 md:px-8"
             >
               {/* Title Column */}
               <div className="pr-16 md:pr-0">
@@ -69,7 +69,7 @@ export default function ComplianceProcess() {
               </div>
 
               {/* Description Column */}
-              <div className="mt-4 md:mt-0 max-w-md md:pl-8">
+              <div className="mt-4 md:mt-0 max-w-[560px] md:pl-8">
                 <p className="text-sm md:text-[15px] text-gray-500 leading-relaxed font-body text-left">
                   {step.description}
                 </p>
