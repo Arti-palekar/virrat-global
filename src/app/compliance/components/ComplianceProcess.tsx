@@ -63,7 +63,7 @@ export default function ComplianceProcess() {
                 <span className="block text-xs uppercase tracking-widest text-gray-400 font-bold mb-2 transition-colors duration-200 group-hover:text-[#E52521]">
                   {step.num}
                 </span>
-                <h3 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-[#111111] tracking-tight transition-colors duration-200 group-hover:!text-[#E52521] leading-tight">
+                <h3 className="text-[24px] font-bold text-[#111111] tracking-tight transition-colors duration-200 group-hover:!text-[#E52521] leading-tight">
                   {step.title}
                 </h3>
               </div>
