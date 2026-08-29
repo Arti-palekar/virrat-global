@@ -8,12 +8,14 @@ export const WaitlistHero = ({
   buttonText = "Get Free Audit",
   supportingText = "Join our exclusive growth audit waitlist & receive real-time campaign insights.",
   successMessage = "You're on the audit list!",
+  showLogoBackground = true,
 }: {
   theme?: "dark" | "light";
   logoType?: "text" | "brand";
   buttonText?: string;
   supportingText?: string;
   successMessage?: string;
+  showLogoBackground?: boolean;
 }) => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
@@ -267,7 +269,7 @@ export const WaitlistHero = ({
 
         {/* Content Container */}
         <div className="relative z-20 w-full h-full flex flex-col items-center justify-end pb-24 gap-6 px-4">
-          <div className={`w-16 h-16 rounded-2xl shadow-lg overflow-hidden mb-2 ring-1 ${isLight ? "ring-black/5" : "ring-white/10"} bg-[#D62020] flex items-center justify-center text-white font-bold text-2xl`}>
+          <div className={`w-16 h-16 mb-2 flex items-center justify-center ${showLogoBackground ? `rounded-2xl shadow-lg overflow-hidden ring-1 ${isLight ? "ring-black/5" : "ring-white/10"} bg-[#D62020] text-white font-bold text-2xl` : ""}`}>
             {logoType === "brand" ? (
               <img src="/virrat-red-logo.png" alt="Virrat" className="w-[60%] h-[60%] object-contain" />
             ) : (
