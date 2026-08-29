@@ -84,6 +84,14 @@ export default function ComplianceClient() {
         .compliance-page .compliance-row:hover .compliance-step-num {
           color: #000000 !important;
         }
+        .compliance-page li:first-child h2:not(.compliance-hero *):not(header *):not(nav *) {
+          font-size: 20px !important;
+          font-weight: 500 !important;
+          line-height: 1.25 !important;
+          margin: 0 !important;
+          letter-spacing: normal !important;
+          color: inherit !important;
+        }
       `}</style>
       {/* Shared Navbar */}
       <HoverGradientNavBar />
