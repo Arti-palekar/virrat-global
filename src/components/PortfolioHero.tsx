@@ -6,25 +6,6 @@ import Image from 'next/image';
 import { Clock, ArrowUpRight } from 'lucide-react';
 
 export function PortfolioHero() {
-  const [time, setTime] = useState('');
-  const reduceMotion = useReducedMotion();
-
-  // Dynamic Clock
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setTime(now.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-      }));
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   const scrollToGallery = () => {
     const el = document.getElementById('portfolio-grid');
     if (el) {
@@ -34,51 +15,135 @@ export function PortfolioHero() {
     }
   };
 
-  const transition = { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const };
-
   return (
-    <section className="relative min-h-[85vh] lg:min-h-[90vh] w-full flex flex-col justify-end overflow-hidden bg-gradient-to-b from-[#859698] to-[#647577] text-white pt-24">
-
-      {/* Hero Body Content */}
-      <div className="relative flex-1 flex flex-col justify-end items-center max-w-[1600px] mx-auto w-full px-6 z-10 pb-4">
-
-
-        {/* Dynamic layered texts overlaying in front of the image background */}
-        <div className="relative z-30 flex flex-col items-center text-center max-w-xl mb-[8%] px-4">
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: 0.3 }}
-            className="text-sm md:text-base text-white/90 leading-relaxed font-body tracking-wide mb-6 drop-shadow-sm font-medium"
-          >
-            Each project I take begins with purposeful strategy, evolving through design to deliver simple, engaging experiences.
-          </motion.p>
-
-          <motion.button 
-            onClick={scrollToGallery}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: 0.4 }}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold tracking-wider hover:opacity-80 transition-all border-b border-white pb-1 group cursor-pointer"
-          >
-            <span>View Projects</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </motion.button>
-        </div>
-      </div>
-
-      {/* Massive bottom text layout layering behind the portrait */}
-      <div className="absolute bottom-0 inset-x-0 overflow-hidden pointer-events-none select-none z-0 flex justify-center">
-        <motion.h1 
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 0.12, y: 0 }}
-          transition={{ ...transition, delay: 0.2 }}
-          className="text-[16vw] font-heading font-black leading-none text-white tracking-tight"
-          style={{ transform: 'translateY(15%)' }}
+    <section 
+      className="relative w-full min-h-[85vh] lg:min-h-screen flex flex-col justify-between pt-32 pb-16 overflow-hidden text-[#1A1A1A]"
+      style={{
+        background: 'radial-gradient(circle at 15% 15%, #b9f397 0%, #fafcf5 55%, #faf9f6 100%)',
+        fontFamily: "'Inter', sans-serif"
+      }}
+    >
+      {/* Abstract neon ribbon overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        <svg 
+          viewBox="0 0 1440 600" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg" 
+          className="absolute w-full h-full min-w-[1200px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 opacity-90"
         >
-          Essanza
-        </motion.h1>
+          {/* Path 1: Lime yellow */}
+          <path 
+            d="M -100 500 C 150 300, 350 200, 450 320 C 520 400, 400 500, 450 520 C 500 540, 750 380, 950 360 C 1150 340, 1300 430, 1600 400" 
+            stroke="#CCFF33" 
+            strokeWidth="24" 
+            strokeLinecap="round"
+          />
+          {/* Path 2: Lime green */}
+          <path 
+            d="M -100 480 C 150 280, 350 180, 450 300 C 520 380, 400 480, 450 500 C 500 520, 750 360, 950 340 C 1150 320, 1300 410, 1600 380" 
+            stroke="#9EF01A" 
+            strokeWidth="24" 
+            strokeLinecap="round"
+          />
+          {/* Path 3: Neon green */}
+          <path 
+            d="M -100 460 C 150 260, 350 160, 450 280 C 520 360, 400 460, 450 480 C 500 500, 750 340, 950 320 C 1150 300, 1300 390, 1600 360" 
+            stroke="#70E000" 
+            strokeWidth="24" 
+            strokeLinecap="round"
+          />
+          {/* Path 4: Bright grass green */}
+          <path 
+            d="M -100 440 C 150 240, 350 140, 450 260 C 520 340, 400 440, 450 480 C 500 500, 750 340, 950 320 C 1150 280, 1300 370, 1600 340" 
+            stroke="#38B000" 
+            strokeWidth="24" 
+            strokeLinecap="round"
+          />
+        </svg>
       </div>
+
+      {/* Top Row: Description + Stats */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-12 md:px-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-12">
+        {/* Description left */}
+        <motion.div 
+          className="flex flex-col gap-5 max-w-md text-left"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="text-[#1A1A1A] text-sm md:text-base font-semibold leading-relaxed font-body">
+            We are a premium creative & tech agency. Explore our curated selection of digital products, branding, and automation platforms.
+          </p>
+          <button 
+            onClick={scrollToGallery}
+            className="self-start inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full border border-[#1A1A1A] text-xs font-bold uppercase tracking-wider text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white transition-all cursor-pointer"
+          >
+            Explore Projects &rarr;
+          </button>
+        </motion.div>
+
+        {/* Stats right */}
+        <motion.div 
+          className="flex gap-12 text-left"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+        >
+          <div>
+            <h2 className="text-4xl md:text-5xl font-black text-[#1A1A1A] leading-none mb-1">98%</h2>
+            <p className="text-[10px] md:text-[11px] uppercase tracking-wider text-gray-500 font-bold leading-tight font-body">
+              Clients satisfied<br />and repeating
+            </p>
+          </div>
+          <div>
+            <h2 className="text-4xl md:text-5xl font-black text-[#1A1A1A] leading-none mb-1">125+</h2>
+            <p className="text-[10px] md:text-[11px] uppercase tracking-wider text-gray-500 font-bold leading-tight font-body">
+              Projects completed<br />globally
+            </p>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Middle Row: Giant Typography wordmark */}
+      <div className="relative z-10 w-full flex justify-center py-6 select-none">
+        <motion.h1 
+          className="text-[13vw] font-black leading-none tracking-tight text-[#0F0F11] flex items-center justify-center font-heading"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className="font-serif italic font-normal mr-[-0.02em] text-[#0F0F11] translate-y-[-0.05em]">virrat</span>
+          <span className="font-sans font-bold">folio</span>
+        </motion.h1>
+
+        {/* Circular Sticker Badge */}
+        <motion.div 
+          className="absolute right-[8%] sm:right-[15%] md:right-[20%] top-[35%] md:top-[38%] z-20 w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-md flex items-center justify-center border border-gray-100"
+          initial={{ opacity: 0, rotate: -45 }}
+          animate={{ opacity: 1, rotate: 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+        >
+          <svg viewBox="0 0 100 100" className="w-full h-full animate-[spin_30s_linear_infinite]">
+            <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+            <text className="text-[7.2px] font-bold fill-gray-800 tracking-[0.06em] uppercase">
+              <textPath href="#circlePath">
+                Award Winning Agency • Since 2022 •
+              </textPath>
+            </text>
+          </svg>
+          {/* Nested wireframe ovals in center */}
+          <div className="absolute flex items-center justify-center">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="opacity-80">
+              <ellipse cx="12" cy="12" rx="4" ry="10" fill="none" stroke="#111111" strokeWidth="0.8" transform="rotate(-30 12 12)" />
+              <ellipse cx="12" cy="12" rx="4" ry="10" fill="none" stroke="#111111" strokeWidth="0.8" transform="rotate(10 12 12)" />
+              <ellipse cx="12" cy="12" rx="4" ry="10" fill="none" stroke="#111111" strokeWidth="0.8" transform="rotate(50 12 12)" />
+            </svg>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Empty space at the bottom to push content up and balance visually */}
+      <div className="h-6" />
     </section>
   );
 }
