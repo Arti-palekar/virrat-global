@@ -52,6 +52,36 @@ const complianceFaqs = [
 export default function ComplianceClient() {
   return (
     <main className="w-full min-h-screen bg-[#FAF9F6] text-[#111111] font-body selection:bg-[#E31E24]/10 selection:text-[#E31E24] compliance-page">
+      <style>{`
+        .compliance-page h2:not(.compliance-hero *):not(header *):not(nav *) {
+          font-size: 32px !important;
+          font-weight: 700 !important;
+          line-height: 1.1 !important;
+          color: #111111 !important;
+          font-family: "Sora", sans-serif !important;
+          margin: 0 0 20px !important;
+        }
+        @media (min-width: 768px) {
+          .compliance-page h2:not(.compliance-hero *):not(header *):not(nav *) {
+            font-size: 54px !important;
+            line-height: 1 !important;
+          }
+        }
+        .compliance-page p:not(.compliance-hero *):not(header *):not(nav *) {
+          font-size: 16px !important;
+          font-weight: 600 !important;
+          line-height: 1.2 !important;
+          color: #666666 !important;
+          font-family: "Sora", sans-serif !important;
+          margin: 0 0 24px !important;
+          max-width: 720px !important;
+        }
+        @media (min-width: 768px) {
+          .compliance-page p:not(.compliance-hero *):not(header *):not(nav *) {
+            font-size: 18px !important;
+          }
+        }
+      `}</style>
       {/* Shared Navbar */}
       <HoverGradientNavBar />
 

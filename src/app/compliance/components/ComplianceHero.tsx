@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function ComplianceHero() {
   return (
-    <section className="relative w-full h-[85vh] min-h-[600px] flex items-end pb-12 lg:pb-20">
+    <section className="compliance-hero relative w-full h-[85vh] min-h-[600px] flex items-end pb-12 lg:pb-20">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image 
