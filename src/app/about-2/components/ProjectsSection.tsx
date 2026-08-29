@@ -52,11 +52,12 @@ export default function ProjectsSection() {
         }
       `}} />
       <div className="pt-20 sm:pt-24 md:pt-32 px-5 sm:px-8 md:px-10">
-        <h2 className="hero-heading text-center text-4xl md:text-[54px] font-bold text-slate-900 leading-[1.1] mb-5 tracking-tight">
+        <h2 className="hero-heading text-center text-4xl md:text-[54px] font-bold text-slate-900 leading-[1.1] mb-12 md:mb-16 tracking-tight">
           Project
         </h2>
 
-        <div className="max-w-7xl mx-auto w-full relative">
+        {/* Outer wrapper: relative layout container */}
+        <div className="max-w-7xl mx-auto w-full flex flex-col gap-12 sm:gap-16 md:gap-24 relative">
           {PROJECTS.map((project, idx) => (
             <ProjectCard key={project.num} project={project} index={idx} total={PROJECTS.length} />
           ))}
@@ -69,26 +70,32 @@ export default function ProjectsSection() {
 function ProjectCard({ project, index, total }: { project: typeof PROJECTS[0], index: number, total: number }) {
   const containerRef = useRef<HTMLDivElement>(null);
   
+  // Track scroll position of this card's container relative to the viewport
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start end', 'start start']
+    offset: ["start start", "end start"]
   });
 
-  const targetScale = 1 - (total - 1 - index) * 0.03;
-  
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [1, targetScale]
-  );
+  // Calculate subtle scaling and opacity fade for stacking cards
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.6]);
 
   return (
-    <div ref={containerRef} className="h-[85vh] w-full flex items-start justify-center">
+    <div 
+      ref={containerRef} 
+      className="sticky w-full self-start h-[85vh] flex items-start justify-center"
+      style={{
+        // Stack cards with offset so their headers are slightly visible
+        top: `calc(90px + ${index * 24}px)`,
+        // Ensure subsequent cards render on top of previous ones
+        zIndex: 10 + index,
+      }}
+    >
       <motion.div 
-        className="sticky top-24 md:top-32 w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#E5E5E5] bg-[#FFFFFF] p-4 sm:p-6 md:p-8 flex flex-col gap-4 sm:gap-6 shadow-sm"
+        className="w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#E5E5E5] bg-[#FFFFFF] p-4 sm:p-6 md:p-8 flex flex-col gap-4 sm:gap-6 shadow-md"
         style={{
           scale,
-          top: `calc(6rem + ${index * 28}px)`,
+          opacity,
           transformOrigin: 'top center',
         }}
       >
