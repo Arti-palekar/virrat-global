@@ -2,7 +2,19 @@
 
 import { useState, useRef } from "react";
 
-export const WaitlistHero = () => {
+export const WaitlistHero = ({
+  theme = "dark",
+  logoType = "text",
+  buttonText = "Get Free Audit",
+  supportingText = "Join our exclusive growth audit waitlist & receive real-time campaign insights.",
+  successMessage = "You're on the audit list!",
+}: {
+  theme?: "dark" | "light";
+  logoType?: "text" | "brand";
+  buttonText?: string;
+  supportingText?: string;
+  successMessage?: string;
+}) => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -96,18 +108,19 @@ export const WaitlistHero = () => {
   };
 
   // Color tokens aligned with Virrat Global
+  const isLight = theme === "light";
   const colors = {
-    textMain: "#ffffff",
-    textSecondary: "#94a3b8",
+    textMain: isLight ? "#111111" : "#ffffff",
+    textSecondary: isLight ? "#475569" : "#94a3b8",
     bluePrimary: "#D62020",
     success: "#10b981", // emerald-500
-    inputBg: "#1f1f23",
-    baseBg: "#09090b",
-    inputShadow: "rgba(255, 255, 255, 0.1)",
+    inputBg: isLight ? "#ffffff" : "#1f1f23",
+    baseBg: isLight ? "#ffffff" : "#09090b",
+    inputShadow: isLight ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)",
   };
 
   return (
-    <div className="w-full min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
+    <div className={`w-full min-h-screen ${isLight ? "bg-white" : "bg-black"} flex items-center justify-center relative overflow-hidden`}>
       {/* Animation Styles */}
       <style>{`
         @keyframes spin-slow {
@@ -246,14 +259,20 @@ export const WaitlistHero = () => {
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
-            background: `linear-gradient(to top, ${colors.baseBg} 10%, rgba(9, 9, 11, 0.8) 40%, transparent 100%)`,
+            background: isLight
+              ? `linear-gradient(to top, ${colors.baseBg} 10%, rgba(255, 255, 255, 0.8) 40%, transparent 100%)`
+              : `linear-gradient(to top, ${colors.baseBg} 10%, rgba(9, 9, 11, 0.8) 40%, transparent 100%)`,
           }}
         />
 
         {/* Content Container */}
         <div className="relative z-20 w-full h-full flex flex-col items-center justify-end pb-24 gap-6 px-4">
-          <div className="w-16 h-16 rounded-2xl shadow-lg overflow-hidden mb-2 ring-1 ring-white/10 bg-[#D62020] flex items-center justify-center text-white font-bold text-2xl">
-            V
+          <div className={`w-16 h-16 rounded-2xl shadow-lg overflow-hidden mb-2 ring-1 ${isLight ? "ring-black/5" : "ring-white/10"} bg-[#D62020] flex items-center justify-center text-white font-bold text-2xl`}>
+            {logoType === "brand" ? (
+              <img src="/virrat-red-logo.png" alt="Virrat" className="w-[60%] h-[60%] object-contain" />
+            ) : (
+              "V"
+            )}
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold text-center tracking-tight max-w-3xl" style={{ color: colors.textMain }}>
@@ -261,7 +280,7 @@ export const WaitlistHero = () => {
           </h1>
 
           <p className="text-lg font-medium text-center max-w-xl" style={{ color: colors.textSecondary }}>
-            Join our exclusive growth audit waitlist & receive real-time campaign insights.
+            {supportingText}
           </p>
 
           {/* Form / Success Container */}
@@ -312,7 +331,7 @@ export const WaitlistHero = () => {
                     />
                   </svg>
                 </div>
-                <span>You're on the audit list!</span>
+                <span>{successMessage}</span>
               </div>
             </div>
 
@@ -369,7 +388,7 @@ export const WaitlistHero = () => {
                       ></path>
                     </svg>
                   ) : (
-                    "Get Free Audit"
+                    buttonText
                   )}
                 </button>
               </div>

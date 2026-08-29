@@ -10,6 +10,7 @@ import PackagingIndustriesExpand from "./components/PackagingIndustriesExpand";
 
 // Custom page components
 import PackagingHero from "./components/PackagingHero";
+import ToonhubHero from "@/app/about/components/ToonhubHero";
 import PackagingTopPicks from "./components/PackagingTopPicks";
 import PackagingTools from "./components/PackagingTools";
 
@@ -112,6 +113,47 @@ export default function PackagingClient() {
       <div className="relative w-full z-10">
         {/* Section 01 & 02: Intro & Hero */}
         <PackagingHero />
+        <ToonhubHero
+          autoPlay={true}
+          centerScaleDesktop={1.48}
+          centerScaleMobile={1.1}
+          centerHeightDesktop="80%"
+          centerHeightMobile="52%"
+          slides={[
+            {
+              src: "https://fifth-gentle-45902158.figma.site/_components/v2/4de492f6d9cf8244ad5293233e5c6f52407d42fc/1.02464a56.png",
+              bg: "#F4845F",
+              panel: "#F79B7F",
+              largeText: "PACKAGING",
+              title: "Product Packaging",
+              description: "Custom product boxes and structural packaging designed to captivate retail shoppers and elevate your physical presence."
+            },
+            {
+              src: "/packaging-girl.png",
+              bg: "#6BBF7A",
+              panel: "#85CC92",
+              largeText: "FOOD",
+              title: "Food Packaging",
+              description: "Visually striking, food-safe packaging designs that protect freshness and create high shelf authority."
+            },
+            {
+              src: "https://fifth-gentle-45902158.figma.site/_components/v2/4de492f6d9cf8244ad5293233e5c6f52407d42fc/3.4df853b4.png",
+              bg: "#E882B4",
+              panel: "#ED9DC4",
+              largeText: "COSMETIC",
+              title: "Cosmetic Packaging",
+              description: "Luxury jars, tubes, and prints that highlight your beauty collection with sleek finishes and elegant aesthetics."
+            },
+            {
+              src: "https://fifth-gentle-45902158.figma.site/_components/v2/4de492f6d9cf8244ad5293233e5c6f52407d42fc/4.4457fbce.png",
+              bg: "#6EB5FF",
+              panel: "#8DC4FF",
+              largeText: "BEVERAGE",
+              title: "Beverage Packaging",
+              description: "Modern beverage cans, bottles, and wraps engineered for energy drinks, craft beers, and carbonated beverages."
+            }
+          ]}
+        />
 
         {/* Top Picks Showcase Section */}
         <PackagingTopPicks />

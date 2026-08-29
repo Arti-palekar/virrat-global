@@ -13,14 +13,62 @@ const IMAGES = [
 
 const GRAIN_SVG = `data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E`;
 
-export default function ToonhubHero() {
+export default function ToonhubHero({ 
+  autoPlay = false,
+  slides,
+  brandLabel = "TOONHUB",
+  customTexts,
+  centerScaleDesktop = 1.68,
+  centerScaleMobile = 1.25,
+  centerHeightDesktop = "92%",
+  centerHeightMobile = "60%"
+}: { 
+  autoPlay?: boolean;
+  slides?: Array<{
+    src: string;
+    bg: string;
+    panel?: string;
+    largeText: string;
+    title: string;
+    description: string;
+    ctaText?: string;
+    brandLabel?: string;
+  }>;
+  brandLabel?: string;
+  customTexts?: Array<{
+    largeText: string;
+    title: string;
+    description: string;
+  }>;
+  centerScaleDesktop?: number;
+  centerScaleMobile?: number;
+  centerHeightDesktop?: string;
+  centerHeightMobile?: string;
+}) {
+  const displayImages = slides || IMAGES;
+  const slideCount = displayImages.length;
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    if (!autoPlay || isAnimating) return;
+
+    const timer = setTimeout(() => {
+      setIsAnimating(true);
+      setActiveIndex((prev) => (prev + 1) % slideCount);
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 650);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [activeIndex, autoPlay, isAnimating, slideCount]);
+
+  useEffect(() => {
     // Preload images
-    IMAGES.forEach((img) => {
+    displayImages.forEach((img) => {
       const image = new Image();
       image.src = img.src;
     });
@@ -31,24 +79,24 @@ export default function ToonhubHero() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  }, [displayImages]);
 
   const navigate = useCallback((dir: 'next' | 'prev') => {
     if (isAnimating) return;
     setIsAnimating(true);
     setActiveIndex((prev) => {
-      if (dir === 'next') return (prev + 1) % 4;
-      return (prev + 3) % 4;
+      if (dir === 'next') return (prev + 1) % slideCount;
+      return (prev + slideCount - 1) % slideCount;
     });
     setTimeout(() => {
       setIsAnimating(false);
     }, 650);
-  }, [isAnimating]);
+  }, [isAnimating, slideCount]);
 
   const getRole = (index: number) => {
     if (index === activeIndex) return 'center';
-    if (index === (activeIndex + 3) % 4) return 'left';
-    if (index === (activeIndex + 1) % 4) return 'right';
+    if (index === (activeIndex + slideCount - 1) % slideCount) return 'left';
+    if (index === (activeIndex + 1) % slideCount) return 'right';
     return 'back';
   };
 
@@ -58,12 +106,12 @@ export default function ToonhubHero() {
     switch (role) {
       case 'center':
         return {
-          transform: `translateX(-50%) scale(${isMobile ? 1.25 : 1.68})`,
+          transform: `translateX(-50%) scale(${isMobile ? centerScaleMobile : centerScaleDesktop})`,
           filter: 'blur(0px)',
           opacity: 1,
           zIndex: 20,
           left: '50%',
-          height: isMobile ? '60%' : '92%',
+          height: isMobile ? centerHeightMobile : centerHeightDesktop,
           bottom: isMobile ? '22%' : '0',
           transition: baseTransition,
           willChange: 'transform, filter, opacity'
@@ -108,6 +156,15 @@ export default function ToonhubHero() {
     }
   };
 
+  const currentSlide = displayImages[activeIndex] as any;
+  const currentCustomText = customTexts ? customTexts[activeIndex] : null;
+
+  const displayLargeText = currentCustomText ? currentCustomText.largeText : (currentSlide.largeText || "3D SHAPE");
+  const displayTitle = currentCustomText ? currentCustomText.title : (currentSlide.title || "TOONHUB FIGURINES");
+  const displayDescription = currentCustomText ? currentCustomText.description : (currentSlide.description || "The artwork is stunning, shipped fully prepared. The finish is a vision, the 3D craft is flawless. Many thanks! Wishing you the win. Order now.");
+  const displayCta = currentSlide.ctaText || "DISCOVER IT";
+  const displayBrandLabel = currentSlide.brandLabel || brandLabel;
+
   return (
     <>
       <style dangerouslySetInnerHTML={{__html: `
@@ -116,7 +173,7 @@ export default function ToonhubHero() {
       <div 
         className="relative w-full overflow-hidden" 
         style={{
-          backgroundColor: IMAGES[activeIndex].bg,
+          backgroundColor: displayImages[activeIndex].bg,
           transition: 'background-color 650ms cubic-bezier(0.4,0,0.2,1)',
           fontFamily: "'Inter', sans-serif"
         }}
@@ -149,20 +206,20 @@ export default function ToonhubHero() {
                 letterSpacing: '-0.02em',
               }}
             >
-              3D SHAPE
+              {displayLargeText}
             </h1>
           </div>
 
           {/* 3. Top-left brand label */}
           <div className="absolute top-6 left-4 sm:left-8 z-[60]">
             <span className="text-xs font-semibold uppercase text-white opacity-90 tracking-[0.18em]">
-              TOONHUB
+              {displayBrandLabel}
             </span>
           </div>
 
           {/* 4. Carousel */}
           <div className="absolute inset-0 z-[3]">
-            {IMAGES.map((img, index) => {
+            {displayImages.map((img, index) => {
               const role = getRole(index);
               const style = getStyleForRole(role);
               return (
@@ -188,10 +245,10 @@ export default function ToonhubHero() {
           {/* 5. Bottom-left text + nav buttons */}
           <div className="absolute bottom-6 left-4 sm:bottom-20 sm:left-24 z-[60] max-w-[320px]">
             <p className="font-bold uppercase tracking-[0.02em] mb-2 sm:mb-3 text-base sm:text-[22px] text-white opacity-95">
-              TOONHUB FIGURINES
+              {displayTitle}
             </p>
             <p className="hidden sm:block text-xs sm:text-sm text-white opacity-85 leading-relaxed mb-4 sm:mb-5">
-              The artwork is stunning, shipped fully prepared. The finish is a vision, the 3D craft is flawless. Many thanks! Wishing you the win. Order now.
+              {displayDescription}
             </p>
             
             <div className="flex gap-4 items-center">
@@ -225,7 +282,7 @@ export default function ToonhubHero() {
                 lineHeight: 1,
               }}
             >
-              DISCOVER IT
+              {displayCta}
               <ArrowRight className="ml-2 w-5 h-5 sm:w-8 sm:h-8" strokeWidth={2.25} />
             </a>
           </div>
