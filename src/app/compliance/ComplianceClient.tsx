@@ -72,7 +72,7 @@ export default function ComplianceClient() {
             font-size: 3.5rem !important;
           }
         }
-        .compliance-page p:not(.compliance-hero *):not(header *):not(nav *) {
+        .compliance-page p:not(.compliance-hero *):not(header *):not(nav *):not(.compliance-cta-card *) {
           font-size: 1.125rem !important;
           font-weight: 400 !important;
           line-height: 1.625 !important;
