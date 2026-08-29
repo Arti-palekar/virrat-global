@@ -129,7 +129,7 @@ export function PortfolioHero() {
             <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
             <text className="text-[6.8px] font-bold fill-gray-800 tracking-[0.06em] uppercase">
               <textPath href="#circlePath">
-                VIRRAT GLOBAL PVT. LTD. • SINCE 2022 •
+                VIRRAT GLOBAL PVT. LTD. • SINCE 2012 •
               </textPath>
             </text>
           </svg>
