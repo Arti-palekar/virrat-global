@@ -125,7 +125,7 @@ export function PortfolioHero() {
           animate={{ opacity: 1, rotate: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         >
-          <svg viewBox="0 0 100 100" className="w-full h-full">
+          <svg viewBox="0 0 100 100" className="w-full h-full animate-[spin_25s_linear_infinite]">
             <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
             <text className="text-[6.8px] font-bold fill-gray-800 tracking-[0.06em] uppercase">
               <textPath href="#circlePath">
@@ -133,14 +133,8 @@ export function PortfolioHero() {
               </textPath>
             </text>
           </svg>
-          {/* Nested wireframe ovals in center */}
-          <div className="absolute flex items-center justify-center">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="opacity-80">
-              <ellipse cx="12" cy="12" rx="4" ry="10" fill="none" stroke="#111111" strokeWidth="0.8" transform="rotate(-30 12 12)" />
-              <ellipse cx="12" cy="12" rx="4" ry="10" fill="none" stroke="#111111" strokeWidth="0.8" transform="rotate(10 12 12)" />
-              <ellipse cx="12" cy="12" rx="4" ry="10" fill="none" stroke="#111111" strokeWidth="0.8" transform="rotate(50 12 12)" />
-            </svg>
-          </div>
+          {/* Small red solid dot in center */}
+          <div className="absolute w-3.5 h-3.5 rounded-full bg-[#D62020] pointer-events-none" />
         </motion.div>
       </div>
 
