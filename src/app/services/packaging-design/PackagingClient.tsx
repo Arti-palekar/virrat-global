@@ -9,7 +9,6 @@ import FAQ1 from "@/components/FAQ1";
 import PackagingIndustriesExpand from "./components/PackagingIndustriesExpand";
 
 // Custom page components
-import PackagingHero from "./components/PackagingHero";
 import ToonhubHero from "@/app/about/components/ToonhubHero";
 import PackagingTopPicks from "./components/PackagingTopPicks";
 import PackagingTools from "./components/PackagingTools";
@@ -112,7 +111,7 @@ export default function PackagingClient() {
       {/* Main Page Layout Wrapper */}
       <div className="relative w-full z-10">
         {/* Section 01 & 02: Intro & Hero */}
-        <PackagingHero />
+
         <ToonhubHero
           autoPlay={true}
           centerScaleDesktop={1.48}
