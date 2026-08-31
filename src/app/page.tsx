@@ -103,7 +103,7 @@ export default function Home() {
       <div id="insights" className="relative z-20">
         <TestimonialsSection items={webSoftwareTestimonials} />
       </div>
-      <div className="relative z-20 h-[30vh] min-h-[250px] w-full overflow-hidden bg-[#FAF9F6]">
+      <div className="relative z-20 h-[15vh] min-h-[120px] w-full overflow-hidden bg-[#FAF9F6]">
         <PerspectiveMarquee />
       </div>
 

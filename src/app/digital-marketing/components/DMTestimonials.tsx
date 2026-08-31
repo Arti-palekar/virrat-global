@@ -178,7 +178,7 @@ export function TestimonialsSection({ items }: TestimonialsSectionProps = {}) {
       >
         <div className="flex flex-col items-center justify-center max-w-[680px] mx-auto mb-20">
           <div className="flex justify-center">
-            <div className="border border-neutral-300 dark:border-neutral-700 py-1 px-4 rounded-full text-xs font-semibold tracking-wide uppercase text-neutral-600 dark:text-neutral-400 bg-neutral-100/50 dark:bg-neutral-800/50 transition-colors">
+            <div className="py-1 px-4 rounded-full text-xs font-semibold tracking-wide uppercase text-neutral-600 dark:text-neutral-400 transition-colors">
               Testimonials
             </div>
           </div>

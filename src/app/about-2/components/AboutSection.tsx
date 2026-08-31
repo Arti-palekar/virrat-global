@@ -6,7 +6,7 @@ export default function AboutSection({ theme }: { theme?: string }) {
   return (
     <section 
       id="about" 
-      className="relative min-h-screen w-full px-5 sm:px-8 md:px-10 py-20 flex flex-col items-center justify-center overflow-hidden bg-[#F5F5F5] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 z-20 shadow-[0_-8px_30px_rgba(0,0,0,0.04)]"
+      className="relative w-full px-5 sm:px-8 md:px-10 pt-8 pb-24 flex flex-col items-center overflow-hidden bg-[#F5F5F5] z-20"
     >
 
       

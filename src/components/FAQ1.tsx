@@ -138,8 +138,7 @@ function FAQ1({ items }: FAQ1Props = {}) {
         padding: 0.85rem 1.4rem;
         border-radius: 9999px;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(20, 20, 20, 0.6);
+        /* border and background removed */
         color: rgba(239, 68, 68, 0.9);
         text-transform: uppercase;
         letter-spacing: 0.35em;
@@ -154,8 +153,8 @@ function FAQ1({ items }: FAQ1Props = {}) {
         isolation: isolate;
       }
       .faq1-intro--light {
-        border-color: rgba(0, 0, 0, 0.08);
-        background: rgba(255, 255, 255, 0.9);
+        border-color: transparent;
+        background: transparent;
         color: rgba(239, 68, 68, 0.9);
       }
       .faq1-intro--active {
@@ -267,18 +266,6 @@ function FAQ1({ items }: FAQ1Props = {}) {
 
   const palette = useMemo(() => palettes[theme], [theme]);
 
-  const toggleTheme = () => {
-    if (typeof document === "undefined") return;
-    const root = document.documentElement;
-    const next = root.classList.contains("dark") ? "light" : "dark";
-    root.classList.toggle("dark", next === "dark");
-    setTheme(next);
-    try {
-      window.localStorage?.setItem("bento-theme", next);
-    } catch (_err) {
-      /* ignore */
-    }
-  };
   const toggleQuestion = (index: number) => setActiveIndex((prev) => (prev === index ? -1 : index));
 
   useEffect(() => {
@@ -330,21 +317,11 @@ function FAQ1({ items }: FAQ1Props = {}) {
           hasEntered ? "faq1-fade--ready" : "faq1-fade"
         }`}
       >
-        <div
-          className={`faq1-intro ${introReady ? "faq1-intro--active" : ""} ${
-            theme === "light" ? "faq1-intro--light" : "faq1-intro--dark"
-          }`}
-        >
-          <span className="faq1-intro__beam" aria-hidden="true" />
-          <span className="faq1-intro__pulse" aria-hidden="true" />
-          <span className="faq1-intro__label">Signal FAQ</span>
-          <span className="faq1-intro__meter" aria-hidden="true" />
-          <span className="faq1-intro__tick" aria-hidden="true" />
-        </div>
-
-        <header className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <div className="space-y-4">
-            <p className={`text-xs uppercase tracking-[0.35em] ${palette.muted}`}>Questions</p>
+        <header className="flex flex-col items-center text-center gap-3 mb-12">
+          <span className="text-[12px] text-center font-bold uppercase tracking-[0.35em] text-red-500">
+            Signal FAQ
+          </span>
+          <div className="space-y-4 flex flex-col items-center">
             <h1 className={`text-4xl font-semibold leading-tight md:text-5xl ${palette.heading}`}>
               Focus on the signal, not the noise.
             </h1>
@@ -352,27 +329,6 @@ function FAQ1({ items }: FAQ1Props = {}) {
               Everything you need to know about partnering with our team, condensed into calm monochrome clarity.
             </p>
           </div>
-
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className={`relative inline-flex h-11 items-center gap-3 rounded-full border px-5 text-sm font-medium transition-colors duration-500 cursor-pointer ${palette.toggleSurface} ${palette.toggle}`}
-            aria-pressed={theme === "dark" ? "true" : "false"}
-          >
-            <span className="relative flex h-6 w-6 items-center justify-center">
-              <span
-                className={`pointer-events-none absolute inset-0 rounded-full border opacity-40 ${
-                  theme === "dark" ? "border-red-500/30 animate-pulse" : "border-neutral-400/30"
-                }`}
-              />
-              <span
-                className={`h-3 w-3 rounded-full transition-all duration-500 ${
-                  theme === "dark" ? "bg-red-500" : "bg-zinc-800"
-                }`}
-              />
-            </span>
-            {theme === "dark" ? "Night" : "Day"} mode
-          </button>
         </header>
 
         <ul className="space-y-4">
