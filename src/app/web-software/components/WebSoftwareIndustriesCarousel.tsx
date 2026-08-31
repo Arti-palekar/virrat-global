@@ -78,31 +78,14 @@ export function WebSoftwareIndustriesCarousel() {
             INDUSTRIES WE SERVE
           </span>
 
-          <h2
-            className="font-heading"
-            style={{
-              fontSize: "clamp(26px, 3.2vw, 42px)",
-              fontWeight: 400,
-              color: "#222222",
-              letterSpacing: "-0.01em",
-              lineHeight: 1.2,
-              margin: 0,
-            }}
-          >
+          <h2 className="text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight text-[#111111] mb-5">
             Domain Expertise Across{" "}
-            <span style={{ fontWeight: 700 }} className="text-[#D62020]">
+            <span className="text-[#D62020]">
               Every Industry
             </span>
           </h2>
 
-          <p
-            style={{
-              fontSize: "16px",
-              color: "#666666",
-              marginTop: "16px",
-              lineHeight: 1.6,
-            }}
-          >
+          <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-[720px] mx-auto">
             We build industry-focused web platforms, software, ERP systems and
             automation solutions designed around real business workflows,
             customers and growth.

@@ -53,7 +53,7 @@ export function WebSoftwareHeroNew() {
           </h1>
 
           {/* Subtitle */}
-          <p className="max-w-2xl text-balance text-sm leading-relaxed text-zinc-600 sm:text-base md:text-lg dark:text-zinc-300">
+          <p className="max-w-2xl text-balance text-base md:text-lg text-slate-600 leading-relaxed dark:text-zinc-300">
             From enterprise web apps and custom ERPs to SaaS platforms, mobile apps, and AI workflow automation — we engineer digital products that perform at scale.
           </p>
 

@@ -1,7 +1,10 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
-import { motion, useAnimationFrame, useMotionValue, useReducedMotion } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
 // ── Technology cards data ───────────────────────────────────────────────────
 
@@ -25,140 +28,13 @@ const row2Tools = [
   { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
 ];
 
-// ── Marquee Row Component ───────────────────────────────────────────────────
-
-function MarqueeRow({ 
-  tools, 
-  direction, 
-  speed, 
-  isHovered 
-}: { 
-  tools: any[]; 
-  direction: "left" | "right"; 
-  speed: number; 
-  isHovered: boolean;
-}) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const currentSpeed = useMotionValue(speed);
-  const isReducedMotion = useReducedMotion();
-  
-  // Create 3 sets to allow smooth infinite wrapping
-  const tripleTools = [...tools, ...tools, ...tools];
-
-  useAnimationFrame((time, delta) => {
-    if (isReducedMotion || !containerRef.current) return;
-    
-    // Smoothly interpolate speed (slows down when hovered)
-    const targetSpeed = isHovered ? speed * 0.2 : speed;
-    currentSpeed.set(currentSpeed.get() + (targetSpeed - currentSpeed.get()) * 0.05);
-    
-    // Normalize movement to 60fps frame time (~16.66ms per frame)
-    const moveAmount = currentSpeed.get() * (delta / 16.66);
-    
-    // A single set's width is 1/3 of the total scrollable width
-    const singleSetWidth = containerRef.current.scrollWidth / 3;
-    
-    if (singleSetWidth === 0) return;
-    
-    let newX = x.get() + (direction === "left" ? -moveAmount : moveAmount);
-    
-    if (direction === "left") {
-      if (newX <= -singleSetWidth) {
-        newX += singleSetWidth;
-      }
-    } else {
-      if (newX >= 0) {
-        newX -= singleSetWidth;
-      }
-    }
-    
-    x.set(newX);
-  });
-
-  useEffect(() => {
-    if (isReducedMotion) return;
-    // For right-moving marquee, start at -singleSetWidth so there's content to the left
-    if (direction === "right" && containerRef.current) {
-      const singleSetWidth = containerRef.current.scrollWidth / 3;
-      x.set(-singleSetWidth);
-    }
-  }, [direction, x, isReducedMotion]);
-
-  if (isReducedMotion) {
-    return (
-      <div className="flex gap-4 w-full overflow-x-auto pb-4 snap-x">
-        {tools.map((tool, i) => (
-          <div 
-            key={`${tool.name}-${i}`} 
-            className="tool-card aspect-square rounded-2xl bg-white flex items-center justify-center overflow-hidden group cursor-default shadow-sm shrink-0 snap-center"
-          >
-            <img 
-              src={tool.logo} 
-              alt={`${tool.name} logo`} 
-              className="w-[55%] h-[55%] object-contain select-none" 
-              draggable="false" 
-            />
-          </div>
-        ))}
-      </div>
-    );
-  }
-
-  return (
-    <motion.div 
-      ref={containerRef}
-      className="flex gap-4 w-max"
-      style={{ x }}
-    >
-      {tripleTools.map((tool, i) => (
-        <div 
-          key={`${tool.name}-${i}`} 
-          className="tool-card aspect-square rounded-2xl bg-white flex items-center justify-center overflow-hidden group cursor-default shadow-sm transition-transform duration-300 hover:-translate-y-1 shrink-0"
-        >
-          <img
-            src={tool.logo}
-            alt={`${tool.name} logo`}
-            className="w-[55%] h-[55%] object-contain select-none transition-transform duration-500 group-hover:scale-110"
-            draggable="false"
-          />
-        </div>
-      ))}
-    </motion.div>
-  );
-}
-
+const allTools = [...row1Tools, ...row2Tools];
 
 // ── Main Component ──────────────────────────────────────────────────────────
 
 export function WebSoftwareToolkit() {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <section className="w-full pt-16 lg:pt-24 pb-10 lg:pb-12 px-6 md:px-12 lg:px-24 bg-[#f8f7f5]">
-      {/* Dynamic styles for container queries to perfectly fit exactly 6 cards */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        .marquee-container {
-          container-type: inline-size;
-        }
-        .tool-card {
-          /* Mobile: exactly 2 cards visible */
-          width: calc((100cqw - 1 * 1rem) / 2);
-        }
-        @media (min-width: 768px) {
-          .tool-card {
-            /* Tablet: exactly 4 cards visible */
-            width: calc((100cqw - 3 * 1rem) / 4);
-          }
-        }
-        @media (min-width: 1024px) {
-          .tool-card {
-            /* Desktop: EXACTLY 6 cards visible */
-            width: calc((100cqw - 5 * 1rem) / 6);
-          }
-        }
-      `}} />
-
       {/* ── Outer premium red container ── */}
       <div className="max-w-[1400px] mx-auto relative bg-[#d62020] border border-white/20 rounded-[40px] p-8 md:p-12 lg:p-14 overflow-hidden">
 
@@ -191,53 +67,54 @@ export function WebSoftwareToolkit() {
               <span className="inline-block text-white/80 text-xs font-bold tracking-[0.25em] uppercase mb-3">
                 OUR DEVELOPMENT TOOLKIT
               </span>
-              <p
-                className="font-heading font-black uppercase leading-none tracking-tighter max-w-[20ch] m-0"
-                style={{
-                  color: "#FFFFFF",
-                  fontSize: "clamp(32px, 3.6vw, 64px)",
-                  fontWeight: 700,
-                  lineHeight: 0.95,
-                  letterSpacing: "-0.03em",
-                  textTransform: "uppercase",
-                  margin: 0,
-                }}
-              >
-                TOOLS WE USE TO<br />BUILD DIGITAL<br />PRODUCTS
+              <p className="text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight !text-white max-w-[20ch] m-0">
+                TOOLS WE USE
               </p>
             </div>
 
-            <p className="text-sm font-medium leading-relaxed mt-6 max-w-[42ch]" style={{ color: "rgba(255,255,255,0.78)" }}>
+            <p className="text-base md:text-lg !text-white/90 leading-relaxed max-w-[42ch] mt-6">
               Modern technologies for building fast, scalable and reliable websites, web applications, SaaS platforms and business software.
             </p>
           </motion.div>
 
-          {/* ── RIGHT SIDE — 60%: Marquee Rows ── */}
+          {/* ── RIGHT SIDE — 60%: Tool Cards Slider ── */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-            className="marquee-container lg:col-span-7 flex flex-col gap-4 overflow-hidden relative py-2"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            onFocus={() => setIsHovered(true)}
-            onBlur={() => setIsHovered(false)}
+            className="lg:col-span-7 w-full relative py-2 overflow-hidden flex items-center justify-center"
           >
-            {/* Removed the absolute gradient edge mask to ensure 6 cards are fully visible unmasked */}
-            
-            <MarqueeRow 
-              tools={row1Tools} 
-              direction="left" 
-              speed={0.9} 
-              isHovered={isHovered} 
-            />
-            <MarqueeRow 
-              tools={row2Tools} 
-              direction="right" 
-              speed={1.05} 
-              isHovered={isHovered} 
-            />
+            <Swiper
+              modules={[Autoplay]}
+              autoplay={{ delay: 2500, disableOnInteraction: false }}
+              loop={true}
+              speed={800}
+              breakpoints={{
+                // Mobile
+                320: { slidesPerView: 2, spaceBetween: 12 },
+                // Tablet
+                768: { slidesPerView: 3, spaceBetween: 16 },
+                // Desktop
+                1024: { slidesPerView: 5, spaceBetween: 16 }
+              }}
+              className="w-full"
+            >
+              {allTools.map((tool, i) => (
+                <SwiperSlide key={`${tool.name}-${i}`} className="py-2">
+                  <div 
+                    className="aspect-square rounded-2xl bg-white flex items-center justify-center overflow-hidden group shadow-sm transition-transform duration-300 hover:-translate-y-1 w-full"
+                  >
+                    <img
+                      src={tool.logo}
+                      alt={`${tool.name} logo`}
+                      className="w-[55%] h-[55%] object-contain select-none transition-transform duration-500 group-hover:scale-110"
+                      draggable="false"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </motion.div>
 
         </div>

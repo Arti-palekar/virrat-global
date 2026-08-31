@@ -1,5 +1,12 @@
 import React from "react";
 import { Metadata } from "next";
+import { Kanit } from 'next/font/google';
+
+const kanit = Kanit({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-kanit',
+});
 import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -10,7 +17,7 @@ import { WebSoftwareMarquee } from "./components/WebSoftwareMarquee";
 import { WebSoftwareToolkit } from "./components/WebSoftwareToolkit";
 import { WebSoftwareTextMarquee } from "./components/WebSoftwareTextMarquee";
 import { WebSoftwareIndustriesCarousel } from "./components/WebSoftwareIndustriesCarousel";
-import WebSoftwareConsiderations from "./components/WebSoftwareConsiderations";
+
 import WebSoftwareProcess from "./components/WebSoftwareProcess";
 
 export const metadata: Metadata = {
@@ -163,8 +170,7 @@ export default function WebSoftwarePage() {
         {/* 3.3 — Industries We Serve */}
         <WebSoftwareIndustriesCarousel />
 
-        {/* 3.4 — What We Consider */}
-        <WebSoftwareConsiderations />
+
 
 
         {/* 3.6 — Testimonials */}
@@ -173,7 +179,9 @@ export default function WebSoftwarePage() {
         {/* 3.7 — FAQ */}
         <FAQ1 items={webSoftwareFaqs} />
       </main>
-      <CinematicFooter />
+      <div className={kanit.className}>
+        <CinematicFooter />
+      </div>
     </div>
   );
 }
