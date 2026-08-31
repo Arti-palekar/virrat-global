@@ -116,7 +116,7 @@ export default function AiAutomationProcess() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full min-h-screen py-24 md:py-32 lg:py-40 overflow-hidden bg-[#050b09] border-b border-zinc-900 font-sans ai-process-section-override"
+      className="relative w-full min-h-screen overflow-hidden bg-[#050b09] border-b border-zinc-900 font-sans ai-process-section-override py-16 md:py-24"
     >
       {/* Subtle dotted technical background pattern */}
       <div
@@ -178,7 +178,7 @@ export default function AiAutomationProcess() {
       <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 relative z-20">
         
         {/* HEADER */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -226,7 +226,7 @@ export default function AiAutomationProcess() {
                           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
                           className="flex-1 text-left pr-6 lg:pr-12 max-w-[400px]"
                         >
-                          <h3 className="text-[20px] lg:text-[22px] font-semibold text-white mb-3 drop-shadow-md">
+                          <h3 className="text-[20px] lg:text-[22px] font-semibold text-white drop-shadow-md mb-6">
                             {step.num}. {step.title}
                           </h3>
                           <p className="text-[14px] lg:text-[15px] text-gray-300 leading-relaxed drop-shadow-sm">
@@ -277,7 +277,7 @@ export default function AiAutomationProcess() {
                           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
                           className="flex-1 text-left pl-6 lg:pl-12 max-w-[400px]"
                         >
-                          <h3 className="text-[20px] lg:text-[22px] font-semibold text-white mb-3 drop-shadow-md">
+                          <h3 className="text-[20px] lg:text-[22px] font-semibold text-white drop-shadow-md mb-6">
                             {step.num}. {step.title}
                           </h3>
                           <p className="text-[14px] lg:text-[15px] text-gray-300 leading-relaxed drop-shadow-sm">

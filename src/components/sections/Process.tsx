@@ -104,12 +104,12 @@ export function Process() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full bg-[#f8f7f5] text-[#111827] py-24 px-4 md:px-8 border-t border-black/5 overflow-hidden"
+      className="relative w-full bg-[#f8f7f5] text-[#111827] px-4 md:px-8 border-t border-black/5 overflow-hidden py-16 md:py-24"
     >
       <div className="max-w-[1360px] mx-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           {/* Heading matching homepage section title system exactly */}
           <motion.h2 
             initial={{ opacity: 0, y: 12 }}

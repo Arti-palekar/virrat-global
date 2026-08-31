@@ -5,12 +5,12 @@ import { ShieldCheck, Target, Zap, Award } from "lucide-react";
 
 export default function BPWhyChooseUs() {
     return (
-        <section className="w-full bg-white py-32 border-t border-gray-100">
+        <section className="w-full bg-white border-t border-gray-100 py-16 md:py-24">
             <div className="max-w-7xl mx-auto px-4 md:px-8">
                 
-                <div className="text-center mb-20">
+                <div className="text-center mb-12">
                     <span className="homepage-section-tag">Why Virrat Global</span>
-                    <h2 className="homepage-section-title text-center">
+                    <h2 className="homepage-section-title text-center mb-5">
                         Built for impact.<br/>
                         <span>Engineered for scale.</span>
                     </h2>
@@ -25,7 +25,7 @@ export default function BPWhyChooseUs() {
                             <ShieldCheck className="w-8 h-8" />
                         </div>
                         <div>
-                            <h3 className="text-3xl font-bold font-heading text-[#111111] mb-4">Uncompromising Quality</h3>
+                            <h3 className="text-3xl font-bold font-heading text-[#111111] mb-6">Uncompromising Quality</h3>
                             <p className="text-[#666666] text-lg max-w-md">
                                 We source the highest grade materials for print and apply world-class design standards to every brand asset. No corners cut, ever.
                             </p>
@@ -38,7 +38,7 @@ export default function BPWhyChooseUs() {
                             <Target className="w-6 h-6" />
                         </div>
                         <div>
-                            <h3 className="text-2xl font-bold font-heading text-white mb-3">Strategic Depth</h3>
+                            <h3 className="text-2xl font-bold font-heading text-white mb-6">Strategic Depth</h3>
                             <p className="text-gray-400 text-sm">
                                 We don't just make things look pretty. Every design choice is backed by market research and brand psychology.
                             </p>
@@ -51,7 +51,7 @@ export default function BPWhyChooseUs() {
                             <Zap className="w-6 h-6" />
                         </div>
                         <div>
-                            <h3 className="text-2xl font-bold font-heading text-[#111111] mb-3">Rapid Execution</h3>
+                            <h3 className="text-2xl font-bold font-heading text-[#111111] mb-6">Rapid Execution</h3>
                             <p className="text-[#666666] text-sm">
                                 Enterprise-grade workflows ensure your branding and printing projects are delivered on time, every time.
                             </p>
@@ -63,8 +63,8 @@ export default function BPWhyChooseUs() {
                         {/* Decorative Background */}
                         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
                         
-                        <div className="relative z-10 max-w-xl text-center md:text-left mb-8 md:mb-0">
-                            <h3 className="text-3xl font-bold font-heading text-white mb-4">Award-Winning Creative Team</h3>
+                        <div className="relative z-10 max-w-xl text-center md:text-left mb-12">
+                            <h3 className="text-3xl font-bold font-heading text-white mb-6">Award-Winning Creative Team</h3>
                             <p className="text-white/80 text-lg">
                                 Our team consists of industry veterans who have shaped identities for leading brands across the globe.
                             </p>

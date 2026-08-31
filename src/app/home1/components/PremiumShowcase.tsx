@@ -275,7 +275,7 @@ export default function PremiumShowcase() {
   };
 
   return (
-    <section className="font-syne" style={{
+    <section className="font-syne py-16 md:py-24" style={{
         background: "#FFFFFF",
         padding: "80px 24px",
         overflow: "hidden",
@@ -292,7 +292,7 @@ export default function PremiumShowcase() {
           }}
           className="flex flex-col md:flex-row md:items-end gap-6"
         >
-            <h2 className="homepage-section-title">
+            <h2 className="homepage-section-title mb-5">
               Creative.<br />
               <span>Branding & Printing Services.</span>
             </h2>

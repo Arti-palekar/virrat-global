@@ -13,7 +13,7 @@ export default function BPContactCTA() {
     const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
     return (
-        <section ref={containerRef} className="w-full bg-white pt-32 pb-20 overflow-hidden border-t border-gray-100">
+        <section ref={containerRef} className="w-full bg-white overflow-hidden border-t border-gray-100 py-16 md:py-24">
             <div className="max-w-7xl mx-auto px-4 md:px-8">
                 
                 {/* Massive CTA Text */}
@@ -21,7 +21,7 @@ export default function BPContactCTA() {
                     style={{ scale, opacity }} 
                     className="text-center mb-24"
                 >
-                    <h2 className="text-[10vw] md:text-[8vw] font-[900] font-heading leading-[0.85] tracking-[-0.04em] text-[#111111] uppercase">
+                    <h2 className="text-[10vw] md:text-[8vw] font-[900] font-heading leading-[0.85] tracking-[-0.04em] text-[#111111] uppercase mb-5">
                         Let's build <br/>
                         <span className="text-[#d62020]">your brand.</span>
                     </h2>
@@ -29,7 +29,7 @@ export default function BPContactCTA() {
 
                 {/* Minimalist Contact Block */}
                 <div className="max-w-3xl mx-auto bg-[#FAFAFA] p-10 md:p-16 rounded-3xl border border-gray-100 shadow-sm">
-                    <h3 className="text-2xl font-bold font-heading text-[#111111] mb-8">Ready to start? Send us a message.</h3>
+                    <h3 className="text-2xl font-bold font-heading text-[#111111] mb-6">Ready to start? Send us a message.</h3>
                     
                     <form className="space-y-8">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

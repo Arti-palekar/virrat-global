@@ -67,7 +67,7 @@ export default function AiAutomationCapabilities() {
     <>
       <section 
         ref={sectionRef}
-        className="relative w-full pt-10 pb-0 lg:pt-12 lg:pb-0 px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden"
+        className="relative w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden py-16 md:py-24"
       >
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative">
@@ -80,10 +80,10 @@ export default function AiAutomationCapabilities() {
                   <span className="inline-block text-[#E32620] text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-4">
                     AI CAPABILITIES
                   </span>
-                  <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter leading-[1.05] mb-4 uppercase">
+                  <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter leading-[1.05] uppercase mb-5">
                     FROM INTELLIGENT IDEAS<br />TO AUTOMATED ACTION
                   </h2>
-                  <p className="text-sm text-[#555555] max-w-[36ch] leading-relaxed mb-10 font-medium">
+                  <p className="text-sm text-[#555555] max-w-[36ch] leading-relaxed font-medium mb-6">
                     We combine AI, automation and software engineering to create systems that work continuously behind your business.
                   </p>
                 </div>

@@ -146,7 +146,7 @@ export default function ServicesClient() {
       </div>
 
       {/* Services Landing Hero Banner - Premium Redesign */}
-      <section className="relative z-10 px-6 pt-24 pb-16 md:pt-40 md:pb-24 max-w-6xl mx-auto overflow-hidden">
+      <section className="relative z-10 px-6 max-w-6xl mx-auto overflow-hidden py-16 md:py-24">
         {/* Soft abstract mesh glow behind hero */}
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-pink-100/20 blur-[100px] -z-10 pointer-events-none" />
         <div className="absolute top-20 right-1/4 w-[400px] h-[400px] rounded-full bg-blue-100/20 blur-[100px] -z-10 pointer-events-none" />
@@ -244,7 +244,7 @@ export default function ServicesClient() {
       </section>
 
       {/* Services Grid Section */}
-      <section id="capabilities" className="relative z-10 px-6 py-12 max-w-6xl mx-auto">
+      <section id="capabilities" className="relative z-10 px-6 max-w-6xl mx-auto py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {servicesList.map((service, index) => {
             const rowIndex = Math.floor(index / cols);
@@ -302,10 +302,10 @@ export default function ServicesClient() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="relative z-10 px-6 py-24 bg-white/40 border-y border-black/5">
+      <section className="relative z-10 px-6 bg-white/40 border-y border-black/5 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 max-w-[600px] mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-900 mb-4">
+          <div className="text-center max-w-[600px] mx-auto mb-12">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-900 mb-5">
               Why Partner With Us
             </h2>
             <p className="text-zinc-500 text-sm md:text-base leading-relaxed">
@@ -346,9 +346,9 @@ export default function ServicesClient() {
       </section>
 
       {/* Process Section */}
-      <section className="relative z-10 px-6 py-24 max-w-6xl mx-auto">
-        <div className="text-center mb-20 max-w-[600px] mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-900 mb-4">
+      <section className="relative z-10 px-6 max-w-6xl mx-auto py-16 md:py-24">
+        <div className="text-center max-w-[600px] mx-auto mb-12">
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-900 mb-5">
             Our Client Journey
           </h2>
           <p className="text-zinc-500 text-sm md:text-base leading-relaxed">
@@ -386,12 +386,12 @@ export default function ServicesClient() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative z-10 px-6 py-24 max-w-5xl mx-auto text-center">
+      <section className="relative z-10 px-6 max-w-5xl mx-auto text-center py-16 md:py-24">
         <div className="p-12 rounded-3xl bg-zinc-900 text-white flex flex-col items-center gap-6 shadow-2xl relative overflow-hidden">
           <div className="absolute top-[-50px] right-[-50px] w-64 h-64 rounded-full bg-pink-500/10 blur-[60px]" />
           <div className="absolute bottom-[-50px] left-[-50px] w-64 h-64 rounded-full bg-blue-500/10 blur-[60px]" />
           
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white max-w-2xl leading-none">
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white max-w-2xl leading-none mb-5">
             Ready to bring your project to life?
           </h2>
           <p className="text-white text-sm md:text-base max-w-xl leading-relaxed">

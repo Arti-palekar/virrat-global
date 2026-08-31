@@ -40,7 +40,7 @@ export default function CtaH1() {
               GET IN TOUCH
             </span>
 
-            <h2 className="homepage-section-title">
+            <h2 className="homepage-section-title mb-5">
               Let&apos;s build something <span>amazing.</span>
             </h2>
 

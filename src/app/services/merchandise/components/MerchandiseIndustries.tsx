@@ -54,7 +54,7 @@ export default function MerchandiseIndustries() {
   };
 
   return (
-    <section className="relative w-full bg-[#FAF9F6] text-[#111111] pt-20 pb-16 overflow-hidden flex flex-col items-center text-center">
+    <section className="relative w-full bg-[#FAF9F6] text-[#111111] overflow-hidden flex flex-col items-center text-center py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto px-6 relative z-30 flex flex-col items-center">
 
         <motion.h2

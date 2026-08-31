@@ -172,7 +172,7 @@ export default function WebSoftwareConsiderations() {
   const progressPercent = maxIndex > 0 ? (currentIndex / maxIndex) * 100 : 0;
 
   return (
-    <section className="w-full pt-6 pb-20 px-6 md:px-12 lg:px-24 bg-white text-[#111111]">
+    <section className="w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto">
 
         {/* SECTION HEADER */}
@@ -189,7 +189,7 @@ export default function WebSoftwareConsiderations() {
             <span className="inline-block text-[#d62020] text-xs font-bold tracking-[0.25em] uppercase">
               WHAT WE CONSIDER
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tighter leading-none uppercase max-w-[24ch]">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tighter leading-none uppercase max-w-[24ch] mb-5">
               What Goes Into Every<br />Digital Product
             </h2>
           </motion.div>

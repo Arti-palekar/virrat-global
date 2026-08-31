@@ -42,7 +42,7 @@ const POSTS = [
 
 export function BlogGrid() {
   return (
-    <section className="pb-32">
+    <section className=" py-16 md:py-24">
       <div className="container mx-auto px-6">
         
         {/* Featured Post */}
@@ -63,10 +63,10 @@ export function BlogGrid() {
                 <span className="w-1 h-1 rounded-full bg-[var(--color-accent)]" />
                 <span>{POSTS[0].readTime}</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 group-hover:text-[var(--color-accent)] transition-colors">
+              <h2 className="text-4xl md:text-5xl font-bold font-heading group-hover:text-[var(--color-accent)] transition-colors mb-5">
                 {POSTS[0].title}
               </h2>
-              <p className="text-xl text-[var(--color-secondary)] mb-8 line-clamp-3">
+              <p className="text-xl text-[var(--color-secondary)] line-clamp-3 mb-6">
                 In an era of in-house teams and specialized freelancers, the bloated, slow-moving AOR model is dying. Here's how agile creative partners are replacing them.
               </p>
               <div className="inline-flex items-center font-bold border-b-2 border-transparent group-hover:border-[var(--color-accent)] transition-colors text-[var(--color-primary)]">

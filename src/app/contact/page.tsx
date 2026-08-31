@@ -30,7 +30,7 @@ export function RazorpayAuthSection() {
 
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-center lg:justify-end h-full sora-font max-w-xl mx-auto lg:mx-0 text-left">
-          <h1 className="text-[40px] lg:text-[48px] font-bold text-[#0A2540] mb-6 leading-[1.1] tracking-[-0.02em]">
+          <h1 className="text-[40px] lg:text-[48px] font-bold text-[#0A2540] leading-[1.1] tracking-[-0.02em] mb-5">
             Shall we get started?
           </h1>
           <p className="text-[17px] text-[#425466] leading-relaxed font-medium">
@@ -53,9 +53,9 @@ export function RazorpayAuthSection() {
              <img src="https://virratglobal.com/wp-content/uploads/2025/08/favicon-v-150x150.webp" alt="Virrat Global" className="w-10 h-10 object-contain" />
           </div>
 
-          <p className="text-[13px] text-gray-500 mb-2">Welcome to <span className="font-semibold text-gray-700">Virrat Global</span></p>
+          <p className="text-[13px] text-gray-500 mb-6">Welcome to <span className="font-semibold text-gray-700">Virrat Global</span></p>
           
-          <h2 className="text-[26px] font-bold text-gray-900 mb-8 leading-[1.2] tracking-tight">
+          <h2 className="text-[26px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-5">
             Got something in mind? We'd love to help.
           </h2>
 
@@ -146,7 +146,7 @@ export function ContactHero() {
             <a href="https://virratglobal.com/contact/" className="hover:text-blue-600 transition-colors">Contact</a>
           </div>
 
-          <h1 className="text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] font-black text-slate-900 tracking-tight leading-[1.1] mb-6">
+          <h1 className="text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] font-black text-slate-900 tracking-tight leading-[1.1] mb-5">
             Got something in mind?<br />
             We’d love to help.
           </h1>

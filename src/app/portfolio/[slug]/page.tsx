@@ -35,7 +35,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
             <ArrowLeft className="w-4 h-4 mr-2" /> Back to Portfolio
           </Link>
 
-          <h1 className="text-6xl md:text-8xl font-bold font-heading mb-8 tracking-tighter">
+          <h1 className="text-6xl md:text-8xl font-bold font-heading tracking-tighter mb-5">
             {study.title}
           </h1>
 
@@ -60,10 +60,10 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
             <div className="lg:col-span-4">
               <div className="sticky top-32">
-                <h3 className="text-sm font-bold uppercase tracking-widest text-[var(--color-secondary)] mb-4">Industry</h3>
-                <p className="text-xl font-medium mb-12">{study.industry}</p>
+                <h3 className="text-sm font-bold uppercase tracking-widest text-[var(--color-secondary)] mb-6">Industry</h3>
+                <p className="text-xl font-medium mb-6">{study.industry}</p>
 
-                <h3 className="text-sm font-bold uppercase tracking-widest text-[var(--color-secondary)] mb-4">Technology</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest text-[var(--color-secondary)] mb-6">Technology</h3>
                 <ul className="space-y-2">
                   {study.technology.map(tech => (
                     <li key={tech} className="text-lg">{tech}</li>
@@ -74,21 +74,21 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
 
             <div className="lg:col-span-8 space-y-16">
               <div>
-                <h2 className="homepage-section-title">The <span>Challenge.</span></h2>
+                <h2 className="homepage-section-title mb-5">The <span>Challenge.</span></h2>
                 <p className="homepage-section-subtitle">
                   {study.challenge}
                 </p>
               </div>
 
               <div>
-                <h2 className="homepage-section-title">Our <span>Solution.</span></h2>
+                <h2 className="homepage-section-title mb-5">Our <span>Solution.</span></h2>
                 <p className="homepage-section-subtitle">
                   {study.solution}
                 </p>
               </div>
 
               <div className="p-10 rounded-[2rem] bg-[var(--color-background)] border border-black/5">
-                <h2 className="card-title mb-8">The Results</h2>
+                <h2 className="card-title mb-5">The Results</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {study.results.map((res, i) => {
                     const [number, ...rest] = res.split(" ");

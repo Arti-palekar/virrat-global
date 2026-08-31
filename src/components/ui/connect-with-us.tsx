@@ -18,9 +18,9 @@ const SocialConnect = () => {
   
   return (
     <div className="min-h-[80vh] bg-[#FFFFFF] flex flex-col items-center justify-center p-4 font-sans w-full py-20 relative z-10">
-      <div className="w-full max-w-3xl mx-auto text-center mb-16">
+      <div className="w-full max-w-3xl mx-auto text-center mb-12">
         <h2 
-          className="text-4xl md:text-[54px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#111111] mb-[20px]"
+          className="text-4xl md:text-[54px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#111111] ] mb-5"
           style={{ fontFamily: 'Sora, sans-serif' }}
         >
           Tools we use

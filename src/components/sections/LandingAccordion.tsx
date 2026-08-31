@@ -87,7 +87,7 @@ export function LandingAccordion() {
 
   return (
     <div className="bg-[#f8f7f5] font-sans">
-      <section className="container mx-auto px-6 py-20">
+      <section className="container mx-auto px-6 py-16 md:py-24">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           
           {/* Left Side: Text Content */}
@@ -95,7 +95,7 @@ export function LandingAccordion() {
             <span className="text-[12px] font-semibold uppercase tracking-widest text-[#D62020] mb-3 inline-block">
               WHY VIRRAT GLOBAL
             </span>
-            <h1 className="font-bold font-heading text-[32px] md:text-[44px] lg:text-[54px] leading-[1.1] tracking-tight text-black">
+            <h1 className="font-bold font-heading text-[32px] md:text-[44px] lg:text-[54px] leading-[1.1] tracking-tight text-black mb-5">
               Why Businesses Choose <span className="text-[#D62020]">Virrat Global</span>
             </h1>
             <p className="mt-6 text-lg text-[#666] max-w-xl mx-auto md:mx-0">

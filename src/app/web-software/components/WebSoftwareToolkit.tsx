@@ -34,7 +34,7 @@ const allTools = [...row1Tools, ...row2Tools];
 
 export function WebSoftwareToolkit() {
   return (
-    <section className="w-full pt-16 lg:pt-24 pb-10 lg:pb-12 px-6 md:px-12 lg:px-24 bg-[#f8f7f5]">
+    <section className="w-full px-6 md:px-12 lg:px-24 bg-[#f8f7f5] py-16 md:py-24">
       {/* ── Outer premium red container ── */}
       <div className="max-w-[1400px] mx-auto relative bg-[#d62020] border border-white/20 rounded-[40px] p-8 md:p-12 lg:p-14 overflow-hidden">
 

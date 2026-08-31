@@ -97,7 +97,7 @@ export default function AiAutomationServicesSlider() {
   };
 
   return (
-    <section className="relative w-full py-24 md:py-32 bg-[#FAF9F6] text-[#111111] overflow-hidden">
+    <section className="relative w-full bg-[#FAF9F6] text-[#111111] overflow-hidden py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
         
         {/* Header Area */}
@@ -188,11 +188,11 @@ export default function AiAutomationServicesSlider() {
                         <Icon size={22} strokeWidth={1.5} />
                       </div>
                       
-                      <h3 className="text-xl font-bold text-[#111111] leading-tight mb-4 pr-4">
+                      <h3 className="text-xl font-bold text-[#111111] leading-tight pr-4 mb-6">
                         {service.title}
                       </h3>
                       
-                      <p className="text-[14px] text-[#555555] font-medium leading-relaxed mb-10 flex-grow">
+                      <p className="text-[14px] text-[#555555] font-medium leading-relaxed flex-grow mb-6">
                         {service.description}
                       </p>
                       

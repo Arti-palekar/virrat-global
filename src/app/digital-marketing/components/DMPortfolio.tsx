@@ -288,7 +288,7 @@ export function Component() {
   return (
     <section 
       ref={wrapperRef} 
-      className="portfolio-scroll-wrapper" 
+      className="portfolio-scroll-wrapper py-16 md:py-24" 
       style={{ height: `${PROJECT_DATA.length * 100}vh`, position: "relative" }}
     >
       <div className="parallax-container" style={{ position: "relative", top: 0, width: "100%", height: "100vh" }}>

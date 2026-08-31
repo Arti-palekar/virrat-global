@@ -115,7 +115,7 @@ export function TrustedByWall() {
   const row2Logos = [...LOGOS_DOUBLED].reverse();
 
   return (
-    <section className="trusted-wall-section">
+    <section className="trusted-wall-section py-16 md:py-24">
       <style>{`
         .trusted-wall-section {
           background: #FFFFFF;
@@ -315,7 +315,7 @@ export function TrustedByWall() {
 
       <div className="trusted-wall-header">
         <p className="trusted-wall-eyebrow">Trusted Partners</p>
-        <h2 className="trusted-wall-title">
+        <h2 className="trusted-wall-title mb-5">
           Trusted by Businesses<br />Across Industries
         </h2>
         <p className="trusted-wall-subtitle">

@@ -242,7 +242,7 @@ export function WebSoftwareMarquee() {
         <style>{ribbonStyles}</style>
         <section
           ref={sectionRef}
-          className="ws-ribbon-section ws-ribbon-reduced"
+          className="ws-ribbon-section ws-ribbon-reduced py-16 md:py-24"
           aria-label="Technology capabilities"
         >
           <div className="ws-ribbon-border ws-ribbon-border--top" />

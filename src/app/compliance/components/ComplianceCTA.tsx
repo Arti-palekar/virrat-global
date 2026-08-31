@@ -7,7 +7,7 @@ import { ShieldCheck } from "lucide-react";
 
 export default function ComplianceCTA() {
   return (
-    <section className="relative w-full py-20 lg:py-24 bg-[#E31E24] overflow-hidden">
+    <section className="relative w-full bg-[#E31E24] overflow-hidden py-16 md:py-24">
       
       {/* Background Graphic elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />

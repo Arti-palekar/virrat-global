@@ -32,7 +32,7 @@ export default function WovenCTA() {
   const line2 = "Something Great?";
 
   return (
-    <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#0A0A0A]">
+    <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#0A0A0A] py-16 md:py-24">
       {/* Three.js woven particle canvas */}
       <WovenCanvas />
 
@@ -62,7 +62,7 @@ export default function WovenCTA() {
 
         {/* Animated headline — character-by-character */}
         <h2
-          className="font-heading font-black leading-[1.0] tracking-tighter text-white mb-6 select-none"
+          className="font-heading font-black leading-[1.0] tracking-tighter text-white select-none mb-5"
           style={{ fontSize: "clamp(3rem, 8vw, 8rem)" }}
         >
           {[line1, line2].map((line, lineIdx) => (

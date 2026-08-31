@@ -195,14 +195,14 @@ export default function AllInOneBranding() {
   return (
     <section 
       ref={sectionRef}
-      className="w-full py-16 lg:py-24 font-syne bg-[#D62020] overflow-hidden"
+      className="w-full font-syne bg-[#D62020] overflow-hidden py-16 md:py-24"
     >
       <div className="max-w-[1320px] mx-auto px-[16px] md:px-[24px] lg:px-[40px]">
         
         {/* ── SECTION HEADER ── */}
         <div className="text-center mb-12">
           <h2 
-            className="text-3xl md:text-4xl lg:text-[44px] font-[700] !text-white leading-[1.15] mb-4"
+            className="text-3xl md:text-4xl lg:text-[44px] font-[700] !text-white leading-[1.15] mb-5"
             style={{ color: "#FFFFFF" }}
           >
             Creative. <br />
@@ -269,11 +269,11 @@ export default function AllInOneBranding() {
                   {activeData.label}
                 </span>
                 
-                <h3 className="text-[28px] md:text-[36px] lg:text-[42px] font-bold text-[#1A1A1A] leading-[1.1] mb-5">
+                <h3 className="text-[28px] md:text-[36px] lg:text-[42px] font-bold text-[#1A1A1A] leading-[1.1] mb-6">
                   {activeData.heading}
                 </h3>
                 
-                <p className="text-[#666666] text-[16px] md:text-[18px] leading-[1.6] mb-8">
+                <p className="text-[#666666] text-[16px] md:text-[18px] leading-[1.6] mb-6">
                   {activeData.description}
                 </p>
                 

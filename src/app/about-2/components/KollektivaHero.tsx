@@ -67,7 +67,7 @@ const team = [
 
 export default function KollektivaHero() {
   return (
-    <section className="w-full bg-[#1b1c21] py-16 md:py-20 px-6 sm:px-10 lg:px-16 text-white font-sans select-none overflow-hidden">
+    <section className="w-full bg-[#1b1c21] px-6 sm:px-10 lg:px-16 text-white font-sans select-none overflow-hidden py-16 md:py-24">
       
       {/* Top Header Line */}
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">

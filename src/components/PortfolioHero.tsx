@@ -17,7 +17,7 @@ export function PortfolioHero() {
 
   return (
     <section 
-      className="relative w-full min-h-[85vh] lg:min-h-screen flex flex-col justify-between pt-32 pb-16 overflow-hidden text-[#1A1A1A]"
+      className="relative w-full min-h-[85vh] lg:min-h-screen flex flex-col justify-between overflow-hidden text-[#1A1A1A] py-16 md:py-24"
       style={{
         background: 'radial-gradient(circle at 15% 15%, #ffecec 0%, #fafafa 55%, #fcfbfa 100%)',
         fontFamily: "'Inter', sans-serif"
@@ -92,13 +92,13 @@ export function PortfolioHero() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
         >
           <div>
-            <h2 className="text-4xl md:text-5xl font-black text-[#1A1A1A] leading-none mb-1">98%</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-[#1A1A1A] leading-none mb-5">98%</h2>
             <p className="text-[10px] md:text-[11px] uppercase tracking-wider text-gray-500 font-bold leading-tight font-body">
               Clients satisfied<br />and repeating
             </p>
           </div>
           <div>
-            <h2 className="text-4xl md:text-5xl font-black text-[#1A1A1A] leading-none mb-1">125+</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-[#1A1A1A] leading-none mb-5">125+</h2>
             <p className="text-[10px] md:text-[11px] uppercase tracking-wider text-gray-500 font-bold leading-tight font-body">
               Projects completed<br />globally
             </p>

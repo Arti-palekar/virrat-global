@@ -35,11 +35,11 @@ const METRICS = [
 
 export default function DMMetrics() {
   return (
-    <section className="w-full bg-white text-[#111111] py-20 md:py-28 border-b border-[#EBEBEB]" aria-label="Marketing Metrics">
+    <section className="w-full bg-white text-[#111111] border-b border-[#EBEBEB] py-16 md:py-24" aria-label="Marketing Metrics">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

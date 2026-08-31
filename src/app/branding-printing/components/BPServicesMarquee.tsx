@@ -54,7 +54,7 @@ const MARQUEE_SET = [...SERVICES, ...SERVICES, ...SERVICES];
 
 export default function BPServicesMarquee() {
   return (
-    <section className="relative w-full overflow-hidden bg-white py-12 md:py-24">
+    <section className="relative w-full overflow-hidden bg-white py-16 md:py-24">
 
       {/* ── Background SVG Accent ──────────────────────────── */}
       <svg
@@ -84,10 +84,10 @@ export default function BPServicesMarquee() {
       <div className="relative z-10 mx-auto max-w-7xl">
 
         {/* ── Section Header ─────────────────────────────────── */}
-        <div className="mx-auto mb-16 flex max-w-5xl flex-col items-center px-6 text-center lg:px-0">
+        <div className="mx-auto flex max-w-5xl flex-col items-center px-6 text-center lg:px-0 mb-12">
 
 
-          <h2 className="relative mb-4 font-black text-[clamp(32px,5vw,52px)] text-[#111111] tracking-tight leading-tight">
+          <h2 className="relative font-black text-[clamp(32px,5vw,52px)] text-[#111111] tracking-tight leading-tight mb-5">
             What We Create
             {/* Decorative zigzag */}
             <svg
@@ -157,7 +157,7 @@ export default function BPServicesMarquee() {
                     />
                     {/* Card footer overlay */}
                     <div className="absolute bottom-0 left-0 right-0 rounded-b-2xl bg-white/90 backdrop-blur-sm p-3 border-t border-[#EBEBEB]/60">
-                      <p className="text-[9px] font-black tracking-[0.15em] uppercase text-[#D62020] font-mono mb-0.5">
+                      <p className="text-[9px] font-black tracking-[0.15em] uppercase text-[#D62020] font-mono .5 mb-6">
                         {svc.tag}
                       </p>
                       <h3 className="font-bold text-[13px] text-[#111] leading-tight">

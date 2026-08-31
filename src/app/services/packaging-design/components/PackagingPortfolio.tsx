@@ -323,7 +323,7 @@ export default function PackagingPortfolio() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden py-16 md:py-24"
       style={{ minHeight: "88vh" }}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -527,7 +527,7 @@ export default function PackagingPortfolio() {
                     {/* Card label */}
                     <div className="absolute bottom-0 left-0 right-0 p-3.5">
                       <p
-                        className="font-bold tracking-[0.3em] mb-0.5"
+                        className="font-bold tracking-[0.3em] .5 mb-6"
                         style={{
                           color: "rgba(255, 255, 255, 0.55)",
                           fontSize: "8px",

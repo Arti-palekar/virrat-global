@@ -76,7 +76,7 @@ export function IndustryExpertise() {
   const activeIndustry = INDUSTRIES[activeIndex];
 
   return (
-    <section className="py-22 bg-[#f8f7f5] text-black relative">
+    <section className="bg-[#f8f7f5] text-black relative py-16 md:py-24">
       <div className="container mx-auto px-6">
         {/* Header Content as per prompt */}
         <div className="mb-14">
@@ -155,7 +155,7 @@ export function IndustryExpertise() {
                         {activeIndustry.projects} Completed Projects
                       </span>
                     </div>
-                    <h3 className="text-3xl font-bold font-heading mb-2 !text-white">{activeIndustry.name}</h3>
+                    <h3 className="text-3xl font-bold font-heading !text-white mb-6">{activeIndustry.name}</h3>
                     <p className="!text-white/80 text-sm max-w-sm">{activeIndustry.description}</p>
                   </motion.div>
                 </AnimatePresence>
@@ -196,7 +196,7 @@ export function IndustryExpertise() {
                           animate={{ height: isActive ? "auto" : 0, opacity: isActive ? 1 : 0, marginTop: isActive ? 16 : 0 }}
                           className="overflow-hidden lg:hidden"
                         >
-                          <p className="text-[var(--color-secondary)] mb-6 text-base">
+                          <p className="text-[var(--color-secondary)] text-base mb-6">
                             {industry.description}
                           </p>
                           <div className="relative w-full h-60 rounded-xl overflow-hidden shadow-md border border-black/5">

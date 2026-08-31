@@ -143,7 +143,7 @@ export default function MerchandiseConsiderations() {
 
   return (
     <section 
-      className="w-full bg-white text-[#111111] overflow-hidden pt-24 pb-20 select-none"
+      className="w-full bg-white text-[#111111] overflow-hidden select-none py-16 md:py-24"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -154,7 +154,7 @@ export default function MerchandiseConsiderations() {
             <span className="text-[#d62020] text-xs font-bold tracking-[0.25em] uppercase block mb-3">
               DESIGN STANDARDS
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tighter uppercase leading-none">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tighter uppercase leading-none mb-5">
               WHAT WE CONSIDER FOR<br />MERCHANDISE DESIGN
             </h2>
           </div>
@@ -215,7 +215,7 @@ export default function MerchandiseConsiderations() {
                           <IconComponent className="w-5 h-5 text-[#d62020] opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
                         </div>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-heading font-black tracking-tight uppercase text-zinc-900 leading-none mb-3">
+                          <h3 className="text-xl md:text-2xl font-heading font-black tracking-tight uppercase text-zinc-900 leading-none mb-6">
                         {card.title}
                       </h3>
                       <p className="text-xs md:text-sm text-zinc-500 font-medium leading-relaxed max-w-[24ch]">

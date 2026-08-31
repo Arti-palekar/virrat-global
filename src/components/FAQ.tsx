@@ -210,7 +210,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="w-full bg-[#FFFFFF] py-24 md:py-22 font-syne overflow-hidden">
+    <section className="w-full bg-[#FFFFFF] font-syne overflow-hidden py-16 md:py-24">
       <div className="max-w-[900px] mx-auto px-6">
         
         {/* Section Header */}
@@ -224,7 +224,7 @@ export default function FAQ() {
           <span className="homepage-section-tag">
             Frequently Asked Questions
           </span>
-          <h2 className="homepage-section-title">
+          <h2 className="homepage-section-title mb-5">
             Everything You Need <br />
             <span>To Know.</span>
           </h2>

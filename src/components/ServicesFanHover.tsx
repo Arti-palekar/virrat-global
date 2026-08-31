@@ -76,7 +76,7 @@ const services: Service[] = [
 
 export function ServicesFanHover() {
   return (
-    <section className="bg-[#FAF9F6] text-[#09090b] font-sans px-6 py-24 sm:px-10 sm:py-32 relative z-10 border-t border-black/5">
+    <section className="bg-[#FAF9F6] text-[#09090b] font-sans px-6 sm:px-10 relative z-10 border-t border-black/5 py-16 md:py-24">
       {/* Component Scoped CSS Styles for fan-out animations */}
       <style>{`
         .fan-card {
@@ -141,8 +141,8 @@ export function ServicesFanHover() {
       `}</style>
 
       <div className="max-w-[1360px] mx-auto">
-        <div className="max-w-[600px] mx-auto mb-16 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Our Services</h2>
+        <div className="max-w-[600px] mx-auto text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-5">Our Services</h2>
           <p className="text-zinc-500 text-base">
             Hover a service to preview the work behind it.
           </p>

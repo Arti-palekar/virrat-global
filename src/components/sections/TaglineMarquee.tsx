@@ -229,7 +229,7 @@ export function TaglineMarquee() {
   }, []);
 
   return (
-    <section className="w-full bg-[#0F0F10] h-[96px] relative overflow-hidden select-none border-none shadow-[inset_0_10px_25px_rgba(0,0,0,0.5)] z-20 flex items-center justify-center">
+    <section className="w-full bg-[#0F0F10] h-[96px] relative overflow-hidden select-none border-none shadow-[inset_0_10px_25px_rgba(0,0,0,0.5)] z-20 flex items-center justify-center py-16 md:py-24">
       <canvas ref={canvasRef} className="w-full h-full block pointer-events-none" />
     </section>
   );

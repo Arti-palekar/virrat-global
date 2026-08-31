@@ -91,7 +91,7 @@ export function HomeExpertise() {
   const pathProgress = useTransform(smoothProgress, [0.3, 0.7], [0, 1]);
 
   return (
-    <section ref={containerRef} className="relative w-full h-[300vh] bg-white">
+    <section ref={containerRef} className="relative w-full h-[300vh] bg-white py-16 md:py-24">
       
       {/* Sticky Container */}
       <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center">
@@ -111,7 +111,7 @@ export function HomeExpertise() {
           
           {/* Header - Vertically balanced instead of absolutely pinned to top */}
           <div className="w-full text-center px-4 pt-16 md:pt-24 shrink-0">
-            <h2 className="text-[14px] font-bold tracking-[0.25em] text-[#d62020] uppercase mb-6">OUR SERVICES</h2>
+            <h2 className="text-[14px] font-bold tracking-[0.25em] text-[#d62020] uppercase mb-5">OUR SERVICES</h2>
             <p className="text-5xl md:text-7xl font-[800] font-heading text-[#111111] leading-tight tracking-tight mb-6">
               Solutions built <br /> for every business.
             </p>
@@ -188,7 +188,7 @@ export function HomeExpertise() {
                   </div>
                   
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold font-heading text-[#111111] mb-2 md:mb-3 leading-snug">{service.title}</h3>
+                    <h3 className="text-xl md:text-2xl font-bold font-heading text-[#111111] leading-snug mb-6">{service.title}</h3>
                     <p className="text-[#555555] text-sm md:text-base leading-relaxed">{service.description}</p>
                   </div>
                   

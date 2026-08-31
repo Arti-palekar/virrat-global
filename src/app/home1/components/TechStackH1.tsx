@@ -83,7 +83,7 @@ export default function TechStackH1() {
           <span className="homepage-section-tag">
             QUESTIONS
           </span>
-          <h2 className="homepage-section-title">
+          <h2 className="homepage-section-title mb-5">
             Frequently Asked <span>Questions.</span>
           </h2>
         </div>

@@ -165,7 +165,7 @@ function ProjectCard({ project, index, groupNumber }: { project: PortfolioProjec
         <div className="p-5 bg-white">
           <div className="flex items-start justify-between gap-3">
             <div className="flex-1 min-w-0">
-              <p className="text-[9px] font-black tracking-[0.15em] uppercase text-[#D62020] font-mono mb-1.5">{project.category}</p>
+              <p className="text-[9px] font-black tracking-[0.15em] uppercase text-[#D62020] font-mono .5 mb-6">{project.category}</p>
               <h4 className="text-[15px] font-bold text-[#111] leading-tight tracking-tight group-hover:text-[#D62020] transition-colors duration-300 truncate">{project.title}</h4>
               <div className="flex items-center gap-2 mt-2">
                 <span className="text-[10px] text-[#999] font-medium">{project.client}</span>
@@ -217,8 +217,8 @@ function FeaturedRow({ project, groupNumber, reversed }: { project: PortfolioPro
           <span className="font-mono text-[10px] text-[#BBB] tracking-widest">{project.year}</span>
         </div>
         <div>
-          <p className="text-[9px] font-black tracking-[0.18em] uppercase text-[#D62020] font-mono mb-2">{project.category}</p>
-          <h3 className="text-[28px] sm:text-[36px] font-black text-[#111] leading-[1.05] tracking-tighter mb-4">{project.title}</h3>
+          <p className="text-[9px] font-black tracking-[0.18em] uppercase text-[#D62020] font-mono mb-6">{project.category}</p>
+          <h3 className="text-[28px] sm:text-[36px] font-black text-[#111] leading-[1.05] tracking-tighter mb-6">{project.title}</h3>
           <p className="text-[15px] text-[#666] leading-relaxed">{project.description}</p>
         </div>
         <div className="flex items-center gap-3 flex-wrap">
@@ -266,7 +266,7 @@ export default function BPPortfolio2026() {
   };
 
   return (
-    <section id="bp-portfolio-2026" aria-label="Portfolio showcase" className="relative w-full bg-white overflow-hidden">
+    <section id="bp-portfolio-2026" aria-label="Portfolio showcase" className="relative w-full bg-white overflow-hidden py-16 md:py-24">
 
 
       {/* STICKY TAB BAR */}
@@ -298,7 +298,7 @@ export default function BPPortfolio2026() {
             <div className="flex items-baseline justify-between mb-10 pb-5 border-b border-[#EBEBEB]">
               <div className="flex items-baseline gap-4">
                 <span className="font-mono text-[11px] font-bold text-[#D62020] tracking-[0.2em] uppercase">{cat.number}</span>
-                <h2 className="text-[22px] sm:text-[28px] font-black text-[#111] tracking-tight">{cat.label}</h2>
+                <h2 className="text-[22px] sm:text-[28px] font-black text-[#111] tracking-tight mb-5">{cat.label}</h2>
               </div>
               <span className="font-mono text-[10px] text-[#BBB] tracking-widest uppercase hidden sm:block">{String(cat.projects.length).padStart(2, "0")} Works</span>
             </div>
@@ -324,7 +324,7 @@ export default function BPPortfolio2026() {
           className="mt-24 pt-12 border-t border-[#EBEBEB] flex flex-col sm:flex-row items-center justify-between gap-6"
         >
           <div>
-            <p className="text-[11px] font-mono font-bold tracking-[0.15em] uppercase text-[#BBB] mb-1">READY TO CREATE SOMETHING ICONIC?</p>
+            <p className="text-[11px] font-mono font-bold tracking-[0.15em] uppercase text-[#BBB] mb-6">READY TO CREATE SOMETHING ICONIC?</p>
             <h3 className="text-[28px] sm:text-[36px] font-black text-[#111] tracking-tighter leading-tight">Let's build your brand.</h3>
           </div>
           <Link href="/contact" className="flex-shrink-0 inline-flex items-center gap-3 px-8 py-4 bg-[#D62020] hover:bg-[#BF1A1A] text-white rounded-full text-[12px] font-black tracking-[0.12em] uppercase transition-all duration-300 shadow-[0_8px_24px_rgba(214,32,32,0.35)] hover:shadow-[0_12px_32px_rgba(214,32,32,0.45)] hover:-translate-y-0.5 transform">

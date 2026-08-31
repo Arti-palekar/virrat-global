@@ -153,7 +153,7 @@ export default function Portfolio() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen overflow-hidden bg-white"
+      className="relative w-full min-h-screen overflow-hidden bg-white py-16 md:py-24"
     >
       {/* ═══════════════════════════════════════════════════════
           DESKTOP & TABLET VIEW (>= 768px)
@@ -468,10 +468,10 @@ export default function Portfolio() {
 
         {/* 3. CENTERED STACKED EDITORIAL TYPOGRAPHY */}
         <div className="text-center my-6 select-none">
-          <h2 className="font-heading font-black text-[#111111] text-[64px] sm:text-[72px] leading-[0.95] tracking-tight block">
+          <h2 className="font-heading font-black text-[#111111] text-[64px] sm:text-[72px] leading-[0.95] tracking-tight block mb-5">
             Featured
           </h2>
-          <h2 className="font-heading font-black text-[#D62020] text-[72px] sm:text-[80px] leading-[0.95] tracking-tight block">
+          <h2 className="font-heading font-black text-[#D62020] text-[72px] sm:text-[80px] leading-[0.95] tracking-tight block mb-5">
             Portfolio.
           </h2>
         </div>

@@ -22,7 +22,7 @@ export default function DMMarqueeStrip() {
   return (
     <section
       aria-label="Editorial Digital Marketing Marquee"
-      className="w-full bg-white border-y border-[#EBEBEB] h-[100px] md:h-[120px] overflow-hidden select-none flex items-center"
+      className="w-full bg-white border-y border-[#EBEBEB] h-[100px] md:h-[120px] overflow-hidden select-none flex items-center py-16 md:py-24"
     >
       <div
         className="w-full overflow-hidden relative flex items-center"

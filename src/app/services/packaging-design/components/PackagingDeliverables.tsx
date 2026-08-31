@@ -19,17 +19,17 @@ export default function PackagingDeliverables() {
   ];
 
   return (
-    <section className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden border-t border-zinc-100">
+    <section className="relative w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden border-t border-zinc-100 py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
           
           {/* Left Column: Headline */}
           <div className="lg:col-span-5 sticky top-36">
             <span className="text-[#fd2e35] text-[10px] font-bold tracking-[0.3em] uppercase">Deliverables</span>
-            <h2 className="text-4xl md:text-5xl font-heading font-extrabold tracking-tight mt-4 max-w-[15ch] leading-[1.1]">
-              EVERYTHING READY FOR PRODUCTION.
+            <h2 className="font-heading mt-4 max-w-[15ch] text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight mb-5">
+              Everything ready for production.
             </h2>
-            <p className="text-base text-zinc-600 mt-6 leading-relaxed max-w-[32ch]">
+            <p className="text-zinc-600 mt-6 max-w-[32ch] text-[18px] font-semibold leading-[1.5] tracking-normal">
               We compile and transfer files that are ready for immediate setup by manufacturers and commercial printing companies worldwide.
             </p>
           </div>

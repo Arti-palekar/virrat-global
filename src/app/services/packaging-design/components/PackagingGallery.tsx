@@ -73,15 +73,15 @@ export default function PackagingGallery() {
     : galleryItems.filter(item => item.category === selectedCategory);
 
   return (
-    <section className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden">
+    <section className="relative w-full px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto">
         
         {/* Gallery Title & Filters */}
         <div className="flex flex-col gap-10 mb-16">
           <div>
             <span className="text-[#fd2e35] text-[10px] font-bold tracking-[0.3em] uppercase">Visual Assets</span>
-            <h2 className="text-4xl md:text-5xl font-heading font-extrabold tracking-tight mt-4">
-              Packaging Gallery
+            <h2 className="font-heading mt-4 text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight mb-5">
+              Packaging gallery
             </h2>
           </div>
 

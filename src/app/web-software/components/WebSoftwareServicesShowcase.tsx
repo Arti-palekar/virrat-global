@@ -53,7 +53,7 @@ export function WebSoftwareServicesShowcase() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-[#ffffff] text-[#111111] pt-16 pb-16 md:pt-20 md:pb-20 overflow-hidden"
+      className="relative w-full bg-[#ffffff] text-[#111111] overflow-hidden py-16 md:py-24"
     >
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Header Section */}
@@ -131,7 +131,7 @@ export function WebSoftwareServicesShowcase() {
                 {/* Bottom-Left Content */}
                 <div className="absolute bottom-[20px] left-[20px] z-20 pr-4">
                   <h3 
-                    className="text-white !text-white font-black uppercase tracking-tight text-lg md:text-xl mb-1 leading-tight"
+                    className="text-white !text-white font-black uppercase tracking-tight text-lg md:text-xl leading-tight mb-6"
                     style={{ color: "#ffffff" }}
                   >
                     {service.title}
@@ -182,7 +182,7 @@ export function WebSoftwareServicesShowcase() {
                 {/* Bottom-Left Content */}
                 <div className="absolute bottom-[20px] left-[20px] z-20 pr-4">
                   <h3 
-                    className="text-white !text-white font-black uppercase tracking-tight text-lg mb-1 leading-tight"
+                    className="text-white !text-white font-black uppercase tracking-tight text-lg leading-tight mb-6"
                     style={{ color: "#ffffff" }}
                   >
                     {service.title}

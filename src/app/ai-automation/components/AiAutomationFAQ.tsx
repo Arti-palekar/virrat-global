@@ -43,7 +43,7 @@ export default function AiAutomationFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-22 bg-white text-[#111111]">
+    <section className="bg-white text-[#111111] py-16 md:py-24">
       <div className="container mx-auto px-6 max-w-4xl">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ export default function AiAutomationFAQ() {
           <span className="inline-block text-[#E52B26] text-xs font-bold tracking-[0.25em] uppercase">
             FREQUENTLY ASKED QUESTIONS
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold font-heading tracking-tight text-[#111111]">
+          <h2 className="text-4xl md:text-5xl font-bold font-heading tracking-tight text-[#111111] mb-5">
             Everything you need to know about our <span className="text-[#E52B26]">AI automation</span> services.
           </h2>
         </motion.div>

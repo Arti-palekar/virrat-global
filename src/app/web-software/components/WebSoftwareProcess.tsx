@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Search, Lightbulb, PenTool, Code, Rocket, ChevronsRight } from "lucide-react";
+import { Search, Lightbulb, PenTool, Code, Rocket } from "lucide-react";
 
 interface Step {
   title: string;
@@ -50,78 +50,125 @@ export default function WebSoftwareProcess({
   description,
 }: WebSoftwareProcessProps) {
 
-  return (
-    <section className="relative w-full bg-[#FAFAF8] text-[#111111] overflow-hidden pt-24 pb-32">
-      {/* Background Pattern */}
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(#111111 1px, transparent 1px)',
-          backgroundSize: '24px 24px'
-        }}
-      />
+  // Process title: splitting by newline if any
+  const formattedTitle = title.split('\n').map((line, i, arr) => (
+    <React.Fragment key={i}>
+      {line}
+      {i < arr.length - 1 && <br />}
+    </React.Fragment>
+  ));
 
-      <div className="w-full pb-16 px-6 md:px-12 text-center relative z-20">
-        <h2 className="text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight max-w-[20ch] mx-auto text-[#111111] relative">
-          OUR PROCESS
+  return (
+    <section className="relative w-full bg-white text-[#111111] overflow-hidden py-16 md:py-24">
+      {/* Header */}
+      <div className="w-full text-center relative z-20 px-6 mb-16 md:mb-32">
+        <h2 className="text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight max-w-[20ch] mx-auto text-[#111111] relative mb-5">
+          {formattedTitle}
         </h2>
-        <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-[54ch] mx-auto mt-10">
-          A simple, structured process for building scalable digital products.
+        <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-[54ch] mx-auto mt-6">
+          {description}
         </p>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-20 mt-12 max-w-[1600px]">
-        {/* Modern Infographic Grid Layout - Exactly 5 columns on desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-4 xl:gap-x-8 gap-y-16">
-          
+      {/* Desktop Timeline (Curved Wave) */}
+      <div className="hidden lg:block relative max-w-[1400px] mx-auto h-[480px]">
+        
+        {/* The SVG Wavy Line (200px height, vertically centered) */}
+        <div className="absolute top-1/2 left-0 w-full h-[200px] -translate-y-1/2 pointer-events-none">
+          <svg 
+            width="100%" 
+            height="100%" 
+            viewBox="0 0 1000 200" 
+            preserveAspectRatio="none" 
+            className="overflow-visible"
+          >
+            <path 
+              d="M 0 100 
+                 C 40 100, 50 50, 100 50 
+                 S 200 150, 300 150 
+                 S 400 50, 500 50 
+                 S 600 150, 700 150 
+                 S 800 50, 900 50 
+                 C 950 50, 960 100, 1000 100" 
+              fill="none" 
+              stroke="#E32620" 
+              strokeWidth="2.5" 
+              className="drop-shadow-[0_6px_12px_rgba(227,38,32,0.3)]"
+            />
+          </svg>
+
+          {/* Nodes & Content */}
           {processSteps.map((step, idx) => {
             const Icon = step.icon;
+            const isTop = idx % 2 === 0; // Peak (y=50) -> Top
+            const leftPos = `${10 + (idx * 20)}%`; 
+            const topPos = isTop ? "25%" : "75%"; 
             
             return (
-              <div key={idx} className="relative w-full pt-8 pl-8 pb-4 pr-4 group mx-auto max-w-[340px] lg:max-w-none">
-                
-                {/* Large Circular Element Behind Card */}
-                <div className="absolute top-0 left-0 w-[110px] h-[110px] xl:w-[130px] xl:h-[130px] bg-[#E32620] rounded-full z-0 transition-transform duration-500 group-hover:scale-105 opacity-90 shadow-lg shadow-[#E32620]/20" />
-                
-                {/* Decorative Floating Lines (Top Right) */}
-                <div className="absolute top-4 right-12 w-6 h-[4px] bg-[#E32620]/60 rounded-full transition-all duration-300 group-hover:bg-[#E32620]" />
-                <div className="absolute top-4 right-4 w-[4px] h-[4px] bg-[#E32620]/60 rounded-full transition-all duration-300 group-hover:bg-[#E32620]" />
-                
-                {/* Decorative Floating Lines (Bottom Left) */}
-                <div className="absolute -bottom-1 left-12 w-10 h-[4px] bg-[#E32620]/60 rounded-full transition-all duration-300 group-hover:bg-[#E32620]" />
-                <div className="absolute -bottom-1 left-26 w-4 h-[4px] bg-[#E32620]/60 rounded-full transition-all duration-300 group-hover:bg-[#E32620]" />
+              <div 
+                key={idx} 
+                className="absolute flex flex-col items-center justify-center z-20 pointer-events-auto"
+                style={{ left: leftPos, top: topPos, transform: "translate(-50%, -50%)" }}
+              >
+                {/* The Icon Badge */}
+                <div className="w-[72px] h-[72px] bg-white rounded-2xl shadow-[0_8px_30px_rgba(227,38,32,0.12)] border border-[#E32620]/10 flex items-center justify-center relative z-20 group hover:-translate-y-1 transition-transform duration-300">
+                  <Icon className="w-8 h-8 text-[#E32620]" strokeWidth={2.2} />
+                </div>
 
-                {/* Main Card (Premium Glassmorphism over circle) */}
-                <div className="relative z-10 bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-2xl border border-white/60 rounded-[2rem] xl:rounded-[2.5rem] p-6 xl:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.04)] h-full min-h-[280px] flex flex-col group-hover:shadow-[0_16px_48px_rgba(227,38,32,0.12)] transition-all duration-500 transform group-hover:-translate-y-1">
-                  
-                  {/* Top Header: Icon & Arrows */}
-                  <div className="flex justify-between items-start mb-6 xl:mb-8">
-                    {/* Icon placed overlapping the red circle beneath the frosted glass */}
-                    <div className="w-10 h-10 xl:w-12 xl:h-12 flex items-center justify-center -ml-2 -mt-2">
-                       <Icon className="w-7 h-7 xl:w-8 xl:h-8 text-[#E32620] drop-shadow-sm" />
+                {/* The Text Box */}
+                <div 
+                  className={`absolute w-72 text-center flex flex-col items-center justify-center pointer-events-none ${isTop ? 'bottom-[80px]' : 'top-[80px]'}`}
+                >
+                  <div className="relative w-full flex flex-col items-center justify-center">
+                    {/* Giant faded number */}
+                    <div 
+                      className={`absolute left-1/2 -translate-x-1/2 ${isTop ? 'bottom-[-20px]' : 'top-[-35px]'} text-[180px] font-black text-slate-100/70 z-0 leading-none tracking-tighter select-none`}
+                    >
+                      {idx + 1}
                     </div>
-                    {/* Double arrows from reference */}
-                    <ChevronsRight className="w-5 h-5 xl:w-6 xl:h-6 text-[#E32620]/50" />
+                    
+                    <div className="relative z-10">
+                      <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
+                      <p className="text-sm text-slate-500 leading-relaxed px-4">{step.description}</p>
+                    </div>
                   </div>
-
-                  {/* Centered Content */}
-                  <div className="text-center mt-auto flex flex-col items-center pb-2">
-                     <h4 className="text-[#E32620] font-bold tracking-[0.15em] text-[12px] xl:text-[13px] uppercase mb-4">
-                       STEP 0{idx + 1}
-                     </h4>
-                     <h3 className="text-[17px] xl:text-[19px] font-bold text-[#111111] mb-3 leading-tight">
-                       {step.title}
-                     </h3>
-                     <p className="text-[#555555] text-[12px] xl:text-[13px] leading-relaxed max-w-[240px] mx-auto">
-                       {step.description}
-                     </p>
-                  </div>
-
                 </div>
               </div>
-            );
+            )
           })}
-          
+        </div>
+      </div>
+
+      {/* Mobile/Tablet Timeline (Vertical) */}
+      <div className="lg:hidden relative px-6 md:px-12 max-w-2xl mx-auto mt-16 pb-12">
+        {/* Vertical Line */}
+        <div className="absolute left-[3.25rem] md:left-[5rem] top-8 bottom-0 w-[2px] bg-gradient-to-b from-[#E32620]/60 to-transparent z-0" />
+        
+        <div className="flex flex-col gap-16 relative z-10">
+          {processSteps.map((step, idx) => {
+            const Icon = step.icon;
+            return (
+              <div key={idx} className="flex gap-6 md:gap-10 relative items-start">
+                {/* Icon Node */}
+                <div className="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 bg-white rounded-2xl shadow-[0_8px_20px_rgba(227,38,32,0.15)] border border-[#E32620]/10 flex items-center justify-center relative z-20 mt-1 md:mt-2">
+                  <Icon className="w-6 h-6 md:w-7 md:h-7 text-[#E32620]" strokeWidth={2.2} />
+                </div>
+                
+                {/* Content */}
+                <div className="flex-1 pt-1 md:pt-3 relative">
+                  {/* Background Number */}
+                  <div className="absolute -top-10 md:-top-16 left-0 text-[100px] md:text-[140px] font-black text-slate-100/70 z-0 leading-none tracking-tighter select-none pointer-events-none">
+                    {idx + 1}
+                  </div>
+                  
+                  <div className="relative z-10">
+                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">{step.title}</h3>
+                    <p className="text-base text-slate-500 leading-relaxed">{step.description}</p>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

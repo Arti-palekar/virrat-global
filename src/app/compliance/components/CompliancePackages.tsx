@@ -40,7 +40,7 @@ const packages = [
 
 export default function CompliancePackages() {
   return (
-    <section className="relative w-full py-20 lg:py-32 bg-white">
+    <section className="relative w-full bg-white py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
@@ -103,8 +103,8 @@ export default function CompliancePackages() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="flex flex-col bg-[#FAF9F6] border border-[#E8E8E8] rounded-2xl p-8 hover:-translate-y-2 hover:border-[#E31E24]/30 hover:shadow-xl hover:shadow-[#E31E24]/5 transition-all duration-300"
             >
-              <h3 className="text-lg font-bold text-[#111111] mb-2">{pkg.title}</h3>
-              <p className="text-sm text-[#666666] mb-8 pb-8 border-b border-[#E8E8E8]">
+              <h3 className="text-lg font-bold text-[#111111] mb-6">{pkg.title}</h3>
+              <p className="text-sm text-[#666666] pb-8 border-b border-[#E8E8E8] mb-6">
                 {pkg.desc}
               </p>
               

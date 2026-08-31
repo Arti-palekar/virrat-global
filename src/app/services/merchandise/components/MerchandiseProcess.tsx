@@ -43,14 +43,14 @@ export default function MerchandiseProcess() {
   ];
 
   return (
-    <section className="relative w-full bg-white text-[#111111] overflow-hidden pt-20 pb-10">
+    <section className="relative w-full bg-white text-[#111111] overflow-hidden py-16 md:py-24">
       
       {/* Centered Editorial Heading Area */}
       <div className="w-full pb-8 px-6 md:px-12 text-center relative z-20 bg-white">
         <span className="inline-block text-[#d62020] text-xs font-bold tracking-[0.25em] uppercase mb-3">
           OUR PROCESS
         </span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tighter leading-none uppercase max-w-[20ch] mx-auto">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tighter leading-none uppercase max-w-[20ch] mx-auto mb-5">
           Our Step-by-Step<br />Merchandise Process
         </h2>
         <p className="text-sm text-zinc-500 font-medium leading-relaxed max-w-[48ch] mx-auto mt-4">

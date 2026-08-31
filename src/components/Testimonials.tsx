@@ -197,7 +197,7 @@ export default function Testimonials() {
   const xOffset = isMobile ? 360 : 440;
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#FFFFFF] py-24 md:py-22 overflow-hidden font-syne">
+    <section ref={sectionRef} className="w-full bg-[#FFFFFF] overflow-hidden font-syne py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 relative z-10">
         
         {/* Left Side Header */}
@@ -207,7 +207,7 @@ export default function Testimonials() {
               Real Client Stories
             </span>
           </div>
-          <h2 className="homepage-section-title testi-header-anim max-w-[650px]">
+          <h2 className="homepage-section-title testi-header-anim max-w-[650px] mb-5">
             Real Feedback From<br />
             <span>Our Happy Clients.</span>
           </h2>

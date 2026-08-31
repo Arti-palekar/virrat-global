@@ -69,15 +69,15 @@ const itemVariants = {
 
 export default function AiAutomationBeforeAfter() {
   return (
-    <section className="w-full bg-[#000000] py-24 md:py-32 lg:py-36 px-6 md:px-12 lg:px-24 border-b border-zinc-900 relative overflow-hidden">
+    <section className="w-full bg-[#000000] px-6 md:px-12 lg:px-24 border-b border-zinc-900 relative overflow-hidden py-16 md:py-24">
       {/* Subtle background red glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#ED1C24]/[0.015] blur-[140px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
 
         {/* ── SECTION HEADER ── */}
-        <div className="text-center mb-14 md:mb-16">
-          <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bold leading-[1.1] tracking-tight mb-4 font-heading !text-white">
+        <div className="text-center mb-12">
+          <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bold leading-[1.1] tracking-tight font-heading !text-white mb-5">
             Before <span className="text-[#ED1C24]">→</span> After
           </h2>
           <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.6] !text-[#D1D1D1] font-sans max-w-[580px] mx-auto">

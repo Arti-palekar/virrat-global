@@ -26,7 +26,7 @@ export default function BPMarqueeStrip() {
   const marqueeSet = [...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems];
 
   return (
-    <section className="relative w-full h-[110px] md:h-[130px] bg-white -mt-8 flex items-center justify-center overflow-hidden z-10 select-none border-none group">
+    <section className="relative w-full h-[110px] md:h-[130px] bg-white - flex items-center justify-center overflow-hidden z-10 select-none border-none group py-16 md:py-24">
       
       {/* Hardware Accelerated Left-to-Right Keyframe Animation */}
       <style>{`

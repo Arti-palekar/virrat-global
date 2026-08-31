@@ -76,7 +76,7 @@ function FlipCard({
                     style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
                 >
                     <div className="text-center">
-                        <p className="text-[8px] font-bold text-[#d62020] uppercase tracking-widest mb-1">View</p>
+                        <p className="text-[8px] font-bold text-[#d62020] uppercase tracking-widest mb-6">View</p>
                         <p className="text-xs font-medium text-white">Details</p>
                     </div>
                 </div>
@@ -228,7 +228,7 @@ export function AnimatedServices() {
     const contentY = useTransform(smoothMorph, [0.8, 1], [20, 0]);
 
     return (
-        <section ref={sectionRef} className="relative w-full h-[400vh] bg-white">
+        <section ref={sectionRef} className="relative w-full h-[400vh] bg-white py-16 md:py-24">
             <div ref={containerRef} className="sticky top-0 w-full h-screen overflow-hidden py-[100px] select-none">
                 <div className="flex h-full w-full flex-col items-center justify-center perspective-1000">
 

@@ -130,7 +130,7 @@ export default function AiAutomationWhy() {
   };
 
   return (
-    <section className="w-full bg-[#050b09] py-20 md:py-28 lg:py-32 px-6 md:px-12 lg:px-24 border-b border-zinc-900 relative overflow-hidden">
+    <section className="w-full bg-[#050b09] px-6 md:px-12 lg:px-24 border-b border-zinc-900 relative overflow-hidden py-16 md:py-24">
       {/* Soft Blue/Purple Ambient Backlight */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-blue-600/[0.04] blur-[160px] pointer-events-none z-0" />
       <div className="absolute top-1/2 left-[30%] -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-500/[0.03] blur-[150px] pointer-events-none z-0" />
@@ -139,12 +139,12 @@ export default function AiAutomationWhy() {
       <div className="max-w-6xl mx-auto z-10 relative">
         
         {/* ── SECTION HEADER ── */}
-        <div className="text-center mb-16 max-w-2xl mx-auto relative z-20">
-          <p className="text-blue-400 text-[11px] font-bold tracking-[0.25em] uppercase mb-4 drop-shadow-[0_0_10px_rgba(96,165,250,0.5)]">
+        <div className="text-center max-w-2xl mx-auto relative z-20 mb-12">
+          <p className="text-blue-400 text-[11px] font-bold tracking-[0.25em] uppercase drop-shadow-[0_0_10px_rgba(96,165,250,0.5)] mb-6">
             WHY AI AUTOMATION
           </p>
           
-          <h2 className="text-[36px] sm:text-[44px] lg:text-[52px] font-bold leading-[1.1] tracking-tight mb-6 font-heading !text-white">
+          <h2 className="text-[36px] sm:text-[44px] lg:text-[52px] font-bold leading-[1.1] tracking-tight font-heading !text-white mb-5">
             Why AI Automation?
           </h2>
           

@@ -16,7 +16,7 @@ const LOGOS = [
 
 export function ClientLogos() {
   return (
-    <section className="py-24 overflow-hidden border-t border-black/5 bg-white">
+    <section className="overflow-hidden border-t border-black/5 bg-white py-16 md:py-24">
       <style>{`
         @keyframes smooth-marquee {
           0% { transform: translate3d(0, 0, 0); }

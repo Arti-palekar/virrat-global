@@ -75,7 +75,7 @@ const services: Service[] = [
 
 export function ServicesFanHover() {
   return (
-    <section className="w-full bg-[#f8f7f5] text-[#111111] py-24 px-6 md:px-12 overflow-hidden font-sans border-b border-[#ECECEC]">
+    <section className="w-full bg-[#f8f7f5] text-[#111111] px-6 md:px-12 overflow-hidden font-sans border-b border-[#ECECEC] py-16 md:py-24">
       <style>{`
         .fan-card {
           position: relative;
@@ -136,11 +136,11 @@ export function ServicesFanHover() {
       `}</style>
 
       {/* Section Header */}
-      <div className="max-w-[650px] mx-auto mb-16 text-center">
+      <div className="max-w-[650px] mx-auto text-center mb-12">
         <span className="homepage-section-tag inline-block mb-3">
           OUR SERVICES
         </span>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#111111] font-heading">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#111111] font-heading mb-5">
           Our Services
         </h2>
       </div>
@@ -170,7 +170,7 @@ export function ServicesFanHover() {
                 </h3>
               </div>
 
-              <p className="text-[16px] text-[#666666] font-body leading-relaxed mb-4">
+              <p className="text-[16px] text-[#666666] font-body leading-relaxed mb-6">
                 {service.description}
               </p>
             </div>

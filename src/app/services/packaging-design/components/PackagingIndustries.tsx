@@ -66,7 +66,7 @@ export default function PackagingIndustries() {
   };
 
   return (
-    <section className="relative w-full bg-[#FAF9F6] text-[#111111] pt-20 pb-20 overflow-hidden flex flex-col items-center text-center">
+    <section className="relative w-full bg-[#FAF9F6] text-[#111111] overflow-hidden flex flex-col items-center text-center py-16 md:py-24">
       {/* ── CENTRAL HEADER TEXT BLOCK ── */}
       <div className="max-w-[1400px] mx-auto px-6 relative z-30 flex flex-col items-center">
 

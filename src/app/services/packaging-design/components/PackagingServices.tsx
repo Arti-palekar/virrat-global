@@ -115,15 +115,15 @@ const servicesList: ServiceCard[] = [
 
 export default function PackagingServices() {
   return (
-    <section className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111]">
+    <section className="relative w-full px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto">
         
         {/* Section Heading */}
         <div className="mb-16">
           <span className="text-[#fd2e35] text-[10px] font-bold tracking-[0.3em] uppercase">What We Design</span>
-          <h2 className="text-4xl md:text-5xl font-heading font-extrabold tracking-tight mt-4 leading-[1.1]">
-            Packaging Solutions<br />
-            Built Around Your Product.
+          <h2 className="font-heading mt-4 text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight mb-5">
+            Packaging solutions<br />
+            built around your product.
           </h2>
         </div>
 
@@ -157,13 +157,13 @@ export default function PackagingServices() {
 
                 {/* Service Details */}
                 <div className="mt-8">
-                  <h3 className="text-xl md:text-2xl font-bold font-heading mb-2 tracking-tight group-hover:text-[#fd2e35] transition-colors duration-300">
+                  <h3 className="text-xl md:text-2xl font-bold font-heading tracking-tight group-hover:text-[#fd2e35] transition-colors duration-300 mb-6">
                     {service.title}
                   </h3>
                   
                   {/* Expandable info on hover */}
                   <div className="max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-500 ease-out">
-                    <p className="text-xs text-white/70 font-light leading-relaxed mb-4">
+                    <p className="text-xs text-white/70 font-light leading-relaxed mb-6">
                       {service.desc}
                     </p>
                   </div>

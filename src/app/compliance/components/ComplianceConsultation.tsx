@@ -17,7 +17,7 @@ export default function ComplianceConsultation() {
   };
 
   return (
-    <section className="relative w-full py-20 lg:py-32 bg-white border-t border-[#E8E8E8]">
+    <section className="relative w-full bg-white border-t border-[#E8E8E8] py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">

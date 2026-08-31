@@ -75,7 +75,7 @@ export default function DMProcess() {
   const Icon = current.icon;
 
   return (
-    <section className="relative w-full py-24 md:py-32 bg-[#FAF9F6] text-[#111111] overflow-hidden">
+    <section className="relative w-full bg-[#FAF9F6] text-[#111111] overflow-hidden py-16 md:py-24">
       
 
 
@@ -286,20 +286,7 @@ export default function DMProcess() {
             </div>
           </div>
 
-          {/* Bottom ticker - subtle repeating process names */}
-          <div className="absolute -bottom-16 md:-bottom-24 left-0 right-0 overflow-hidden opacity-[0.03] pointer-events-none">
-            <motion.div
-              className="flex whitespace-nowrap text-4xl md:text-6xl font-black tracking-tight"
-              animate={{ x: [0, -1000] }}
-              transition={{ duration: 30, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            >
-              {[...Array(10)].map((_, i) => (
-                <span key={i} className="mx-8 uppercase">
-                  {dmProcessSteps.map((t) => t.title).join(" • ")} •
-                </span>
-              ))}
-            </motion.div>
-          </div>
+
         </div>
       </div>
     </section>

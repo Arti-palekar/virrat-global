@@ -4,13 +4,13 @@ import { ArrowUpRight, Star } from 'lucide-react';
 
 export default function AboutEmpower() {
   return (
-    <section className="w-full bg-white py-16 md:py-24 relative overflow-hidden">
+    <section className="w-full bg-white relative overflow-hidden py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* TOP ROW */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-center mb-16">
           {/* Left: Text */}
           <div className="w-full lg:w-5/12 flex flex-col justify-center">
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-slate-900 leading-[1.1] mb-6 tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-slate-900 leading-[1.1] tracking-tight mb-5">
               Empower Your <br />
               Future with Expert-<br />
               Led Courses

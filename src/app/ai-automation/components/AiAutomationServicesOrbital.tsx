@@ -75,7 +75,7 @@ export default function AiAutomationServicesOrbital() {
   const activeNode = servicesList[activeIdx];
 
   return (
-    <section className="ai-automation-services w-full py-24 bg-[#050b09] text-white overflow-hidden border-b border-zinc-900">
+    <section className="ai-automation-services w-full bg-[#050b09] text-white overflow-hidden border-b border-zinc-900 py-16 md:py-24">
       <style>{`
         @keyframes orbit-glow {
           0% { transform: rotate(0deg); }
@@ -128,7 +128,7 @@ export default function AiAutomationServicesOrbital() {
               AI AGENTS THAT WORK FOR YOU
             </span>
             
-            <h2 className="text-4xl md:text-5xl lg:text-[52px] font-light leading-[1.15] tracking-tight uppercase mb-8 font-heading text-zinc-300">
+            <h2 className="text-4xl md:text-5xl lg:text-[52px] font-light leading-[1.15] tracking-tight uppercase font-heading text-zinc-300 mb-5">
               Build AI teammates that automate your workflows
             </h2>
             

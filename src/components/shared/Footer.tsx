@@ -51,7 +51,7 @@ export function Footer() {
           
           {/* Left Column - Heading & Description */}
           <div className="lg:col-span-5 md:pr-4 lg:pr-0">
-            <p className="text-5xl md:text-6xl lg:text-[76px] font-extrabold font-heading mb-8 leading-[0.82] tracking-tighter text-[#FFFFFF]">
+            <p className="text-5xl md:text-6xl lg:text-[76px] font-extrabold font-heading leading-[0.82] tracking-tighter text-[#FFFFFF] mb-6">
               Helping<br/>start-ups<br/>scale & grow.
             </p>
             <div className="flex items-center gap-3 mt-5">

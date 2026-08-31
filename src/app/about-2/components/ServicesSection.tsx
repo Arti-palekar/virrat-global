@@ -31,8 +31,8 @@ const SERVICES = [
 
 export default function ServicesSection() {
   return (
-    <section className="bg-[#FFFFFF] text-[#1F1F1F] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32 relative z-10 w-full">
-      <h2 className="text-center text-4xl md:text-[54px] font-bold text-slate-900 leading-[1.1] mb-5 tracking-tight">
+    <section className="bg-[#FFFFFF] text-[#1F1F1F] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 relative z-10 w-full py-16 md:py-24">
+      <h2 className="text-center text-4xl md:text-[54px] font-bold text-slate-900 leading-[1.1] tracking-tight mb-5">
         Services
       </h2>
 
@@ -49,7 +49,7 @@ export default function ServicesSection() {
                 <h3 className="font-medium uppercase text-[#1F1F1F] text-[clamp(1rem,2.2vw,2.1rem)]">
                   {service.title}
                 </h3>
-                <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-6 max-w-[720px]">
+                <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-[720px] mb-6">
                   {service.desc}
                 </p>
               </div>

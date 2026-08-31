@@ -39,7 +39,7 @@ const SERVICES = [
 
 export function FeaturedServices() {
   return (
-    <section className="py-22 bg-[var(--color-background)] text-[var(--color-foreground)]">
+    <section className="bg-[var(--color-background)] text-[var(--color-foreground)] py-16 md:py-24">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-2xl">
@@ -85,7 +85,7 @@ export function FeaturedServices() {
               <div className="w-14 h-14 rounded-full bg-[var(--color-background)] flex items-center justify-center mb-8 text-[var(--color-primary)] group-hover:bg-[var(--color-accent)] group-hover:text-white transition-colors">
                 {service.icon}
               </div>
-              <h3 className="text-2xl font-bold font-heading mb-4">{service.title}</h3>
+              <h3 className="text-2xl font-bold font-heading mb-6">{service.title}</h3>
               <p className="text-[var(--color-secondary)] leading-relaxed">
                 {service.description}
               </p>

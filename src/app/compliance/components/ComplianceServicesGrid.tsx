@@ -128,11 +128,11 @@ export default function ComplianceServicesGrid() {
   });
 
   return (
-    <section id="services" className="relative w-full py-20 lg:py-32 bg-[#FAF9F6]">
+    <section id="services" className="relative w-full bg-[#FAF9F6] py-16 md:py-24">
       <div className="max-w-[1450px] mx-auto px-6 md:px-8 lg:px-10">
         
         {/* Header & Search */}
-        <div className="flex flex-col items-center text-center mb-16">
+        <div className="flex flex-col items-center text-center mb-12">
 
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
@@ -219,7 +219,7 @@ export default function ComplianceServicesGrid() {
                   </div>
 
                   {/* Description */}
-                  <p className="relative z-10 text-[15px] md:text-[16px] text-gray-500 leading-relaxed max-w-[320px] mb-8 flex-grow">
+                  <p className="relative z-10 text-[15px] md:text-[16px] text-gray-500 leading-relaxed max-w-[320px] flex-grow mb-6">
                     {service.desc}
                   </p>
 

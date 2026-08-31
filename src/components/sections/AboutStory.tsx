@@ -12,14 +12,14 @@ const VALUES = [
 
 export function AboutStory() {
   return (
-    <section className="pb-32 bg-[var(--color-background)]">
+    <section className="bg-[var(--color-background)] py-16 md:py-24">
       <div className="container mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="max-w-4xl mb-24"
         >
-          <h1 className="text-6xl md:text-8xl font-bold font-heading mb-8 tracking-tighter leading-none">
+          <h1 className="text-6xl md:text-8xl font-bold font-heading tracking-tighter leading-none mb-5">
             Good design is <span className="text-[var(--color-accent)]">good business.</span>
           </h1>
         </motion.div>
@@ -57,7 +57,7 @@ export function AboutStory() {
         </div>
 
         <div className="mb-20">
-          <h2 className="homepage-section-title">
+          <h2 className="homepage-section-title mb-5">
             Our <span>Values.</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -70,7 +70,7 @@ export function AboutStory() {
                 transition={{ delay: index * 0.1 }}
                 className="p-10 rounded-[2rem] bg-white border border-black/5"
               >
-                <h3 className="card-title mb-3">{value.title}</h3>
+                <h3 className="card-title mb-6">{value.title}</h3>
                 <p className="card-description">{value.description}</p>
               </motion.div>
             ))}

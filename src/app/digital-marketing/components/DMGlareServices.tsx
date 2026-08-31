@@ -41,14 +41,14 @@ const FEATURED_PILLARS = [
 
 export default function DMGlareServices() {
   return (
-    <section className="w-full bg-[#FAFAFA] text-[#111111] py-24 md:py-32 border-b border-[#EBEBEB] relative overflow-hidden select-none">
+    <section className="w-full bg-[#FAFAFA] text-[#111111] border-b border-[#EBEBEB] relative overflow-hidden select-none py-16 md:py-24">
       {/* Subtle Light Radial Blur */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-[#D62020]/[0.03] blur-[160px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20">
+        <div className="max-w-2xl mx-auto text-center mb-12">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -109,7 +109,7 @@ export default function DMGlareServices() {
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-[22px] md:text-[24px] font-bold text-[#111111] font-heading leading-tight mb-3 group-hover:text-[#D62020] transition-colors duration-300">
+                  <h3 className="text-[22px] md:text-[24px] font-bold text-[#111111] font-heading leading-tight group-hover:text-[#D62020] transition-colors duration-300 mb-6">
                     {pillar.title}
                   </h3>
 

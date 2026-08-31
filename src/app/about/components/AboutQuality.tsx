@@ -6,7 +6,7 @@ const QualityPoint = ({ number, title, desc, className = "", delay = "0s" }: { n
     <div className="w-12 h-12 rounded-full bg-[#E10600] text-white flex items-center justify-center mb-4 shadow-lg shadow-[#E10600]/30 z-10 font-bold text-lg">
       {number}
     </div>
-    <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
+    <h3 className="text-lg font-bold text-gray-900 mb-6">{title}</h3>
     <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
   </div>
 );
@@ -45,12 +45,12 @@ export default function AboutQuality() {
   const [activeIndex, setActiveIndex] = useState(2);
 
   return (
-    <section className="py-24 bg-[#fafafa] relative font-body">
+    <section className="bg-[#fafafa] relative font-body py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 lg:mb-12 flex flex-col items-center relative z-40">
-          <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-6">
+        <div className="text-center max-w-3xl mx-auto flex flex-col items-center relative z-40 mb-12">
+          <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-5">
             Built on Vision. Driven by Excellence.
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl">

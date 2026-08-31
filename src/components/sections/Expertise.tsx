@@ -53,7 +53,7 @@ export function Expertise() {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <section className="py-24 md:py-32 bg-black text-white">
+    <section className="bg-black text-white py-16 md:py-24">
       <div className="container mx-auto px-6">
         
         {/* Top Header Area */}

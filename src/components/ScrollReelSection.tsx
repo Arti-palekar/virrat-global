@@ -38,7 +38,7 @@ export function ScrollReelSection() {
   return (
     <section
       aria-labelledby="scroll-reel-heading"
-      className="bg-[#FAF9F6] border-t border-black/5 py-24 md:py-32 relative z-10"
+      className="bg-[#FAF9F6] border-t border-black/5 relative z-10 py-16 md:py-24"
     >
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
         {/* Heading */}
@@ -49,7 +49,7 @@ export function ScrollReelSection() {
             </div>
             <h2
               id="scroll-reel-heading"
-              className="text-4xl font-extrabold tracking-tight text-zinc-900 md:text-5xl"
+              className="text-4xl font-extrabold tracking-tight text-zinc-900 md:text-5xl mb-5"
             >
               Trusted by teams<br className="hidden sm:block" /> who move fast
             </h2>

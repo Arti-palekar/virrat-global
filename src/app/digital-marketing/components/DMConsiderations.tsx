@@ -119,7 +119,7 @@ export default function AiAutomationConsiderations() {
   const progressPercent = maxIndex > 0 ? (currentIndex / maxIndex) * 100 : 0;
 
   return (
-    <section className="w-full pt-6 pb-20 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111]">
+    <section className="w-full px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto">
         
         {/* SECTION HEADER */}
@@ -136,7 +136,7 @@ export default function AiAutomationConsiderations() {
               WHY BUSINESSES CHOOSE VIRRAT GLOBAL
             </span>
             <h2 
-              className="text-4xl md:text-[54px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#111111] mb-[20px]"
+              className="text-4xl md:text-[54px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#111111] ] mb-5"
               style={{ fontFamily: 'Sora, sans-serif' }}
             >
               Why businesses choose<br />Virrat Global

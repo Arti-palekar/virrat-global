@@ -7,12 +7,12 @@ export default function AboutStory() {
   const [activeTab, setActiveTab] = useState<'who' | 'journey'>('who');
 
   return (
-    <section className="py-24 bg-white font-body relative overflow-hidden">
+    <section className="bg-white font-body relative overflow-hidden py-16 md:py-24">
       <div className="max-w-[90rem] mx-auto px-6 md:px-12">
         
         {/* Top Row: Heading and Labels */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
-          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold text-gray-900 max-w-3xl tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold text-gray-900 max-w-3xl tracking-tight mb-5">
             Our Story: Driven By <br className="hidden md:block"/>
             Creativity. Powered By <br className="hidden md:block"/>
             Experience.
@@ -59,8 +59,8 @@ export default function AboutStory() {
                       <path d="M12 2L13.5 9.5L21 11L13.5 12.5L12 20L10.5 12.5L3 11L10.5 9.5L12 2Z" />
                     </svg>
                   </div>
-                  <p className="text-gray-900 text-sm leading-relaxed font-bold mb-2 uppercase tracking-wide">Who We Are</p>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-900 text-sm leading-relaxed font-bold uppercase tracking-wide mb-6">Who We Are</p>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
                     Creative growth partners delivering impactful, modern, and strategic brand solutions.
                   </p>
                   <div className="flex flex-wrap gap-x-3 gap-y-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
@@ -87,10 +87,10 @@ export default function AboutStory() {
 
                 {/* 4. Right Text & CTA */}
                 <div className="lg:col-span-3 flex flex-col justify-center pt-4 lg:pt-20">
-                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 leading-snug">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-6">
                     Who We Are
                   </h3>
-                  <p className="text-gray-600 text-base leading-relaxed mb-8">
+                  <p className="text-gray-600 text-base leading-relaxed mb-6">
                     Virrat Global combines creative excellence with strategic thinking to help businesses build bold, modern and globally relevant brands.
                   </p>
                   <div>
@@ -122,7 +122,7 @@ export default function AboutStory() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
                   </div>
-                  <p className="text-gray-900 text-sm leading-relaxed font-bold mb-2 uppercase tracking-wide">Our Journey</p>
+                  <p className="text-gray-900 text-sm leading-relaxed font-bold uppercase tracking-wide mb-6">Our Journey</p>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     A new name, a bigger vision and endless possibilities ahead!
                   </p>
@@ -140,16 +140,16 @@ export default function AboutStory() {
 
                 {/* 4. Right Text & CTA */}
                 <div className="lg:col-span-3 flex flex-col justify-center pt-4 lg:pt-10">
-                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 leading-snug">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-6">
                     Bold Beginnings
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
                     Virrat Global Pvt. Ltd. evolved from Smartup India Ventures with a renewed vision focused on helping businesses thrive through creativity, innovation, and strategy.
                   </p>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
                     With a legacy of working with 600+ brands across industries, Virrat Global has evolved into a growth partner offering end-to-end solutions across: Branding, Packaging, Digital Marketing, Website Development, UI/UX, Corporate Gifting, Printing.
                   </p>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-8">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
                     Our journey so far has been possible because of the support and collaboration of our clients and partners. As we move forward as Virrat Global Pvt. Ltd., our focus remains on innovation, long-term partnerships and measurable business growth.
                   </p>
 

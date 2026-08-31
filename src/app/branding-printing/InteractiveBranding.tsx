@@ -76,7 +76,7 @@ const features = [
 
 export default function InteractiveBranding() {
   return (
-    <section className="relative w-full bg-[#FFFFFF] pt-[24px] pb-32 mt-0 overflow-hidden font-syne">
+    <section className="relative w-full bg-[#FFFFFF] ] overflow-hidden font-syne py-16 md:py-24">
       {/* Background Soft Abstract Shapes & Gradients */}
       <div className="absolute top-10 left-[-10%] w-[600px] h-[600px] bg-[#D62020] opacity-[0.02] rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-10 right-[-10%] w-[800px] h-[800px] bg-[#D62020] opacity-[0.03] rounded-full blur-[120px] pointer-events-none" />
@@ -146,7 +146,7 @@ export default function InteractiveBranding() {
                 {/* ── CENTER & BOTTOM: Content with 24px padding ── */}
                 <div className="p-[24px] flex flex-col flex-1 bg-white relative z-10">
                   {/* Title Typography */}
-                  <p className="font-syne text-[1rem] font-semibold leading-[1.4] tracking-[-0.02em] text-[#313131] mb-2 group-hover:text-[#D62020] transition-colors duration-300">
+                  <p className="font-syne text-[1rem] font-semibold leading-[1.4] tracking-[-0.02em] text-[#313131] group-hover:text-[#D62020] transition-colors duration-300 mb-6">
                     {feature.title}
                   </p>
                   

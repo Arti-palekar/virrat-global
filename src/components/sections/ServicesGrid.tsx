@@ -64,7 +64,7 @@ const SERVICES = [
 
 export function ServicesGrid() {
   return (
-    <section className="pb-32">
+    <section className=" py-16 md:py-24">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SERVICES.map((service, index) => (
@@ -76,8 +76,8 @@ export function ServicesGrid() {
               transition={{ delay: (index % 3) * 0.1 }}
               className="flex flex-col p-10 rounded-[2rem] bg-white border border-black/5 hover:border-[var(--color-accent)]/50 hover:shadow-2xl hover:shadow-[var(--color-accent)]/5 transition-all duration-300 group"
             >
-              <h3 className="text-3xl font-bold font-heading mb-4">{service.title}</h3>
-              <p className="text-[var(--color-secondary)] mb-8 flex-grow">
+              <h3 className="text-3xl font-bold font-heading mb-6">{service.title}</h3>
+              <p className="text-[var(--color-secondary)] flex-grow mb-6">
                 {service.description}
               </p>
               

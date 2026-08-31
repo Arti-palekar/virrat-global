@@ -98,7 +98,7 @@ const MarqueeColumn = ({ reels, reverse = false, duration = 30 }: { reels: {src:
 
 export default function AboutJoinClan() {
   return (
-    <section className="w-full bg-white py-16 md:py-24 relative overflow-hidden">
+    <section className="w-full bg-white relative overflow-hidden py-16 md:py-24">
       <style>{`
         .animate-scroll-up {
           animation: scroll-up var(--duration, 30s) linear infinite;
@@ -135,7 +135,7 @@ export default function AboutJoinClan() {
               Virrat Culture
             </div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-slate-900 leading-[1.1] mb-6 tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-slate-900 leading-[1.1] tracking-tight mb-5">
               Behind the Madness
             </h2>
             
@@ -143,7 +143,7 @@ export default function AboutJoinClan() {
               Work hard. Laugh harder. ❤️
             </h3>
 
-            <p className="text-lg text-slate-600 leading-relaxed mb-10">
+            <p className="text-lg text-slate-600 leading-relaxed mb-6">
               We believe great work happens when energy, ideas, and a little chaos collide. Get a glimpse of the real people behind Virrat—no filters, no scripts. Just our everyday culture, office banter, and the moments that make us who we are.
             </p>
             

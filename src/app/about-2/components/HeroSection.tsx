@@ -216,7 +216,7 @@ export default function HeroSection() {
   return (
     <section 
       ref={sceneRef}
-      className="relative w-full h-screen min-h-[700px] overflow-hidden bg-white matter-box"
+      className="relative w-full h-screen min-h-[700px] overflow-hidden bg-white matter-box py-16 md:py-24"
     >
       {/* Scoped style for dark theme and custom matter elements */}
       <style dangerouslySetInnerHTML={{__html: `
@@ -385,7 +385,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 pointer-events-none z-[10] flex flex-col md:block">
         {/* Main Heading */}
         <h1 
-          className="pointer-events-auto select-none font-extrabold uppercase tracking-tight leading-[0.9] text-[#050505] md:absolute md:left-[15%] md:top-[38%] md:-translate-y-1/2 w-full md:w-[500px] text-[clamp(3.5rem,7vw,7rem)] text-center md:text-left px-6 md:px-0 mt-28 md:mt-0"
+          className="pointer-events-auto select-none font-extrabold uppercase tracking-tight leading-[0.9] text-[#050505] md:absolute md:left-[15%] md:top-[38%] md:-translate-y-1/2 w-full md:w-[500px] text-[clamp(3.5rem,7vw,7rem)] text-center md:text-left px-6 md:px-0 mt-28 md:mt-0 mb-5"
           style={{ letterSpacing: '-0.06em' }}
         >
           Who are<br />We

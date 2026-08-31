@@ -161,7 +161,7 @@ export default function FeaturesSlider() {
   }, [isHovered, controls, x]);
 
   return (
-    <section className="w-full bg-white py-16 overflow-hidden relative" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+    <section className="w-full bg-white overflow-hidden relative py-16 md:py-24" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       {/* Responsive adjustments: scale the overall track down on mobile/tablet if needed, 
           but horizontal drag works fine with fixed sizes too. 
           We'll keep fixed pixel widths for cards to maintain the premium masonry feel, 

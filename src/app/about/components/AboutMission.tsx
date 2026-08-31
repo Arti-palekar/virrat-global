@@ -3,16 +3,16 @@ import Image from 'next/image';
 
 export default function AboutMission() {
   return (
-    <section className="w-full bg-white py-16 md:py-24 relative overflow-hidden">
+    <section className="w-full bg-white relative overflow-hidden py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
           
           {/* Left Content */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-slate-900 leading-[1.1] mb-6 tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-slate-900 leading-[1.1] tracking-tight mb-5">
               Our Mission & Vision
             </h2>
-            <p className="text-lg text-slate-500 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+            <p className="text-lg text-slate-500 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-6">
               At Virrat Global, we believe in building digital experiences that drive real growth. Our mission is to bridge the gap between creative design and robust engineering, empowering ambitious founders to scale their businesses through innovative technology and strategic marketing.
             </p>
             <div>

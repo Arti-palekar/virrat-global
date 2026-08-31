@@ -21,7 +21,7 @@ export default function PackagingVisualCTA() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full h-[600px] md:h-[800px] flex items-center justify-center overflow-hidden bg-black"
+      className="relative w-full h-[600px] md:h-[800px] flex items-center justify-center overflow-hidden bg-black py-16 md:py-24"
     >
       
       {/* Background Image with Parallax */}
@@ -56,8 +56,8 @@ export default function PackagingVisualCTA() {
         style={{ y: textY }}
         className="absolute z-10 text-center pointer-events-none select-none"
       >
-        <h2 className="text-[10vw] font-heading font-black tracking-tighter leading-none text-white uppercase text-opacity-95">
-          PACKAGING<br />THAT GETS<br />NOTICED.
+        <h2 className="font-heading text-white text-opacity-95 text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight mb-5">
+          Packaging<br />that gets<br />noticed.
         </h2>
       </motion.div>
 

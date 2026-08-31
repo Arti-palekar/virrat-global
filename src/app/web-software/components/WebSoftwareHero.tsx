@@ -607,7 +607,7 @@ export function WebSoftwareHero() {
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
         <h1
           ref={titleRef}
-          className="text-5xl sm:text-7xl md:text-9xl font-black font-heading tracking-tighter text-white uppercase leading-none mb-6 drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)]"
+          className="text-5xl sm:text-7xl md:text-9xl font-black font-heading tracking-tighter text-white uppercase leading-none drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)] mb-5"
         >
           {splitTitle("WEB & SOFTWARE")}
         </h1>

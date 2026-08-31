@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function CeoSection() {
   return (
-    <section className="relative w-full bg-[#E10600] text-white py-6 md:py-8 px-6 md:px-16 overflow-hidden">
+    <section className="relative w-full bg-[#E10600] text-white px-6 md:px-16 overflow-hidden py-16 md:py-24">
       {/* Subtle darker red background decorative shapes */}
       <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#B00000] rounded-full blur-[120px] opacity-60 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#B00000] rounded-full blur-[160px] opacity-40 pointer-events-none" />
@@ -28,7 +28,7 @@ export default function CeoSection() {
             ABOUT THE CEO
           </span>
           <h2 
-            className="text-4xl md:text-[54px] font-bold leading-[1.1] mb-5 tracking-tight"
+            className="text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight mb-5"
             style={{ color: '#FFFFFF' }}
           >
             Meet Our CEO
@@ -36,7 +36,7 @@ export default function CeoSection() {
           
           <div className="space-y-3 max-w-[600px]">
             <p 
-              className="text-base md:text-lg leading-relaxed mb-6 max-w-[720px]"
+              className="text-base md:text-lg leading-relaxed max-w-[720px] mb-6"
               style={{ color: '#FFFFFF' }}
             >
               Our journey so far has been possible because of your unwavering support and collaboration. As we step forward as Virrat Global Pvt. Ltd., our focus remains on driving innovation, building long-term partnerships, and delivering measurable results that help your business grow. We look forward to achieving greater milestones with you.

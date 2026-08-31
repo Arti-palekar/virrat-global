@@ -91,15 +91,15 @@ const portfolioItems: CardStackItem[] = [
 
 export default function PortfolioSection() {
   return (
-    <section className="w-full bg-[#FFFFFF] py-24 lg:py-36 font-syne relative overflow-hidden">
+    <section className="w-full bg-[#FFFFFF] font-syne relative overflow-hidden py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8">
         
         {/* ── TOP HEADER CONTENT ── */}
-        <div className="flex flex-col items-center justify-center text-center mb-16">
+        <div className="flex flex-col items-center justify-center text-center mb-12">
           <span className="homepage-section-tag">
             OUR PORTFOLIO
           </span>
-          <h2 className="homepage-section-title text-center">
+          <h2 className="homepage-section-title text-center mb-5">
             Work That Speaks <br />
             <span>Our Creativity.</span>
           </h2>

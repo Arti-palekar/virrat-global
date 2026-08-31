@@ -43,13 +43,13 @@ const TESTIMONIALS = [
 
 export function TestimonialsWall() {
   return (
-    <section className="py-24 bg-[#f8f7f5] relative overflow-hidden border-t border-[#ECECEC]">
+    <section className="bg-[#f8f7f5] relative overflow-hidden border-t border-[#ECECEC] py-16 md:py-24">
       <div className="container mx-auto px-6 max-w-[1400px]">
         {/* Section Header Matching Screenshot Layout: Left Title & Right Subtitle */}
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12 max-w-[1060px] mx-auto">
           {/* Left Title */}
           <div className="max-w-md">
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-[#111111] font-heading leading-[1.08]">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-[#111111] font-heading leading-[1.08] mb-5">
               Trusted by teams <br />
               who move <span className="text-[#D62020]">fast</span>
             </h2>

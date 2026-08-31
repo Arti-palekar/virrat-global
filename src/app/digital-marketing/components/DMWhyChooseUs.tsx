@@ -8,7 +8,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function DMWhyChooseUs() {
   return (
-    <section className="w-full bg-white py-24 md:py-32 border-b border-[#EBEBEB]" aria-label="Why Choose Us">
+    <section className="w-full bg-white border-b border-[#EBEBEB] py-16 md:py-24" aria-label="Why Choose Us">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         
         {/* Section Header */}
@@ -65,10 +65,10 @@ export default function DMWhyChooseUs() {
                   ROI GUARANTEE
                 </span>
               </div>
-              <h3 className="text-[24px] md:text-[28px] font-bold text-[#111111] font-heading leading-tight mb-3 group-hover:text-[#D62020] transition-colors">
+              <h3 className="text-[24px] md:text-[28px] font-bold text-[#111111] font-heading leading-tight group-hover:text-[#D62020] transition-colors mb-6">
                 Performance Guarantee & Clear KPIs
               </h3>
-              <p className="text-[15px] text-[#666666] leading-relaxed font-body mb-6 max-w-xl">
+              <p className="text-[15px] text-[#666666] leading-relaxed font-body max-w-xl mb-6">
                 We align our incentives with your revenue growth. Clear target CPL, CPA, and ROAS commitments set before launching any campaign.
               </p>
             </div>
@@ -95,7 +95,7 @@ export default function DMWhyChooseUs() {
                 <BarChart4 className="w-6 h-6" strokeWidth={1.8} />
               </div>
               <span className="text-[11px] font-mono font-bold text-[#777777] uppercase block mb-2">FULL-FUNNEL ATTRIBUTION</span>
-              <h3 className="text-[20px] font-bold text-[#111111] font-heading leading-snug mb-3 group-hover:text-[#D62020] transition-colors">
+              <h3 className="text-[20px] font-bold text-[#111111] font-heading leading-snug group-hover:text-[#D62020] transition-colors mb-6">
                 Server-Side GA4 Tracking
               </h3>
               <p className="text-[14px] text-[#666666] leading-relaxed font-body">
@@ -120,7 +120,7 @@ export default function DMWhyChooseUs() {
                 <Cpu className="w-6 h-6" strokeWidth={1.8} />
               </div>
               <span className="text-[11px] font-mono font-bold text-[#777777] uppercase block mb-2">AI-POWERED BIDDING</span>
-              <h3 className="text-[20px] font-bold text-[#111111] font-heading leading-snug mb-3 group-hover:text-[#D62020] transition-colors">
+              <h3 className="text-[20px] font-bold text-[#111111] font-heading leading-snug group-hover:text-[#D62020] transition-colors mb-6">
                 Predictive Audience Engine
               </h3>
               <p className="text-[14px] text-[#666666] leading-relaxed font-body">
@@ -145,7 +145,7 @@ export default function DMWhyChooseUs() {
                 <Users2 className="w-6 h-6" strokeWidth={1.8} />
               </div>
               <span className="text-[11px] font-mono font-bold text-[#777777] uppercase block mb-2">SENIOR EXPERTS ONLY</span>
-              <h3 className="text-[20px] font-bold text-[#111111] font-heading leading-snug mb-3 group-hover:text-[#D62020] transition-colors">
+              <h3 className="text-[20px] font-bold text-[#111111] font-heading leading-snug group-hover:text-[#D62020] transition-colors mb-6">
                 No Junior Account Reps
               </h3>
               <p className="text-[14px] text-[#666666] leading-relaxed font-body">
@@ -172,7 +172,7 @@ export default function DMWhyChooseUs() {
               <span className="text-[11px] font-mono font-bold tracking-widest text-[#D62020] uppercase block mb-2">
                 IN-HOUSE CREATIVE STUDIO
               </span>
-              <h3 className="text-[24px] font-bold text-[#111111] font-heading leading-tight mb-3 group-hover:text-[#D62020] transition-colors">
+              <h3 className="text-[24px] font-bold text-[#111111] font-heading leading-tight group-hover:text-[#D62020] transition-colors mb-6">
                 High-Converting Ad Creatives & UGC Motion Studio
               </h3>
               <p className="text-[15px] text-[#666666] leading-relaxed font-body">

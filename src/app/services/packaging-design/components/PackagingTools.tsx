@@ -139,7 +139,7 @@ export default function PackagingTools() {
   };
 
   return (
-    <section className="w-full pt-16 lg:pt-24 pb-10 lg:pb-12 px-6 md:px-12 lg:px-24 bg-white text-[#111111]">
+    <section className="w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] py-16 md:py-24">
       
       {/* Editorial Horizontal Card Section */}
       <div className="max-w-[1400px] mx-auto relative bg-[#FAF9F6] border border-zinc-200/50 rounded-[40px] p-8 md:p-12 lg:p-14 overflow-hidden shadow-sm">
@@ -170,16 +170,13 @@ export default function PackagingTools() {
             className="lg:col-span-5 flex flex-col justify-between min-h-[180px] select-none"
           >
             <div>
-              <span className="inline-block text-[#d62020] text-xs font-bold tracking-[0.25em] uppercase mb-3">
-                OUR DESIGN TOOLKIT
-              </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tighter leading-none uppercase max-w-[20ch]">
-                TOOLS WE USE TO<br />BRING PACKAGING TO LIFE
+              <h2 className="font-heading max-w-[20ch] text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight mb-5">
+                Tools we use for<br />packaging
               </h2>
             </div>
             
-            <p className="text-sm text-zinc-500 font-medium leading-relaxed mt-6 max-w-[42ch]">
-              Industry-leading design tools for creating precise, production-ready packaging — from initial concepts and dielines to realistic 3D mockups and final artwork.
+            <p className="text-zinc-500 mt-6 max-w-[42ch] text-[18px] font-semibold leading-[1.5] tracking-normal">
+              Industry-leading tools for precise, production-ready packaging.
             </p>
           </motion.div>
 

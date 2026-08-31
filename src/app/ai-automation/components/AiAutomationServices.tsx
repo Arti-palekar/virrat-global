@@ -67,13 +67,13 @@ const servicesList: ServiceCard[] = [
 
 export default function AiAutomationServices() {
   return (
-    <section id="solutions" className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111]">
+    <section id="solutions" className="relative w-full px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto">
         
         {/* Section Heading */}
         <div className="mb-16">
           <span className="text-[#E32620] text-[10px] font-bold tracking-[0.3em] uppercase">What We Do</span>
-          <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tight mt-4 leading-[1.1] uppercase">
+          <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tight mt-4 leading-[1.1] uppercase mb-5">
             AI & AUTOMATION<br />
             BUILT AROUND YOUR BUSINESS
           </h2>
@@ -112,13 +112,13 @@ export default function AiAutomationServices() {
 
                 {/* Service Details */}
                 <div className="mt-8">
-                  <h3 className="text-xl md:text-2xl font-bold font-heading mb-2 tracking-tight group-hover:text-[#E32620] transition-colors duration-300">
+                  <h3 className="text-xl md:text-2xl font-bold font-heading tracking-tight group-hover:text-[#E32620] transition-colors duration-300 mb-6">
                     {service.title}
                   </h3>
                   
                   {/* Expandable info on hover */}
                   <div className="max-h-0 overflow-hidden group-hover:max-h-24 transition-all duration-500 ease-out">
-                    <p className="text-sm text-white/80 font-light leading-relaxed mb-4">
+                    <p className="text-sm text-white/80 font-light leading-relaxed mb-6">
                       {service.desc}
                     </p>
                   </div>

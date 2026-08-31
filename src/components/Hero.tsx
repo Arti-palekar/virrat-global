@@ -116,7 +116,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full h-[820px] bg-[#F7F8FA] overflow-hidden flex flex-col font-syne pt-[90px]">
+    <section className="relative w-full h-[820px] bg-[#F7F8FA] overflow-hidden flex flex-col font-syne ] py-16 md:py-24">
       
       {/* ─── BACKGROUND SHAPE (Abstract Red Ribbon) ─── */}
       <div className="absolute right-[-10%] top-[-10%] w-[65%] h-[120%] pointer-events-none z-0">
@@ -176,7 +176,7 @@ export default function Hero() {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <h1 className="font-syne text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] font-bold text-black leading-[1.05] tracking-tight mb-8">
+                  <h1 className="font-syne text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] font-bold text-black leading-[1.05] tracking-tight mb-5">
                     <span className="text-[#D62020]">{slide.heading1}</span><br />
                     <span className="text-[#1E293B]">{slide.heading2}</span>
                   </h1>

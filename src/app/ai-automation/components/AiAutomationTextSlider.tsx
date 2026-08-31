@@ -18,7 +18,7 @@ export default function AiAutomationTextSlider() {
   const duplicatedPhrases = [...phrases, ...phrases, ...phrases, ...phrases];
 
   return (
-    <section className="relative w-full py-8 md:py-12 bg-[#111111] text-[#FAF9F6] overflow-hidden border-y border-[#333333]">
+    <section className="relative w-full bg-[#111111] text-[#FAF9F6] overflow-hidden border-y border-[#333333] py-16 md:py-24">
       
       {/* Inline pure CSS for GPU-accelerated smooth marquee */}
       <style>{`

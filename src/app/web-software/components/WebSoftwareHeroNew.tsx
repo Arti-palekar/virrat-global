@@ -46,7 +46,7 @@ export function WebSoftwareHeroNew() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-balance text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl leading-none text-zinc-950 dark:text-white">
+          <h1 className="text-balance text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl leading-none text-zinc-950 dark:text-white mb-5">
             We Build Software
             <br />
             <span className="text-[#d62020] dark:text-red-400">That Works for You</span>

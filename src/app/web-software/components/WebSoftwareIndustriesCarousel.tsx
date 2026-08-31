@@ -60,10 +60,10 @@ const mappedServices = SERVICES.map((svc) => ({
 
 export function WebSoftwareIndustriesCarousel() {
   return (
-    <section className="w-full bg-white text-[#111111] py-24 border-b border-[#ECECEC] overflow-hidden">
+    <section className="w-full bg-white text-[#111111] border-b border-[#ECECEC] overflow-hidden py-16 md:py-24">
       <div className="container mx-auto px-6 max-w-[1400px]">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-12">
           <span
             style={{
               display: "block",

@@ -26,7 +26,7 @@ const cardVariants = {
 
 export default function ComplianceIndustries() {
   return (
-    <section className="relative w-full py-20 lg:py-24 bg-[#FAF9F6]">
+    <section className="relative w-full bg-[#FAF9F6] py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
@@ -74,8 +74,8 @@ export default function ComplianceIndustries() {
             variants={cardVariants}
             className="compliance-cta-card group flex flex-col justify-center bg-[#E31E24] rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
           >
-            <h3 className="text-lg font-bold mb-2 leading-tight" style={{color: '#ffffff'}}>Don't see your industry?</h3>
-            <p className="text-sm mb-4" style={{color: '#ffffff'}}>We adapt our compliance solutions to fit your unique requirements.</p>
+            <h3 className="text-lg font-bold leading-tight mb-6" style={{color: '#ffffff'}}>Don't see your industry?</h3>
+            <p className="text-sm mb-6" style={{color: '#ffffff'}}>We adapt our compliance solutions to fit your unique requirements.</p>
             <a href="/contact" className="font-semibold text-sm flex items-center group-hover:opacity-80 transition-opacity duration-300" style={{color: '#ffffff'}}>
               Let's Talk &rarr;
             </a>

@@ -69,13 +69,13 @@ export default function BPTestimonials() {
       id="testimonials"
       role="region"
       aria-label="Customer testimonials"
-      className="w-full bg-[#0A0A0A] text-white pt-12 md:pt-16 pb-24 md:pb-28 relative overflow-hidden select-none border-b border-white/10"
+      className="w-full bg-[#0A0A0A] text-white relative overflow-hidden select-none border-b border-white/10 py-16 md:py-24"
     >
       {/* Subtle Ambient Red Blur */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#D62020]/[0.05] blur-[150px] rounded-full pointer-events-none" />
 
       {/* ── CENTERED HEADING BLOCK (Reduced Top Spacing) ──────────────── */}
-      <div className="max-w-[700px] mx-auto px-6 text-center mb-12 md:mb-16 relative z-10">
+      <div className="max-w-[700px] mx-auto px-6 text-center relative z-10 mb-12">
         <motion.span
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

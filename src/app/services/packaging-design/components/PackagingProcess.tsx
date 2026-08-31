@@ -44,6 +44,7 @@ export default function PackagingProcess() {
       title={"Our Step-by-Step\nPackaging Process"}
       description="From discovery to print-ready delivery, we turn your ideas into packaging built to stand out."
       steps={steps}
+      className="-mb-24 md:-mb-[220px]"
     />
   );
 }

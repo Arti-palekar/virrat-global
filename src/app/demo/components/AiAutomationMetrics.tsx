@@ -12,7 +12,7 @@ export default function AiAutomationMetrics() {
   ];
 
   return (
-    <section className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden">
+    <section className="relative w-full px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
           
@@ -43,7 +43,7 @@ export default function AiAutomationMetrics() {
           >
             <span className="text-[#E32620] text-[10px] font-bold tracking-[0.3em] uppercase">BUSINESS IMPACT</span>
             
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-black tracking-tighter leading-[1.05] text-[#111111] uppercase">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-black tracking-tighter leading-[1.05] text-[#111111] uppercase mb-5">
               MEASURABLE<br />
               RESULTS.<br />
               SCALABLE<br />

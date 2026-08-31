@@ -80,9 +80,12 @@ interface FAQItem {
 
 interface FAQ1Props {
   items?: FAQItem[];
+  themeOverride?: "dark" | "light";
+  titleClassName?: string;
+  descClassName?: string;
 }
 
-function FAQ1({ items }: FAQ1Props = {}) {
+function FAQ1({ items, themeOverride, titleClassName, descClassName }: FAQ1Props = {}) {
   const displayFaqs = items || faqs;
 
   const getRootTheme = (): "dark" | "light" => {
@@ -95,7 +98,8 @@ function FAQ1({ items }: FAQ1Props = {}) {
     return "light";
   };
 
-  const [theme, setTheme] = useState<"dark" | "light">(getRootTheme);
+  const [themeState, setThemeState] = useState<"dark" | "light">(getRootTheme);
+  const theme = themeOverride || themeState;
   const [introReady, setIntroReady] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [hasEntered, setHasEntered] = useState(false);
@@ -242,7 +246,7 @@ function FAQ1({ items }: FAQ1Props = {}) {
   useEffect(() => {
     if (typeof document === "undefined") return;
 
-    const applyThemeFromRoot = () => setTheme(getRootTheme());
+    const applyThemeFromRoot = () => setThemeState(getRootTheme());
 
     applyThemeFromRoot();
 
@@ -322,10 +326,10 @@ function FAQ1({ items }: FAQ1Props = {}) {
             Signal FAQ
           </span>
           <div className="space-y-4 flex flex-col items-center">
-            <h1 className={`text-4xl font-semibold leading-tight md:text-5xl ${palette.heading}`}>
+            <h2 className={titleClassName || `text-4xl font-semibold leading-tight md:text-5xl ${palette.heading}`}>
               Focus on the signal, not the noise.
-            </h1>
-            <p className={`max-w-xl text-base ${palette.muted}`}>
+            </h2>
+            <p className={descClassName || `max-w-xl text-base ${palette.muted}`}>
               Everything you need to know about partnering with our team, condensed into calm monochrome clarity.
             </p>
           </div>

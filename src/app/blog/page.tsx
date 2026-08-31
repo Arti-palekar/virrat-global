@@ -8,7 +8,7 @@ export default function BlogPage() {
       <Navbar />
       <main className="flex-grow pt-32 bg-white">
         <div className="container mx-auto px-6 max-w-4xl mb-24">
-          <h1 className="text-6xl md:text-8xl font-bold font-heading mb-8 tracking-tighter leading-none">
+          <h1 className="text-6xl md:text-8xl font-bold font-heading tracking-tighter leading-none mb-5">
             Insights & <span className="text-[var(--color-accent)]">Strategy.</span>
           </h1>
           <p className="text-xl text-[var(--color-secondary)]">

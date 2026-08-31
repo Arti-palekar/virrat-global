@@ -39,11 +39,11 @@ const cardVariants = {
 
 export default function ComplianceWhy() {
   return (
-    <section className="relative w-full py-20 lg:py-24 bg-white border-y border-[#E8E8E8]">
+    <section className="relative w-full bg-white border-y border-[#E8E8E8] py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
+        <div className="flex flex-col items-center text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ export default function ComplianceWhy() {
               <div className="w-12 h-12 rounded-full bg-[#FAF9F6] border border-[#E8E8E8] flex items-center justify-center mb-6 group-hover:bg-[#E31E24]/5 group-hover:border-[#E31E24]/30 transition-all duration-300">
                 <point.icon className="w-5 h-5 text-[#666666] group-hover:text-[#E31E24] transition-colors duration-300" strokeWidth={1.5} />
               </div>
-              <h3 className="text-[17px] font-bold text-[#111111] mb-3 leading-tight">{point.title}</h3>
+              <h3 className="text-[17px] font-bold text-[#111111] leading-tight mb-6">{point.title}</h3>
               <p className="text-sm text-[#666666] leading-relaxed">
                 {point.desc}
               </p>

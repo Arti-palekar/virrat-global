@@ -183,7 +183,7 @@ export default function Services() {
 
   return (
     <div className="w-full bg-white relative">
-      <section ref={sectionRef} className="relative w-full font-syne h-auto lg:h-screen flex flex-col overflow-hidden pt-24 lg:pt-16 pb-12 lg:pb-0">
+      <section ref={sectionRef} className="relative w-full font-syne h-auto lg:h-screen flex flex-col overflow-hidden py-16 md:py-24">
         
         {/* ─── HEADER ROW (OUR SOLUTIONS) ─── */}
         <div 
@@ -191,7 +191,7 @@ export default function Services() {
           className="w-full mx-auto px-6 lg:px-12 xl:px-16 flex items-center justify-between mb-[50px] lg:mb-[60px] opacity-0 translate-y-[20px]"
         >
           {/* Left Side */}
-          <h2 className="text-[18px] font-[600] tracking-[0.5px] text-[#111111] uppercase flex items-center group cursor-pointer m-0">
+          <h2 className="text-[18px] font-[600] tracking-[0.5px] text-[#111111] uppercase flex items-center group cursor-pointer m-0 mb-5">
             OUR SOLUTIONS
             <span className="ml-1 inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
               ↗

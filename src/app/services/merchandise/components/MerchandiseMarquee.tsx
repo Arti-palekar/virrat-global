@@ -57,7 +57,7 @@ export default function MerchandiseMarquee() {
   };
 
   return (
-    <section className="w-full bg-white pt-[10px] pb-0 overflow-hidden">
+    <section className="w-full bg-white ] overflow-hidden py-16 md:py-24">
       <div 
         ref={containerRef}
         onMouseEnter={handleMouseEnter}

@@ -74,7 +74,7 @@ export const HeroParallaxSection = () => {
   );
 
   return (
-    <section ref={ref} className="py-24 bg-[#f8f7f5] relative overflow-hidden [perspective:1000px] [transform-style:preserve-3d]">
+    <section ref={ref} className="bg-[#f8f7f5] relative overflow-hidden [perspective:1000px] [transform-style:preserve-3d] py-16 md:py-24">
       <div className="max-w-[1600px] mx-auto px-6">
         <Header style={{ rotateX, rotateZ, translateY, opacity }} />
 
@@ -101,10 +101,10 @@ export const Header = ({ style }: { style?: any }) => {
   return (
     <div className="w-full mb-16 md:mb-20 [perspective:1000px] [transform-style:preserve-3d]">
       <motion.div style={style} className="[transform-style:preserve-3d]">
-        <h2 className="text-sm font-medium tracking-widest text-[#d62020] uppercase mb-6">
+        <h2 className="text-sm font-medium tracking-widest text-[#d62020] uppercase mb-5">
           Our Services
         </h2>
-        <h2 className="homepage-section-title">
+        <h2 className="homepage-section-title mb-5">
           Solutions built <br />
           <span>for every business.</span>
         </h2>
@@ -158,7 +158,7 @@ export const ProductCard = ({
           <div className="grid grid-rows-[0fr] group-hover/product:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
             <div className="overflow-hidden">
               <div className="pt-4 opacity-0 group-hover/product:opacity-100 transition-opacity duration-500 delay-[50ms]">
-                <p className="text-white/85 text-[15px] lg:text-[16px] font-medium mb-6 leading-[1.6] whitespace-pre-line">
+                <p className="text-white/85 text-[15px] lg:text-[16px] font-medium leading-[1.6] whitespace-pre-line mb-6">
                   {product.description}
                 </p>
                 <div className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-wider">

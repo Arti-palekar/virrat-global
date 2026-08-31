@@ -17,7 +17,7 @@ const marqueeItems = [
 
 export default function DMMarquee() {
   return (
-    <section className="dm-marquee-container w-full py-10 md:py-16 overflow-hidden flex items-center border-b border-[#B71C1C]/30 cursor-default">
+    <section className="dm-marquee-container w-full overflow-hidden flex items-center border-b border-[#B71C1C]/30 cursor-default py-16 md:py-24">
       <style dangerouslySetInnerHTML={{ __html: `
         /* Infinite Marquee Scroll */
         @keyframes dm-marquee-scroll {

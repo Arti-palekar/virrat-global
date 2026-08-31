@@ -89,10 +89,10 @@ export default function TubesCursor({ className = "" }: TubesCursorProps) {
 
       {/* Hero Text Content */}
       <div className="ai-automation-hero-text pointer-events-none">
-        <h1 className="ai-automation-hero-title">
+        <h1 className="ai-automation-hero-title mb-5">
           AI AUTOMATION
         </h1>
-        <h2 className="ai-automation-hero-subtitle">
+        <h2 className="ai-automation-hero-subtitle mb-5">
           FOR SMARTER BUSINESS
         </h2>
       </div>

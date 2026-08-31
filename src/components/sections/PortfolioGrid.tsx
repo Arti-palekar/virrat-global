@@ -46,7 +46,7 @@ const PROJECTS = [
 
 export function PortfolioGrid() {
   return (
-    <section className="pb-32">
+    <section className=" py-16 md:py-24">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
           {PROJECTS.map((project, index) => (
@@ -74,7 +74,7 @@ export function PortfolioGrid() {
               </Link>
               <div className="flex items-center justify-between px-2">
                 <div>
-                  <h3 className="text-4xl font-bold font-heading mb-3">{project.title}</h3>
+                  <h3 className="text-4xl font-bold font-heading mb-6">{project.title}</h3>
                   <p className="text-[var(--color-secondary)] text-lg">{project.category}</p>
                 </div>
               </div>

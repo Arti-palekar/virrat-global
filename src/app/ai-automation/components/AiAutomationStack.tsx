@@ -40,7 +40,7 @@ const outerRingTools = [
 
 export default function AiAutomationStack() {
   return (
-    <section className="relative w-full py-24 px-6 md:px-12 lg:px-20 overflow-hidden bg-[#FAF9F6]">
+    <section className="relative w-full px-6 md:px-12 lg:px-20 overflow-hidden bg-[#FAF9F6] py-16 md:py-24">
       
       {/* Custom CSS for Orbit Animations */}
       <style>{`
@@ -77,11 +77,11 @@ export default function AiAutomationStack() {
         {/* Left Column: Text Content */}
         <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-10">
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#111111] mb-6 leading-[1.1]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#111111] leading-[1.1] mb-5">
             AI + Automation<br className="hidden md:block" /> Tools We Use
           </h2>
           
-          <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-xl leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed mb-6">
             We combine leading AI platforms, automation tools, development technologies and integrations to build intelligent, scalable solutions for our clients.
           </p>
           

@@ -42,7 +42,7 @@ export default function DMCampaignShowcase() {
   const currentItem = COMPARISONS[activeTab];
 
   return (
-    <section className="w-full bg-[#F8F9FA] py-24 md:py-32 border-b border-[#EBEBEB]" aria-label="Campaign Showcase & Results">
+    <section className="w-full bg-[#F8F9FA] border-b border-[#EBEBEB] py-16 md:py-24" aria-label="Campaign Showcase & Results">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         
         {/* Header */}
@@ -106,7 +106,7 @@ export default function DMCampaignShowcase() {
               <span className="p-1.5 rounded-full bg-red-100 text-red-600"><ShieldAlert className="w-4 h-4" /></span>
             </div>
             
-            <p className="text-[13px] font-mono text-[#777777] uppercase font-semibold mb-1">{currentItem.metric}</p>
+            <p className="text-[13px] font-mono text-[#777777] uppercase font-semibold mb-6">{currentItem.metric}</p>
             <p className="text-[44px] font-black text-[#111111] font-heading leading-none mb-6">{currentItem.before}</p>
             
             <ul className="space-y-3 pt-4 border-t border-[#EBEBEB] text-[13px] text-[#666666] font-body">
@@ -135,7 +135,7 @@ export default function DMCampaignShowcase() {
               </span>
             </div>
 
-            <p className="text-[13px] font-mono text-[#777777] uppercase font-semibold mb-1">{currentItem.metric}</p>
+            <p className="text-[13px] font-mono text-[#777777] uppercase font-semibold mb-6">{currentItem.metric}</p>
             <p className="text-[44px] font-black text-[#D62020] font-heading leading-none mb-6">{currentItem.after}</p>
 
             <ul className="space-y-3 pt-4 border-t border-[#EBEBEB] text-[13px] text-[#222222] font-body">

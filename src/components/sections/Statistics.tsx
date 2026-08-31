@@ -46,7 +46,7 @@ const STATS = [
 
 export function Statistics() {
   return (
-    <section className="py-24 md:py-32 bg-[#f8f7f5]">
+    <section className="bg-[#f8f7f5] py-16 md:py-24">
       <div className="container mx-auto px-6">
         
         {/* Main Grid Layout */}

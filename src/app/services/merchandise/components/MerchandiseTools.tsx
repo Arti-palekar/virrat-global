@@ -129,7 +129,7 @@ export default function MerchandiseTools() {
 
   return (
     <section 
-      className="w-full bg-[#FAF9F6] text-[#111111] overflow-hidden pt-24 pb-20 select-none"
+      className="w-full bg-[#FAF9F6] text-[#111111] overflow-hidden select-none py-16 md:py-24"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -140,7 +140,7 @@ export default function MerchandiseTools() {
             <span className="text-[#d62020] text-xs font-bold tracking-[0.25em] uppercase block mb-3">
               CREATIVE BLUEPRINTS
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tighter uppercase leading-none">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tighter uppercase leading-none mb-5">
               TOOLS WE USE FOR<br />MERCHANDISE DESIGN
             </h2>
           </div>
@@ -197,7 +197,7 @@ export default function MerchandiseTools() {
                   <span className="text-[10px] font-bold text-[#d62020] uppercase tracking-widest block mb-4">
                     Tool / {tool.name}
                   </span>
-                  <h3 className="text-xl md:text-2xl font-heading font-black tracking-tight uppercase mb-3 text-zinc-900 leading-none">
+                  <h3 className="text-xl md:text-2xl font-heading font-black tracking-tight uppercase text-zinc-900 leading-none mb-6">
                     {tool.name}
                   </h3>
                   <p className="text-xs md:text-sm text-zinc-500 font-medium leading-relaxed max-w-[24ch]">

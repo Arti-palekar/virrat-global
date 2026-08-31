@@ -163,7 +163,7 @@ export function TestimonialsSection({ items }: TestimonialsSectionProps = {}) {
   return (
     <section 
       aria-labelledby="testimonials-heading"
-      className="bg-[#FAF9F6] dark:bg-neutral-950 text-neutral-900 dark:text-white py-36 relative overflow-hidden border-t border-black/5 z-10"
+      className="bg-[#FAF9F6] dark:bg-neutral-950 text-neutral-900 dark:text-white relative overflow-hidden border-t border-black/5 z-10 py-16 md:py-24"
     >
       <motion.div 
         initial={{ opacity: 0, y: 50, rotate: -2 }}
@@ -185,7 +185,7 @@ export function TestimonialsSection({ items }: TestimonialsSectionProps = {}) {
 
           <h2 
             id="testimonials-heading" 
-            className="text-4xl md:text-[54px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#111111] mb-[20px]"
+            className="text-4xl md:text-[54px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#111111] ] mb-5"
             style={{ fontFamily: 'Sora, sans-serif' }}
           >
             What our clients say

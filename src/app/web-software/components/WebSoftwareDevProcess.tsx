@@ -185,7 +185,7 @@ export function WebSoftwareDevProcess() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-white"
+      className="w-full bg-white py-16 md:py-24"
       style={{ padding: "96px 24px 112px" }}
     >
       <div className="mx-auto" style={{ maxWidth: "1240px" }}>
@@ -212,7 +212,7 @@ export function WebSoftwareDevProcess() {
           </span>
 
           <h2
-            className="font-heading"
+            className="font-heading mb-5"
             style={{
               fontSize: "clamp(26px, 3.2vw, 42px)",
               fontWeight: 400,

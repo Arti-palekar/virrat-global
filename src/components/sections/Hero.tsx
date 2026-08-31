@@ -115,7 +115,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="mb-12 pointer-events-auto text-center max-w-[700px] px-3"
         >
-          <h1 className="text-2xl md:text-3xl lg:text-[32px] font-semibold text-[#242222] tracking-tight leading-snug">
+          <h1 className="text-2xl md:text-3xl lg:text-[32px] font-semibold text-[#242222] tracking-tight leading-snug mb-5">
             <span className="block mb-2">
               An independent creative agency based in Melbourne & Sydney. We solve the complicated.
             </span>

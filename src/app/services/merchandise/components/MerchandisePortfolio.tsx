@@ -137,7 +137,7 @@ export default function MerchandisePortfolio() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full min-h-screen bg-[#FAF9F6] text-[#111111] overflow-hidden flex flex-col justify-between py-20 px-6 md:px-12 lg:px-24"
+      className="relative w-full min-h-screen bg-[#FAF9F6] text-[#111111] overflow-hidden flex flex-col justify-between px-6 md:px-12 lg:px-24 py-16 md:py-24"
     >
       {/* ── BACKGROUND KINETIC CINEMATIC LAYER ── */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none transition-all duration-[1000ms] ease-in-out">
@@ -194,7 +194,7 @@ export default function MerchandisePortfolio() {
                   </span>
                   
                   {/* Huge Editorial Headings */}
-                  <h2 className="text-4xl md:text-5xl lg:text-[4.5rem] font-heading font-black tracking-tighter uppercase leading-[0.9] text-zinc-900 mb-6 break-words">
+                  <h2 className="text-4xl md:text-5xl lg:text-[4.5rem] font-heading font-black tracking-tighter uppercase leading-[0.9] text-zinc-900 break-words mb-5">
                     {currentProject.titleLines.map((line, idx) => (
                       <React.Fragment key={idx}>
                         {line}

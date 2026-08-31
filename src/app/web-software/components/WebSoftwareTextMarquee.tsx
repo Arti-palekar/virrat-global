@@ -14,11 +14,11 @@ const MARQUEE_ITEMS = [
 
 export function WebSoftwareTextMarquee() {
   return (
-    <section className="relative w-full h-[140px] md:h-[180px] lg:h-[220px] bg-[#FAFAF8] overflow-hidden z-10">
+    <section className="relative w-full h-[140px] md:h-[180px] lg:h-[220px] bg-white overflow-hidden z-10 py-16 md:py-24">
       <PerspectiveMarquee 
         items={MARQUEE_ITEMS} 
-        background="#FAFAF8"
-        fadeColor="#FAFAF8"
+        background="#FFFFFF"
+        fadeColor="#FFFFFF"
         color="#111111"
         speed={1}
         fontSize={84}

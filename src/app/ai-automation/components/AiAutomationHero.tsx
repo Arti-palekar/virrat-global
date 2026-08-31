@@ -18,7 +18,7 @@ export default function AiAutomationHero() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full min-h-screen pt-32 pb-24 px-4 sm:px-6 md:px-12 bg-[#FAF9F6] text-[#111111] overflow-hidden flex flex-col items-center justify-center font-body"
+      className="relative w-full min-h-screen px-4 sm:px-6 md:px-12 bg-[#FAF9F6] text-[#111111] overflow-hidden flex flex-col items-center justify-center font-body py-16 md:py-24"
     >
       {/* Very subtle overall noise texture for the page background */}
       <div 

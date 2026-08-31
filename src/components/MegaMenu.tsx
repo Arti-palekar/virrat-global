@@ -111,7 +111,7 @@ export default function MegaMenu() {
                   {/* Right Column: Featured */}
                   <div className="w-1/3 bg-slate-50 p-8 flex flex-col justify-center">
                     <h4 className="font-semibold text-slate-900 mb-2">{menu.featured.title}</h4>
-                    <p className="text-sm text-slate-500 mb-6 leading-relaxed">
+                    <p className="text-sm text-slate-500 leading-relaxed mb-6">
                       {menu.featured.desc}
                     </p>
                     <a

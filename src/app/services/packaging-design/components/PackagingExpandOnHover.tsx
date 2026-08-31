@@ -46,15 +46,15 @@ export function PackagingExpandOnHover() {
   ];
 
   return (
-    <section className="bg-[#f8f7f5] py-20 flex flex-col items-center justify-center">
-      <div className="container mx-auto px-6 mb-12 text-center">
+    <section className="bg-[#f8f7f5] flex flex-col items-center justify-center py-16 md:py-24">
+      <div className="container mx-auto px-6 text-center mb-12">
         <span className="text-[12px] font-semibold uppercase tracking-widest text-[var(--color-secondary)] mb-3 inline-block">
           WHAT WE CONSIDER
         </span>
-        <h2 className="font-bold font-heading text-[32px] md:text-[44px] lg:text-[54px] leading-[1.1] tracking-tight text-black mb-4">
-          WHAT GOES INTO EVERY <span className="text-[#D62020]">PACKAGING DESIGN</span>
+        <h2 className="font-heading text-black text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight mb-5">
+          What goes into every <span className="text-[#D62020]">packaging design</span>
         </h2>
-        <p className="text-lg text-[var(--color-secondary)] max-w-xl mx-auto mt-4">
+        <p className="max-w-xl mx-auto mt-4 text-[18px] font-semibold leading-[1.5] tracking-normal">
           Every successful package combines strategy, creativity, usability and production precision to create a product that looks great and performs in the real world.
         </p>
       </div>

@@ -20,7 +20,7 @@ const REPEAT_BRANDS = Array(4).fill(BRANDS).flat();
 
 export default function DMLogoCloud() {
   return (
-    <section className="w-full bg-white py-12 border-b border-[#EBEBEB] overflow-hidden select-none">
+    <section className="w-full bg-white border-b border-[#EBEBEB] overflow-hidden select-none py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 mb-6 text-center">
         <p className="text-[12px] font-mono font-bold text-[#888888] tracking-[0.25em] uppercase">
           TRUSTED BY HIGH-GROWTH BRANDS & CERTIFIED ON TOP PLATFORMS

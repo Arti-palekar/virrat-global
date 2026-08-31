@@ -285,7 +285,7 @@ export default function BPPortfolio() {
   };
 
   return (
-    <section className="relative w-full py-24 md:py-32 bg-[#FFFFFF] border-t border-gray-100/50 z-10">
+    <section className="relative w-full bg-[#FFFFFF] border-t border-gray-100/50 z-10 py-16 md:py-24">
       
       {/* Subtle Noise Paper Grain Overlay */}
       <div 
@@ -296,11 +296,11 @@ export default function BPPortfolio() {
       />
 
       {/* Top Header Area */}
-      <div className="text-center mb-16 md:mb-20 max-w-2xl px-6 mx-auto relative z-10 flex flex-col items-center">
+      <div className="text-center max-w-2xl px-6 mx-auto relative z-10 flex flex-col items-center mb-12">
         <span className="homepage-section-tag">
           OUR PORTFOLIO
         </span>
-        <h2 className="homepage-section-title text-center">
+        <h2 className="homepage-section-title text-center mb-5">
           Explore Our<br /><span>Creative Work.</span>
         </h2>
         <p className="homepage-section-subtitle text-center max-w-xl">

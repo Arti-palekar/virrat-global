@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function PackagingFinalCTA() {
   return (
-    <section className="relative w-full py-32 md:py-48 px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden border-t border-zinc-100 text-center">
+    <section className="relative w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden border-t border-zinc-100 text-center py-16 md:py-24">
       <div className="max-w-[800px] mx-auto z-10 relative">
         <motion.div
           initial={{ opacity: 0, y: 35 }}
@@ -18,13 +18,13 @@ export default function PackagingFinalCTA() {
         >
           <span className="text-[#fd2e35] text-[10px] font-bold tracking-[0.3em] uppercase">Get Started</span>
           
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold tracking-tight leading-tight max-w-[20ch]">
-            READY TO CREATE<br />
-            PACKAGING THAT<br />
-            STANDS OUT?
+          <h2 className="font-heading max-w-[20ch] text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight mb-5">
+            Ready to create<br />
+            packaging that<br />
+            stands out?
           </h2>
 
-          <p className="text-base sm:text-lg text-zinc-500 leading-relaxed max-w-[28em]">
+          <p className="text-zinc-500 max-w-[28em] text-[18px] font-semibold leading-[1.5] tracking-normal">
             Turn your product into a memorable brand experience with packaging designed for impact.
           </p>
 

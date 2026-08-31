@@ -82,15 +82,15 @@ export function PackagingIndustriesExpand() {
   ];
 
   return (
-    <section className="bg-[#FAF9F6] py-20 flex flex-col items-center justify-center">
-      <div className="container mx-auto px-6 mb-12 text-center">
+    <section className="bg-[#FAF9F6] flex flex-col items-center justify-center py-16 md:py-24">
+      <div className="container mx-auto px-6 text-center mb-12">
         <span className="text-[12px] font-semibold uppercase tracking-widest text-[var(--color-secondary)] mb-3 inline-block">
           EXPLORE INDUSTRIES
         </span>
-        <h2 className="font-bold font-heading text-[32px] md:text-[44px] lg:text-[54px] leading-[1.1] tracking-tight text-black mb-4">
-          INDUSTRIES WE <span className="text-[#D62020]">DESIGN FOR</span>
+        <h2 className="font-heading text-black text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight mb-5">
+          Industries we <span className="text-[#D62020]">design for</span>
         </h2>
-        <p className="text-lg text-[var(--color-secondary)] max-w-xl mx-auto mt-4">
+        <p className="max-w-xl mx-auto mt-4 text-[18px] font-semibold leading-[1.5] tracking-normal">
           Packaging solutions shaped around your product, market and customer.
         </p>
       </div>

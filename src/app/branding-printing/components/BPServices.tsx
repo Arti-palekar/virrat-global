@@ -14,11 +14,11 @@ export default function BPServices() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
-        <section className="w-full py-32 bg-[#FAFAFA] border-t border-gray-200">
+        <section className="w-full bg-[#FAFAFA] border-t border-gray-200 py-16 md:py-24">
             <div className="max-w-7xl mx-auto px-4 md:px-8">
                 <div className="mb-20">
                     <span className="homepage-section-tag">Core Capabilities</span>
-                    <h2 className="homepage-section-title">
+                    <h2 className="homepage-section-title mb-5">
                         We design. We print.<br/>
                         <span>We execute.</span>
                     </h2>

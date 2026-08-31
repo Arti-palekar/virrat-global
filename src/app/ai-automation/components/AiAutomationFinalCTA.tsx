@@ -8,7 +8,7 @@ import { Button } from "@/components/shared/Button";
 
 export default function AiAutomationFinalCTA() {
   return (
-    <section className="relative w-full py-32 md:py-48 px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden border-t border-zinc-100 text-center">
+    <section className="relative w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden border-t border-zinc-100 text-center py-16 md:py-24">
       <div className="max-w-[800px] mx-auto z-10 relative">
         <motion.div
           initial={{ opacity: 0, y: 35 }}
@@ -19,7 +19,7 @@ export default function AiAutomationFinalCTA() {
         >
           <span className="text-[#E32620] text-[10px] font-bold tracking-[0.3em] uppercase">Get Started</span>
           
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-black tracking-tighter leading-tight uppercase max-w-[20ch]">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-black tracking-tighter leading-tight uppercase max-w-[20ch] mb-5">
             READY TO AUTOMATE<br />
             YOUR BUSINESS?
           </h2>

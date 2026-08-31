@@ -169,7 +169,7 @@ export function BrandingShowcase() {
   };
 
   return (
-    <section className="relative w-full bg-[#FFFFFF] py-16 md:py-24 overflow-hidden z-10 border-b border-neutral-100">
+    <section className="relative w-full bg-[#FFFFFF] overflow-hidden z-10 border-b border-neutral-100 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
         <div className="flex flex-col lg:flex-row items-stretch justify-between gap-12 lg:gap-16 min-h-[500px]">
           

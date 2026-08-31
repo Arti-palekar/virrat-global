@@ -67,18 +67,18 @@ const ecosystemItems: CarouselItem[] = [
 
 export default function AiAutomationEcosystem() {
   return (
-    <section className="w-full py-24 bg-[#050b09] text-white overflow-hidden border-b border-zinc-900 relative">
+    <section className="w-full bg-[#050b09] text-white overflow-hidden border-b border-zinc-900 relative py-16 md:py-24">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#E31E24]/3 blur-[140px] pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <span className="text-[#E31E24] text-[11px] font-bold tracking-[0.25em] uppercase mb-4 block">
             AI Automation Ecosystem
           </span>
 
-          <h2 className="font-heading font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-[1.1] tracking-tight mb-4 text-white">
+          <h2 className="font-heading font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-[1.1] tracking-tight text-white mb-5">
             Everything you need to automate
           </h2>
 

@@ -131,7 +131,7 @@ export default function BPProcess() {
       <main className="flex-1 relative z-10 pt-16 pb-36 md:pt-20 md:pb-52 px-4 flex flex-col items-center justify-center w-full max-w-[1440px] mx-auto">
 
         {/* Massive stacked typography + floating elements */}
-        <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10 mb-16">
+        <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10 mb-12">
 
           {/* --- Big words stack --- */}
           <div className="w-full flex flex-col items-center relative z-10 space-y-1 md:space-y-3">
@@ -254,7 +254,7 @@ export default function BPProcess() {
       </main>
 
       {/* ── BOTTOM WHITE PROCESS CARDS ─────────────────────────── */}
-      <section className="bg-white text-black rounded-t-[2.5rem] md:rounded-t-[3.5rem] px-6 py-12 md:px-10 md:py-16 relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.2)] mt-auto w-full">
+      <section className="bg-white text-black rounded-t-[2.5rem] md:rounded-t-[3.5rem] px-6 md:px-10 relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.2)] w-full py-16 md:py-24">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
 
           {PROCESS_STEPS.map((step, i) => (
@@ -268,12 +268,12 @@ export default function BPProcess() {
               </span>
 
               {/* Title */}
-              <h3 className="text-xl md:text-2xl uppercase leading-tight mb-2 font-black whitespace-pre-line">
+              <h3 className="text-xl md:text-2xl uppercase leading-tight font-black whitespace-pre-line mb-6">
                 {step.title}
               </h3>
 
               {/* Sub */}
-              <p className="text-[11px] md:text-xs text-black/50 font-semibold mb-4">
+              <p className="text-[11px] md:text-xs text-black/50 font-semibold mb-6">
                 {step.sub}
               </p>
 

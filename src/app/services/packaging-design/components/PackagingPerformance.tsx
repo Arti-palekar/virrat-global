@@ -14,7 +14,7 @@ export default function PackagingPerformance() {
   ];
 
   return (
-    <section className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden">
+    <section className="relative w-full px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
           
@@ -45,14 +45,14 @@ export default function PackagingPerformance() {
           >
             <span className="text-[#fd2e35] text-[10px] font-bold tracking-[0.3em] uppercase">Performance</span>
             
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold tracking-tighter leading-[1.05] text-[#111111]">
-              DESIGNED FOR<br />
-              THE SHELF.<br />
-              BUILT FOR<br />
-              THE BRAND.
+            <h2 className="font-heading text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight mb-5">
+              Designed for<br />
+              the shelf.<br />
+              built for<br />
+              the brand.
             </h2>
 
-            <p className="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-[32em]">
+            <p className="text-zinc-600 max-w-[32em] text-[18px] font-semibold leading-[1.5] tracking-normal">
               Every detail &mdash; from typography and color to materials and structure &mdash; is considered to create packaging that feels intentional, memorable, and ready for the real world.
             </p>
 

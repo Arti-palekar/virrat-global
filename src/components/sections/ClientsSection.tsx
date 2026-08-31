@@ -103,7 +103,7 @@ export function ClientsSection() {
   return (
     <section 
       ref={containerRef} 
-      className="py-12 md:py-16 lg:py-20 bg-[#0D0D0D] relative font-syne border-t border-white/5 h-auto min-h-fit"
+      className="bg-[#0D0D0D] relative font-syne border-t border-white/5 h-auto min-h-fit py-16 md:py-24"
     >
       <div className="container mx-auto px-6 max-w-[1400px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -115,12 +115,12 @@ export function ClientsSection() {
               CLIENT TESTIMONIALS
             </span>
             
-            <p className="homepage-section-title dark-theme mb-5">
+            <p className="homepage-section-title dark-theme mb-6">
               Clients Love <br />
               <span>Working With Us</span>
             </p>
             
-            <p className="font-inter text-[#B5B5B5] text-base leading-relaxed mb-8 max-w-lg">
+            <p className="font-inter text-[#B5B5B5] text-base leading-relaxed max-w-lg mb-6">
               Businesses trust Virrat Global for branding, digital marketing, websites, software, AI automation, and compliance services. We focus on delivering measurable results, exceptional support, and long-term partnerships.
             </p>
             
@@ -183,7 +183,7 @@ export function ClientsSection() {
                   </div>
 
                   {/* Review Quote */}
-                  <p className="font-inter text-[#B5B5B5] text-base md:text-lg leading-relaxed mb-6 italic">
+                  <p className="font-inter text-[#B5B5B5] text-base md:text-lg leading-relaxed italic mb-6">
                     "{t.review}"
                   </p>
 

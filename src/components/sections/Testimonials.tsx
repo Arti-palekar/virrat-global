@@ -52,9 +52,9 @@ const TESTIMONIALS = [
 
 export function Testimonials() {
   return (
-    <section className="py-22 bg-[#f8f7f5] overflow-hidden relative">
+    <section className="bg-[#f8f7f5] overflow-hidden relative py-16 md:py-24">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export function Testimonials() {
                     `}
                   >
                     <Quote className={`w-10 h-10 mb-8 transition-colors duration-700 ${isActive ? "text-[var(--color-accent)]" : "text-black/10"}`} />
-                    <p className="text-xl leading-relaxed font-medium mb-10 text-[var(--color-primary)]">
+                    <p className="text-xl leading-relaxed font-medium text-[var(--color-primary)] mb-6">
                       "{t.quote}"
                     </p>
                     <div>

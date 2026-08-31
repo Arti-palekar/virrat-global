@@ -102,7 +102,7 @@ export default function DigitalEpochHero() {
   const doubleLogos = [...logos, ...logos];
 
   return (
-    <section className="w-full bg-[#f9fafb] py-16 md:py-24 font-sans select-none">
+    <section className="w-full bg-[#f9fafb] font-sans select-none py-16 md:py-24">
       
       {/* Styles for Marquee Scroller */}
       <style dangerouslySetInnerHTML={{ __html: `
@@ -146,7 +146,7 @@ export default function DigitalEpochHero() {
             className="flex flex-col items-start gap-5"
           >
             <h2 
-              className="font-display font-medium text-[42px] md:text-[54px] leading-[1.08] tracking-tight text-[#0a1b33]"
+              className="font-display font-medium text-[42px] md:text-[54px] leading-[1.08] tracking-tight text-[#0a1b33] mb-5"
               dangerouslySetInnerHTML={{ __html: "Ready to Create<br />What’s Next?" }}
             />
             

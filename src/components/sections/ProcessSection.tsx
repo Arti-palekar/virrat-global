@@ -25,7 +25,7 @@ export function ProcessSection({
         <span className="inline-block text-[#d62020] text-xs font-bold tracking-[0.25em] uppercase mb-3">
           {eyebrow}
         </span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tighter leading-none uppercase max-w-[20ch] mx-auto">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tighter leading-none uppercase max-w-[20ch] mx-auto mb-5">
           {title.split("\n").map((line, i) => (
             <React.Fragment key={i}>
               {line}

@@ -18,7 +18,7 @@ export default function ComplianceHero() {
   return (
     <section
       ref={containerRef}
-      className="compliance-hero relative w-full h-[90vh] min-h-[650px] overflow-hidden flex items-center bg-[#FAF9F6]"
+      className="compliance-hero relative w-full h-[90vh] min-h-[650px] overflow-hidden flex items-center bg-[#FAF9F6] py-16 md:py-24"
     >
       {/* ── Background Image with Parallax ── */}
       <motion.div

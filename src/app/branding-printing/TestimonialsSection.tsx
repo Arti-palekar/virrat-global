@@ -54,7 +54,7 @@ export default function TestimonialsSection() {
   }, [nextTestimonial, isHovered]);
 
   return (
-    <section className="bg-[#FFFFFF] py-[120px] px-6">
+    <section className="bg-[#FFFFFF] ] px-6 py-16 md:py-24">
       <div className="max-w-[1280px] mx-auto flex flex-col items-center">
         
         {/* Section Header */}
@@ -62,7 +62,7 @@ export default function TestimonialsSection() {
           <span className="homepage-section-tag">
             CLIENT SUCCESS
           </span>
-          <h2 className="homepage-section-title">
+          <h2 className="homepage-section-title mb-5">
             What They <span>Say.</span>
           </h2>
         </div>
@@ -132,7 +132,7 @@ export default function TestimonialsSection() {
                       mass: 0.8
                     }}
                   >
-                    <p className="font-inter text-[18px] text-[#333333] leading-[1.8] mb-2">
+                    <p className="font-inter text-[18px] text-[#333333] leading-[1.8] mb-6">
                       {testimonials[currentIndex].quote}
                     </p>
                     

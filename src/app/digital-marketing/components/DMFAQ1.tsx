@@ -323,7 +323,7 @@ function FAQ1({ items }: FAQ1Props = {}) {
           </span>
           <div className="space-y-4 flex flex-col items-center">
             <h2 
-              className="text-4xl md:text-[54px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#111111] mb-[20px]"
+              className="text-4xl md:text-[54px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#111111] ] mb-5"
               style={{ fontFamily: 'Sora, sans-serif' }}
             >
               Focus on the signal, not the noise

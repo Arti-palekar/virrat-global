@@ -66,7 +66,7 @@ export default function PackagingHero() {
     <section 
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full min-h-[90vh] lg:min-h-[95vh] flex items-center justify-center pt-24 pb-16 px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden"
+      className="relative w-full min-h-[90vh] lg:min-h-[95vh] flex items-center justify-center px-6 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden py-16 md:py-24"
     >
       {/* Soft blurred studio background from the reference image */}
       <div 
@@ -122,7 +122,7 @@ export default function PackagingHero() {
               className="w-full flex items-center justify-center"
             >
               <h1 
-                className="packaging-design-hero-title text-center font-heading font-black text-[#111111] uppercase select-none"
+                className="packaging-design-hero-title text-center font-heading font-black text-[#111111] uppercase select-none mb-5"
                 style={{ whiteSpace: "nowrap" }}
               >
                 PACKAGING DESIGN

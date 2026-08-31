@@ -44,7 +44,7 @@ const aiProcessSteps = [
 
 export default function AiAutomationProcess() {
   return (
-    <section className="relative w-full py-24 md:py-32 px-4 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden">
+    <section className="relative w-full px-4 md:px-12 lg:px-24 bg-[#FAF9F6] text-[#111111] overflow-hidden py-16 md:py-24">
       
       {/* CSS Animations */}
       <style dangerouslySetInnerHTML={{ __html: `
@@ -80,9 +80,9 @@ export default function AiAutomationProcess() {
       <div className="max-w-[1200px] mx-auto relative z-10">
         
         {/* Header Section */}
-        <div className="mb-20 md:mb-28 flex flex-col items-center text-center max-w-3xl mx-auto">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
           <span className="text-[#E32620] text-[10px] md:text-[12px] font-bold tracking-[0.3em] uppercase mb-4">OUR PROCESS</span>
-          <h2 className="text-3xl md:text-5xl font-heading font-black tracking-tighter leading-[1.1] uppercase">
+          <h2 className="text-3xl md:text-5xl font-heading font-black tracking-tighter leading-[1.1] uppercase mb-5">
             The 6 Pillars of our<br />
             AI Automation Strategy
           </h2>
@@ -156,7 +156,7 @@ export default function AiAutomationProcess() {
                 {/* Text Above */}
                 {isTop && (
                   <div className="absolute bottom-full mb-6 w-[200px] text-center">
-                    <h3 className="text-[17px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
+                    <h3 className="text-[17px] font-bold text-[#111111] leading-tight mb-6">{step.title}</h3>
                     <p className="text-[13px] text-gray-500 font-medium leading-snug">{step.description}</p>
                   </div>
                 )}
@@ -171,7 +171,7 @@ export default function AiAutomationProcess() {
                 {/* Text Below */}
                 {!isTop && (
                   <div className="absolute top-full mt-6 w-[200px] text-center">
-                    <h3 className="text-[17px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
+                    <h3 className="text-[17px] font-bold text-[#111111] leading-tight mb-6">{step.title}</h3>
                     <p className="text-[13px] text-gray-500 font-medium leading-snug">{step.description}</p>
                   </div>
                 )}
@@ -250,7 +250,7 @@ export default function AiAutomationProcess() {
                 {/* Text Left (for Right nodes) */}
                 {!isLeft && (
                   <div className="absolute right-full mr-4 w-[140px] text-right">
-                    <h3 className="text-[15px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
+                    <h3 className="text-[15px] font-bold text-[#111111] leading-tight mb-6">{step.title}</h3>
                     <p className="text-[12px] text-gray-500 font-medium leading-tight">{step.description}</p>
                   </div>
                 )}
@@ -265,7 +265,7 @@ export default function AiAutomationProcess() {
                 {/* Text Right (for Left nodes) */}
                 {isLeft && (
                   <div className="absolute left-full ml-4 w-[140px] text-left">
-                    <h3 className="text-[15px] font-bold text-[#111111] mb-1 leading-tight">{step.title}</h3>
+                    <h3 className="text-[15px] font-bold text-[#111111] leading-tight mb-6">{step.title}</h3>
                     <p className="text-[12px] text-gray-500 font-medium leading-tight">{step.description}</p>
                   </div>
                 )}

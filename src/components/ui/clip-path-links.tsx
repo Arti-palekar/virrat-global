@@ -66,14 +66,14 @@ const GoogleIcon = ({ className }: { className?: string }) => (
 
 export const ClipPathLinks = () => {
   return (
-    <section className="w-full bg-[#050b09] py-24 px-6 md:px-12 lg:px-24 border-b border-zinc-900 relative">
+    <section className="w-full bg-[#050b09] px-6 md:px-12 lg:px-24 border-b border-zinc-900 relative py-16 md:py-24">
       {/* Background ambient RED glow matching section theme */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#E31E24]/2 blur-[120px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto z-10 relative">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-heading font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-[1.1] tracking-tight mb-3 !text-white">
+        <div className="text-center mb-12">
+          <h2 className="font-heading font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-[1.1] tracking-tight !text-white mb-5">
             Tools We Use
           </h2>
           <p className="font-sans mx-auto max-w-[650px] text-[15px] sm:text-[16px] lg:text-[18px] leading-[1.6] !text-white/85 text-center mt-3">

@@ -354,7 +354,7 @@ export default function BrandEcosystem() {
             <span className="text-xs font-semibold tracking-widest text-[#d62020] uppercase font-mono block mb-4">
               VIRRAT GLOBAL
             </span>
-            <h2 className="text-[3.5rem] lg:text-[5rem] xl:text-[6.5rem] font-[900] leading-none tracking-[-0.04em] mb-6 font-heading text-[#111111] flex flex-col items-center">
+            <h2 className="text-[3.5rem] lg:text-[5rem] xl:text-[6.5rem] font-[900] leading-none tracking-[-0.04em] font-heading text-[#111111] flex flex-col items-center mb-5">
               <motion.span 
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -428,11 +428,11 @@ export default function BrandEcosystem() {
           }}
         />
 
-        <div className="text-center mb-16 relative z-10 flex flex-col items-center">
+        <div className="text-center relative z-10 flex flex-col items-center mb-12">
           <span className="text-[10px] font-bold text-[#d62020] tracking-[0.25em] uppercase font-mono block mb-3">
             VIRRAT GLOBAL
           </span>
-          <h2 className="text-5xl font-[900] leading-none tracking-tighter mb-5 font-heading text-[#111111] flex flex-col items-center">
+          <h2 className="text-5xl font-[900] leading-none tracking-tighter font-heading text-[#111111] flex flex-col items-center mb-5">
             <span className="block">BRAND</span>
             <span className="text-[#D62020] relative inline-block">
               IDENTITY

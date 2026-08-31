@@ -36,7 +36,7 @@ const fadeUp = {
 
 export default function BPBrandingSolutions() {
   return (
-    <section className="w-full bg-white overflow-hidden" aria-label="Our Process">
+    <section className="w-full bg-white overflow-hidden py-16 md:py-24" aria-label="Our Process">
 
       {/* ── TOP: SECTION TAG ──────────────────────────────────── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-20 md:pt-28">

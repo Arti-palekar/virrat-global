@@ -77,10 +77,10 @@ export default function ScrollFAQAccordion({
       ref={containerRef}
       className={cn("max-w-4xl mx-auto text-center py-16", className)}
     >
-      <h2 className="text-[40px] md:text-[56px] font-syne font-bold text-[#111111] mb-2 leading-tight tracking-[-0.03em]">
+      <h2 className="text-[40px] md:text-[56px] font-syne font-bold text-[#111111] leading-tight tracking-[-0.03em] mb-5">
         Frequently Asked Questions
       </h2>
-      <p className="text-gray-600 mb-12 text-lg">
+      <p className="text-gray-600 text-lg mb-6">
         Find answers to common questions about our branding and printing services.
       </p>
 

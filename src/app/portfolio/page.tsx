@@ -314,8 +314,8 @@ export default function PortfolioPage() {
               animate={{ opacity: 1 }}
               className="py-32 text-center"
             >
-              <h3 className="text-2xl font-heading font-semibold mb-4 text-[var(--color-primary)]">No matching projects found.</h3>
-              <p className="text-[var(--color-secondary)] mb-8">Try adjusting your search or category filters.</p>
+              <h3 className="text-2xl font-heading font-semibold text-[var(--color-primary)] mb-6">No matching projects found.</h3>
+              <p className="text-[var(--color-secondary)] mb-6">Try adjusting your search or category filters.</p>
               <button 
                 onClick={handleClearFilters}
                 className="px-8 py-4 bg-[var(--color-primary)] text-white rounded-full font-medium hover:bg-opacity-90 transition-all"
@@ -391,8 +391,8 @@ export default function PortfolioPage() {
               animate={{ opacity: 1 }}
               className="py-32 text-center"
             >
-              <h3 className="text-2xl font-heading font-semibold mb-4 text-[var(--color-primary)]">No matching projects found.</h3>
-              <p className="text-[var(--color-secondary)] mb-8">Try adjusting your search or category filters.</p>
+              <h3 className="text-2xl font-heading font-semibold text-[var(--color-primary)] mb-6">No matching projects found.</h3>
+              <p className="text-[var(--color-secondary)] mb-6">Try adjusting your search or category filters.</p>
               <button 
                 onClick={handleClearFilters}
                 className="px-8 py-4 bg-[var(--color-primary)] text-white rounded-full font-medium hover:bg-opacity-90 transition-all"
@@ -448,14 +448,14 @@ export default function PortfolioPage() {
               
               {/* Content Side */}
               <div className="w-full lg:w-2/5 p-8 md:p-12 overflow-y-auto hide-scrollbar flex flex-col">
-                <p className="text-[var(--color-secondary)] font-medium mb-3 tracking-wide uppercase text-sm">
+                <p className="text-[var(--color-secondary)] font-medium tracking-wide uppercase text-sm mb-6">
                   {selectedProject.category}
                 </p>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--color-primary)] mb-6">
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--color-primary)] mb-5">
                   {selectedProject.title}
                 </h2>
                 
-                <p className="text-gray-600 text-lg leading-relaxed mb-10">
+                <p className="text-gray-600 text-lg leading-relaxed mb-6">
                   {selectedProject.description}
                 </p>
                 

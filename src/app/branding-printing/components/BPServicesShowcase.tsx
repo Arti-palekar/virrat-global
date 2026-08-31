@@ -97,7 +97,7 @@ const fadeUp = (delay = 0) => ({
 
 export default function BPServicesShowcase() {
   return (
-    <section className="w-full bg-white" aria-label="Our Services">
+    <section className="w-full bg-white py-16 md:py-24" aria-label="Our Services">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-28">
 
         {/* ── GRID: STICKY LEFT + SCROLLING RIGHT ─────────────── */}
@@ -227,7 +227,7 @@ export default function BPServicesShowcase() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-[15px] font-bold text-[#111111] font-heading leading-tight mb-1.5 group-hover:text-[#D62020] transition-colors duration-300">
+                    <h3 className="text-[15px] font-bold text-[#111111] font-heading leading-tight .5 group-hover:text-[#D62020] transition-colors duration-300 mb-6">
                       {service.title}
                     </h3>
 

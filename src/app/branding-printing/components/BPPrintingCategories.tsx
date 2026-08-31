@@ -12,12 +12,12 @@ const CATEGORIES = [
 
 export default function BPPrintingCategories() {
     return (
-        <section className="w-full bg-[#FAFAFA] py-32 border-t border-gray-200">
+        <section className="w-full bg-[#FAFAFA] border-t border-gray-200 py-16 md:py-24">
             <div className="max-w-7xl mx-auto px-4 md:px-8">
                 
-                <div className="text-center mb-20">
+                <div className="text-center mb-12">
                     <span className="homepage-section-tag">Printing Categories</span>
-                    <h2 className="homepage-section-title text-center">
+                    <h2 className="homepage-section-title text-center mb-5">
                         Premium physical <span>touchpoints.</span>
                     </h2>
                 </div>
@@ -28,7 +28,7 @@ export default function BPPrintingCategories() {
                             <div className="w-16 h-16 bg-gray-50 rounded-xl flex items-center justify-center text-[#d62020] mb-6 group-hover:scale-110 transition-transform duration-300">
                                 {cat.icon}
                             </div>
-                            <h3 className="text-xl font-bold font-heading text-[#111111] mb-4">{cat.title}</h3>
+                            <h3 className="text-xl font-bold font-heading text-[#111111] mb-6">{cat.title}</h3>
                             <ul className="space-y-2">
                                 {cat.items.map((item, j) => (
                                     <li key={j} className="text-[#666666] flex items-center gap-2 before:content-[''] before:w-1 before:h-1 before:bg-[#d62020] before:rounded-full">

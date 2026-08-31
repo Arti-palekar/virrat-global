@@ -156,7 +156,7 @@ const pillVariants = {
 
 export function ImageGallery() {
   return (
-    <section className="relative w-full py-24 md:py-32 bg-white flex flex-col items-center justify-center border-t border-gray-100 z-10 overflow-hidden">
+    <section className="relative w-full bg-white flex flex-col items-center justify-center border-t border-gray-100 z-10 overflow-hidden py-16 md:py-24">
       
       {/* Subtle Noise Paper Grain Overlay */}
       <div 

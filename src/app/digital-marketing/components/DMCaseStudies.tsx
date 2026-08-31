@@ -48,7 +48,7 @@ const CASE_STUDIES = [
 
 export default function DMCaseStudies() {
   return (
-    <section className="w-full bg-white py-24 md:py-32 border-b border-[#EBEBEB]" aria-label="Case Studies">
+    <section className="w-full bg-white border-b border-[#EBEBEB] py-16 md:py-24" aria-label="Case Studies">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         
         {/* Header */}
@@ -109,15 +109,15 @@ export default function DMCaseStudies() {
                 <span className="text-[12px] font-mono text-[#888888] font-bold">{item.id}</span>
               </div>
 
-              <p className="text-[12px] font-mono text-[#777777] uppercase font-semibold tracking-wider mb-2">
+              <p className="text-[12px] font-mono text-[#777777] uppercase font-semibold tracking-wider mb-6">
                 {item.client}
               </p>
 
-              <h3 className="text-[22px] font-bold text-[#111111] font-heading leading-snug mb-4 group-hover:text-[#D62020] transition-colors duration-300">
+              <h3 className="text-[22px] font-bold text-[#111111] font-heading leading-snug group-hover:text-[#D62020] transition-colors duration-300 mb-6">
                 {item.title}
               </h3>
 
-              <p className="text-[14px] text-[#666666] leading-relaxed font-body mb-8">
+              <p className="text-[14px] text-[#666666] leading-relaxed font-body mb-6">
                 {item.summary}
               </p>
 

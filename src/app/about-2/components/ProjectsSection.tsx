@@ -41,7 +41,7 @@ export default function ProjectsSection() {
   return (
     <section 
       id="projects" 
-      className="bg-[#F5F5F5] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 z-20 w-full relative pb-40"
+      className="bg-[#F5F5F5] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] - sm:- md:- z-20 w-full relative py-16 md:py-24"
     >
       <style dangerouslySetInnerHTML={{__html: `
         #projects.relative .hero-heading {
@@ -52,7 +52,7 @@ export default function ProjectsSection() {
         }
       `}} />
       <div className="pt-20 sm:pt-24 md:pt-32 px-5 sm:px-8 md:px-10">
-        <h2 className="hero-heading text-center text-4xl md:text-[54px] font-bold text-slate-900 leading-[1.1] mb-12 md:mb-16 tracking-tight">
+        <h2 className="hero-heading text-center text-4xl md:text-[54px] font-bold text-slate-900 leading-[1.1] tracking-tight mb-5">
           Project
         </h2>
 

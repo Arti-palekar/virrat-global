@@ -148,7 +148,7 @@ export default function BPHeroParallax() {
   return (
     <section 
       ref={ref}
-      className="relative w-full py-16 md:py-24 overflow-hidden bg-white text-[#111111] flex flex-col justify-between z-20 group select-none [perspective:1000px] [transform-style:preserve-3d]"
+      className="relative w-full overflow-hidden bg-white text-[#111111] flex flex-col justify-between z-20 group select-none [perspective:1000px] [transform-style:preserve-3d] py-16 md:py-24"
     >
       
       {/* Hardware Accelerated Keyframes for Infinite Auto-Sliding and Mouse Hover Pause */}
@@ -264,7 +264,7 @@ function Header() {
         OUR PORTFOLIO
       </span>
       <p 
-        className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-[900] text-[#111111] leading-none tracking-[-0.04em] mb-4 font-heading"
+        className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-[900] text-[#111111] leading-none tracking-[-0.04em] font-heading mb-6"
       >
         Crafting Brands <br />
         That Stand Out.
@@ -330,7 +330,7 @@ function BottomCTA() {
       className="relative z-20 w-full max-w-4xl mx-auto pt-8 pb-4 px-6 text-center flex flex-col items-center"
     >
       <h3 
-        className="card-title text-center mb-6 font-heading"
+        className="card-title text-center font-heading mb-6"
       >
         Ready to Build Your Brand?
       </h3>

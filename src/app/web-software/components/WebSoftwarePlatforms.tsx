@@ -135,7 +135,7 @@ export function WebSoftwarePlatforms() {
   useEffect(() => { setMounted(true); }, []);
 
   return (
-    <section className="bg-[#f5f5f3] py-20 overflow-hidden">
+    <section className="bg-[#f5f5f3] overflow-hidden py-16 md:py-24">
       {/* Preload all backgrounds so there's no flash on first switch */}
       <PreloadImages />
 
@@ -144,7 +144,7 @@ export function WebSoftwarePlatforms() {
         <div className="grid md:grid-cols-2 gap-14 items-start mb-10">
           {/* LEFT */}
           <div>
-            <h2 className="text-[46px] leading-[50px] tracking-tight font-bold text-[#131313] max-w-2xl font-heading">
+            <h2 className="text-[46px] leading-[50px] tracking-tight font-bold text-[#131313] max-w-2xl font-heading mb-5">
               Our Development Workflow
             </h2>
           </div>

@@ -197,7 +197,7 @@ export default function ToonhubHero({
             style={{ top: '18%' }}
           >
             <h1 
-              className="text-white opacity-100 uppercase whitespace-nowrap m-0"
+              className="text-white opacity-100 uppercase whitespace-nowrap m-0 mb-5"
               style={{
                 fontFamily: "'Anton', sans-serif",
                 fontSize: 'clamp(90px, 28vw, 380px)',
@@ -244,10 +244,10 @@ export default function ToonhubHero({
 
           {/* 5. Bottom-left text + nav buttons */}
           <div className="absolute bottom-6 left-4 sm:bottom-20 sm:left-24 z-[60] max-w-[320px]">
-            <p className="font-bold uppercase tracking-[0.02em] mb-2 sm:mb-3 text-base sm:text-[22px] text-white opacity-95">
+            <p className="font-bold uppercase tracking-[0.02em] text-base sm:text-[22px] text-white opacity-95 mb-6">
               {displayTitle}
             </p>
-            <p className="hidden sm:block text-xs sm:text-sm text-white opacity-85 leading-relaxed mb-4 sm:mb-5">
+            <p className="hidden sm:block text-xs sm:text-sm text-white opacity-85 leading-relaxed mb-6">
               {displayDescription}
             </p>
             

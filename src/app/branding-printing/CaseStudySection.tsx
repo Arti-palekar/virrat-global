@@ -21,7 +21,7 @@ const caseStudySections = [
     content: (
       <>
         <div className="text-[12px] font-[600] text-[#D62020] uppercase tracking-[0.12em] mb-4">01</div>
-        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight mb-8 tracking-[-0.03em]">
+        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight tracking-[-0.03em] mb-5">
           Project Overview
         </h2>
         
@@ -79,19 +79,19 @@ const caseStudySections = [
     content: (
       <>
         <div className="text-[12px] font-[600] text-[#D62020] uppercase tracking-[0.12em] mb-4">02</div>
-        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight mb-8 tracking-[-0.03em]">
+        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight tracking-[-0.03em] mb-5">
           The Challenge
         </h2>
         
         <div className="bg-white border border-[#ECECEC] rounded-[20px] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.05)] mb-8">
-          <h3 className="font-syne font-bold text-[24px] text-[#111] mb-4 tracking-[-0.03em]">The Problem</h3>
+          <h3 className="font-syne font-bold text-[24px] text-[#111] tracking-[-0.03em] mb-6">The Problem</h3>
           <p className="font-inter text-[#555] text-[15px] leading-[1.7]">
             The client needed a modern and consistent brand identity that would create a strong first impression across both digital and printed marketing materials. Their previous branding lacked consistency, professionalism, and premium visual appeal.
           </p>
         </div>
 
         <div className="bg-white border border-[#ECECEC] rounded-[20px] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.05)]">
-          <h3 className="font-syne font-bold text-[24px] text-[#111] mb-4 tracking-[-0.03em]">Our Approach</h3>
+          <h3 className="font-syne font-bold text-[24px] text-[#111] tracking-[-0.03em] mb-6">Our Approach</h3>
           <p className="font-inter text-[#555] text-[15px] leading-[1.7]">
             We developed a complete branding system including logo design, typography, color palette, print collateral, packaging concepts, and marketing creatives to ensure a consistent and memorable brand experience across every customer touchpoint.
           </p>
@@ -105,7 +105,7 @@ const caseStudySections = [
     content: (
       <>
         <div className="text-[12px] font-[600] text-[#D62020] uppercase tracking-[0.12em] mb-4">03</div>
-        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight mb-8 tracking-[-0.03em]">
+        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight tracking-[-0.03em] mb-5">
           Research
         </h2>
         
@@ -132,13 +132,13 @@ const caseStudySections = [
     content: (
       <>
         <div className="text-[12px] font-[600] text-[#D62020] uppercase tracking-[0.12em] mb-4">04</div>
-        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight mb-8 tracking-[-0.03em]">
+        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight tracking-[-0.03em] mb-5">
           Creative Direction
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white border border-[#ECECEC] rounded-[20px] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.05)]">
-            <h3 className="font-syne font-bold text-[22px] text-[#111] mb-6 tracking-[-0.03em]">Color Palette</h3>
+            <h3 className="font-syne font-bold text-[22px] text-[#111] tracking-[-0.03em] mb-6">Color Palette</h3>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-[#FFFFFF] border border-[#ECECEC] shadow-sm"></div>
@@ -158,7 +158,7 @@ const caseStudySections = [
           </div>
           
           <div className="bg-white border border-[#ECECEC] rounded-[20px] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.05)]">
-            <h3 className="font-syne font-bold text-[22px] text-[#111] mb-6 tracking-[-0.03em]">Typography</h3>
+            <h3 className="font-syne font-bold text-[22px] text-[#111] tracking-[-0.03em] mb-6">Typography</h3>
             <div className="flex flex-col gap-6">
               <div>
                 <div className="font-syne font-bold text-[28px] text-[#111] leading-none mb-2">Aa</div>
@@ -180,7 +180,7 @@ const caseStudySections = [
     content: (
       <>
         <div className="text-[12px] font-[600] text-[#D62020] uppercase tracking-[0.12em] mb-4">05</div>
-        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight mb-8 tracking-[-0.03em]">
+        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight tracking-[-0.03em] mb-5">
           Logo Design
         </h2>
         
@@ -188,17 +188,17 @@ const caseStudySections = [
           <div className="space-y-8 border-l-[2px] border-red-50 pl-8 relative">
             <div className="relative">
               <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-white border-[3px] border-[#D62020]"></div>
-              <h3 className="font-syne font-bold text-[20px] text-[#111] mb-2 tracking-[-0.03em]">Sketches</h3>
+              <h3 className="font-syne font-bold text-[20px] text-[#111] tracking-[-0.03em] mb-6">Sketches</h3>
               <p className="font-inter text-[#555] text-[15px] leading-[1.7]">Initial hand-drawn explorations focusing on minimal geometry.</p>
             </div>
             <div className="relative">
               <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-white border-[3px] border-[#D62020]"></div>
-              <h3 className="font-syne font-bold text-[20px] text-[#111] mb-2 tracking-[-0.03em]">Grid System</h3>
+              <h3 className="font-syne font-bold text-[20px] text-[#111] tracking-[-0.03em] mb-6">Grid System</h3>
               <p className="font-inter text-[#555] text-[15px] leading-[1.7]">Aligning the logomark to a strict geometric grid for perfect scalability.</p>
             </div>
             <div className="relative">
               <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-[#D62020]"></div>
-              <h3 className="font-syne font-bold text-[20px] text-[#111] mb-2 tracking-[-0.03em]">Final Logo</h3>
+              <h3 className="font-syne font-bold text-[20px] text-[#111] tracking-[-0.03em] mb-6">Final Logo</h3>
               <p className="font-inter text-[#555] text-[15px] leading-[1.7]">The polished vector output, ready for both digital and print application.</p>
             </div>
           </div>
@@ -212,10 +212,10 @@ const caseStudySections = [
     content: (
       <>
         <div className="text-[12px] font-[600] text-[#D62020] uppercase tracking-[0.12em] mb-4">06</div>
-        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight mb-8 tracking-[-0.03em]">
+        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight tracking-[-0.03em] mb-5">
           Brand Identity
         </h2>
-        <p className="font-inter text-[#555] text-[15px] leading-[1.7] mb-8">
+        <p className="font-inter text-[#555] text-[15px] leading-[1.7] mb-6">
           We rolled out the core identity across essential business stationery, ensuring every piece of paper communicated the premium nature of the brand.
         </p>
 
@@ -235,12 +235,12 @@ const caseStudySections = [
     content: (
       <>
         <div className="text-[12px] font-[600] text-[#D62020] uppercase tracking-[0.12em] mb-4">07</div>
-        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight mb-8 tracking-[-0.03em]">
+        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight tracking-[-0.03em] mb-5">
           Printing Materials
         </h2>
         
         <div className="bg-white border border-[#ECECEC] rounded-[20px] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.05)]">
-          <h3 className="font-syne font-bold text-[24px] text-[#111] mb-6 tracking-[-0.03em]">Final Deliverables</h3>
+          <h3 className="font-syne font-bold text-[24px] text-[#111] tracking-[-0.03em] mb-6">Final Deliverables</h3>
           <div className="flex flex-wrap gap-3">
             {[
               "Brochure", "Flyers", "Packaging", "Billboard", 
@@ -262,10 +262,10 @@ const caseStudySections = [
     content: (
       <>
         <div className="text-[12px] font-[600] text-[#D62020] uppercase tracking-[0.12em] mb-4">08</div>
-        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight mb-8 tracking-[-0.03em]">
+        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight tracking-[-0.03em] mb-5">
           Final Showcase
         </h2>
-        <p className="font-inter text-[#555] text-[15px] leading-[1.7] mb-8">
+        <p className="font-inter text-[#555] text-[15px] leading-[1.7] mb-6">
           Beautiful product presentation utilizing professional photography and highly realistic mockups. The end result is a cohesive brand experience that commands authority.
         </p>
       </>
@@ -277,7 +277,7 @@ const caseStudySections = [
     content: (
       <>
         <div className="text-[12px] font-[600] text-[#D62020] uppercase tracking-[0.12em] mb-4">09</div>
-        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight mb-8 tracking-[-0.03em]">
+        <h2 className="font-syne font-[700] text-[40px] md:text-[56px] text-[#111111] leading-tight tracking-[-0.03em] mb-5">
           Project Results
         </h2>
         
@@ -301,7 +301,7 @@ const caseStudySections = [
         </div>
 
         <div className="bg-white border border-[#ECECEC] rounded-[20px] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.05)]">
-          <h3 className="font-syne font-bold text-[24px] text-[#111] mb-6 tracking-[-0.03em]">Business Impact</h3>
+          <h3 className="font-syne font-bold text-[24px] text-[#111] tracking-[-0.03em] mb-6">Business Impact</h3>
           <ul className="space-y-4">
              <li className="flex items-center gap-3"><Check className="w-4 h-4 text-[#D62020]"/><span className="font-inter text-[#555] text-[15px]">Strong Brand Recognition</span></li>
              <li className="flex items-center gap-3"><Check className="w-4 h-4 text-[#D62020]"/><span className="font-inter text-[#555] text-[15px]">Premium Brand Identity</span></li>
@@ -349,7 +349,7 @@ export default function CaseStudySection() {
   }, []);
 
   return (
-    <section className="w-full bg-[#FFFFFF] relative font-inter border-t border-[#ECECEC]">
+    <section className="w-full bg-[#FFFFFF] relative font-inter border-t border-[#ECECEC] py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row relative">
         
         {/* LEFT COLUMN - STICKY MOBILE MOCKUP */}

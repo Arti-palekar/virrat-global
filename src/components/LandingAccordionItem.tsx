@@ -96,12 +96,12 @@ export function LandingAccordionItem() {
 
   return (
     <div className="bg-[#FAF9F6] font-sans text-slate-900 relative z-10">
-      <section className="container mx-auto px-4 py-12 md:py-24">
+      <section className="container mx-auto px-4 py-16 md:py-24">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           
           {/* Left Side: Text Content */}
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight tracking-tighter">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight tracking-tighter mb-5">
               Accelerate Gen-AI Tasks on Any Device
             </h1>
             <p className="mt-6 text-lg text-gray-600 max-w-xl mx-auto md:mx-0">

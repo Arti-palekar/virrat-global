@@ -43,7 +43,7 @@ export function HomeFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-22 bg-[var(--color-background)]">
+    <section className="bg-[var(--color-background)] py-16 md:py-24">
       <div className="container mx-auto px-6 max-w-4xl">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ export function HomeFAQ() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="homepage-section-title">
+          <h2 className="homepage-section-title mb-5">
             Frequently <br />
             <span>Asked Questions</span>
           </h2>

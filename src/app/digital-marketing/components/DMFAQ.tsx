@@ -41,11 +41,11 @@ export default function DMFAQ() {
   };
 
   return (
-    <section className="w-full bg-white py-24 md:py-32 border-b border-[#EBEBEB]" aria-label="Frequently Asked Questions">
+    <section className="w-full bg-white border-b border-[#EBEBEB] py-16 md:py-24" aria-label="Frequently Asked Questions">
       <div className="max-w-[1000px] mx-auto px-6 md:px-12">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

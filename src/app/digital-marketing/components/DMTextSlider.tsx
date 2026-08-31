@@ -5,7 +5,7 @@ import DMPerspectiveMarquee from "./DMPerspectiveMarquee";
 
 export default function DMTextSlider() {
   return (
-    <section className="relative w-full h-[150px] md:h-[250px] overflow-hidden">
+    <section className="relative w-full h-[150px] md:h-[250px] overflow-hidden py-16 md:py-24">
       <DMPerspectiveMarquee 
         background="#FAF9F6" 
         color="#111111"

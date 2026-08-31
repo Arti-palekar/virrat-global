@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function PackagingPhilosophy() {
   return (
-    <section className="relative w-full py-32 md:py-48 px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden border-t border-zinc-100">
+    <section className="relative w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden border-t border-zinc-100 py-16 md:py-24">
       
       {/* Background Subtle Wireframes / Floating Elements */}
       <div className="absolute inset-0 pointer-events-none select-none z-0">
@@ -44,12 +44,12 @@ export default function PackagingPhilosophy() {
         >
           <span className="text-[#fd2e35] text-[10px] font-bold tracking-[0.3em] uppercase">Philosophy</span>
           
-          <h2 className="text-4xl md:text-6xl font-heading font-extrabold tracking-tight leading-tight max-w-[18ch]">
-            More Than Packaging.<br />
-            It’s Your Brand Experience.
+          <h2 className="font-heading max-w-[18ch] text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight mb-5">
+            More than packaging.<br />
+            it’s your brand experience.
           </h2>
 
-          <p className="mt-6 text-lg md:text-xl text-zinc-600 leading-relaxed font-light max-w-[32em] mx-auto">
+          <p className="mt-6 text-zinc-600 max-w-[32em] mx-auto text-[18px] font-semibold leading-[1.5] tracking-normal">
             Great packaging does more than protect a product. It communicates quality, builds recognition, creates desire, and shapes how customers experience your brand before they even open it.
           </p>
         </motion.div>

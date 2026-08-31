@@ -74,7 +74,7 @@ export default function DMTopPicks() {
     <>
       <section 
         ref={sectionRef}
-        className="relative w-full pt-10 pb-0 lg:pt-12 lg:pb-0 px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden"
+        className="relative w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden py-16 md:py-24"
       >
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative">
@@ -86,12 +86,12 @@ export default function DMTopPicks() {
               <div className="bg-[#FAF9F6] border border-zinc-100 rounded-[32px] p-8 md:p-10 flex flex-col justify-between min-h-[420px] shadow-sm relative overflow-hidden">
                 <div>
                   {/* Heading */}
-                  <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter leading-none mb-4 uppercase">
+                  <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter leading-none uppercase mb-5">
                     DIGITAL MARKETING<br />THAT DRIVES GROWTH
                   </h2>
                   
                   {/* Description */}
-                  <p className="text-sm text-zinc-500 max-w-[36ch] leading-relaxed mb-10">
+                  <p className="text-sm text-zinc-500 max-w-[36ch] leading-relaxed mb-6">
                     Data-driven strategies designed to increase visibility, generate qualified leads and turn attention into measurable growth.
                   </p>
                 </div>
@@ -342,7 +342,7 @@ export default function DMTopPicks() {
       </section>
 
       {/* Stand-alone Horizontal CTA Row (Below the pinned scroll section) */}
-      <section className="w-full pt-10 pb-8 md:pb-10 lg:pb-12 px-6 md:px-12 lg:px-24 bg-white text-[#111111]">
+      <section className="w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             

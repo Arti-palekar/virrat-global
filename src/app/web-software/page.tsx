@@ -17,6 +17,7 @@ import { WebSoftwareMarquee } from "./components/WebSoftwareMarquee";
 import { WebSoftwareToolkit } from "./components/WebSoftwareToolkit";
 import { WebSoftwareTextMarquee } from "./components/WebSoftwareTextMarquee";
 import { WebSoftwareIndustriesCarousel } from "./components/WebSoftwareIndustriesCarousel";
+import { WebSoftwareHoverShowcase } from "./components/WebSoftwareHoverShowcase";
 
 import WebSoftwareProcess from "./components/WebSoftwareProcess";
 
@@ -156,6 +157,9 @@ export default function WebSoftwarePage() {
         {/* 3. Development Toolkit */}
         <WebSoftwareToolkit />
 
+        {/* 3.0 NEW — Interactive Typography Hover Showcase */}
+        <WebSoftwareHoverShowcase />
+
         {/* 3.1 — Step-by-Step Development Process */}
         <WebSoftwareProcess
           eyebrow="OUR PROCESS"
@@ -177,7 +181,7 @@ export default function WebSoftwarePage() {
         <TestimonialsSection items={webSoftwareTestimonials} />
 
         {/* 3.7 — FAQ */}
-        <FAQ1 items={webSoftwareFaqs} />
+        <FAQ1 items={webSoftwareFaqs} themeOverride="light" />
       </main>
       <div className={kanit.className}>
         <CinematicFooter />

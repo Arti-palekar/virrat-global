@@ -52,9 +52,9 @@ const TESTIMONIALS = [
 
 export default function AiAutomationTestimonials() {
   return (
-    <section className="py-22 bg-[#f8f7f5] overflow-hidden relative">
+    <section className="bg-[#f8f7f5] overflow-hidden relative py-16 md:py-24">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20 space-y-4">
+        <div className="text-center space-y-4 mb-12">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -126,7 +126,7 @@ export default function AiAutomationTestimonials() {
                     `}
                   >
                     <Quote className={`w-10 h-10 mb-8 transition-colors duration-700 ${isActive ? "text-[#E52B26]" : "text-black/10"}`} />
-                    <p className="text-xl leading-relaxed font-medium mb-10 text-[#111111]">
+                    <p className="text-xl leading-relaxed font-medium text-[#111111] mb-6">
                       "{t.quote}"
                     </p>
                     <div>

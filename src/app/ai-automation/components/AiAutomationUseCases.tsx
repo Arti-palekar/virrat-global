@@ -27,14 +27,14 @@ export default function AiAutomationUseCases() {
   ];
 
   return (
-    <section className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-24 bg-white text-[#111111]">
+    <section className="relative w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto">
         
         {/* Section Heading */}
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
             <span className="text-[#E32620] text-[10px] font-bold tracking-[0.3em] uppercase">Use Cases</span>
-            <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter mt-4 leading-[1.1] uppercase">
+            <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter mt-4 leading-[1.1] uppercase mb-5">
               AUTOMATION IN <span className="text-[#E32620]">ACTION</span>
             </h2>
           </div>
@@ -73,10 +73,10 @@ export default function AiAutomationUseCases() {
 
                 {/* Content */}
                 <div className="flex-1 p-8 pt-6 flex flex-col">
-                  <h3 className="text-xl md:text-2xl font-bold font-heading mb-3 tracking-tight group-hover:text-[#E32620] transition-colors duration-300">
+                  <h3 className="text-xl md:text-2xl font-bold font-heading tracking-tight group-hover:text-[#E32620] transition-colors duration-300 mb-6">
                     {useCase.title}
                   </h3>
-                  <p className="text-sm text-[#555555] font-medium leading-relaxed mb-8 flex-1">
+                  <p className="text-sm text-[#555555] font-medium leading-relaxed flex-1 mb-6">
                     {useCase.description}
                   </p>
                   

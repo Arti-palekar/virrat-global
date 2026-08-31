@@ -94,7 +94,7 @@ const integrations: IntegrationItem[] = [
 
 export default function AiAutomationIntegrations() {
   return (
-    <section className="relative w-full py-16 bg-[#050b09] overflow-hidden border-b border-zinc-900 flex flex-col items-center justify-center text-center">
+    <section className="relative w-full bg-[#050b09] overflow-hidden border-b border-zinc-900 flex flex-col items-center justify-center text-center py-16 md:py-24">
       {/* Background orange/gold glow gradients matching screenshot */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[350px] h-[350px] bg-red-900/12 blur-[95px] pointer-events-none rounded-full" />
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[350px] h-[350px] bg-yellow-800/8 blur-[100px] pointer-events-none rounded-full" />

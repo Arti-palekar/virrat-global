@@ -39,10 +39,10 @@ const processSteps = [
 
 export default function ComplianceProcess() {
   return (
-    <section className="relative w-full bg-white py-16 md:py-20 border-t border-[#E8E8E8] overflow-hidden text-[#111111]">
+    <section className="relative w-full bg-white border-t border-[#E8E8E8] overflow-hidden text-[#111111] py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 md:px-16 mb-4 text-left">
-        <p className="text-xs uppercase tracking-widest text-[#E31E24] font-bold mb-3">Our Process</p>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#111111] max-w-3xl leading-tight">
+        <p className="text-xs uppercase tracking-widest text-[#E31E24] font-bold mb-6">Our Process</p>
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#111111] max-w-3xl leading-tight mb-5">
           A Streamlined Path to Compliance
         </h2>
       </div>

@@ -121,7 +121,7 @@ export default function HomeHero() {
   }, []);
 
   return (
-    <section className="relative w-full h-screen min-h-[800px] bg-white overflow-hidden flex items-center">
+    <section className="relative w-full h-screen min-h-[800px] bg-white overflow-hidden flex items-center py-16 md:py-24">
       
       {/* --- Circular Background Lines --- */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-15">
@@ -191,7 +191,7 @@ export default function HomeHero() {
               CREATIVE BRANDING STUDIO
             </div>
             
-            <h1 className="font-syne text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] leading-[1.05] font-extrabold text-black mb-8 tracking-tighter">
+            <h1 className="font-syne text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] leading-[1.05] font-extrabold text-black tracking-tighter mb-5">
               Creative Branding &<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D62020] to-[#990000]">
                 Premium Printing
@@ -199,7 +199,7 @@ export default function HomeHero() {
               That Builds Lasting Brand Impact
             </h1>
             
-            <p className="font-inter text-gray-600 text-lg md:text-xl max-w-[540px] leading-relaxed mb-12">
+            <p className="font-inter text-gray-600 text-lg md:text-xl max-w-[540px] leading-relaxed mb-6">
               From logo design and premium stationery to packaging, brochures and large-format printing, we help businesses create unforgettable brand experiences.
             </p>
 

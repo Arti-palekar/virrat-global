@@ -140,11 +140,11 @@ export default function CoreFeatures() {
     <div className="w-full bg-white relative">
       <section 
         ref={sectionRef} 
-        className="relative w-full bg-white overflow-hidden pt-24 pb-12 font-syne"
+        className="relative w-full bg-white overflow-hidden font-syne py-16 md:py-24"
       >
         {/* ─── SECTION HEADER ─── */}
         <div className="w-full max-w-[1500px] mx-auto px-6 mb-[60px] text-center flex flex-col items-center relative z-20 bg-white">
-          <h2 className="homepage-section-title max-w-[900px] text-center">
+          <h2 className="homepage-section-title max-w-[900px] text-center mb-5">
             Everything You Need<br />
             <span>To Build a Powerful Brand.</span>
           </h2>

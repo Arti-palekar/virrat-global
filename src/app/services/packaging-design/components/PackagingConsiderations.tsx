@@ -151,7 +151,7 @@ export default function PackagingConsiderations() {
   const progressPercent = maxIndex > 0 ? (currentIndex / maxIndex) * 100 : 0;
 
   return (
-    <section className="w-full pt-6 pb-20 px-6 md:px-12 lg:px-24 bg-white text-[#111111]">
+    <section className="w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto">
         
         {/* SECTION HEADER WITH CONTROLS AND SPLIT DESKTOP LAYOUT */}
@@ -168,8 +168,8 @@ export default function PackagingConsiderations() {
             <span className="inline-block text-[#d62020] text-xs font-bold tracking-[0.25em] uppercase">
               WHAT WE CONSIDER
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tighter leading-none uppercase max-w-[24ch]">
-              What Goes Into Every<br />Packaging Design
+            <h2 className="font-heading max-w-[24ch] text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight mb-5">
+              What goes into every<br />packaging design
             </h2>
           </motion.div>
 

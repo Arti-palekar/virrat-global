@@ -163,11 +163,13 @@ export default function PackagingClient() {
         {/* Our Step-by-Step Process Section */}
         <PackagingProcess />
 
-        {/* Moving Typography Banner Section */}
-        <PackagingMarquee />
+        <div className="relative z-30 bg-[#FAF9F6]">
+          {/* Moving Typography Banner Section */}
+          <PackagingMarquee />
 
-        <div className="[&_article_*]:!text-[#ffffff] [&_article]:!text-[#ffffff] [&_ul]:!max-w-[1020px] md:[&_ul]:!h-[420px] [&_.mb-12]:!mb-6">
-          <PackagingIndustriesExpand />
+          <div className="[&_article_*]:!text-[#ffffff] [&_article]:!text-[#ffffff] [&_ul]:!max-w-[1020px] md:[&_ul]:!h-[420px] [&_.mb-12]:!mb-6">
+            <PackagingIndustriesExpand />
+          </div>
         </div>
 
 
@@ -175,7 +177,12 @@ export default function PackagingClient() {
         <TestimonialsSection items={packagingTestimonials} />
 
         {/* Section 13: FAQ (Dynamic Reuse) */}
-        <FAQ1 items={packagingFaqs} />
+        <FAQ1 
+          items={packagingFaqs} 
+          themeOverride="light" 
+          titleClassName="font-heading text-zinc-900 text-4xl md:text-[54px] font-bold leading-[1.1] tracking-tight"
+          descClassName="text-zinc-500 max-w-xl text-[18px] font-semibold leading-[1.5] tracking-normal"
+        />
 
       </div>
 

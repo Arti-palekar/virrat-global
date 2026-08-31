@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function AboutHero() {
   return (
     <div className="bg-[#fafafa] font-body">
-      <section className="relative pt-32 pb-16 overflow-hidden">
+      <section className="relative overflow-hidden py-16 md:py-24">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-40" />
         
@@ -20,13 +20,13 @@ export default function AboutHero() {
             </div>
             
             {/* Headline */}
-            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-[1.1] mb-6">
+            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-[1.1] mb-5">
               Building Digital Experiences <br />
               <span className="text-[#E10600]">That Matter</span>
             </h1>
             
             {/* Paragraph */}
-            <p className="text-lg text-gray-600 mb-10 max-w-xl leading-relaxed">
+            <p className="text-lg text-gray-600 max-w-xl leading-relaxed mb-6">
               We combine thoughtful design, modern technology, and creative strategy to build digital experiences that help brands grow, connect, and stand out.
             </p>
             
@@ -97,7 +97,7 @@ export default function AboutHero() {
       </section>
 
       {/* Service/Feature Cards Below Hero */}
-      <section className="py-24 bg-[#fafafa]">
+      <section className="bg-[#fafafa] py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Card 1 */}
@@ -105,7 +105,7 @@ export default function AboutHero() {
               <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Web Design</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Web Design</h3>
               <p className="text-gray-600">Crafting stunning, responsive websites that captivate your audience and drive conversions.</p>
             </div>
             
@@ -114,7 +114,7 @@ export default function AboutHero() {
               <div className="w-14 h-14 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center mb-6">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Brand Growth</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Brand Growth</h3>
               <p className="text-gray-600">Strategies and execution designed to scale your brand presence and market share.</p>
             </div>
 
@@ -123,7 +123,7 @@ export default function AboutHero() {
               <div className="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center mb-6">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Our Team</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Our Team</h3>
               <p className="text-gray-600">Dedicated professionals bringing diverse expertise to ensure your project's success.</p>
             </div>
 
@@ -132,7 +132,7 @@ export default function AboutHero() {
               <div className="w-14 h-14 rounded-2xl bg-[#E10600]/10 text-[#E10600] flex items-center justify-center mb-6">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Projects / Clients</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Projects / Clients</h3>
               <p className="text-gray-600">A proven track record of delivering high-impact solutions for industry leaders.</p>
             </div>
           </div>

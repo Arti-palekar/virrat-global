@@ -153,7 +153,7 @@ function MobileCard({ project, index }: { project: typeof PROJECTS[0]; index: nu
       <div className="absolute inset-x-0 bottom-0 p-5 z-20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
         <div className="glass p-4 rounded-[20px] border border-white/20 flex justify-between items-center backdrop-blur-md bg-white/10 shadow-lg text-white">
           <div>
-            <p className="text-[10px] uppercase font-mono text-[#D62020] font-bold tracking-wider mb-1">
+            <p className="text-[10px] uppercase font-mono text-[#D62020] font-bold tracking-wider mb-6">
               {project.category}
             </p>
             <h4 className="text-base font-heading font-bold text-white leading-tight">
@@ -275,7 +275,7 @@ export default function PortfolioH1() {
               <p className="text-[14px] font-bold tracking-[0.25em] text-[#d62020] uppercase mb-6">
                 OUR PORTFOLIO
               </p>
-              <h2 className="homepage-section-title">
+              <h2 className="homepage-section-title mb-5">
                 Explore Our <br />
                 <span>Portfolio</span>
               </h2>
@@ -392,7 +392,7 @@ export default function PortfolioH1() {
                     <div className="absolute inset-x-0 bottom-0 p-5 z-20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
                       <div className="glass p-4 rounded-[20px] border border-white/20 flex justify-between items-center backdrop-blur-md bg-white/10 shadow-lg text-white">
                         <div>
-                          <p className="text-[10px] uppercase font-mono text-[#D62020] font-bold tracking-wider mb-1">
+                          <p className="text-[10px] uppercase font-mono text-[#D62020] font-bold tracking-wider mb-6">
                             {project.category}
                           </p>
                           <h4 className="text-base font-heading font-bold text-white leading-tight">
@@ -416,11 +416,11 @@ export default function PortfolioH1() {
            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         <div className="w-full max-w-[1600px] mx-auto px-6">
           {/* Header */}
-          <div className="text-center px-4 mb-16">
+          <div className="text-center px-4 mb-12">
             <p className="text-[14px] font-bold tracking-[0.25em] text-[#d62020] uppercase mb-6">
               OUR PORTFOLIO
             </p>
-            <h2 className="homepage-section-title">
+            <h2 className="homepage-section-title mb-5">
               Explore Our <br />
               <span>Portfolio</span>
             </h2>

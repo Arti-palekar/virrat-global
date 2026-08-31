@@ -20,7 +20,7 @@ const row2Images = [
 
 export default function AboutImageSlider() {
   return (
-    <section className="w-full bg-white py-4 md:py-8 overflow-hidden">
+    <section className="w-full bg-white overflow-hidden py-16 md:py-24">
       <style>{`
         .animate-marquee-left {
           animation: marquee-left 40s linear infinite;

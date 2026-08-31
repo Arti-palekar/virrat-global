@@ -65,9 +65,9 @@ export function IndustryGrid() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="bg-[#FAF9F6] py-20 md:py-28 relative z-10 w-full">
+    <section className="bg-[#FAF9F6] relative z-10 w-full py-16 md:py-24">
       <div className="container mx-auto px-6 max-w-4xl">
-        <h2 className="text-4xl md:text-[54px] font-extrabold text-black text-center mb-16 md:mb-24 tracking-tight">
+        <h2 className="text-4xl md:text-[54px] font-extrabold text-black text-center tracking-tight mb-5">
           INDUSTRIES
         </h2>
         
@@ -94,7 +94,7 @@ export function IndustryGrid() {
                 </motion.span>
               </div>
               <div className="flex-1 md:pl-10">
-                <h3 className="text-xl md:text-2xl font-bold text-black mb-3 uppercase tracking-wide">
+                <h3 className="text-xl md:text-2xl font-bold text-black uppercase tracking-wide mb-6">
                   {industry.title}
                 </h3>
                 <p className="text-gray-500 text-base md:text-lg max-w-2xl leading-relaxed">

@@ -34,7 +34,7 @@ export default function LumenIndexSection() {
   const horizontalPositions = ['32.7%', '71.4%'];
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-white select-none font-manrope text-black">
+    <section className="relative w-full h-screen overflow-hidden bg-white select-none font-manrope text-black py-16 md:py-24">
       {/* Styles Injection */}
       <style dangerouslySetInnerHTML={{ __html: `
         @import url('https://db.onlinewebfonts.com/c/ca3d10781128664daddf89bf2e2d1305?family=Graphik+LCG+Regular+Regular');
@@ -146,7 +146,7 @@ export default function LumenIndexSection() {
 
         {/* Main Heading */}
         <h1 
-          className="font-graphik text-black font-normal leading-[1em] absolute anim-fade-up text-[32px] sm:text-[48px] md:text-[54px] top-[140px] sm:top-[160px] md:top-[178px] left-5 md:left-[35px] max-w-[300px] sm:max-w-[420px] md:max-w-[554px] select-none"
+          className="font-graphik text-black font-normal leading-[1em] absolute anim-fade-up text-[32px] sm:text-[48px] md:text-[54px] top-[140px] sm:top-[160px] md:top-[178px] left-5 md:left-[35px] max-w-[300px] sm:max-w-[420px] md:max-w-[554px] select-none mb-5"
           style={{ animationDelay: '400ms' }}
         >
           Liquid Assets. Luminous Returns.

@@ -202,7 +202,7 @@ export default function AiAutomationGlassDock() {
 
   return (
     <section
-      className="min-h-screen h-full flex flex-col items-center justify-center font-light relative overflow-hidden w-full py-24"
+      className="min-h-screen h-full flex flex-col items-center justify-center font-light relative overflow-hidden w-full py-16 md:py-24"
       style={{
         background: `url("https://images.unsplash.com/photo-1432251407527-504a6b4174a2?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center center`,
         backgroundSize: 'cover',

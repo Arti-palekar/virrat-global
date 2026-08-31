@@ -60,7 +60,7 @@ const ReelCard = ({ src, likes, comments }: { src: string, likes: number, commen
 
 export default function AboutJoinClan() {
   return (
-    <section className="w-full bg-white py-16 md:py-24 relative overflow-hidden">
+    <section className="w-full bg-white relative overflow-hidden py-16 md:py-24">
       {/* Playful Decorative Elements */}
       <div className="absolute top-[10%] left-[8%] w-12 h-12 rounded-full border-4 border-red-100 opacity-80 pointer-events-none" />
       <div className="absolute bottom-[20%] left-[5%] w-6 h-6 rounded-full bg-yellow-400 opacity-60 pointer-events-none" />
@@ -69,16 +69,16 @@ export default function AboutJoinClan() {
       <div className="max-w-[1400px] mx-auto px-6 flex flex-col items-center">
         
         {/* Top Text Content */}
-        <div className="text-center max-w-[800px] mb-12 relative z-10 flex flex-col items-center">
-          <h2 className="text-4xl md:text-[54px] font-bold text-slate-900 leading-[1.1] mb-5 tracking-tight">
+        <div className="text-center max-w-[800px] relative z-10 flex flex-col items-center mb-12">
+          <h2 className="text-4xl md:text-[54px] font-bold text-slate-900 leading-[1.1] tracking-tight mb-5">
             Behind the <span className="text-[#E10600]">Madness</span>
           </h2>
           
-          <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+          <h3 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2 mb-6">
             Work hard. Laugh harder. <span className="text-red-500">❤️</span>
           </h3>
 
-          <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-6 max-w-[720px]">
+          <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-[720px] mb-6">
             Great work happens when energy, ideas, and a little chaos come together. Get a glimpse of the real people behind Virrat our culture, banter, and everyday moments.
           </p>
           

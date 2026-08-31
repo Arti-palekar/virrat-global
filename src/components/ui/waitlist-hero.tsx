@@ -277,7 +277,7 @@ export const WaitlistHero = ({
             )}
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-center tracking-tight max-w-3xl" style={{ color: colors.textMain }}>
+          <h1 className="text-4xl md:text-6xl font-bold text-center tracking-tight max-w-3xl mb-5" style={{ color: colors.textMain }}>
             Scale Your Digital Marketing Engine.
           </h1>
 

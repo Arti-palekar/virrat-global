@@ -31,7 +31,7 @@ export default function VideoShowcase() {
   const videoScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
 
   return (
-    <section ref={containerRef} className="relative bg-[#FFFFFF] py-24 md:py-22 overflow-hidden font-syne">
+    <section ref={containerRef} className="relative bg-[#FFFFFF] overflow-hidden font-syne py-16 md:py-24">
       {/* Background Soft Abstract Shapes & Gradients */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#D62020] opacity-[0.03] rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#D62020] opacity-[0.02] rounded-full blur-[100px] pointer-events-none" />

@@ -203,7 +203,7 @@ const CameraController = () => {
 
 export default function AuroraCTA() {
   return (
-    <section className="w-screen max-w-none relative left-1/2 -translate-x-1/2 h-[420px] overflow-hidden bg-[#2A0708]">
+    <section className="w-screen max-w-none relative left-1/2 -translate-x-1/2 h-[420px] overflow-hidden bg-[#2A0708] py-16 md:py-24">
       {/* Layer 1-3 & 5: Canvas Background with Animated Shader & Particles */}
       <div className="absolute inset-0 z-0">
         <Canvas
@@ -240,12 +240,12 @@ export default function AuroraCTA() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center max-w-[700px] pointer-events-auto"
         >
-          <h2 className="font-syne text-[#FFFFFF] text-[38px] md:text-[50px] lg:text-[60px] leading-[1.1] mb-5 tracking-tight">
+          <h2 className="font-syne text-[#FFFFFF] text-[38px] md:text-[50px] lg:text-[60px] leading-[1.1] tracking-tight mb-5">
             <span className="font-[300]">Ready to </span>
             <span className="font-[700]">Build Your Brand?</span>
           </h2>
           
-          <p className="font-inter text-[16px] md:text-[18px] font-[400] text-[#FFFFFF] opacity-90 leading-[1.8] max-w-[600px] mb-10">
+          <p className="font-inter text-[16px] md:text-[18px] font-[400] text-[#FFFFFF] opacity-90 leading-[1.8] max-w-[600px] mb-6">
             Coordinate a direct consultation strategy call with our creative leads.
           </p>
           

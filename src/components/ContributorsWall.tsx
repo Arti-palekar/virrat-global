@@ -233,7 +233,7 @@ export function ContributorsWall({
     >
       <div className="mx-auto w-full max-w-5xl">
         <div className="flex items-center gap-4">
-          <h2 className="text-lg font-semibold tracking-tight whitespace-nowrap">
+          <h2 className="text-lg font-semibold tracking-tight whitespace-nowrap mb-5">
             {title}
           </h2>
           <span className="h-px flex-1 bg-black/10 dark:bg-white/10" />

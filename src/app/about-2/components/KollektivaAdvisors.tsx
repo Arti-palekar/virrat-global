@@ -140,10 +140,10 @@ const team = [
 
 export default function KollektivaAdvisors() {
   return (
-    <section className="w-full bg-white py-16 md:py-24 px-6 sm:px-10 lg:px-16 text-[#111111] font-sans select-none overflow-hidden">
+    <section className="w-full bg-white px-6 sm:px-10 lg:px-16 text-[#111111] font-sans select-none overflow-hidden py-16 md:py-24">
       
       <div className="max-w-[1400px] mx-auto mb-20 md:mb-28 flex justify-center w-full px-4">
-        <h2 className="relative inline-flex items-center flex-wrap justify-center text-center text-4xl md:text-[54px] font-bold text-slate-900 leading-[1.1] mb-5 tracking-tight">
+        <h2 className="relative inline-flex items-center flex-wrap justify-center text-center text-4xl md:text-[54px] font-bold text-slate-900 leading-[1.1] tracking-tight mb-5">
           
           <span className="mr-4 md:mr-6">Together,</span>
 

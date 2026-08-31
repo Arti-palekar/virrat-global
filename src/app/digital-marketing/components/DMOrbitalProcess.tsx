@@ -78,14 +78,14 @@ const MARKETING_ORBITAL_DATA: TimelineItem[] = [
 
 export default function DMOrbitalProcess() {
   return (
-    <section className="w-full bg-[#09090b] text-white py-24 md:py-32 border-b border-white/10 relative overflow-hidden select-none">
+    <section className="w-full bg-[#09090b] text-white border-b border-white/10 relative overflow-hidden select-none py-16 md:py-24">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#D62020]/[0.05] blur-[160px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
+        <div className="max-w-2xl mx-auto text-center mb-12">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -422,7 +422,7 @@ export default function IntroAnimation() {
                     <span className="text-sm font-medium tracking-widest text-[#d62020] uppercase mb-6 shadow-sm">
                         OUR PORTFOLIO
                     </span>
-                    <h2 className="homepage-section-title text-center">
+                    <h2 className="homepage-section-title text-center mb-5">
                         Explore Our <br />
                         <span>Portfolio</span>
                     </h2>

@@ -91,12 +91,12 @@ export function AiAutomationIndustries() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="bg-[#FAF9F6] py-24 flex flex-col items-center justify-center overflow-hidden">
-      <div className="container mx-auto px-6 mb-16 text-center relative">
+    <section className="bg-[#FAF9F6] flex flex-col items-center justify-center overflow-hidden py-16 md:py-24">
+      <div className="container mx-auto px-6 text-center relative mb-12">
         <span className="text-[10px] md:text-[12px] font-bold uppercase tracking-[0.3em] text-[#E32620] mb-4 inline-block">
           INDUSTRIES WE BUILD FOR
         </span>
-        <h2 className="font-heading font-black text-4xl md:text-5xl lg:text-[54px] leading-[1.05] tracking-tighter text-[#111111] mb-6 uppercase">
+        <h2 className="font-heading font-black text-4xl md:text-5xl lg:text-[54px] leading-[1.05] tracking-tighter text-[#111111] uppercase mb-5">
           INDUSTRIES WE <span className="text-[#E32620]">BUILD FOR</span>
         </h2>
         <p className="text-base md:text-lg text-[#555555] font-medium max-w-2xl mx-auto mt-4">

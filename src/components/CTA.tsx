@@ -19,7 +19,7 @@ export default function CTA({ centerContent }: { centerContent?: React.ReactNode
   return (
     <section 
       ref={containerRef} 
-      className="w-full bg-[#FFFFFF] py-24 md:py-22 overflow-hidden font-syne relative"
+      className="w-full bg-[#FFFFFF] overflow-hidden font-syne relative py-16 md:py-24"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center relative z-10">
         

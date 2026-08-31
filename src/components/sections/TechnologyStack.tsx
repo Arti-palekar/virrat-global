@@ -213,13 +213,13 @@ function DockTabs() {
 
 export function TechnologyStack() {
   return (
-    <section className="py-24 bg-[#FFFFFF] border-t border-black/5">
+    <section className="bg-[#FFFFFF] border-t border-black/5 py-16 md:py-24">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)] mb-4">
+          <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)] mb-6">
             OUR TECHNOLOGY STACK
           </p>
-          <h2 className="homepage-section-title">
+          <h2 className="homepage-section-title mb-5">
             Technology <br />
             <span>Stack</span>
           </h2>

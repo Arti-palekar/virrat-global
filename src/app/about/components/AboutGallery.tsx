@@ -50,12 +50,12 @@ export default function AboutGallery() {
   const images = gallerySets[currentSet];
 
   return (
-    <section className="py-24 bg-white relative font-body">
+    <section className="bg-white relative font-body py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto px-6">
         
         {/* Header Area */}
         <div className="flex flex-row items-center justify-between mb-12 lg:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a1a2e] tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a1a2e] tracking-tight mb-5">
             From Spark to Spotlight
           </h2>
           
