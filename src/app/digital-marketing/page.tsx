@@ -1,6 +1,13 @@
 "use client";
 
 import React from "react";
+import { Kanit } from 'next/font/google';
+
+const kanit = Kanit({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-kanit',
+});
 import HoverGradientNavBar from "@/components/HoverGradientNavBar";
 import CinematicFooter from "@/components/CinematicFooter";
 import MobileFloatingMenu from "@/components/MobileFloatingMenu";
@@ -10,11 +17,10 @@ import DMFAQ1 from "./components/DMFAQ1";
 // Custom page components
 import DMHero from "./components/DMHero";
 import DMServices from "./components/DMServices";
-import { SocialConnect } from "@/components/ui/connect-with-us";
+import DMTools from "./components/DMTools";
 import DMProcess from "./components/DMProcess";
 import DMTextSlider from "./components/DMTextSlider";
 import DMIndustries from "./components/DMIndustries";
-import DMConsiderations from "./components/DMConsiderations";
 
 // ── CUSTOM FAQ ITEMS FOR DIGITAL MARKETING ──
 const dmFaqs = [
@@ -115,7 +121,7 @@ export default function DigitalMarketingPage() {
         <DMServices />
 
         {/* Connect With Us Section */}
-        <SocialConnect />
+        <DMTools />
 
         {/* Our Step-by-Step Process Section */}
         <DMProcess />
@@ -126,9 +132,6 @@ export default function DigitalMarketingPage() {
         {/* Industries We Build For */}
         <DMIndustries />
 
-        {/* Why Businesses Choose Virrat Global */}
-        <DMConsiderations />
-
         {/* Section 12: Testimonials (Dynamic Reuse) */}
         <DMTestimonials items={dmTestimonials} />
 
@@ -137,7 +140,9 @@ export default function DigitalMarketingPage() {
       </div>
 
       {/* Shared Footer */}
-      <CinematicFooter />
+      <div className={kanit.className}>
+        <CinematicFooter />
+      </div>
 
       {/* Mobile Menu Drawer Button Overlay */}
       <MobileFloatingMenu />

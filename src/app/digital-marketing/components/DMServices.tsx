@@ -247,34 +247,14 @@ export default function DMServices() {
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
         {/* ── SECTION HEADER ── */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 gap-6">
-          <div className="max-w-2xl">
-            <span className="inline-block text-[#d62020] text-xs font-bold tracking-[0.25em] uppercase mb-4">
-              OUR SERVICES
-            </span>
-            <h2 
-              className="text-4xl md:text-[54px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#111111] mb-5"
-              style={{ fontFamily: 'Sora, sans-serif' }}
-            >
-              Marketing for<br />
-              <span className="text-[#d62020]">measurable growth</span>
-            </h2>
-            <p 
-              className="text-[18px] text-[#666666] leading-[1.67] mb-[24px] max-w-[720px]"
-              style={{ fontFamily: 'Sora, sans-serif' }}
-            >
-              We build data-driven marketing systems that attract, engage, and convert the right audience.
-            </p>
-          </div>
-          <div className="shrink-0 select-none">
-            <Link 
-              href="/contact" 
-              className="inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase text-[#111111] hover:text-[#d62020] transition-colors duration-300 group"
-            >
-              Explore Services 
-              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-            </Link>
-          </div>
+        <div className="mb-8 md:mb-10">
+          <h2 
+            className="text-4xl md:text-[54px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#111111]"
+            style={{ fontFamily: 'Sora, sans-serif' }}
+          >
+            Marketing for<br />
+            <span className="text-[#d62020]">measurable growth</span>
+          </h2>
         </div>
       </div>
 

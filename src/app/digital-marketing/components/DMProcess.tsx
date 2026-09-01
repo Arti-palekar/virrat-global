@@ -84,7 +84,7 @@ export default function DMProcess() {
           
           {/* Oversized index number - positioned to bleed off left edge */}
           <motion.div
-            className="absolute -left-4 md:-left-8 top-1/2 -translate-y-1/2 text-[18rem] md:text-[28rem] font-bold text-[#111111]/[0.03] select-none pointer-events-none leading-none tracking-tighter"
+            className="absolute -left-4 md:-left-8 top-1/2 -translate-y-1/2 text-[18rem] md:text-[28rem] font-bold text-[#E32620]/[0.03] select-none pointer-events-none leading-none tracking-tighter"
             style={{ x: numberX, y: numberY }}
           >
             <AnimatePresence mode="wait">
@@ -152,8 +152,8 @@ export default function DMProcess() {
                   transition={{ duration: 0.4 }}
                   className="mb-8"
                 >
-                  <span className="inline-flex items-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-widest text-[#111111] border border-[#111111]/10 bg-white/50 backdrop-blur-md rounded-full px-4 py-2">
-                    <div className="w-6 h-6 rounded-full bg-[#E32620]/10 flex items-center justify-center text-[#E32620]">
+                  <span className="inline-flex items-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-widest text-[#111111] bg-white/50 backdrop-blur-md rounded-full px-4 py-2">
+                    <div className="w-6 h-6 rounded-full bg-[#E32620] flex items-center justify-center text-white">
                       <Icon className="w-3.5 h-3.5" />
                     </div>
                     {current.title}
