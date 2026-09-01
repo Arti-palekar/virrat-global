@@ -74,7 +74,7 @@ export default function PackagingTopPicks() {
     <>
       <section 
         ref={sectionRef}
-        className="relative w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden py-16 md:py-24 lg:py-0"
+        className="relative w-full px-6 md:px-12 lg:px-24 bg-white text-[#111111] overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-32 lg:pb-0"
       >
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start lg:items-stretch relative">
